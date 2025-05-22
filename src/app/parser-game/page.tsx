@@ -546,7 +546,7 @@ const ParserGame: React.FC = () => {
 
   // Main render - matching the sample HTML design and structure
   return (
-    <div className="container mx-auto py-6 space-y-6 animate-fade-in">
+    <div className="container mx-auto py-6 space-y-6">
       <div className="flex flex-col md:flex-row md:items-center gap-4 justify-between mb-8">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Greek Word Parser Game</h2>

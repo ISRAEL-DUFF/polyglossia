@@ -91,5 +91,19 @@ body {
     /* Ensure smooth font rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Add smooth transitions for theme properties */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Smooth transitions for common interactive elements */
+  button, a, input, select, textarea, [role="button"], [role="link"], [role="checkbox"], [role="radio"] {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Consistent focus-visible style */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }

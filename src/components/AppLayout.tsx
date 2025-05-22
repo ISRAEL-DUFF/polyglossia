@@ -53,7 +53,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarTrigger /> 
           <AppLogo />
         </header>
-        <main className="flex-1 p-6 overflow-auto">
+        <main className="flex-1 p-6 overflow-auto animate-fadeInUp">
           {children}
         </main>
       </SidebarInset>

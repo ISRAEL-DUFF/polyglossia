@@ -248,7 +248,7 @@ const LexicaTool: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto space-y-4 p-1 animate-fade-in">
+    <div className="container mx-auto space-y-4 p-1">
       <Card className="bg-gradient-to-r from-greek-blue-light/30 to-greek-blue/10 border-greek-blue/20">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-greek-blue">
