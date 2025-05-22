@@ -11,18 +11,16 @@ import {
   SidebarMenu,
   SidebarInset,
   SidebarFooter,
-  useSidebar, // Import useSidebar
+  useSidebar, 
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
 import { Home, Microscope, Languages, Volume2, NotebookTextIcon } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
+import PWAInstallButton from './PWAInstallButton'; // Import PWAInstallButton
 
 const navItems = [
   { href: '/', label: 'Text Viewer', icon: NotebookTextIcon },
-  // { href: '/morphology', label: 'Morphological Analyzer', icon: Microscope },
-  // { href: '/translation', label: 'Translation Assistant', icon: Languages },
-  // { href: '/pronunciation', label: 'Pronunciation Guides', icon: Volume2 },
   { href: '/greek', label: 'Greek Lexicon tools', icon: Volume2 },
   { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Volume2 },
   { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: Volume2 },
@@ -30,9 +28,8 @@ const navItems = [
   { href: '/parser-game', label: 'Greek word parsing game', icon: Volume2 },
 ];
 
-// New internal component to conditionally render SheetTitle
 const MobileAwareSidebarHeaderElements = () => {
-  const { isMobile } = useSidebar(); // Consumes context from SidebarProvider
+  const { isMobile } = useSidebar(); 
 
   return (
     <>
@@ -41,10 +38,8 @@ const MobileAwareSidebarHeaderElements = () => {
           <AppLogo />
         </SheetTitle>
       ) : (
-        // On desktop, AppLogo serves as the visual title without needing SheetTitle context
         <AppLogo />
       )}
-      {/* SidebarTrigger is often md:hidden, so it primarily shows on mobile */}
       <SidebarTrigger className="md:hidden" />
     </>
   );
@@ -64,8 +59,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             ))}
           </SidebarMenu>
         </SidebarContent>
-        <SidebarFooter className="p-4 text-xs text-sidebar-foreground/70">
-          Polyglossia Praxis &copy; {new Date().getFullYear()}
+        <SidebarFooter className="p-4 text-xs text-sidebar-foreground/70 space-y-2">
+          <PWAInstallButton /> {/* Added PWA Install Button */}
+          <div>Polyglossia Praxis &copy; {new Date().getFullYear()}</div>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset className="flex flex-col min-h-screen">
