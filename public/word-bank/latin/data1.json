@@ -1,0 +1,473 @@
+{
+    "group1": [{
+        "word": "trado",
+        "meanings": [
+          "to give over",
+          " surrender; hand down",
+          " transmit",
+          " teach (trans + do)"
+        ],
+        "frequency": 1,
+        "inflection": "trado, tradere, tradidi, traditum"
+      }, {
+        "word": "vito",
+        "meanings": [
+          "shun",
+          " avoid"
+        ],
+        "frequency": 1,
+        "inflection": "vito, vitāre, vitavi, vitatum"
+    }],
+    "Chapter 33": [
+      {
+        "word": "trado",
+        "meanings": [
+          "to give over",
+          " surrender; hand down",
+          " transmit",
+          " teach (trans + do)"
+        ],
+        "frequency": 1,
+        "inflection": "trado, tradere, tradidi, traditum"
+      }
+    ],
+    "Chapter 14": [
+      {
+        "word": "vito",
+        "meanings": [
+          "shun",
+          " avoid"
+        ],
+        "frequency": 1,
+        "inflection": "vito, vitāre, vitavi, vitatum"
+      }
+    ],
+    "Chapter 37": [
+      {
+        "word": "Syracusae",
+        "meanings": [
+          "Syracuse"
+        ],
+        "frequency": 1,
+        "inflection": "Syracusae, Syracusarum (f)"
+      }
+    ],
+    "Chapter 36": [
+      {
+        "word": "vinculum",
+        "meanings": [
+          "chain",
+          " bond",
+          " fetter"
+        ],
+        "frequency": 1,
+        "inflection": "vinculum, vinculi (n)"
+      }
+    ],
+    "Chapter 24": [
+      {
+        "word": "vulnus",
+        "meanings": [
+          "wound"
+        ],
+        "frequency": 1,
+        "inflection": "vulnus, vulneris (n)"
+      }
+    ],
+    "Chapter 16": [
+      {
+        "word": "senex",
+        "meanings": [
+          "old",
+          " aged"
+        ],
+        "frequency": 1,
+        "inflection": "senex (gen: senis)"
+      }
+    ],
+    "Chapter 12": [
+      {
+        "word": "pro",
+        "meanings": [
+          "in front of",
+          " before",
+          " on behalf of",
+          " for the sake of",
+          " in return for",
+          " instead of",
+          " for",
+          " as"
+        ],
+        "frequency": 1,
+        "inflection": "pro (+abl)"
+      }
+    ],
+    "Chapter 8": [
+      {
+        "word": "vinco",
+        "meanings": [
+          "to conquer",
+          " overcome"
+        ],
+        "frequency": 1,
+        "inflection": "vinco, vincere, vici, victum"
+      }
+    ],
+    "Chapter 31": [
+      {
+        "word": "vinum",
+        "meanings": [
+          "wine"
+        ],
+        "frequency": 1,
+        "inflection": "vinum, vini (n)"
+      }
+    ],
+    "Chapter 17": [
+      {
+        "word": "recito",
+        "meanings": [
+          "to read aloud",
+          " recite"
+        ],
+        "frequency": 1,
+        "inflection": "recito, recitāre, recitavi, recitatum"
+      }
+    ],
+    "Chapter 5": [
+      {
+        "word": "ne",
+        "meanings": [],
+        "frequency": 1,
+        "inflection": "ne"
+      }
+    ],
+    "Chapter 34": [
+      {
+        "word": "vox",
+        "meanings": [
+          "voice"
+        ],
+        "frequency": 1,
+        "inflection": "vox, vocis (f)"
+      }
+    ],
+    "Chapter 39": [
+      {
+        "word": "vetus",
+        "meanings": [
+          "old"
+        ],
+        "frequency": 1,
+        "inflection": "vetus (gen: veteris)"
+      }
+    ],
+    "Chapter 22": [
+      {
+        "word": "ultra",
+        "meanings": [
+          "beyond",
+          " on the other side of"
+        ],
+        "frequency": 1,
+        "inflection": "ultra (+acc)"
+      }
+    ],
+    "Chapter 40": [
+      {
+        "word": "vultus",
+        "meanings": [
+          "countenance",
+          " face"
+        ],
+        "frequency": 1,
+        "inflection": "vultus, vultus (m)"
+      }
+    ],
+    "Chapter 35": [
+      {
+        "word": "subrideo",
+        "meanings": [
+          "to smile (down) upon"
+        ],
+        "frequency": 1,
+        "inflection": "subrideo, subridēre, subrisi, subrisum"
+      }
+    ],
+    "Chapter 3": [
+      {
+        "word": "vir",
+        "meanings": [
+          "man",
+          " hero",
+          " husband"
+        ],
+        "frequency": 1,
+        "inflection": "vir, viri (m)"
+      }
+    ],
+    "Chapter 25": [
+      {
+        "word": "ultimus",
+        "meanings": [
+          "farthest",
+          " extreme; last",
+          " final"
+        ],
+        "frequency": 1,
+        "inflection": "ultimus, -a, -um"
+      }
+    ],
+    "Chapter 23": [
+      {
+        "word": "verto",
+        "meanings": [
+          "to turn; change"
+        ],
+        "frequency": 1,
+        "inflection": "verto, vertere, verti, versum"
+      }
+    ],
+    "Chapter 9": [
+      {
+        "word": "uter",
+        "meanings": [
+          "either",
+          " which (of two)"
+        ],
+        "frequency": 1,
+        "inflection": "uter, utra, utrum"
+      }
+    ],
+    "Chapter 13": [
+      {
+        "word": "suus",
+        "meanings": [
+          "his own",
+          " her own",
+          " its own",
+          " their own"
+        ],
+        "frequency": 1,
+        "inflection": "suus, sua, suum"
+      }
+    ],
+    "Chapter 10": [
+      {
+        "word": "voluptas",
+        "meanings": [
+          "pleasure"
+        ],
+        "frequency": 1,
+        "inflection": "voluptas, voluptatis (f)"
+      }
+    ],
+    "Chapter 11": [
+      {
+        "word": "tu",
+        "meanings": [
+          "you"
+        ],
+        "frequency": 1,
+        "inflection": "tu, tui"
+      }
+    ],
+    "Chapter 1": [
+      {
+        "word": "voco",
+        "meanings": [
+          "to call",
+          " summon"
+        ],
+        "frequency": 1,
+        "inflection": "voco, vocāre, vocavi, vocatum"
+      }
+    ],
+    "Chapter 7": [
+      {
+        "word": "virtus",
+        "meanings": [
+          "manliness",
+          " courage; excellence",
+          " character",
+          " worth",
+          " virtue"
+        ],
+        "frequency": 1,
+        "inflection": "virtus, virtutis (f)"
+      }
+    ],
+    "Chapter 2": [
+      {
+        "word": "vita",
+        "meanings": [
+          "life; mode of life"
+        ],
+        "frequency": 1,
+        "inflection": "vita, vitae (f)"
+      }
+    ],
+    "Chapter 38": [
+      {
+        "word": "sublimis",
+        "meanings": [
+          "elevated",
+          " lofty; heroic",
+          " noble"
+        ],
+        "frequency": 1,
+        "inflection": "sublimis, sublime"
+      }
+    ],
+    "Chapter 19": [
+      {
+        "word": "scelus",
+        "meanings": [
+          "crime",
+          " wickedness",
+          " evil deed"
+        ],
+        "frequency": 1,
+        "inflection": "scelus, sceleris (n)"
+      }
+    ],
+    "Chapter 28": [
+      {
+        "word": "vesper",
+        "meanings": [
+          "evening; evening star"
+        ],
+        "frequency": 1,
+        "inflection": "vesper, vesperis/vesperi (m)"
+      }
+    ],
+    "Chapter 21": [
+      {
+        "word": "vulgus",
+        "meanings": [
+          "the common people",
+          " mob",
+          " rabble"
+        ],
+        "frequency": 1,
+        "inflection": "vulgus, vulgi (n)"
+      }
+    ],
+    "Chapter 4": [
+      {
+        "word": "verus",
+        "meanings": [
+          "'true'",
+          " real",
+          " proper"
+        ],
+        "frequency": 1,
+        "inflection": "verus, vera, verum"
+      }
+    ],
+    "Chapter 30": [
+      {
+        "word": "vivus",
+        "meanings": [
+          "living",
+          " alive"
+        ],
+        "frequency": 1,
+        "inflection": "vivus, viva, vivum"
+      }
+    ],
+    "Chapter 20": [
+      {
+        "word": "versus",
+        "meanings": [
+          "line of verse",
+          " verse"
+        ],
+        "frequency": 1,
+        "inflection": "versus, versus (m)"
+      }
+    ],
+    "Chapter 26": [
+      {
+        "word": "urbanus",
+        "meanings": [
+          "of the city",
+          " urban; urbane",
+          " elegant"
+        ],
+        "frequency": 1,
+        "inflection": "urbanus, urbana, urbanum"
+      }
+    ],
+    "Chapter 15": [
+      {
+        "word": "timeo",
+        "meanings": [
+          "to be afraid",
+          " fear"
+        ],
+        "frequency": 1,
+        "inflection": "timeo, timēre, timui"
+      }
+    ],
+    "Chapter 18": [
+      {
+        "word": "videor",
+        "meanings": [
+          "to be seen; seem",
+          " appear"
+        ],
+        "frequency": 1,
+        "inflection": "videor, vidēri, visus sum"
+      }
+    ],
+    "Chapter 29": [
+      {
+        "word": "vero",
+        "meanings": [
+          "in truth",
+          " indeed",
+          " to be sure",
+          " however"
+        ],
+        "frequency": 1,
+        "inflection": "vero"
+      }
+    ],
+    "Chapter 32": [
+      {
+        "word": "volo",
+        "meanings": [
+          "to wish",
+          " want",
+          " be willing",
+          " will"
+        ],
+        "frequency": 1,
+        "inflection": "volo, velle, volui"
+      }
+    ],
+    "Chapter 6": [
+      {
+        "word": "vitium",
+        "meanings": [
+          "fault",
+          " crime",
+          " vice"
+        ],
+        "frequency": 1,
+        "inflection": "vitium, vitii (n)"
+      }
+    ],
+    "Chapter 27": [
+      {
+        "word": "utilis",
+        "meanings": [
+          "useful",
+          " advantageous"
+        ],
+        "frequency": 1,
+        "inflection": "utilis, utile"
+      }
+    ]
+  }

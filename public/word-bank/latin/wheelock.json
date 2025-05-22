@@ -1,0 +1,5336 @@
+[
+  {
+    "Latin Word": "-ve",
+    "First Element": "ve",
+    "Definition": "or (suffix)",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "a/ab (+abl)",
+    "First Element": "ab",
+    "Definition": "away from, from; by",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "absens (gen: absentis)",
+    "First Element": "absens",
+    "Definition": "absent",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "accedo, accedere, accessi, accessum",
+    "First Element": "accedo",
+    "Definition": "to come (to), approach",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "accipio, accipere, accepi, acceptum",
+    "First Element": "accipio",
+    "Definition": "to take (to one’s self), receive, accept",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "acer, acris, acre",
+    "First Element": "acer",
+    "Definition": "sharp, keep, eager; severe, fierce",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "acerbus, acerba, acerbum",
+    "First Element": "acerbus",
+    "Definition": "harsh, bitter, grievous",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "ad (+acc)",
+    "First Element": "ad",
+    "Definition": "to(ward), up to, near",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "adfero, adferre, attuli, allatum",
+    "First Element": "adfero",
+    "Definition": "to bring to",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "admitto, admittere, admisi, admissum",
+    "First Element": "admitto",
+    "Definition": "to admit, receive, let in",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "adulescens, adulescentis (m/f)",
+    "First Element": "adulescens",
+    "Definition": "young man or woman",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "adulescentia, adulescentiae (f)",
+    "First Element": "adulescentia",
+    "Definition": "youth, young manhood; youthfulness",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "adversus, adversa, adversum",
+    "First Element": "adversus",
+    "Definition": "opposite, adverse",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "aedificium, aedificii (n)",
+    "First Element": "aedificium",
+    "Definition": "building, structure",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "aequus, aequa, aequum",
+    "First Element": "aequus",
+    "Definition": "level, even; calm, equal, just; favorable",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "aes, aeris (n)",
+    "First Element": "aes",
+    "Definition": "bronze",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "aestas, aestatis (f)",
+    "First Element": "aestas",
+    "Definition": "summer",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "aetas, aetatis (f)",
+    "First Element": "aetas",
+    "Definition": "period of life, life, age, an age, time",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "ager, agri (m)",
+    "First Element": "ager",
+    "Definition": "field, farm",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "ago, agere, egi, actum",
+    "First Element": "ago",
+    "Definition": "to drive, lead, do, act; pass, spend",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "agricola, agricolae (m)",
+    "First Element": "agricola",
+    "Definition": "farmer",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "ait, aiunt",
+    "First Element": "ait",
+    "Definition": "he says, they say",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "aliquis, aliquid",
+    "First Element": "aliquis",
+    "Definition": "someone, somebody, something",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "alius, alia, aliud",
+    "First Element": "alius",
+    "Definition": "other, another",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "alo, alere, alui, altum",
+    "First Element": "alo",
+    "Definition": "to nourish, support, sustain, increase; cherish",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "alter, altera, alterum",
+    "First Element": "alter",
+    "Definition": "the other (of two), second",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "ambulo, ambulāre, ambulavi, ambulatum",
+    "First Element": "ambulo",
+    "Definition": "to walk",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "amica, amicae  (f) and amicus, amici (m)",
+    "First Element": "amica",
+    "Definition": "friend",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "amicitia, amicitiae (f)",
+    "First Element": "amicitia",
+    "Definition": "friendship",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "amicus, amica, amicum",
+    "First Element": "amicus",
+    "Definition": "friendly",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "amitto, amittere, amisi, amissum",
+    "First Element": "amitto",
+    "Definition": "to lose, let go",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "amo, amāre, amavi, amatum",
+    "First Element": "amo",
+    "Definition": "to love",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "amor, amoris (m)",
+    "First Element": "amor",
+    "Definition": "love",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "anima, animae (f)",
+    "First Element": "anima",
+    "Definition": "soul, spirit",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "animal, animalis (n)*",
+    "First Element": "animal",
+    "Definition": "animal, living creature",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "animus, animi (m)",
+    "First Element": "animus",
+    "Definition": "soul, spirit, mind; heart, mind, intellect, courage",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "annus, anni (m)",
+    "First Element": "annus",
+    "Definition": "year",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "ante (+acc)",
+    "First Element": "ante",
+    "Definition": "before, in front of",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "antepono, anteponere, anteposui, antepositum",
+    "First Element": "antepono",
+    "Definition": "to put before, prefer",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "antiquus, antiqua, antiquum",
+    "First Element": "antiquus",
+    "Definition": "ancient, old",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "appello, appellāre, appellavi, appellatum",
+    "First Element": "appello",
+    "Definition": "to speak to, address (as), call, name",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "apud (+acc)",
+    "First Element": "apud",
+    "Definition": "among, in the presence of, at the house of",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "aqua, aquae (f)",
+    "First Element": "aqua",
+    "Definition": "water",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "arbitror, arbitrāri, arbitratus sum",
+    "First Element": "arbitror",
+    "Definition": "to judge, think",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "arbor, arboris (f)",
+    "First Element": "arbor",
+    "Definition": "tree",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "argumentum, argumenti (n)",
+    "First Element": "argumentum",
+    "Definition": "proof, evidence, argument",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "arma, armorum (n)",
+    "First Element": "arma",
+    "Definition": "arms, weapons",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "ars, artis (f)*",
+    "First Element": "ars",
+    "Definition": "art, skill",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "arx, arcis (f)*",
+    "First Element": "arx",
+    "Definition": "citadel, stronghold",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "as, assis (m)",
+    "First Element": "as",
+    "Definition": "an as",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "Asia, Asiae (f)",
+    "First Element": "Asia",
+    "Definition": "Asia",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "asper, aspera, asperum",
+    "First Element": "asper",
+    "Definition": "rough, harsh",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "at",
+    "First Element": "at",
+    "Definition": "but; but, mind you; but, you say (more  emotional than sed)",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "Athenae, Athenarum (f)",
+    "First Element": "Athenae",
+    "Definition": "Athens",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "ac",
+    "First Element": "ac",
+    "Definition": "and, and also, and even",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "atque/ac",
+    "First Element": "atque",
+    "Definition": "and, and also, and even",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "auctor, auctoris (m)",
+    "First Element": "auctor",
+    "Definition": "increaser, author, originator",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "audeo, audēre, ausus sum",
+    "First Element": "audeo",
+    "Definition": "to dare",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "audio, audire, audivi, auditum",
+    "First Element": "audio",
+    "Definition": "to hear, listen to",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "auditor, auditoris (m)",
+    "First Element": "auditor",
+    "Definition": "hearer, listener; member of an audience",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "auris, auris (f)*",
+    "First Element": "auris",
+    "Definition": "ear",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "aut",
+    "First Element": "aut",
+    "Definition": "or (aut . . . aut",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "autem",
+    "First Element": "autem",
+    "Definition": "(post positive) however; moreover",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "auxilium, auxilii (n)",
+    "First Element": "auxilium",
+    "Definition": "help, aid",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "avarus, avara, avarum",
+    "First Element": "avarus",
+    "Definition": "greedy, avaricious",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "basium, basii (n)",
+    "First Element": "basium",
+    "Definition": "kiss",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "beatus, beata, beatum",
+    "First Element": "beatus",
+    "Definition": "happy, fortunate, blessed",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "bellum, belli (n)",
+    "First Element": "bellum",
+    "Definition": "war",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "bellus, bella, bellum",
+    "First Element": "bellus",
+    "Definition": "pretty, handsome, charming",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "bene",
+    "First Element": "bene",
+    "Definition": "well, satisfactorily, quite",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "beneficium, beneficii (n)",
+    "First Element": "beneficium",
+    "Definition": "benefit, kindness; favor",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "bibo, bibere,  bibi",
+    "First Element": "bibo",
+    "Definition": "to drink",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "bonus, bona, bonum",
+    "First Element": "bonus",
+    "Definition": "good, kind",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "brevis, breve",
+    "First Element": "brevis",
+    "Definition": "short, small, brief",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "cado, cadere, cecidi, casurum",
+    "First Element": "cado",
+    "Definition": "to fall",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "caecus, -a, -um",
+    "First Element": "caecus",
+    "Definition": "blind",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "caelum, caeli (n)",
+    "First Element": "caelum",
+    "Definition": "sky",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "Caesar, Caesaris (m)",
+    "First Element": "Caesar",
+    "Definition": "(Gaius Julius) Caesar",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "candidatus, -a, -um",
+    "First Element": "candidatus",
+    "Definition": "shining, bright, white; beautiful",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "capio, capere, cepi, captum",
+    "First Element": "capio",
+    "Definition": "to take, capture, seize, get",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "caput, capitis (n)",
+    "First Element": "caput",
+    "Definition": "head; leader; beginning; life; heading; chapter",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "careo, carēre, carui, cariturum (+abl)",
+    "First Element": "careo",
+    "Definition": "to be without, to be deprived of, want, lack; be free from",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "carmen, carminis (n)",
+    "First Element": "carmen",
+    "Definition": "song, poem",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "carpo, carpere, carpsi, carptum",
+    "First Element": "carpo",
+    "Definition": "to harvest, pluck; seize",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "Carthago, Carthaginis (f)",
+    "First Element": "Carthago",
+    "Definition": "Carthage",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "carus, cara, carum",
+    "First Element": "carus",
+    "Definition": "dear",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "casa, casae (f)",
+    "First Element": "casa",
+    "Definition": "house, cottage, hut",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "causa, causae (f)",
+    "First Element": "causa",
+    "Definition": "cause,  reason; case, situation. (in ablative + preceding genitive: for the sake of)",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "cedo, cedere, cessi, cessum",
+    "First Element": "cedo",
+    "Definition": "to go, withdraw; yield to, grant, submit",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "celer, celeris, celere",
+    "First Element": "celer",
+    "Definition": "quick, swift, rapid",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "cena, cenae (f)",
+    "First Element": "cena",
+    "Definition": "dinner",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "ceno, cenāre, cenavi, cenatum",
+    "First Element": "ceno",
+    "Definition": "to dine",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "centum",
+    "First Element": "centum",
+    "Definition": "hundred",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "cerno, cernere, crevi, cretum",
+    "First Element": "cerno",
+    "Definition": "to distinguish, discern, perceive",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "certus, certa, certum",
+    "First Element": "certus",
+    "Definition": "definite, sure, certain, reliable",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "ceteri, ceterae, cetera",
+    "First Element": "ceteri",
+    "Definition": "the remaining, the rest, the other, all the others",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "Cicero, Ciceronis (m)",
+    "First Element": "Cicero",
+    "Definition": "(Marcus Tullius) Cicero",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "cito",
+    "First Element": "cito",
+    "Definition": "quickly",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "civis, civis (m/f)*",
+    "First Element": "civis",
+    "Definition": "citizen",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "civitas, civitatis (f)",
+    "First Element": "civitas",
+    "Definition": "state, citizenship",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "clarus, clara, clarum",
+    "First Element": "clarus",
+    "Definition": "clear, bright, famous, renowned, illustrious",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "clementia, clementiae (f)",
+    "First Element": "clementia",
+    "Definition": "mercy, mildness, gentleness",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "coepi, coepisse, coeptum",
+    "First Element": "coepi",
+    "Definition": "began",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "cogito, cogitāre, cogitavi, cogitatum",
+    "First Element": "cogito",
+    "Definition": "to think, ponder, consider, plan",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "cognosco, cognoscere, cognovi, cognitum",
+    "First Element": "cognosco",
+    "Definition": "to become acquainted with, learn, recognize",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "cogo, cogere, coegi, coactum (cum + ago)",
+    "First Element": "cogo",
+    "Definition": "to drive/bring together, force, compel",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "committo, committere, comisi, comissum",
+    "First Element": "committo",
+    "Definition": "to entrust, commit",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "communis, commune",
+    "First Element": "communis",
+    "Definition": "common, general, of/for the community",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "comprehendo, comprehendere, comprehendi, comprehensum",
+    "First Element": "comprehendo",
+    "Definition": "to grasp, seize, arrest; comprehend, understand",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "condo, condere, condidi, conditum",
+    "First Element": "condo",
+    "Definition": "to put together/into, store; found, establish",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "confero, conferre, contuli, collatum",
+    "First Element": "confero",
+    "Definition": "to bring together, compare; confer, bestow",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "coniurati, coniuratorum (m)",
+    "First Element": "coniurati",
+    "Definition": "conspirators",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "conor, conāri, conatus sum",
+    "First Element": "conor",
+    "Definition": "to try, attempt",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "consilium, consilii (n)",
+    "First Element": "consilium",
+    "Definition": "plan, purpose, counsel, advice, judgement, wisdom",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "consul, consulis (m)",
+    "First Element": "consul",
+    "Definition": "consul",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "consumo, consumere, consumpsi, consumptum",
+    "First Element": "consumo",
+    "Definition": "to consume, use up",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "contemno, contemnere, contempsi, contemptum",
+    "First Element": "contemno",
+    "Definition": "to despise, scorn",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "contendo, contendere, contendi, contentum",
+    "First Element": "contendo",
+    "Definition": "to strive, struggle, contend; hasten",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "contineo, continēre, continui, contentum",
+    "First Element": "contineo",
+    "Definition": "to hold together, contain, keep, enclose",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "contra (+acc)",
+    "First Element": "contra",
+    "Definition": "against",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "contundo, contundere, contudi, contusum",
+    "First Element": "contundo",
+    "Definition": "to beat, crush, bruise, destroy",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "copia, copiae (f)",
+    "First Element": "copia",
+    "Definition": "supply, abundance (plural = supplies, troops, forces)",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "cornu, cornus (n)",
+    "First Element": "cornu",
+    "Definition": "horn",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "corpus, corporis (n)",
+    "First Element": "corpus",
+    "Definition": "body",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "cotidie",
+    "First Element": "cotidie",
+    "Definition": "daily, every day",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "cras",
+    "First Element": "cras",
+    "Definition": "tomorrow",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "credo, credere, credidi, creditum",
+    "First Element": "credo",
+    "Definition": "to believe, trust",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "creo, creāre, creavi, creatum",
+    "First Element": "creo",
+    "Definition": "to create",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "cresco, crescere, crevi, cretum",
+    "First Element": "cresco",
+    "Definition": "to increase",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "culpa, culpae (f)",
+    "First Element": "culpa",
+    "Definition": "blame, fault",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "culpo, culpāre, culpavi, culpatum",
+    "First Element": "culpo",
+    "Definition": "to blame, censure",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "cum (+abl)",
+    "First Element": "cum",
+    "Definition": "with",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "cum (+subjunctive) when, since, although; (+indicative) when",
+    "First Element": "cum when",
+    "Definition": "",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "cupiditas, cupiditatis (f)",
+    "First Element": "cupiditas",
+    "Definition": "desire, longing, passion; avarice, cupidity",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "cupido, cupidinis (f)",
+    "First Element": "cupido",
+    "Definition": "desire, passion",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "cupidus, cupida, cupidum",
+    "First Element": "cupidus",
+    "Definition": "desirous, eager, fond; (often +gen.)",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "cupio, cupere, cupivi, cupitum",
+    "First Element": "cupio",
+    "Definition": "to desire, wish, long for",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "cur",
+    "First Element": "cur",
+    "Definition": "why",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "cura, curae (f)",
+    "First Element": "cura",
+    "Definition": "care, attention, caution, anxiety",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "curo, curāre, curavi, curatum",
+    "First Element": "curo",
+    "Definition": "to care  for,  attend to; heal, cure",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "curro, currere, cucurri, cursum",
+    "First Element": "curro",
+    "Definition": "to run, rush, move quickly",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "cursus, cursus (m)",
+    "First Element": "cursus",
+    "Definition": "running, race; course",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "custodia, custodiae (f)",
+    "First Element": "custodia",
+    "Definition": "protection, custody (pl: guards)",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "de (+ablative)",
+    "First Element": "de",
+    "Definition": "down from, from; concerning, about",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "dea, deae (f)",
+    "First Element": "dea",
+    "Definition": "goddess",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "debeo, debēre, debui, debitum",
+    "First Element": "debeo",
+    "Definition": "to owe; ought, must, should",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "decerno, decernere,decrevi, decretum",
+    "First Element": "decerno",
+    "Definition": "to decide, settle, decree",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "dedico, dedicāre, dedicavi, dedicatum",
+    "First Element": "dedico",
+    "Definition": "to dedicate",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "defendo, defendere,  defendi, defensum",
+    "First Element": "defendo",
+    "Definition": "to ward off; defend, protect",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "dehinc",
+    "First Element": "dehinc",
+    "Definition": "then, next",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "deinde",
+    "First Element": "deinde",
+    "Definition": "then, next, thereupon",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "delectatio, delectationis (f)",
+    "First Element": "delectatio",
+    "Definition": "delight, pleasure, enjoyment",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "delecto, delectāre, delectavi, delectatum",
+    "First Element": "delecto",
+    "Definition": "to  delight, charm, please",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "deleo, delēre, delevi, deletum",
+    "First Element": "deleo",
+    "Definition": "to destroy, wipe out, erase",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "demonstro, demonstrāre, demonstravi, demonstratum",
+    "First Element": "demonstro",
+    "Definition": "to point out, show",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "denique",
+    "First Element": "denique",
+    "Definition": "finally, at last, lastly",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "desidero, desiderāre, desideravi, desideratum",
+    "First Element": "desidero",
+    "Definition": "to desire, long for, miss",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "deus, dei (m)",
+    "First Element": "deus",
+    "Definition": "god",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "dexter, dextra, dextrum",
+    "First Element": "dexter",
+    "Definition": "right, right",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "dico, dicere, dixi, dictum",
+    "First Element": "dico",
+    "Definition": "to say; tell, speak; name, call",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "dies, diei (m)",
+    "First Element": "dies",
+    "Definition": "day",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "difficilis, difficile",
+    "First Element": "difficilis",
+    "Definition": "difficult, hard, troublesome",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "digitus, digiti (m)",
+    "First Element": "digitus",
+    "Definition": "finger, toe",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "dignitas, dignitatis (f)",
+    "First Element": "dignitas",
+    "Definition": "merit, prestige, dignity",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "dignus, digna, dignum",
+    "First Element": "dignus",
+    "Definition": "(+abl.) worthy, worthy of",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "diligens",
+    "First Element": "diligens",
+    "Definition": "diligent, careful",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "diligo, diligere, dilexi, dilectum",
+    "First Element": "diligo",
+    "Definition": "to esteem, love",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "discedo, discedere, discessi, discessum",
+    "First Element": "discedo",
+    "Definition": "to go away, depart",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "discipula, discipulae (f)  and discipulus, discipuli (m)",
+    "First Element": "discipula",
+    "Definition": "learner, pupil, student",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "disco, discere, didici",
+    "First Element": "disco",
+    "Definition": "to learn",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "dissimilis, dissimile",
+    "First Element": "dissimilis",
+    "Definition": "unlike, different",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "diu",
+    "First Element": "diu",
+    "Definition": "for a long time",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "dives (gen: divitis or ditis)",
+    "First Element": "dives (gen: divitis or ditis)",
+    "Definition": "rich",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "divitiae, divitiarum (f)",
+    "First Element": "divitiae",
+    "Definition": "riches, wealth",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "do, dare, dedi, datum",
+    "First Element": "do",
+    "Definition": "to give, offer",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "doceo, docēre, docui, doctum",
+    "First Element": "doceo",
+    "Definition": "to teach",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "doctus, docta, doctum",
+    "First Element": "doctus",
+    "Definition": "taught, learned, skilled",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "doleo, dolēre, dolui, doliturum",
+    "First Element": "doleo",
+    "Definition": "to grieve,  suffer, hurt, give pain",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "dolor, doloris (m)",
+    "First Element": "dolor",
+    "Definition": "pain, grief",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "dominus, domini (n)",
+    "First Element": "dominus",
+    "Definition": "master",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "domus, domus (-i) (f)",
+    "First Element": "domus",
+    "Definition": "home, house",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "donum, doni (n)",
+    "First Element": "donum",
+    "Definition": "gift, present",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "dormio, dormire, dormivi, dormitum",
+    "First Element": "dormio",
+    "Definition": "to sleep",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "dubito, dubitāre, dubitavi, dubitatum",
+    "First Element": "dubito",
+    "Definition": "to doubt, hesitate",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "duco, ducere,  duxi, ductum",
+    "First Element": "duco",
+    "Definition": "to lead, consider, regard; prolong",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "dulcis, dulce",
+    "First Element": "dulcis",
+    "Definition": "sweet, pleasant, agreeable",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "dum",
+    "First Element": "dum",
+    "Definition": "while, as long as",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "dummodo (+subjunctive)",
+    "First Element": "dummodo",
+    "Definition": "provided that, so long as",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "durus, dura, durum",
+    "First Element": "durus",
+    "Definition": "hard, harsh, rough, stern, unfeeling, hardy, difficult",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "dux, ducis (m)",
+    "First Element": "dux",
+    "Definition": "leader; guide; commander, general",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "educo, educāre, educavi, educatum",
+    "First Element": "educo",
+    "Definition": "to bring up, educate",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "egeo, egēre, egui",
+    "First Element": "egeo",
+    "Definition": "(+ abl. or gen.) to need, lack, want",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "ego, mei",
+    "First Element": "ego",
+    "Definition": "I",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "egredior, egredi, egressus sum",
+    "First Element": "egredior",
+    "Definition": "to go out",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "elephantus, elephanti (m)",
+    "First Element": "elephantus",
+    "Definition": "elephant",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "enim",
+    "First Element": "enim",
+    "Definition": "(post positive) for; in fact, truly",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "eo, ire, ii, itum",
+    "First Element": "eo",
+    "Definition": "to go (also: abeo, adeo, exeo, ineo, obeo, pereo, redeo)",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "equus, equi (m)",
+    "First Element": "equus",
+    "Definition": "horse",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "erga (+acc)",
+    "First Element": "erga",
+    "Definition": "toward",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "eripio, eripere,  eripui, ereptum",
+    "First Element": "eripio",
+    "Definition": "to snatch away, take away, rescue",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "erro, errāre, erravi, erratum",
+    "First Element": "erro",
+    "Definition": "to err, go astray, make a mistake, be mistaken; wander",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "est",
+    "First Element": "est",
+    "Definition": "is",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "et",
+    "First Element": "et",
+    "Definition": "and (et . . . et",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "etiam",
+    "First Element": "etiam",
+    "Definition": "even, also",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "etsi",
+    "First Element": "etsi",
+    "Definition": "even if",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "ex (+abl)",
+    "First Element": "ex",
+    "Definition": "out of, from, from within; by reason of, on account of",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "excipio, excipere, excepi, exceptum",
+    "First Element": "excipio",
+    "Definition": "to take out, except; take, receive, capture",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "exercitus, exercitus (m)",
+    "First Element": "exercitus",
+    "Definition": "army",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "exigo, exigere, exegi, exactum (ex + ago)",
+    "First Element": "exigo",
+    "Definition": "to drive  out, force  out, exact; drive through, complete, perfect",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "exitium, exitii (n)",
+    "First Element": "exitium",
+    "Definition": "destruction, ruin",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "expello, expellere, expuli, expulsum",
+    "First Element": "expello",
+    "Definition": "to drive out, expel, banish",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "experior, experiri, expertus sum",
+    "First Element": "experior",
+    "Definition": "to try, test; experience",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "expleo, explēre, explevi, expletum",
+    "First Element": "expleo",
+    "Definition": "to fill, fill up, complete",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "explico, explicāre, explicavi, explicatum",
+    "First Element": "explico",
+    "Definition": "to unfold; explain; spread out, deploy",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "expono, exponere, exposui, expositum",
+    "First Element": "expono",
+    "Definition": "to set forth, explain, expose",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "exsilium, exsilii (n)",
+    "First Element": "exsilium",
+    "Definition": "exile, banishment",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "exspecto, expsectāre, exspectavi, exspectatum",
+    "First Element": "exspecto",
+    "Definition": "to look for, expect, await",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "fabula, fabulae (f)",
+    "First Element": "fabula",
+    "Definition": "story, tale; play",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "facilis, facile",
+    "First Element": "facilis",
+    "Definition": "easy, agreeable",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "facio, facere, feci, factum",
+    "First Element": "facio",
+    "Definition": "to make, do, accomplish",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "factum, facti (n)",
+    "First Element": "factum",
+    "Definition": "deed, act, achievement",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "fama, famae (f)",
+    "First Element": "fama",
+    "Definition": "rumor, report; fame",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "familia, familiae (f)",
+    "First Element": "familia",
+    "Definition": "household, family",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "fateor, fatēri, fassus sum",
+    "First Element": "fateor",
+    "Definition": "to confess, admit",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "fatigo, fatigāre, fatigavi, fatigatum",
+    "First Element": "fatigo",
+    "Definition": "to weary, tire out",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "fatum, fati (n)",
+    "First Element": "fatum",
+    "Definition": "fate; death",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "felix (gen: felicis)",
+    "First Element": "felix",
+    "Definition": "lucky, fortunate, happy",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "femina, feminae (f)",
+    "First Element": "femina",
+    "Definition": "woman",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "fenestra, fenestrae (f)",
+    "First Element": "fenestra",
+    "Definition": "window",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "fero, ferre, tuli, latum",
+    "First Element": "fero",
+    "Definition": "to bear, bring; suffer, endure, tolerate, say, report",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "ferox",
+    "First Element": "ferox",
+    "Definition": "fierce, savage",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "ferrum, ferri (n)",
+    "First Element": "ferrum",
+    "Definition": "iron; sword",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "fidelis, fidele",
+    "First Element": "fidelis",
+    "Definition": "faithful, loyal",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "fides, fidei (f)",
+    "First Element": "fides",
+    "Definition": "faith, trust, trustworthiness, fidelity; promise, guarantee, protection",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "filia, filiae (f)",
+    "First Element": "filia",
+    "Definition": "daughter (filiabus: dat. and abl. pl.)",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "filius, filii (m)",
+    "First Element": "filius",
+    "Definition": "son",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "finis, finis (m)*",
+    "First Element": "finis",
+    "Definition": "end, limit, boundary; purpose",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "fio, fieri, factus sum",
+    "First Element": "fio",
+    "Definition": "to occur, happen; become; be made, be done",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "firmus, firma, firmum",
+    "First Element": "firmus",
+    "Definition": "firm, strong; reliable",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "flumen, fluminis (n)",
+    "First Element": "flumen",
+    "Definition": "river",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "fluo, fluere, fluxi, fluxum",
+    "First Element": "fluo",
+    "Definition": "to flow",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "for, fāri, fatus sum",
+    "First Element": "for",
+    "Definition": "to speak (prophetically), talk, foretell",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "foris",
+    "First Element": "foris",
+    "Definition": "out of doors, outside",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "forma, formae (f)",
+    "First Element": "forma",
+    "Definition": "form, shape; beauty",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "fortasse",
+    "First Element": "fortasse",
+    "Definition": "perhaps",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "fortis, forte",
+    "First Element": "fortis",
+    "Definition": "brave, strong",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "fortuna, fortunae (f)",
+    "First Element": "fortuna",
+    "Definition": "fortune, luck",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "fortunatus, fortunata, fortunatum",
+    "First Element": "fortunatus",
+    "Definition": "forunate, lucky, happy",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "forum, fori (n)",
+    "First Element": "forum",
+    "Definition": "forum, marketplace",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "foveo, fovēre, fovi, fotum",
+    "First Element": "foveo",
+    "Definition": "to comfort, nurture, cherish",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "frater, fratris (m)",
+    "First Element": "frater",
+    "Definition": "brother",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "fructus, fructus (m)",
+    "First Element": "fructus",
+    "Definition": "fruit; profit, benefit, enjoyment",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "fugio, fugere, fugi, fugiturum",
+    "First Element": "fugio",
+    "Definition": "to flee, hurry away; escape; go into exile; avoid, shun",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "furtim",
+    "First Element": "furtim",
+    "Definition": "stealthily, secretly",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "gaudeo, gaudēre, gavisus sum",
+    "First Element": "gaudeo",
+    "Definition": "to rejoice, be glad",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "geminus, -a, -um",
+    "First Element": "geminus",
+    "Definition": "twin",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "gens, gentis (f)*",
+    "First Element": "gens",
+    "Definition": "clan, race, nation, people",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "genu, genus (n)",
+    "First Element": "genu",
+    "Definition": "knee",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "genus, generis (n)",
+    "First Element": "genus",
+    "Definition": "origin; kind, type, sort, class",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "gero, gerere, gessi, gestum",
+    "First Element": "gero",
+    "Definition": "to carry; carry on, manage, conduct, wage",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "gloria, gloriae (f)",
+    "First Element": "gloria",
+    "Definition": "glory",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "gracilis, gracile",
+    "First Element": "gracilis",
+    "Definition": "slender, thin",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "Graecia, Graeciae (f)",
+    "First Element": "Graecia",
+    "Definition": "Greece",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "Graecus, Graeca, Graecum",
+    "First Element": "Graecus",
+    "Definition": "Greek",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "gratus, grata, gratum",
+    "First Element": "gratus",
+    "Definition": "grateful; pleasing, agreeable",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "gravis, grave",
+    "First Element": "gravis",
+    "Definition": "heavy, weighty; serious, important; severe, grievous",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "habeo, habēre, habui, habitum",
+    "First Element": "habeo",
+    "Definition": "to have, hold, possess; consider, regard",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "hasta, hastae (f)",
+    "First Element": "hasta",
+    "Definition": "spear",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "heri",
+    "First Element": "heri",
+    "Definition": "yesterday",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "heu",
+    "First Element": "heu",
+    "Definition": "ah! alas!",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "hīc",
+    "First Element": "hīc",
+    "Definition": "here",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "hic, haec, hoc",
+    "First Element": "hic",
+    "Definition": "this; the latter; (at times) he, she, it",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "hodie",
+    "First Element": "hodie",
+    "Definition": "today",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "homo, hominis (m)",
+    "First Element": "homo",
+    "Definition": "human being, man",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "honor, honoris (m)",
+    "First Element": "honor",
+    "Definition": "honor, esteem; public office",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "hora, horae (f)",
+    "First Element": "hora",
+    "Definition": "hour, time",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "hortor, hortāri, hortatus sum",
+    "First Element": "hortor",
+    "Definition": "to encourage, urge",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "hostis, hostis (m)*",
+    "First Element": "hostis",
+    "Definition": "an enemy (of the state); (plural = the enemy)",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "humanus, humana, humanum",
+    "First Element": "humanus",
+    "Definition": "pertaining to man, human; humane, kind, refined, cultivated",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "humilis, humile",
+    "First Element": "humilis",
+    "Definition": "humble, lowly",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "humus, humi (f)",
+    "First Element": "humus",
+    "Definition": "ground, earth; soil",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "iaceo, iacēre, iacui",
+    "First Element": "iaceo",
+    "Definition": "to lie; lie prostrate; lie dead",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "iacio, iacere, ieci, iactum",
+    "First Element": "iacio",
+    "Definition": "to thow; hurl",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "iam",
+    "First Element": "iam",
+    "Definition": "now, already, soon",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "ianua, ianuae (f)",
+    "First Element": "ianua",
+    "Definition": "door",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "ibi",
+    "First Element": "ibi",
+    "Definition": "there",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "idem, eadem, idem",
+    "First Element": "idem",
+    "Definition": "the same",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "idoneus, idonea, idoneum",
+    "First Element": "idoneus",
+    "Definition": "suitable, fit, appropriate",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "igitur",
+    "First Element": "igitur",
+    "Definition": "(post positive) therefore, consequently",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "ignis, ignis (m)*",
+    "First Element": "ignis",
+    "Definition": "fire",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "ignosco, ignoscere, ignovi, ignotum (+dat)",
+    "First Element": "ignosco",
+    "Definition": "to  grant pardon to, forgive",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "ille, illa, illud",
+    "First Element": "ille",
+    "Definition": "that; the former; the famous; (at times) he, she, it",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "immortalis, immortale",
+    "First Element": "immortalis",
+    "Definition": "not subject to death, immortal",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "immotus, immota, immotum",
+    "First Element": "immotus",
+    "Definition": "unmoved; unchanged; unrelenting",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "imperator, imperatoris (m)",
+    "First Element": "imperator",
+    "Definition": "general, commander-in-chief, emperor",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "imperium, imperii (n)",
+    "First Element": "imperium",
+    "Definition": "power to command, supreme power, authority, command, control, imperium",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "impero, imperāre, imperavi, imperatum (+dat)",
+    "First Element": "impero",
+    "Definition": "to give orders to, command",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "in (+ablative)",
+    "First Element": "in",
+    "Definition": "in, on",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "in (+acc)",
+    "First Element": "in",
+    "Definition": "into, on to, toward; against",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "incertus, incerta, incertum",
+    "First Element": "incertus",
+    "Definition": "uncertain, unsure, doubtful",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "incipio, incipere, incepi, inceptum",
+    "First Element": "incipio",
+    "Definition": "to begin",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "infirmus, infirma, infirmum",
+    "First Element": "infirmus",
+    "Definition": "not strong, weak, feeble",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "ingenium, ingenii (n)",
+    "First Element": "ingenium",
+    "Definition": "nature, innate talent",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "ingens (gen: ingentis)",
+    "First Element": "ingens",
+    "Definition": "huge",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "initium, initii (n)",
+    "First Element": "initium",
+    "Definition": "beginning, commencement",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "iniuria, inuriae (f)",
+    "First Element": "iniuria",
+    "Definition": "injury, injustice, wrong",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "inquit",
+    "First Element": "inquit",
+    "Definition": "he says, he said",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "insidiae, insidiarum (f)",
+    "First Element": "insidiae",
+    "Definition": "ambush, plot, treachery",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "insula, insulae (f)",
+    "First Element": "insula",
+    "Definition": "island",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "intellego, intellegere, intellexi, intellectum",
+    "First Element": "intellego",
+    "Definition": "to understand",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "inter (+acc)",
+    "First Element": "inter",
+    "Definition": "between, among",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "interficio, interficere, interfeci, interfectum",
+    "First Element": "interficio",
+    "Definition": "to kill, murder",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "invenio, invenire, inveni, inventum",
+    "First Element": "invenio",
+    "Definition": "to find, come upon, discover",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "invideo, invidēre, invidi, invisum",
+    "First Element": "invideo",
+    "Definition": "to be envious (+dat), to look at with envy, to envy, be jealous of",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "invidia, invidiae (f)",
+    "First Element": "invidia",
+    "Definition": "jealousy",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "invito, invitāre, invitavi, invitatum",
+    "First Element": "invito",
+    "Definition": "to entertain, invite; summon",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "ipse, ipsa, ipsum",
+    "First Element": "ipse",
+    "Definition": "(intensive pronoun) myself, yourself, him/her/itself, etc; the very, the actual",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "ira, irae (f)",
+    "First Element": "ira",
+    "Definition": "ire, anger",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "iratus, irata, iratum",
+    "First Element": "iratus",
+    "Definition": "angry",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "is, ea, id",
+    "First Element": "is",
+    "Definition": "he, she, it",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "iste, ista, istud",
+    "First Element": "iste",
+    "Definition": "that of yours, that; (sometimes pejorative: that despicable, that wretched)",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "ita",
+    "First Element": "ita",
+    "Definition": "so thus",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "Italia, Italiae (f)",
+    "First Element": "Italia",
+    "Definition": "Italy",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "itaque",
+    "First Element": "itaque",
+    "Definition": "and so, therefore",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "iter, itineris (n)",
+    "First Element": "iter",
+    "Definition": "journey; route, road",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "iterum",
+    "First Element": "iterum",
+    "Definition": "again, a second time",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "iubeo, iubēre, iussi, iussum",
+    "First Element": "iubeo",
+    "Definition": "to order, bid, command",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "iucundus, iucunda, iucundum",
+    "First Element": "iucundus",
+    "Definition": "pleasant, delightful, agreeable, pleasing",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "iudex, iudicis (m)",
+    "First Element": "iudex",
+    "Definition": "judge, juror",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "iudicium, iudicii (n)",
+    "First Element": "iudicium",
+    "Definition": "judgement, decision, opinion; trial",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "iungo, iungere, iunxi, iunctum",
+    "First Element": "iungo",
+    "Definition": "to join",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "ius, iuris (n)",
+    "First Element": "ius",
+    "Definition": "right, justice, law",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "iustus, iusta, iustum",
+    "First Element": "iustus",
+    "Definition": "just, right",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "iuvo, iuvāre, iuvi, iutum",
+    "First Element": "iuvo",
+    "Definition": "to help",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "labor, laboris (m)",
+    "First Element": "labor",
+    "Definition": "work, work, toil; a work, production",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "laboro, laborāre, laboravi, laboratum",
+    "First Element": "laboro",
+    "Definition": "to labor; be in distress",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "lacrima, lacrimae (f)",
+    "First Element": "lacrima",
+    "Definition": "tear",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "Latinus, Latina, Latinum",
+    "First Element": "Latinus",
+    "Definition": "Latin",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "laudo, laudāre, laudavi, laudatum",
+    "First Element": "laudo",
+    "Definition": "to praise",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "laus, laudis (f)",
+    "First Element": "laus",
+    "Definition": "praise",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "lector, lectoris (m) & lectrix lectricis (f)",
+    "First Element": "lector",
+    "Definition": "reader",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "lego, legere, legi, lectum",
+    "First Element": "lego",
+    "Definition": "to read; pick out, choose, select",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "levis, leve",
+    "First Element": "levis",
+    "Definition": "light, trivial",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "lex, legis (f)",
+    "First Element": "lex",
+    "Definition": "law, statute",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "libellus, libelli (m)",
+    "First Element": "libellus",
+    "Definition": "little book",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "libenter",
+    "First Element": "libenter",
+    "Definition": "with pleasure, gladly",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "liber, libera, liberum",
+    "First Element": "liber",
+    "Definition": "free",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "liber, libri (m)",
+    "First Element": "liber",
+    "Definition": "book",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "liberalis, liberale",
+    "First Element": "liberalis",
+    "Definition": "of, relating to a free person; worthy of a free man, decent, liberal; generous",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "libero, liberāre, liberavi, liberatum",
+    "First Element": "libero",
+    "Definition": "to free, set free, liberate",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "libertas, libertatis (f)",
+    "First Element": "libertas",
+    "Definition": "freedom, liberty",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "libo, libāre, libavi, libatum",
+    "First Element": "libo",
+    "Definition": "to pour a libation on; pour ritually; sip; touch gently",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "licet, licere, licuit (impersonal)",
+    "First Element": "licet",
+    "Definition": "it is permitted, one may",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "limen, liminis (n)",
+    "First Element": "limen",
+    "Definition": "threshold",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "lingua, linguae (f)",
+    "First Element": "lingua",
+    "Definition": "language; tongue",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "littera, litterae (f)",
+    "First Element": "littera",
+    "Definition": "a letter of the alphabet; (plural = letter, literature)",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "litus, litoris (n)",
+    "First Element": "litus",
+    "Definition": "shore, coast",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "locus, loci (m)",
+    "First Element": "locus",
+    "Definition": "place; passage in literature",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "longus, longa, longum",
+    "First Element": "longus",
+    "Definition": "long",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "loquor, loqui, locutus sum",
+    "First Element": "loquor",
+    "Definition": "to speak, say, tell",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "ludus, ludi (m)",
+    "First Element": "ludus",
+    "Definition": "game, sport; school",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "luna, lunae (f)",
+    "First Element": "luna",
+    "Definition": "moon",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "lux, lucis (f)",
+    "First Element": "lux",
+    "Definition": "light",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "magister, magistri (m) or magistra,",
+    "First Element": "magister",
+    "Definition": "ae (f)",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "magnanimus, magnanima, magnanimum",
+    "First Element": "magnanimus",
+    "Definition": "great-hearted, brave, magnanimous",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "magnus, magna, magnum",
+    "First Element": "magnus",
+    "Definition": "great, large; important",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "maior, maius",
+    "First Element": "maior",
+    "Definition": "greater; older",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "malo, malle, malui",
+    "First Element": "malo",
+    "Definition": "to want (something) more, instead; prefer",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "malus, mala, malum",
+    "First Element": "malus",
+    "Definition": "bad, wicked, evil",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "manus, manus (f)",
+    "First Element": "manus",
+    "Definition": "hand; handwriting; band",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "mare, maris (n)*",
+    "First Element": "mare",
+    "Definition": "sea",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "mater, matris (f)",
+    "First Element": "mater",
+    "Definition": "mother",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "me",
+    "First Element": "me",
+    "Definition": "me, myself (accusative case)",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "medicus, medici (m)",
+    "First Element": "medicus",
+    "Definition": "doctor, physician",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "mediocris, mediocre",
+    "First Element": "mediocris",
+    "Definition": "ordinary, moderate, mediocre",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "medius, media, medium",
+    "First Element": "medius",
+    "Definition": "middle, the middle of",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "memoria, memoriae (f)",
+    "First Element": "memoria",
+    "Definition": "memory, recollection",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "mens, mentis (f)*",
+    "First Element": "mens",
+    "Definition": "mind, thought, intention",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "mensa, mensae (f)",
+    "First Element": "mensa",
+    "Definition": "table",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "merus, -a, -um",
+    "First Element": "merus",
+    "Definition": "pure, undiluted",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "meta, metae (f)",
+    "First Element": "meta",
+    "Definition": "turning point, goal; limit, boundary",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "metus, metus (m)",
+    "First Element": "metus",
+    "Definition": "fear",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "meus, mea, meum",
+    "First Element": "meus",
+    "Definition": "my",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "miles,  militis (m)",
+    "First Element": "miles",
+    "Definition": "soldier",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "mille",
+    "First Element": "mille",
+    "Definition": "thousand",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "minuo, minuere, minui, minutum",
+    "First Element": "minuo",
+    "Definition": "to lessen, diminish",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "mirabilis, mirabile",
+    "First Element": "mirabilis",
+    "Definition": "amazing, wondrous",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "miror, mirāri, miratus sum",
+    "First Element": "miror",
+    "Definition": "to marvel at, admire, wonder",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "misceo, miscēre, miscui, mixtum",
+    "First Element": "misceo",
+    "Definition": "to mix, stir up, disturb",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "miser, misera, miserum",
+    "First Element": "miser",
+    "Definition": "sad, wretched, miserable, unfortunate",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "mitto, mittere, misi, missum",
+    "First Element": "mitto",
+    "Definition": "to send, let go",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "modus, modi (m)",
+    "First Element": "modus",
+    "Definition": "measure, bound, limit; manner, method, mode, way",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "moenia, moenium (n)",
+    "First Element": "moenia",
+    "Definition": "city walls",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "molior, moliri, molitus sum",
+    "First Element": "molior",
+    "Definition": "to work at, build, undertake, plan",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "mollio, mollire, mollivi, mollitum",
+    "First Element": "mollio",
+    "Definition": "to soften; make calm, make less hostile",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "moneo, monēre, monui, monitum",
+    "First Element": "moneo",
+    "Definition": "to warn, remind, advise",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "mons, montis (m)*",
+    "First Element": "mons",
+    "Definition": "mountain",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "monumentum, monumenti (n)",
+    "First Element": "monumentum",
+    "Definition": "monument",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "mora, morae (f)",
+    "First Element": "mora",
+    "Definition": "delay",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "morbus, morbi (m)",
+    "First Element": "morbus",
+    "Definition": "disease, sickness",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "morior, mori, mortuus sum",
+    "First Element": "morior",
+    "Definition": "to die",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "mors, mortis (f)*",
+    "First Element": "mors",
+    "Definition": "death",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "mortalis, mortale",
+    "First Element": "mortalis",
+    "Definition": "mortal",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "mortuus, mortua, mortuum",
+    "First Element": "mortuus",
+    "Definition": "dead",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "mos, moris (m)",
+    "First Element": "mos",
+    "Definition": "habit,  custom, manner; (plural  = character, morals)",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "moveo, movēre, movi, motum",
+    "First Element": "moveo",
+    "Definition": "to move; arouse, affect",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "mox",
+    "First Element": "mox",
+    "Definition": "soon",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "mulier, mulieris (f)",
+    "First Element": "mulier",
+    "Definition": "woman",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "multus, multa, multum",
+    "First Element": "multus",
+    "Definition": "many",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "mundus, mundi (m)",
+    "First Element": "mundus",
+    "Definition": "world, universe",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "muto, mutāre, mutavi, mutatum",
+    "First Element": "muto",
+    "Definition": "to change,  alter; exchange",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "nam",
+    "First Element": "nam",
+    "Definition": "for",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "narro, narrāre, narravi, narratum",
+    "First Element": "narro",
+    "Definition": "to tell, report, narrate",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "nascor, nasci, natus sum",
+    "First Element": "nascor",
+    "Definition": "to be born; spring forth arise",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "nasus, nasi (m)",
+    "First Element": "nasus",
+    "Definition": "nose",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "nata, natae (f)",
+    "First Element": "nata",
+    "Definition": "daughter",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "natura, naturae (f)",
+    "First Element": "natura",
+    "Definition": "nature",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "nauta, nautae (m)",
+    "First Element": "nauta",
+    "Definition": "sailor",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "navigo, navigāre, navigavi, navigatum",
+    "First Element": "navigo",
+    "Definition": "to sail, navigate",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "navis, navis (f)*",
+    "First Element": "navis",
+    "Definition": "ship, boat",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "ne",
+    "First Element": "ne",
+    "Definition": "(+subjunct) not, in order that . . . not, that . . . not, in order not to",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "necesse",
+    "First Element": "necesse",
+    "Definition": "necessary, inevitable",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "neco, necāre, necavi, necatum",
+    "First Element": "neco",
+    "Definition": "to kill, murder",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "neglego, neglegere, neglexi, neglectum",
+    "First Element": "neglego",
+    "Definition": "to neglect, disregard",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "nego, negāre, negavi, negatum",
+    "First Element": "nego",
+    "Definition": "to deny, to say that . . . not",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "nemo, nullius, nemini, neminem, nullo/nulla",
+    "First Element": "nemo",
+    "Definition": "no one, nobody",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "nepos, nepotis (m)",
+    "First Element": "nepos",
+    "Definition": "grandson, descendant",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "nec",
+    "First Element": "nec",
+    "Definition": "and not, nor (neque/nec . . . neque/nec",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "neque/nec",
+    "First Element": "neque",
+    "Definition": "and not, nor (neque/nec . . . neque/nec",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "nescio, nescire, nescivi, nescitum",
+    "First Element": "nescio",
+    "Definition": "not to know, to be ignorant",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "neuter, neutra neutrum",
+    "First Element": "neuter",
+    "Definition": "neither, not either",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "nihil",
+    "First Element": "nihil",
+    "Definition": "nothing",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "nihil",
+    "First Element": "nihil",
+    "Definition": "nothing",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "nimium",
+    "First Element": "nimium",
+    "Definition": "too, too much, excessively",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "nimis or nimium",
+    "First Element": "nimis",
+    "Definition": "too, too much, excessively",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "nisi",
+    "First Element": "nisi",
+    "Definition": "if . . . not, unless",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "noceo, nocēre, nocui, nocitum (+dat)",
+    "First Element": "noceo",
+    "Definition": "to do harm to, harm, injure",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "nolo, nolle, nolui",
+    "First Element": "nolo",
+    "Definition": "to not . . . wish, be unwilling",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "nomen, nominis (n)",
+    "First Element": "nomen",
+    "Definition": "name",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "non",
+    "First Element": "non",
+    "Definition": "not",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "nonne",
+    "First Element": "nonne",
+    "Definition": "introduces question anticipating a “yes”",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "noster, nostra, nostrum",
+    "First Element": "noster",
+    "Definition": "our",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "novus, nova, novum",
+    "First Element": "novus",
+    "Definition": "new; strange",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "nox, noctis (f)*",
+    "First Element": "nox",
+    "Definition": "night",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "nubes, nubis (f)*",
+    "First Element": "nubes",
+    "Definition": "cloud",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "nubo, nubere, nupsi, nuptum",
+    "First Element": "nubo",
+    "Definition": "to cover, veil; (+dat) to be married to, marry",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "nullus, nulla, nullum",
+    "First Element": "nullus",
+    "Definition": "not any; no, none",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "num",
+    "First Element": "num",
+    "Definition": "1. introduces question anticipating a “no”. 2. introduces indirect questions and means “whether.”",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "numerus, numeri (m)",
+    "First Element": "numerus",
+    "Definition": "number",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "numquam",
+    "First Element": "numquam",
+    "Definition": "never",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "nunc",
+    "First Element": "nunc",
+    "Definition": "now",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "nuntio, nuntiāre, nuntiavi, nuntiatum",
+    "First Element": "nuntio",
+    "Definition": "to announce, report, relate",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "nuper",
+    "First Element": "nuper",
+    "Definition": "recently",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "oblecto, oblectāre, oblectavi, oblectatum",
+    "First Element": "oblecto",
+    "Definition": "to please, amuse, delight; pass time pleasantly",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "occasio, occasionis (f)",
+    "First Element": "occasio",
+    "Definition": "occasion, opportunity",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "occido, occidere, occidi, occasum",
+    "First Element": "occido",
+    "Definition": "to fall down; die; set",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "oculus, oculi (m)",
+    "First Element": "oculus",
+    "Definition": "eye",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "odi, odisse, osum",
+    "First Element": "odi",
+    "Definition": "to hate",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "odium, odii (n)",
+    "First Element": "odium",
+    "Definition": "hatred",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "offero, offere, obtuli, oblatum",
+    "First Element": "offero",
+    "Definition": "to offer",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "officium, officii (n)",
+    "First Element": "officium",
+    "Definition": "duty, service",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "olim",
+    "First Element": "olim",
+    "Definition": "at that time, once, formerly; in the future",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "omnino",
+    "First Element": "omnino",
+    "Definition": "wholly, entirely, altogether",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "omnis, omne",
+    "First Element": "omnis",
+    "Definition": "every, all",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "opinor, opināri, opinatus sum",
+    "First Element": "opinor",
+    "Definition": "to suppose",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "oportet, oportere, oportuit (impersonal)",
+    "First Element": "oportet",
+    "Definition": "it is proper, right, necessary",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "opprimo, opprimere, oppressi, oppressum",
+    "First Element": "opprimo",
+    "Definition": "to suppress, overwhelm, overpower, check",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "oppugno, oppugnāre, oppugnavi, oppugnatum",
+    "First Element": "oppugno",
+    "Definition": "to fight against, attack, assault, assail",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "ops, opis (f)",
+    "First Element": "ops",
+    "Definition": "help, aid",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "opus, operis (n)",
+    "First Element": "opus",
+    "Definition": "work, task; deed, accomplishment",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "orator, oratoris (m)",
+    "First Element": "orator",
+    "Definition": "orator; speaker",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "orno, ornāre, ornavi, ornatum",
+    "First Element": "orno",
+    "Definition": "to equip, furnish, adorn",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "oro, orāre, oravi, oratum",
+    "First Element": "oro",
+    "Definition": "to speak, plead; beg, beseech, entreat, pray",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "os, oris (n)",
+    "First Element": "os",
+    "Definition": "mouth, face",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "osculum, osculi (n)",
+    "First Element": "osculum",
+    "Definition": "kiss",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "ostendo, ostendere, ostendi, ostentum",
+    "First Element": "ostendo",
+    "Definition": "to exhibit, show, display",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "otium, otii (n)",
+    "First Element": "otium",
+    "Definition": "leisure, peace",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "par (gen: paris) (+dat)",
+    "First Element": "par",
+    "Definition": "equal (to), like",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "parco, parcere, peperci, parsurum (+dat)",
+    "First Element": "parco",
+    "Definition": "to be lenient to; spare",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "parens, parentis (m/f)",
+    "First Element": "parens",
+    "Definition": "parent",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "pareo, parēre, parui (+dat)",
+    "First Element": "pareo",
+    "Definition": "to be obedient to, obey",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "paro, parāre, paravi, paratum",
+    "First Element": "paro",
+    "Definition": "to  prepare, provide; get, obtain",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "pars, partis (f)*",
+    "First Element": "pars",
+    "Definition": "part, share; direction",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "parvus, parva, parvum",
+    "First Element": "parvus",
+    "Definition": "small, little",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "patefacio, patefacere, patefeci, patefactum",
+    "First Element": "patefacio",
+    "Definition": "to make open, open; disclose, expose",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "pateo, patēre, patui",
+    "First Element": "pateo",
+    "Definition": "to be open, lie open; be accessible; be evident",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "pater, patris (m)",
+    "First Element": "pater",
+    "Definition": "father",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "patientia, patientiae (f)",
+    "First Element": "patientia",
+    "Definition": "suffering; patience, endurance",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "patior, pati, passus sum",
+    "First Element": "patior",
+    "Definition": "to suffer, endure; permit",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "patria, patriae (f)",
+    "First Element": "patria",
+    "Definition": "fatherland, native land, homeland",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "pauci, paucae, pauca",
+    "First Element": "pauci",
+    "Definition": "few, a few",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "pauper (gen: pauperis)",
+    "First Element": "pauper",
+    "Definition": "of small means, poor",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "paupertas, paupertatis (f)",
+    "First Element": "paupertas",
+    "Definition": "poverty",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "pax, pacis (f)",
+    "First Element": "pax",
+    "Definition": "peace",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "pectus, pectoris (n)",
+    "First Element": "pectus",
+    "Definition": "breast, heart",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "pecunia, pecuniae (f)",
+    "First Element": "pecunia",
+    "Definition": "money",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "pello, pellere, pepuli, pulsum",
+    "First Element": "pello",
+    "Definition": "to strike, push; drive out, banish",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "per (+acc)",
+    "First Element": "per",
+    "Definition": "through",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "peregrinor, peregrinari, peregrinatus sum",
+    "First Element": "peregrinor",
+    "Definition": "to  travel abroad, wander",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "perfugium, perfugii (n)",
+    "First Element": "perfugium",
+    "Definition": "refuge,  solace, shelter",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "periculum, periculi (n)",
+    "First Element": "periculum",
+    "Definition": "danger, risk",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "pernocto, pernoctāre,  pernoctavi, pernoctatum",
+    "First Element": "pernocto",
+    "Definition": "to spend the night",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "perpetuus, perpetua, perpetuum",
+    "First Element": "perpetuus",
+    "Definition": "perpetual, lasting, uninterrupted, continuous",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "persuadeo, persuadēre, persuasi, persuasum (+dat)",
+    "First Element": "persuadeo",
+    "Definition": "to succeed in urging, persuade, convince",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "pes, pedis (m)",
+    "First Element": "pes",
+    "Definition": "lower leg, foot",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "peto, petere, petivi, petitum",
+    "First Element": "peto",
+    "Definition": "to seek, aim at, beseech",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "philosophia, philosophiae (f)",
+    "First Element": "philosophia",
+    "Definition": "philosophy",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "philosophus, philosophi (m)",
+    "First Element": "philosophus",
+    "Definition": "philosopher",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "placeo, placēre, placui, placitum (+dat)",
+    "First Element": "placeo",
+    "Definition": "to be pleasing to, please",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "plebs, plebis (f)",
+    "First Element": "plebs",
+    "Definition": "the common people, populace, plebeians",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "plenus, plena, plenum",
+    "First Element": "plenus",
+    "Definition": "full, abundant, generous",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "poena, poenae (f)",
+    "First Element": "poena",
+    "Definition": "penalty, punishment",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "poeta, poetae (m)",
+    "First Element": "poeta",
+    "Definition": "poet",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "pono, ponere, posui, positum",
+    "First Element": "pono",
+    "Definition": "to put, place, set",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "populus, populi (m)",
+    "First Element": "populus",
+    "Definition": "people, the people, a nation",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "porta, portae (f)",
+    "First Element": "porta",
+    "Definition": "gate, entrance",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "possum, posse, potui",
+    "First Element": "possum",
+    "Definition": "to be able, can, could, have power",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "post (+acc)",
+    "First Element": "post",
+    "Definition": "after, behind",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "postea",
+    "First Element": "postea",
+    "Definition": "afterwards",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "postremum",
+    "First Element": "postremum",
+    "Definition": "after all, finally; for the last time",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "potens (gen: potentis)",
+    "First Element": "potens",
+    "Definition": "powerful",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "prae (+abl)",
+    "First Element": "prae",
+    "Definition": "in front of, before",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "praebeo, praebēre, praebui, praebitum",
+    "First Element": "praebeo",
+    "Definition": "to offer, provide",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "praemium, praemii (n)",
+    "First Element": "praemium",
+    "Definition": "reward, prize",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "praesto, praestāre,  praestiti, praestitum",
+    "First Element": "praesto",
+    "Definition": "to excel; exhibit, show,  offer, supply, furnish",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "praeter (+acc)",
+    "First Element": "praeter",
+    "Definition": "besides, except; beyond, past",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "premo, premere, pressi, pressum",
+    "First Element": "premo",
+    "Definition": "to press; press hard, pursue",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "primo",
+    "First Element": "primo",
+    "Definition": "at first, at the beginning",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "primus, prima, primum",
+    "First Element": "primus",
+    "Definition": "first, foremost, chief, principal",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "princeps (gen: principis)",
+    "First Element": "princeps",
+    "Definition": "chief, foremost",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "principium, principii (n)",
+    "First Element": "principium",
+    "Definition": "beginning",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "pristinus, pristina, pristinum",
+    "First Element": "pristinus",
+    "Definition": "ancient; former, previous",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "pro (+abl)",
+    "First Element": "pro",
+    "Definition": "in front of, before, on behalf of, for the sake of, in return for, instead of, for, as",
+    "Chapter": 12,
+    "": ""
+  },
+  {
+    "Latin Word": "probitas, probitatis (f)",
+    "First Element": "probitas",
+    "Definition": "uprightness, honesty",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "probo, probāre, probavi, probatum",
+    "First Element": "probo",
+    "Definition": "to approve, recommend; test",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "proficiscor, proficisci, profectus sum",
+    "First Element": "proficiscor",
+    "Definition": "to set out, start",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "prohibeo, prohibēre, prohibui, prohibitum",
+    "First Element": "prohibeo",
+    "Definition": "to keep (back), prevent, hinder, restrain",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "promitto, promittere, promisi, promissum",
+    "First Element": "promitto",
+    "Definition": "to send forth; promise",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "pronuntio, pronuntiāre, pronuntiavi, pronuntiatum",
+    "First Element": "pronuntio",
+    "Definition": "to proclaim, announce, declaim; pronounce",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "propter (+accusative)",
+    "First Element": "propter",
+    "Definition": "on account of, because of",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "protinus",
+    "First Element": "protinus",
+    "Definition": "immediately",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "pudicus, pudica, pudicum",
+    "First Element": "pudicus",
+    "Definition": "modest, chaste",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "puella, puellae (f)",
+    "First Element": "puella",
+    "Definition": "girl",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "puer, pueri (m)",
+    "First Element": "puer",
+    "Definition": "boy",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "pugno, pugnāre, pugnavi, pugnatum",
+    "First Element": "pugno",
+    "Definition": "to fight",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "pulcher, pulchra, pulchrum",
+    "First Element": "pulcher",
+    "Definition": "beautiful",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "puto, putāre, putavi, putatum",
+    "First Element": "puto",
+    "Definition": "to reckon, suppose, judge, think, imagine",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "quaero, quaerere, quaesivi, quaesitum",
+    "First Element": "quaero",
+    "Definition": "to seek, look for, strive for; ask, inquire, inquire into",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "quam",
+    "First Element": "quam",
+    "Definition": "how",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "quam",
+    "First Element": "quam",
+    "Definition": "than",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "quando",
+    "First Element": "quando",
+    "Definition": "when",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "quantus, quanta, quantum",
+    "First Element": "quantus",
+    "Definition": "how large, how great, how much",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "quare",
+    "First Element": "quare",
+    "Definition": "because of which thing, therefore, wherefore, why",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "quasi",
+    "First Element": "quasi",
+    "Definition": "as if, as it were",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "que",
+    "First Element": "que",
+    "Definition": "and (suffix added to the end a word, joining it to the previous)",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "qui, quae, quod",
+    "First Element": "qui",
+    "Definition": "(relative pronoun) who, which, what, that",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "qui? quae? quod?",
+    "First Element": "qui? quae? quod?",
+    "Definition": "(interrogative adj)",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "quid",
+    "First Element": "quid",
+    "Definition": "what",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "quidam, quaedam, quiddam",
+    "First Element": "quidam",
+    "Definition": "certain, some",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "quidem",
+    "First Element": "quidem",
+    "Definition": "indeed, certainly, at least, even",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "quin",
+    "First Element": "quin",
+    "Definition": "indeed, in fact",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "quis, quid [after: si, nisi, num, or ne]",
+    "First Element": "quis",
+    "Definition": "anyone, anything, someone, something",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "quis? quid?",
+    "First Element": "quis? quid?",
+    "Definition": "(interrogative pronoun) who? whose? whom? what? which?",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "quisque, quidque",
+    "First Element": "quisque",
+    "Definition": "each one,  each person, each thing",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "quisquis, quidquid",
+    "First Element": "quisquis",
+    "Definition": "whoever, whatever",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "quod",
+    "First Element": "quod",
+    "Definition": "because",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "quondam",
+    "First Element": "quondam",
+    "Definition": "formerly, once",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "quoniam",
+    "First Element": "quoniam",
+    "Definition": "since, inasmuch as",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "quoque",
+    "First Element": "quoque",
+    "Definition": "also, too",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "quot",
+    "First Element": "quot",
+    "Definition": "how many, as many as",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "rapio, rapere, rapui, raptum",
+    "First Element": "rapio",
+    "Definition": "to seize, snatch, carry away",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "ratio, rationis (f)",
+    "First Element": "ratio",
+    "Definition": "reckoning, account; reason, judgement, consideration; system; manner, method",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "recipio, recipere, recepi, receptum",
+    "First Element": "recipio",
+    "Definition": "to take back, regain; admit, receive",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "recito, recitāre, recitavi, recitatum",
+    "First Element": "recito",
+    "Definition": "to read aloud, recite",
+    "Chapter": 17,
+    "": ""
+  },
+  {
+    "Latin Word": "recreo, recreāre, recreavi, recreatum",
+    "First Element": "recreo",
+    "Definition": "to  restore, revive; refresh, cheer",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "recuso, recusāre, recusavi, recusatum",
+    "First Element": "recuso",
+    "Definition": "to refuse",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "refero, referre,  rettuli,  relatum",
+    "First Element": "refero",
+    "Definition": "to carry back, bring back; repeat, answer, report",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "regina, reginae (f)",
+    "First Element": "regina",
+    "Definition": "queen",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "rego, regere, rexi, rectum",
+    "First Element": "rego",
+    "Definition": "to rule, guide, direct",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "relinquo, relinquere, reliqui, relictum",
+    "First Element": "relinquo",
+    "Definition": "to leave behind, leave, abandon, desert",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "remaneo, remanēre, remansi, remansum (or maneo)",
+    "First Element": "remaneo",
+    "Definition": "to remain, stay; stay behind, abide, continue",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "remedium, remedii (n)",
+    "First Element": "remedium",
+    "Definition": "cure, remedy",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "remissio, remissionis (f)",
+    "First Element": "remissio",
+    "Definition": "letting go, release; relaxation",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "repente",
+    "First Element": "repente",
+    "Definition": "suddenly",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "reperio, reperire, repperi, repertum",
+    "First Element": "reperio",
+    "Definition": "to find, discover, learn; get",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "requiesco, requiescere, requievi, requietum",
+    "First Element": "requiesco",
+    "Definition": "to rest",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "requiro, requirere, requisivi, requisitum",
+    "First Element": "requiro",
+    "Definition": "to seek, ask for; miss, need, require",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "res publica, rei publicae (f) state,  commonwealth, republic",
+    "First Element": "res publica",
+    "Definition": "",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "res, rei (f)",
+    "First Element": "res",
+    "Definition": "thing, matter,  business, affair",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "respondeo, respondēre, respondi, responsum",
+    "First Element": "respondeo",
+    "Definition": "to answer",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "rex, regis (m)",
+    "First Element": "rex",
+    "Definition": "king",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "rideo, ridēre, risi, risum",
+    "First Element": "rideo",
+    "Definition": "to laugh, laugh at",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "ridiculus, ridicula, ridiculum",
+    "First Element": "ridiculus",
+    "Definition": "laughable, ridiculous",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "rogo, rogāre, rogavi, rogatum",
+    "First Element": "rogo",
+    "Definition": "to ask",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "Roma, Romae (f)",
+    "First Element": "Roma",
+    "Definition": "Rome",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "Romanus, Romana, Romanum",
+    "First Element": "Romanus",
+    "Definition": "Roman",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "rosa, rosae (f)",
+    "First Element": "rosa",
+    "Definition": "rose",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "rumor, rumoris (m)",
+    "First Element": "rumor",
+    "Definition": "rumor, gossip",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "rus, ruris (n)",
+    "First Element": "rus",
+    "Definition": "the country, countryside",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "rusticor, rusticāri, rusticatus sum",
+    "First Element": "rusticor",
+    "Definition": "to live in the country",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "sacerdos, sacerdotis (m)",
+    "First Element": "sacerdos",
+    "Definition": "priest",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "saepe",
+    "First Element": "saepe",
+    "Definition": "often",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "sal, salis (m)",
+    "First Element": "sal",
+    "Definition": "salt; wit",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "salus, salutis (f)",
+    "First Element": "salus",
+    "Definition": "health, safety; greeting",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "salveo, salvēre",
+    "First Element": "salveo",
+    "Definition": "to be well, be in good health",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "salvus, salva, salvum",
+    "First Element": "salvus",
+    "Definition": "safe, sound",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "sanus, sana, sanum",
+    "First Element": "sanus",
+    "Definition": "sound, healthy, sane",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "sapiens (gen: sapientis)",
+    "First Element": "sapiens",
+    "Definition": "wise, judicious",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "sapientia, sapientiae (f)",
+    "First Element": "sapientia",
+    "Definition": "wisdom",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "sapio, sapere, sapivi",
+    "First Element": "sapio",
+    "Definition": "to have good taste; have good sense, be wise",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "satio, satiāre, satiavi, satiatum",
+    "First Element": "satio",
+    "Definition": "to satisfy, sate",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "satis",
+    "First Element": "satis",
+    "Definition": "enough, sufficient",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "sator, satoris (m)",
+    "First Element": "sator",
+    "Definition": "sower, planter; begetter, father; founder",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "satura, saturae (f)",
+    "First Element": "satura",
+    "Definition": "satire",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "sauvis, suave",
+    "First Element": "sauvis",
+    "Definition": "sweet",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "saxum, saxi (n)",
+    "First Element": "saxum",
+    "Definition": "rock",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "scelus, sceleris (n)",
+    "First Element": "scelus",
+    "Definition": "crime, wickedness, evil deed",
+    "Chapter": 19,
+    "": ""
+  },
+  {
+    "Latin Word": "scientia, scientiae (f)",
+    "First Element": "scientia",
+    "Definition": "knowledge",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "scio, scire, scivi, scitum",
+    "First Element": "scio",
+    "Definition": "to know",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "scribo, scribere, scripsi, scriptum",
+    "First Element": "scribo",
+    "Definition": "to write, compose",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "scriptor, scriptoris (m)",
+    "First Element": "scriptor",
+    "Definition": "writer, author",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "secundus, secunda, secundum",
+    "First Element": "secundus",
+    "Definition": "second; favorable",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "sed",
+    "First Element": "sed",
+    "Definition": "but",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "sedeo, sedēre, sedi, sessum",
+    "First Element": "sedeo",
+    "Definition": "to sit",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "semel",
+    "First Element": "semel",
+    "Definition": "a single time, once, once and for all, simultaneously",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "semper",
+    "First Element": "semper",
+    "Definition": "always",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "senatus, senatus (m)",
+    "First Element": "senatus",
+    "Definition": "senate",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "senectus, senectutis (f)",
+    "First Element": "senectus",
+    "Definition": "old age",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "senex (gen: senis)",
+    "First Element": "senex",
+    "Definition": "old, aged",
+    "Chapter": 16,
+    "": ""
+  },
+  {
+    "Latin Word": "sensus, sensus (m)",
+    "First Element": "sensus",
+    "Definition": "feeling,  sense",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "sententia, sententiae (f)",
+    "First Element": "sententia",
+    "Definition": "feeling, though, opinion, vote, sentence",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "sentio, sentire, sensi, sensum",
+    "First Element": "sentio",
+    "Definition": "to  feel, perceive, think, experience",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "sequor, sequi, secutus sum",
+    "First Element": "sequor",
+    "Definition": "to follow",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "sereno, serenāre, serenavi, serenatum",
+    "First Element": "sereno",
+    "Definition": "to  make clear, brighten; cheer up, soothe",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "servio, servire, servivi, servitum (+dat)",
+    "First Element": "servio",
+    "Definition": "to be a slave to, serve",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "servitus, servitutis (f)",
+    "First Element": "servitus",
+    "Definition": "slavery, servitude",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "servo, servāre, servavi, servatum",
+    "First Element": "servo",
+    "Definition": "to save, preserve, keep, guard, protect",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "servus, servi (m) or serva, servae (f)",
+    "First Element": "servus",
+    "Definition": "slave",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "si",
+    "First Element": "si",
+    "Definition": "if",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "sic",
+    "First Element": "sic",
+    "Definition": "so thus",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "sidus, sideris (n)",
+    "First Element": "sidus",
+    "Definition": "constellation, star",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "signum, signi (n)",
+    "First Element": "signum",
+    "Definition": "sign, signal, indication; seal",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "similis, simile",
+    "First Element": "similis",
+    "Definition": "(+ gen. or dat.) similar (to), like, resembling",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "sine (+ablative)",
+    "First Element": "sine",
+    "Definition": "without",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "sinister, sinistra, sinistrum",
+    "First Element": "sinister",
+    "Definition": "left, left",
+    "Chapter": 20,
+    "": "omened"
+  },
+  {
+    "Latin Word": "sol, solis (m)",
+    "First Element": "sol",
+    "Definition": "sun",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "solacium, solacii (n)",
+    "First Element": "solacium",
+    "Definition": "comfort, relief",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "soleo, solēre, solitus sum",
+    "First Element": "soleo",
+    "Definition": "to be accustomed",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "solus, sola, solum",
+    "First Element": "solus",
+    "Definition": "alone, only (non solum . . . sed etiam",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "somnus, somni (m)",
+    "First Element": "somnus",
+    "Definition": "sleep",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "soror, sororis (f)",
+    "First Element": "soror",
+    "Definition": "sister",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "specto, spectāre, spectavi, spectatum",
+    "First Element": "specto",
+    "Definition": "to look at, watch, see",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "speculum, speculi (n)",
+    "First Element": "speculum",
+    "Definition": "mirror",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "spero, sperāre, speravi, speratum",
+    "First Element": "spero",
+    "Definition": "to hope for, hope",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "spes, spei (f)",
+    "First Element": "spes",
+    "Definition": "hope",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "spiritus, spiritus (m)",
+    "First Element": "spiritus",
+    "Definition": "breath, breathing; spirit, soul",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "stella, stellae (f)",
+    "First Element": "stella",
+    "Definition": "star",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "sto, stare, steti, statum",
+    "First Element": "sto",
+    "Definition": "to stand, stand still, stand firm",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "studeo, studēre, studui (+dat)",
+    "First Element": "studeo",
+    "Definition": "to direct one’s zeal to, be eager for, study",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "studium, studii (n)",
+    "First Element": "studium",
+    "Definition": "zeal, eagerness, pursuit, study",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "stultus, stulta, stultum",
+    "First Element": "stultus",
+    "Definition": "foolish",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "sub (+abl with verbs of rest, +acc with verbs of motion)",
+    "First Element": "sub",
+    "Definition": "under, up under, close to, at the foot of",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "subito",
+    "First Element": "subito",
+    "Definition": "suddenly",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "sublimis, sublime",
+    "First Element": "sublimis",
+    "Definition": "elevated, lofty; heroic, noble",
+    "Chapter": 38,
+    "": ""
+  },
+  {
+    "Latin Word": "subrideo, subridēre, subrisi, subrisum",
+    "First Element": "subrideo",
+    "Definition": "to smile (down) upon",
+    "Chapter": 35,
+    "": ""
+  },
+  {
+    "Latin Word": "sui",
+    "First Element": "sui",
+    "Definition": "(reflexive pronoun) him/her/itself, themselves",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "sum, esse, fui, futurum",
+    "First Element": "sum",
+    "Definition": "to be, exist",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "superbus, superba, superbum",
+    "First Element": "superbus",
+    "Definition": "arrogant, overbearing, haughty, proud",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "supero, superāre, superavi, superatum",
+    "First Element": "supero",
+    "Definition": "to be above, have the upper hand, surpass; overcome, conquer",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "superus, supera, superum",
+    "First Element": "superus",
+    "Definition": "above, upper",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "surgo, surgere, surrexi, surrectum",
+    "First Element": "surgo",
+    "Definition": "to get up, arise",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "suscipio, suscipere, suscepi, susceptum",
+    "First Element": "suscipio",
+    "Definition": "to undertake",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "suus, sua, suum",
+    "First Element": "suus",
+    "Definition": "his own, her own, its own, their own",
+    "Chapter": 13,
+    "": ""
+  },
+  {
+    "Latin Word": "Syracusae, Syracusarum (f)",
+    "First Element": "Syracusae",
+    "Definition": "Syracuse",
+    "Chapter": 37,
+    "": ""
+  },
+  {
+    "Latin Word": "taceo, tacēre, tacui, tacitum",
+    "First Element": "taceo",
+    "Definition": "to be silent, leave unmentioned",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "talis, tale",
+    "First Element": "talis",
+    "Definition": "such, of such a sort",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "tam",
+    "First Element": "tam",
+    "Definition": "so, to such a degree (tam . . quam",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "tamen",
+    "First Element": "tamen",
+    "Definition": "nevertheless, still",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "tango, tangere, tetigi, tactum",
+    "First Element": "tango",
+    "Definition": "to touch",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "tantum",
+    "First Element": "tantum",
+    "Definition": "only",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "tantus, tanta, tantum",
+    "First Element": "tantus",
+    "Definition": "so large, so great, of such a size",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "te",
+    "First Element": "te",
+    "Definition": "you (accusative)",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "tempestas, tempestatis (f)",
+    "First Element": "tempestas",
+    "Definition": "period of time, season; weather; storm",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "tempus, temporis (n)",
+    "First Element": "tempus",
+    "Definition": "time; occasion, opportunity",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "teneo, tenere, tenui, tentum",
+    "First Element": "teneo",
+    "Definition": "to hold, keep, possess; restrain",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "terra, terrae (f)",
+    "First Element": "terra",
+    "Definition": "land, earth, ground, country",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "terreo, terrēre, terrui, territum",
+    "First Element": "terreo",
+    "Definition": "to frighten, terrify",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "timeo, timēre, timui",
+    "First Element": "timeo",
+    "Definition": "to be afraid, fear",
+    "Chapter": 15,
+    "": ""
+  },
+  {
+    "Latin Word": "timor, timoris (m)",
+    "First Element": "timor",
+    "Definition": "fear",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "tolero, tolerāre, toleravi, toleratum",
+    "First Element": "tolero",
+    "Definition": "to bear, endure",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "tollo, tollere, sustuli, sublatum",
+    "First Element": "tollo",
+    "Definition": "to raise up, lift up; take away, remove, destroy",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "tot",
+    "First Element": "tot",
+    "Definition": "so many",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "totus, tota, totum",
+    "First Element": "totus",
+    "Definition": "whole, entire",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "trado, tradere, tradidi, traditum",
+    "First Element": "trado",
+    "Definition": "to give over, surrender; hand down, transmit, teach (trans + do)",
+    "Chapter": 33,
+    "": ""
+  },
+  {
+    "Latin Word": "traho, trahere, traxi, tractum",
+    "First Element": "traho",
+    "Definition": "to drag, draw; derive, acquire",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "trans (+acc)",
+    "First Element": "trans",
+    "Definition": "across",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "transeo, transire, transii, transitum",
+    "First Element": "transeo",
+    "Definition": "to go across, cross; pass over, ignore",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "transitus, transitus (m)",
+    "First Element": "transitus",
+    "Definition": "passing over, transit; transition",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "tristis, triste",
+    "First Element": "tristis",
+    "Definition": "sad, sorrowful; joyless, grim, severe",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "Troia, Troiae (f)",
+    "First Element": "Troia",
+    "Definition": "Troy",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "tu, tui",
+    "First Element": "tu",
+    "Definition": "you",
+    "Chapter": 11,
+    "": ""
+  },
+  {
+    "Latin Word": "tum",
+    "First Element": "tum",
+    "Definition": "then, at that time; thereupon, in the next place",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "turba, turbae (f)",
+    "First Element": "turba",
+    "Definition": "uproar, disturbance; mob, crowd, multitude",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "turpis, turpe",
+    "First Element": "turpis",
+    "Definition": "ugly; shameful, base, disgraceful",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "tuus, tua, tuum",
+    "First Element": "tuus",
+    "Definition": "your (singular)",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "tyrannus, tyranni (m)",
+    "First Element": "tyrannus",
+    "Definition": "absolute ruler, tyrant",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "ubi",
+    "First Element": "ubi",
+    "Definition": "where, when",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "ullus, ulla, ulllum",
+    "First Element": "ullus",
+    "Definition": "any",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "ultimus, -a, -um",
+    "First Element": "ultimus",
+    "Definition": "farthest, extreme; last, final",
+    "Chapter": 25,
+    "": ""
+  },
+  {
+    "Latin Word": "ultra (+acc)",
+    "First Element": "ultra",
+    "Definition": "beyond, on the other side of",
+    "Chapter": 22,
+    "": ""
+  },
+  {
+    "Latin Word": "umquam",
+    "First Element": "umquam",
+    "Definition": "ever, at any time",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "unde",
+    "First Element": "unde",
+    "Definition": "whence, from what/which place, from which, from whom",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "unus, una, unum",
+    "First Element": "unus",
+    "Definition": "one, single, alone",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "urbanus, urbana, urbanum",
+    "First Element": "urbanus",
+    "Definition": "of the city, urban; urbane, elegant",
+    "Chapter": 26,
+    "": ""
+  },
+  {
+    "Latin Word": "urbs, urbis (f)*",
+    "First Element": "urbs",
+    "Definition": "city",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "usque",
+    "First Element": "usque",
+    "Definition": "all the way up (to), even (to), continuously, always",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "ut",
+    "First Element": "ut",
+    "Definition": "(+indic) as, just as, when",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "ut",
+    "First Element": "ut",
+    "Definition": "(+indic) as, when; (+subjunct) in order that, so that, that, in order to, so as to, to",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "uter, utra, utrum",
+    "First Element": "uter",
+    "Definition": "either, which (of two)",
+    "Chapter": 9,
+    "": ""
+  },
+  {
+    "Latin Word": "utilis, utile",
+    "First Element": "utilis",
+    "Definition": "useful, advantageous",
+    "Chapter": 27,
+    "": ""
+  },
+  {
+    "Latin Word": "utor, uti, usus sum (+abl)",
+    "First Element": "utor",
+    "Definition": "to use; enjoy, experience",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "utrum . . . an",
+    "First Element": "utrum . . . an",
+    "Definition": "whether . . . or",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "uxor, uxoris (f)",
+    "First Element": "uxor",
+    "Definition": "wife",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "vae (often +dat)",
+    "First Element": "vae",
+    "Definition": "alas, woe to",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "valeo, valēre, valui, valiturum",
+    "First Element": "valeo",
+    "Definition": "to be strong, have power; be well",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "venio, venire, veni, ventum",
+    "First Element": "venio",
+    "Definition": "to come",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "ventus, venti (m)",
+    "First Element": "ventus",
+    "Definition": "wind",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "verbum, verbi (n)",
+    "First Element": "verbum",
+    "Definition": "word",
+    "Chapter": 5,
+    "": ""
+  },
+  {
+    "Latin Word": "vereor, verēri, veritus sum",
+    "First Element": "vereor",
+    "Definition": "to show reverence for, respect; be afraid of",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "veritas, veritatis (f)",
+    "First Element": "veritas",
+    "Definition": "truth",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "vero",
+    "First Element": "vero",
+    "Definition": "in truth, indeed, to be sure, however",
+    "Chapter": 29,
+    "": ""
+  },
+  {
+    "Latin Word": "versus, versus (m)",
+    "First Element": "versus",
+    "Definition": "line of verse, verse",
+    "Chapter": 20,
+    "": ""
+  },
+  {
+    "Latin Word": "verto, vertere, verti, versum",
+    "First Element": "verto",
+    "Definition": "to turn; change",
+    "Chapter": 23,
+    "": ""
+  },
+  {
+    "Latin Word": "verus, vera, verum",
+    "First Element": "verus",
+    "Definition": "true, real, proper",
+    "Chapter": 4,
+    "": ""
+  },
+  {
+    "Latin Word": "vesper, vesperis/vesperi (m)",
+    "First Element": "vesper",
+    "Definition": "evening; evening star",
+    "Chapter": 28,
+    "": ""
+  },
+  {
+    "Latin Word": "vester, vestra, vestrum",
+    "First Element": "vester",
+    "Definition": "your (plural)",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "vetus (gen: veteris)",
+    "First Element": "vetus",
+    "Definition": "old",
+    "Chapter": 39,
+    "": ""
+  },
+  {
+    "Latin Word": "via, viae (f)",
+    "First Element": "via",
+    "Definition": "road, way, street",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "vicinus, vicini (m)",
+    "First Element": "vicinus",
+    "Definition": "neighbor",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "victoria, victoriae (f)",
+    "First Element": "victoria",
+    "Definition": "victory",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "video, vidēre, vidi, visum",
+    "First Element": "video",
+    "Definition": "to see; observe, understand",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "videor, vidēri, visus sum",
+    "First Element": "videor",
+    "Definition": "to be seen; seem, appear",
+    "Chapter": 18,
+    "": ""
+  },
+  {
+    "Latin Word": "vinco, vincere, vici, victum",
+    "First Element": "vinco",
+    "Definition": "to conquer, overcome",
+    "Chapter": 8,
+    "": ""
+  },
+  {
+    "Latin Word": "vinculum, vinculi (n)",
+    "First Element": "vinculum",
+    "Definition": "chain, bond, fetter",
+    "Chapter": 36,
+    "": ""
+  },
+  {
+    "Latin Word": "vinum, vini (n)",
+    "First Element": "vinum",
+    "Definition": "wine",
+    "Chapter": 31,
+    "": ""
+  },
+  {
+    "Latin Word": "vir, viri (m)",
+    "First Element": "vir",
+    "Definition": "man, hero, husband",
+    "Chapter": 3,
+    "": ""
+  },
+  {
+    "Latin Word": "virgo, virginis (f)",
+    "First Element": "virgo",
+    "Definition": "maiden, virgin, young woman",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "virtus, virtutis (f)",
+    "First Element": "virtus",
+    "Definition": "manliness, courage; excellence, character, worth, virtue",
+    "Chapter": 7,
+    "": ""
+  },
+  {
+    "Latin Word": "vis, vis (f)",
+    "First Element": "vis",
+    "Definition": "force, power, violence (plural = strength)",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "vita, vitae (f)",
+    "First Element": "vita",
+    "Definition": "life; mode of life",
+    "Chapter": 2,
+    "": ""
+  },
+  {
+    "Latin Word": "vitium, vitii (n)",
+    "First Element": "vitium",
+    "Definition": "fault, crime, vice",
+    "Chapter": 6,
+    "": ""
+  },
+  {
+    "Latin Word": "vito, vitāre, vitavi, vitatum",
+    "First Element": "vito",
+    "Definition": "shun, avoid",
+    "Chapter": 14,
+    "": ""
+  },
+  {
+    "Latin Word": "vivo, vivere, vixi, victum",
+    "First Element": "vivo",
+    "Definition": "to live",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "vivus, viva, vivum",
+    "First Element": "vivus",
+    "Definition": "living, alive",
+    "Chapter": 30,
+    "": ""
+  },
+  {
+    "Latin Word": "voco, vocāre, vocavi, vocatum",
+    "First Element": "voco",
+    "Definition": "to call, summon",
+    "Chapter": 1,
+    "": ""
+  },
+  {
+    "Latin Word": "volo, velle, volui",
+    "First Element": "volo",
+    "Definition": "to wish, want, be willing, will",
+    "Chapter": 32,
+    "": ""
+  },
+  {
+    "Latin Word": "voluptas, voluptatis (f)",
+    "First Element": "voluptas",
+    "Definition": "pleasure",
+    "Chapter": 10,
+    "": ""
+  },
+  {
+    "Latin Word": "vox, vocis (f)",
+    "First Element": "vox",
+    "Definition": "voice",
+    "Chapter": 34,
+    "": ""
+  },
+  {
+    "Latin Word": "vulgus, vulgi (n)",
+    "First Element": "vulgus",
+    "Definition": "the common people, mob, rabble",
+    "Chapter": 21,
+    "": ""
+  },
+  {
+    "Latin Word": "vulnus, vulneris (n)",
+    "First Element": "vulnus",
+    "Definition": "wound",
+    "Chapter": 24,
+    "": ""
+  },
+  {
+    "Latin Word": "vultus, vultus (m)",
+    "First Element": "vultus",
+    "Definition": "countenance, face",
+    "Chapter": 40,
+    "": ""
+  },
+  {
+    "Latin Word": "ne",
+    "First Element": "ne",
+    "Definition": "",
+    "Chapter": 5,
+    "": ""
+  }
+]

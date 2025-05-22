@@ -18,9 +18,14 @@ import { Home, Microscope, Languages, Volume2, NotebookTextIcon } from 'lucide-r
 
 const navItems = [
   { href: '/', label: 'Text Viewer', icon: NotebookTextIcon },
-  { href: '/morphology', label: 'Morphological Analyzer', icon: Microscope },
-  { href: '/translation', label: 'Translation Assistant', icon: Languages },
-  { href: '/pronunciation', label: 'Pronunciation Guides', icon: Volume2 },
+  // { href: '/morphology', label: 'Morphological Analyzer', icon: Microscope },
+  // { href: '/translation', label: 'Translation Assistant', icon: Languages },
+  // { href: '/pronunciation', label: 'Pronunciation Guides', icon: Volume2 },
+  { href: '/greek', label: 'Greek Lexicon tools', icon: Volume2 },
+  { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Volume2 },
+  { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: Volume2 },
+  { href: '/matching-game', label: 'Vocabulary matching game', icon: Volume2 },
+  { href: '/parser-game', label: 'Greek word parsing game', icon: Volume2 },
 ];
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

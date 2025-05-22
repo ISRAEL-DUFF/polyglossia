@@ -1,0 +1,3693 @@
+{
+    "section 1": [
+        {
+            "word": "אֵם",
+            "meanings": [
+                "mother"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾēm"
+        },
+        {
+            "word": "אֶרֶץ",
+            "meanings": [
+                "land",
+                " country"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾérets"
+        },
+        {
+            "word": "אִישׁ",
+            "meanings": [
+                "man",
+                " husband"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾîš"
+        },
+        {
+            "word": "אִשָּׁה",
+            "meanings": [
+                "woman",
+                " wife"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾiššāh"
+        },
+        {
+            "word": "אֱלֹהִים",
+            "meanings": [
+                "God",
+                " gods"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine plural (often singular meaning))",
+            "transliteration": "ʾĕlōhîm"
+        },
+        {
+            "word": "אֵשׁ",
+            "meanings": [
+                "fire"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine (grammatically irregular))",
+            "transliteration": "ʾēš"
+        },
+        {
+            "word": "בַּיִת",
+            "meanings": [
+                "house",
+                " household"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bayit"
+        },
+        {
+            "word": "בֵּן",
+            "meanings": [
+                "son"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bēn"
+        },
+        {
+            "word": "בַּת",
+            "meanings": [
+                "daughter"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "bat"
+        },
+        {
+            "word": "גּוֹי",
+            "meanings": [
+                "nation",
+                " people"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "gôy"
+        },
+        {
+            "word": "דֶּרֶךְ",
+            "meanings": [
+                "way",
+                " road"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (common (masculine or feminine))",
+            "transliteration": "déreḵ"
+        },
+        {
+            "word": "דָּבָר",
+            "meanings": [
+                "word",
+                " thing"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "dāḇār"
+        },
+        {
+            "word": "דָּם",
+            "meanings": [
+                "blood"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "dām"
+        },
+        {
+            "word": "הַר",
+            "meanings": [
+                "mountain"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "har"
+        },
+        {
+            "word": "זָהָב",
+            "meanings": [
+                "gold"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "zāhāḇ"
+        },
+        {
+            "word": "זָכָר",
+            "meanings": [
+                "male"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "zāḵār"
+        },
+        {
+            "word": "חַי",
+            "meanings": [
+                "alive",
+                " living",
+                "living",
+                " alive"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (masculine)",
+            "transliteration": "ḥay"
+        },
+        {
+            "word": "חֶסֶד",
+            "meanings": [
+                "lovingkindness",
+                " loyalty",
+                " mercy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥéseḏ"
+        },
+        {
+            "word": "חֹשֶׁךְ",
+            "meanings": [
+                "darkness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥōšeḵ"
+        },
+        {
+            "word": "טוֹב",
+            "meanings": [
+                "good"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (masculine)",
+            "transliteration": "ṭôḇ"
+        },
+        {
+            "word": "יָד",
+            "meanings": [
+                "hand"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yāḏ"
+        },
+        {
+            "word": "יוֹם",
+            "meanings": [
+                "day"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "yôm"
+        },
+        {
+            "word": "יֶלֶד",
+            "meanings": [
+                "boy",
+                " child",
+                "child",
+                " boy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "yeleḏ"
+        },
+        {
+            "word": "יַלְדָּה",
+            "meanings": [
+                "girl"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yaldāh"
+        },
+        {
+            "word": "כֹּהֵן",
+            "meanings": [
+                "priest"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kōhēn"
+        }
+    ],
+    "section 2": [
+        {
+            "word": "כֶּסֶף",
+            "meanings": [
+                "silver",
+                " money"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kesef"
+        },
+        {
+            "word": "כֹּל",
+            "meanings": [
+                "all",
+                " every"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kol"
+        },
+        {
+            "word": "כֶּלֶב",
+            "meanings": [
+                "dog"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kelev"
+        },
+        {
+            "word": "לֵב",
+            "meanings": [
+                "heart",
+                " mind"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "lev"
+        },
+        {
+            "word": "לַיְלָה",
+            "meanings": [
+                "night"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "laylāh"
+        },
+        {
+            "word": "מַיִם",
+            "meanings": [
+                "water"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine (plural form, treated as singular))",
+            "transliteration": "mayim"
+        },
+        {
+            "word": "מֶלֶךְ",
+            "meanings": [
+                "king"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "melekh"
+        },
+        {
+            "word": "מִשְׁפָּט",
+            "meanings": [
+                "judgment",
+                " justice",
+                " ordinance"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mishpāt"
+        },
+        {
+            "word": "נָבִיא",
+            "meanings": [
+                "prophet"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nāvî"
+        },
+        {
+            "word": "נֶפֶשׁ",
+            "meanings": [
+                "soul",
+                " life",
+                " person"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "nefesh"
+        },
+        {
+            "word": "נַעַר",
+            "meanings": [
+                "boy",
+                " youth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "naʿar"
+        },
+        {
+            "word": "נַעֲרָה",
+            "meanings": [
+                "girl",
+                " young woman"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "naʿărāh"
+        },
+        {
+            "word": "נָשִׂיא",
+            "meanings": [
+                "leader",
+                " prince",
+                "prince",
+                " chief",
+                " leader"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nāśî"
+        },
+        {
+            "word": "סֵפֶר",
+            "meanings": [
+                "book",
+                " scroll",
+                " letter",
+                " document"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "sēfer"
+        },
+        {
+            "word": "עֶבֶד",
+            "meanings": [
+                "servant",
+                " slave"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿeved"
+        },
+        {
+            "word": "עֵץ",
+            "meanings": [
+                "tree",
+                " wood"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿēts"
+        },
+        {
+            "word": "עַיִן",
+            "meanings": [
+                "eye",
+                " spring"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿayin"
+        },
+        {
+            "word": "עִיר",
+            "meanings": [
+                "city"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿîr"
+        },
+        {
+            "word": "עָם",
+            "meanings": [
+                "people",
+                " nation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿām"
+        },
+        {
+            "word": "פֶּה",
+            "meanings": [
+                "mouth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "peh"
+        },
+        {
+            "word": "פָּנִים",
+            "meanings": [
+                "face",
+                " surface"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine (plural form, singular meaning))",
+            "transliteration": "pānîm"
+        },
+        {
+            "word": "צֶדֶק",
+            "meanings": [
+                "righteousness",
+                " justice"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "tsédeq"
+        },
+        {
+            "word": "קוֹל",
+            "meanings": [
+                "voice",
+                " sound"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "qôl"
+        },
+        {
+            "word": "רֹאשׁ",
+            "meanings": [
+                "head",
+                " chief",
+                " top"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "rôʾš"
+        },
+        {
+            "word": "רוּחַ",
+            "meanings": [
+                "spirit",
+                " wind",
+                " breath"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "rûaḥ"
+        }
+    ],
+    "section 3": [
+        {
+            "word": "רֵעַ",
+            "meanings": [
+                "friend",
+                " companion",
+                " neighbor"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "rēaʿ"
+        },
+        {
+            "word": "רַב",
+            "meanings": [
+                "great",
+                " many",
+                "much",
+                " great"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (masculine)",
+            "transliteration": "rav"
+        },
+        {
+            "word": "רַע",
+            "meanings": [
+                "evil",
+                " bad"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (masculine)",
+            "transliteration": "raʿ"
+        },
+        {
+            "word": "שַׂר",
+            "meanings": [
+                "prince",
+                " ruler"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "śar"
+        },
+        {
+            "word": "שָׁלוֹם",
+            "meanings": [
+                "peace",
+                " completeness",
+                " welfare"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "šālôm"
+        },
+        {
+            "word": "שַׁעַר",
+            "meanings": [
+                "gate"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "šaʿar"
+        },
+        {
+            "word": "שֵׁם",
+            "meanings": [
+                "name",
+                "Shem (a personal name)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "šēm"
+        },
+        {
+            "word": "שֶׁמֶשׁ",
+            "meanings": [
+                "sun"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "šémeš"
+        },
+        {
+            "word": "שָׁנָה",
+            "meanings": [
+                "year"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "šānāh"
+        },
+        {
+            "word": "שַׁבָּת",
+            "meanings": [
+                "Sabbath",
+                " rest"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "šabbāt"
+        },
+        {
+            "word": "תּוֹרָה",
+            "meanings": [
+                "law",
+                " instruction",
+                " teaching"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tôrāh"
+        },
+        {
+            "word": "אָדוֹן",
+            "meanings": [
+                "lord",
+                " master"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾādôn"
+        },
+        {
+            "word": "אָב",
+            "meanings": [
+                "father"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾāv"
+        },
+        {
+            "word": "בְּרִית",
+            "meanings": [
+                "covenant"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "berît"
+        },
+        {
+            "word": "אֹיֵב",
+            "meanings": [
+                "enemy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾôyēv"
+        },
+        {
+            "word": "עֵדָה",
+            "meanings": [
+                "congregation",
+                " assembly"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿēdāh"
+        },
+        {
+            "word": "חַטָּאת",
+            "meanings": [
+                "sin",
+                " sin offering"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ḥaṭṭāʾt"
+        },
+        {
+            "word": "חֹק",
+            "meanings": [
+                "statute",
+                " decree"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥōq"
+        },
+        {
+            "word": "עֵד",
+            "meanings": [
+                "witness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿēd"
+        },
+        {
+            "word": "דּוֹר",
+            "meanings": [
+                "generation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "dôr"
+        },
+        {
+            "word": "מַלְאָךְ",
+            "meanings": [
+                "messenger",
+                " angel"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "malʾākh"
+        },
+        {
+            "word": "עֵבֶר",
+            "meanings": [
+                "region beyond",
+                " other side",
+                " side"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿēver"
+        },
+        {
+            "word": "קָרְבָּן",
+            "meanings": [
+                "offering"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "qorbān"
+        },
+        {
+            "word": "נַחַל",
+            "meanings": [
+                "valley",
+                " wadi"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "naḥal"
+        },
+        {
+            "word": "שָׁמַיִם",
+            "meanings": [
+                "heavens",
+                " sky"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine (plural))",
+            "transliteration": "šāmayim"
+        }
+    ],
+    "section 4": [
+        {
+            "word": "שֵׁבֶט",
+            "meanings": [
+                "tribe",
+                " staff"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "šévet"
+        },
+        {
+            "word": "אָדָם",
+            "meanings": [
+                "man",
+                " human",
+                " Adam"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾādām"
+        },
+        {
+            "word": "בְּהֵמָה",
+            "meanings": [
+                "beast",
+                " animal"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "behēmāh"
+        },
+        {
+            "word": "מִצְוָה",
+            "meanings": [
+                "commandment"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "mitsvāh"
+        },
+        {
+            "word": "מִזְבֵּחַ",
+            "meanings": [
+                "altar"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mizbéaḥ"
+        },
+        {
+            "word": "נֶגֶד",
+            "meanings": [
+                "presence",
+                " opposite",
+                "in front of"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "preposition",
+            "transliteration": "néged"
+        },
+        {
+            "word": "סוּס",
+            "meanings": [
+                "horse"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "sûs"
+        },
+        {
+            "word": "פַּעַם",
+            "meanings": [
+                "time",
+                " occurrence"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "paʿam"
+        },
+        {
+            "word": "צָבָא",
+            "meanings": [
+                "army",
+                " host",
+                "host",
+                " army",
+                " war service"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "tsāvāʾ"
+        },
+        {
+            "word": "קֹדֶשׁ",
+            "meanings": [
+                "holiness",
+                " sanctuary",
+                " sacredness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "qōdésh"
+        },
+        {
+            "word": "רֶגֶל",
+            "meanings": [
+                "foot"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "régel"
+        },
+        {
+            "word": "רֶשַׁע",
+            "meanings": [
+                "wickedness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "réshaʿ"
+        },
+        {
+            "word": "שִׂמְחָה",
+            "meanings": [
+                "joy",
+                " gladness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "simḥāh"
+        },
+        {
+            "word": "שֶׁקֶר",
+            "meanings": [
+                "lie",
+                " falsehood"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shéqer"
+        },
+        {
+            "word": "תַּחַת",
+            "meanings": [
+                "under",
+                " instead of"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "preposition",
+            "transliteration": "taḥat"
+        },
+        {
+            "word": "תְּפִלָּה",
+            "meanings": [
+                "prayer"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tefillāh"
+        },
+        {
+            "word": "אֲדָמָה",
+            "meanings": [
+                "ground",
+                " land",
+                " soil"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾădāmāh"
+        },
+        {
+            "word": "בְּכוֹר",
+            "meanings": [
+                "firstborn"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bekhōr"
+        },
+        {
+            "word": "גְּבוּל",
+            "meanings": [
+                "border",
+                " territory"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "gevûl"
+        }
+    ],
+    "section 5": [
+        {
+            "word": "חַיִּים",
+            "meanings": [
+                "life"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine (plural in form))",
+            "transliteration": "ḥayyim"
+        },
+        {
+            "word": "יָם",
+            "meanings": [
+                "sea"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "yām"
+        },
+        {
+            "word": "לֵב / לֵבָב",
+            "meanings": [
+                "heart",
+                " mind"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "lēv / lēvāv"
+        },
+        {
+            "word": "מִדְבָּר",
+            "meanings": [
+                "wilderness",
+                " desert"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "midbār"
+        },
+        {
+            "word": "מַטֶּה",
+            "meanings": [
+                "staff",
+                " tribe"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "maṭṭeh"
+        },
+        {
+            "word": "עַם",
+            "meanings": [
+                "people",
+                " nation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿām"
+        },
+        {
+            "word": "פְּרִי",
+            "meanings": [
+                "fruit"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "perî"
+        },
+        {
+            "word": "צַדִּיק",
+            "meanings": [
+                "righteous (one)",
+                "righteous",
+                " just"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective / noun (masculine)",
+            "transliteration": "tsaddîq"
+        },
+        {
+            "word": "קֶרֶב",
+            "meanings": [
+                "midst",
+                " inward part",
+                "inner part",
+                " midst"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "qérev"
+        },
+        {
+            "word": "רָשָׁע",
+            "meanings": [
+                "wicked (one)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective / noun (masculine)",
+            "transliteration": "rāshāʿ"
+        },
+        {
+            "word": "שֵׁבֶר",
+            "meanings": [
+                "break",
+                " destruction"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shéver"
+        },
+        {
+            "word": "שָׁמַע",
+            "meanings": [
+                "to hear",
+                " listen",
+                " obey"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shāmaʿ"
+        },
+        {
+            "word": "תּוֹךְ",
+            "meanings": [
+                "midst",
+                " inside"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "tôk"
+        },
+        {
+            "word": "שָׂדֶה",
+            "meanings": [
+                "field",
+                " land",
+                " pasture"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "śādeh"
+        },
+        {
+            "word": "עֶצֶם",
+            "meanings": [
+                "bone",
+                " self"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿétsém"
+        }
+    ],
+    "section 6": [
+        {
+            "word": "אֲרוֹן",
+            "meanings": [
+                "ark",
+                " chest"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾārōn"
+        },
+        {
+            "word": "גִּבּוֹר",
+            "meanings": [
+                "mighty man",
+                " warrior"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "gibbōr"
+        },
+        {
+            "word": "חֹדֶשׁ",
+            "meanings": [
+                "month",
+                " new moon"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥōḏésh"
+        },
+        {
+            "word": "יָמִין",
+            "meanings": [
+                "right hand",
+                " south"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yāmīn"
+        },
+        {
+            "word": "כְּלִי",
+            "meanings": [
+                "vessel",
+                " tool",
+                " weapon",
+                " utensil"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kelî"
+        },
+        {
+            "word": "מַחֲנֶה",
+            "meanings": [
+                "camp",
+                " army"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "maḥănéh"
+        },
+        {
+            "word": "מַלְכוּת",
+            "meanings": [
+                "kingdom",
+                " reign"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "malkût"
+        },
+        {
+            "word": "מָקוֹם",
+            "meanings": [
+                "place"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "māqōm"
+        },
+        {
+            "word": "מַרְאֶה",
+            "meanings": [
+                "appearance",
+                " vision"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "marʾeh"
+        },
+        {
+            "word": "מַשְׁחִית",
+            "meanings": [
+                "destroyer",
+                " destruction"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "mashḥît"
+        },
+        {
+            "word": "מִשְׁכָּן",
+            "meanings": [
+                "dwelling",
+                " tabernacle"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mishkān"
+        },
+        {
+            "word": "עָנָן",
+            "meanings": [
+                "cloud"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿānān"
+        },
+        {
+            "word": "עֵדוּת",
+            "meanings": [
+                "testimony",
+                " witness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿēdût"
+        },
+        {
+            "word": "עֶצֶר",
+            "meanings": [
+                "help",
+                " aid"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿéṣer"
+        },
+        {
+            "word": "עֵת",
+            "meanings": [
+                "time",
+                " season"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿēt"
+        },
+        {
+            "word": "פְּנִים",
+            "meanings": [
+                "face",
+                " surface"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine (plural in form))",
+            "transliteration": "penîm"
+        },
+        {
+            "word": "צָפוֹן",
+            "meanings": [
+                "north",
+                " hidden"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ṣāfôn"
+        }
+    ],
+    "section 7": [
+        {
+            "word": "רֵאשִׁית",
+            "meanings": [
+                "beginning",
+                " first",
+                " chief"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "rēʾshît"
+        },
+        {
+            "word": "שְׁנַיִם",
+            "meanings": [
+                "two"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "numeral (masculine)",
+            "transliteration": "shĕnayim"
+        },
+        {
+            "word": "שֶׁמֶן",
+            "meanings": [
+                "oil",
+                " fat"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shémen"
+        },
+        {
+            "word": "תָּמִיד",
+            "meanings": [
+                "continually",
+                " always",
+                " regularly"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "tāmîd"
+        },
+        {
+            "word": "תְּרוּמָה",
+            "meanings": [
+                "offering",
+                " contribution"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tĕrûmāh"
+        },
+        {
+            "word": "אֹהֶל",
+            "meanings": [
+                "tent"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾōhel"
+        },
+        {
+            "word": "אוֹר",
+            "meanings": [
+                "light"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾôr"
+        },
+        {
+            "word": "בָּקָר",
+            "meanings": [
+                "cattle",
+                " herd"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bāqār"
+        },
+        {
+            "word": "בֹּקֶר",
+            "meanings": [
+                "morning"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bōqer"
+        },
+        {
+            "word": "גָּדוֹל",
+            "meanings": [
+                "great",
+                " large"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (masculine)",
+            "transliteration": "gādōl"
+        },
+        {
+            "word": "דֶּלֶת",
+            "meanings": [
+                "door"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "délet"
+        },
+        {
+            "word": "הָרַג",
+            "meanings": [
+                "to kill",
+                " slay"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "hārag"
+        },
+        {
+            "word": "חֹמֶר",
+            "meanings": [
+                "clay",
+                " mortar"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥōmer"
+        },
+        {
+            "word": "יְרִיעָה",
+            "meanings": [
+                "curtain",
+                " tent-cloth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yĕriʿāh"
+        },
+        {
+            "word": "כָּבוֹד",
+            "meanings": [
+                "glory",
+                " honor"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kāvōd"
+        },
+        {
+            "word": "כָּנָף",
+            "meanings": [
+                "wing",
+                " edge"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "kānāf"
+        },
+        {
+            "word": "לְבֵנָה",
+            "meanings": [
+                "brick"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "lĕvênāh"
+        },
+        {
+            "word": "מְאֹרָה",
+            "meanings": [
+                "light",
+                " luminary"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "mĕʾōrāh"
+        },
+        {
+            "word": "מִגְדָּל",
+            "meanings": [
+                "tower"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "migdāl"
+        },
+        {
+            "word": "מָטָר",
+            "meanings": [
+                "rain"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mātār"
+        }
+    ],
+    "section 8": [
+        {
+            "word": "מִשְׁפָּחָה",
+            "meanings": [
+                "family",
+                " clan"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "mishpāḥāh"
+        },
+        {
+            "word": "מִשְׁקָל",
+            "meanings": [
+                "weight"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mishqāl"
+        },
+        {
+            "word": "מִשְׁתֶּה",
+            "meanings": [
+                "banquet",
+                " feast"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mishteh"
+        },
+        {
+            "word": "נְשָׁמָה",
+            "meanings": [
+                "breath",
+                " soul"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "nĕshāmāh"
+        },
+        {
+            "word": "עֵדֶר",
+            "meanings": [
+                "flock",
+                " herd"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿéder"
+        },
+        {
+            "word": "עָוֹן",
+            "meanings": [
+                "iniquity",
+                " guilt"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿāvōn"
+        },
+        {
+            "word": "עֵצָה",
+            "meanings": [
+                "counsel",
+                " advice"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿēṣāh"
+        },
+        {
+            "word": "פֶּשַׁע",
+            "meanings": [
+                "transgression",
+                " rebellion"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "péshaʿ"
+        },
+        {
+            "word": "קָהָל",
+            "meanings": [
+                "assembly",
+                " congregation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "qāhāl"
+        },
+        {
+            "word": "קָרוֹב",
+            "meanings": [
+                "near",
+                " close"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "qārōv"
+        },
+        {
+            "word": "רֶגַע",
+            "meanings": [
+                "moment",
+                " instant"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "régaʿ"
+        },
+        {
+            "word": "רוּץ",
+            "meanings": [
+                "to run"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rûṣ"
+        },
+        {
+            "word": "רֶצַח",
+            "meanings": [
+                "murder",
+                " killing"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "réṣaḥ"
+        },
+        {
+            "word": "רָצוֹן",
+            "meanings": [
+                "will",
+                " favor"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "rāṣōn"
+        },
+        {
+            "word": "שָׂפָה",
+            "meanings": [
+                "lip",
+                " edge",
+                " language"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "śāpāh"
+        },
+        {
+            "word": "שָׁלַח",
+            "meanings": [
+                "to send",
+                " stretch out"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shālaḥ"
+        },
+        {
+            "word": "שָׁם",
+            "meanings": [
+                "there"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "shām"
+        },
+        {
+            "word": "תּוֹעֵבָה",
+            "meanings": [
+                "abomination"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tōʿēvāh"
+        },
+        {
+            "word": "תָּמִים",
+            "meanings": [
+                "complete",
+                " blameless",
+                "blameless",
+                " perfect"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "tāmīm"
+        },
+        {
+            "word": "תְּרוּעָה",
+            "meanings": [
+                "shout",
+                " blast"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tĕrûʿāh"
+        }
+    ],
+    "section 9": [
+        {
+            "word": "תֵּבֵל",
+            "meanings": [
+                "world",
+                " inhabited earth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tēvēl"
+        },
+        {
+            "word": "תָּפַשׂ",
+            "meanings": [
+                "to seize",
+                " grasp"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "tāfas"
+        },
+        {
+            "word": "אֹרֶךְ",
+            "meanings": [
+                "length"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾōrek"
+        },
+        {
+            "word": "אֵת",
+            "meanings": [
+                "with (also direct object marker)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "preposition / particle",
+            "transliteration": "ʾēt"
+        },
+        {
+            "word": "בְּתוּלָה",
+            "meanings": [
+                "virgin"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "bĕtûlāh"
+        },
+        {
+            "word": "בַּעַל",
+            "meanings": [
+                "lord",
+                " husband",
+                " owner"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "baʿal"
+        },
+        {
+            "word": "בֶּטֶן",
+            "meanings": [
+                "belly",
+                " womb"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "béten"
+        },
+        {
+            "word": "גָּאַל",
+            "meanings": [
+                "to redeem"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "gāʾal"
+        },
+        {
+            "word": "גָּבֹהַּ",
+            "meanings": [
+                "high",
+                " exalted"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "gāvōah"
+        },
+        {
+            "word": "הֵיכָל",
+            "meanings": [
+                "temple",
+                " palace"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "hēkhāl"
+        },
+        {
+            "word": "חֶבֶל",
+            "meanings": [
+                "cord",
+                " territory"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥével"
+        },
+        {
+            "word": "חָסֵר",
+            "meanings": [
+                "to lack",
+                " decrease"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥāsēr"
+        },
+        {
+            "word": "חֵץ",
+            "meanings": [
+                "arrow"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥēṣ"
+        },
+        {
+            "word": "כָּבֵד",
+            "meanings": [
+                "heavy",
+                " important",
+                "to be heavy",
+                " honored"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "kāvēd"
+        },
+        {
+            "word": "כִּכָּר",
+            "meanings": [
+                "talent (weight)",
+                " loaf",
+                " round"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "kikkār"
+        },
+        {
+            "word": "כֶּרֶם",
+            "meanings": [
+                "vineyard"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kérem"
+        },
+        {
+            "word": "כַּף",
+            "meanings": [
+                "palm (of hand)",
+                " sole (of foot)",
+                "palm",
+                " hand"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "kaf"
+        },
+        {
+            "word": "לָבַשׁ",
+            "meanings": [
+                "to put on",
+                " wear (a garment)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "lāvash"
+        },
+        {
+            "word": "מַעֲשֶׂה",
+            "meanings": [
+                "deed",
+                " work"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "maʿăseh"
+        }
+    ],
+    "section 10": [
+        {
+            "word": "מִנְחָה",
+            "meanings": [
+                "offering",
+                " gift"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "minḥāh"
+        },
+        {
+            "word": "מִקְדָּשׁ",
+            "meanings": [
+                "sanctuary",
+                " holy place"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "miqdāsh"
+        },
+        {
+            "word": "מָשָׁל",
+            "meanings": [
+                "proverb",
+                " parable"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "māshāl"
+        },
+        {
+            "word": "נָגַע",
+            "meanings": [
+                "to touch",
+                " strike"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāgaʿ"
+        },
+        {
+            "word": "נְאֻם",
+            "meanings": [
+                "utterance",
+                " declaration",
+                " declaration (esp. of the Lord)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nĕʾum"
+        },
+        {
+            "word": "נָצַל",
+            "meanings": [
+                "to deliver",
+                " rescue",
+                " rescue (Hiphil)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāṣal"
+        },
+        {
+            "word": "נָשָׂא",
+            "meanings": [
+                "to lift",
+                " carry",
+                " bear"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāśāʾ"
+        },
+        {
+            "word": "נֶשֶׁק",
+            "meanings": [
+                "weapons"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nésheq"
+        },
+        {
+            "word": "פָּתַח",
+            "meanings": [
+                "to open"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "pātach"
+        },
+        {
+            "word": "צְבָא",
+            "meanings": [
+                "army",
+                " host"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ṣĕvāʾ"
+        },
+        {
+            "word": "קָדוֹשׁ",
+            "meanings": [
+                "holy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "qādōsh"
+        },
+        {
+            "word": "קָבַר",
+            "meanings": [
+                "to bury"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "qāvar"
+        }
+    ],
+    "section 11": [
+        {
+            "word": "שָׁפַךְ",
+            "meanings": [
+                "to pour out",
+                " shed"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shāfakh"
+        },
+        {
+            "word": "שָׁפֵט",
+            "meanings": [
+                "judge"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shāfēt"
+        },
+        {
+            "word": "שֵׁן",
+            "meanings": [
+                "tooth",
+                " ivory"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "shen"
+        },
+        {
+            "word": "שִׁיר",
+            "meanings": [
+                "song"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shīr"
+        },
+        {
+            "word": "שָׁלֵם",
+            "meanings": [
+                "to be complete",
+                " sound"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shālēm"
+        },
+        {
+            "word": "שְׁמִינִי",
+            "meanings": [
+                "eighth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective (ordinal)",
+            "transliteration": "shĕmīnī"
+        },
+        {
+            "word": "שְׁמַע",
+            "meanings": [
+                "hearing",
+                " report"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shĕmaʿ"
+        },
+        {
+            "word": "שְׁמוּעָה",
+            "meanings": [
+                "report",
+                " news"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "shĕmûʿāh"
+        },
+        {
+            "word": "שָׁמַד",
+            "meanings": [
+                "to be destroyed",
+                " annihilated"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shāmad"
+        },
+        {
+            "word": "שָׁקַל",
+            "meanings": [
+                "to weigh",
+                " pay"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shāqal"
+        },
+        {
+            "word": "תָּוֶךְ",
+            "meanings": [
+                "midst",
+                " middle"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "tāwek"
+        },
+        {
+            "word": "תָּהוֹם",
+            "meanings": [
+                "deep",
+                " abyss"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tĕhōm"
+        },
+        {
+            "word": "תָּלָה",
+            "meanings": [
+                "to hang"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "tālāh"
+        },
+        {
+            "word": "תָּמַךְ",
+            "meanings": [
+                "to support",
+                " grasp",
+                "to uphold",
+                " support"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "tāmakh"
+        },
+        {
+            "word": "תָּפַר",
+            "meanings": [
+                "to sew"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "tāfar"
+        },
+        {
+            "word": "תֵּבָה",
+            "meanings": [
+                "ark",
+                " box"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "tēvāh"
+        },
+        {
+            "word": "תּוֹשָׁב",
+            "meanings": [
+                "sojourner"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "tōshāv"
+        }
+    ],
+    "section 12": [
+        {
+            "word": "אוֹת",
+            "meanings": [
+                "sign",
+                " mark"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine/feminine)",
+            "transliteration": "ʾôt"
+        },
+        {
+            "word": "אֵיךְ",
+            "meanings": [
+                "how?"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "interrogative adverb",
+            "transliteration": "ʾêkh"
+        },
+        {
+            "word": "אַיֵּה",
+            "meanings": [
+                "where?"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "interrogative",
+            "transliteration": "ʾayyēh"
+        },
+        {
+            "word": "אֵין",
+            "meanings": [
+                "there is not"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "particle",
+            "transliteration": "ʾēn"
+        },
+        {
+            "word": "אֱלִיל",
+            "meanings": [
+                "idol"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾĕlīl"
+        },
+        {
+            "word": "אֱמוּנָה",
+            "meanings": [
+                "faithfulness",
+                " trust"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾĕmûnāh"
+        },
+        {
+            "word": "אֱמֶת",
+            "meanings": [
+                "truth",
+                " firmness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʾĕmet"
+        },
+        {
+            "word": "אֵפֶר",
+            "meanings": [
+                "ashes"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾēfer"
+        },
+        {
+            "word": "אַרְיֵה",
+            "meanings": [
+                "lion"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾaryēh"
+        },
+        {
+            "word": "אֶרֶז",
+            "meanings": [
+                "cedar"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʾerez"
+        },
+        {
+            "word": "אֶשֶׁר",
+            "meanings": [
+                "that",
+                " which",
+                " who"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "relative pronoun",
+            "transliteration": "ʾesher"
+        },
+        {
+            "word": "אֶתְמוֹל",
+            "meanings": [
+                "yesterday"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "ʾetmōl"
+        },
+        {
+            "word": "בֶּגֶד",
+            "meanings": [
+                "garment"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "béged"
+        },
+        {
+            "word": "בָּחוּר",
+            "meanings": [
+                "young man"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bāḥûr"
+        },
+        {
+            "word": "בְּכוֹר",
+            "meanings": [
+                "firstborn"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bĕkhôr"
+        },
+        {
+            "word": "בֶּטֶן",
+            "meanings": [
+                "belly",
+                " womb"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "béṭen"
+        },
+        {
+            "word": "בִּינָה",
+            "meanings": [
+                "understanding"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "bīnāh"
+        },
+        {
+            "word": "בְּעֵרֶב",
+            "meanings": [
+                "in the evening"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "bĕʿērev"
+        },
+        {
+            "word": "בַּרְזֶל",
+            "meanings": [
+                "iron"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "barzel"
+        },
+        {
+            "word": "בָּשָׂר",
+            "meanings": [
+                "flesh"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "bāśār"
+        },
+        {
+            "word": "גְּבוּרָה",
+            "meanings": [
+                "strength",
+                " might"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "gĕvūrāh"
+        },
+        {
+            "word": "גִּבּוֹר",
+            "meanings": [
+                "mighty man",
+                " hero"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "gibbôr"
+        }
+    ],
+    "section 13": [
+        {
+            "word": "גֶּפֶן",
+            "meanings": [
+                "vine"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "gefen"
+        },
+        {
+            "word": "גֵּר",
+            "meanings": [
+                "sojourner",
+                " stranger"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "gēr"
+        },
+        {
+            "word": "דָּבַק",
+            "meanings": [
+                "to cling",
+                " cleave"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "dāvaq"
+        },
+        {
+            "word": "דָּבַר",
+            "meanings": [
+                "to speak"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "dāvar"
+        },
+        {
+            "word": "דּוֹד",
+            "meanings": [
+                "beloved",
+                " uncle"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "dôd"
+        },
+        {
+            "word": "דִּמְעָה",
+            "meanings": [
+                "tear"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "dimʿāh"
+        },
+        {
+            "word": "דַּעַת",
+            "meanings": [
+                "knowledge"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "daʿat"
+        },
+        {
+            "word": "הֶבֶל",
+            "meanings": [
+                "vapor",
+                " vanity"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "hevel"
+        },
+        {
+            "word": "הוֹשִׁיעַ",
+            "meanings": [
+                "to save",
+                " deliver"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb (Hiphil)",
+            "transliteration": "hôshîaʿ"
+        },
+        {
+            "word": "הוֹרֶה",
+            "meanings": [
+                "parent"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine/feminine)",
+            "transliteration": "hôrēh"
+        },
+        {
+            "word": "הִלֵּל",
+            "meanings": [
+                "to praise"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb (Piel)",
+            "transliteration": "hillēl"
+        },
+        {
+            "word": "הִשְׁקָה",
+            "meanings": [
+                "to give to drink",
+                " water"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb (Hiphil)",
+            "transliteration": "hishqāh"
+        },
+        {
+            "word": "וָו",
+            "meanings": [
+                "hook",
+                " peg; letter vav (ו)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "vāv"
+        },
+        {
+            "word": "זוֹנָה",
+            "meanings": [
+                "prostitute"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "zônāh"
+        },
+        {
+            "word": "זָכַר",
+            "meanings": [
+                "to remember"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "zākar"
+        },
+        {
+            "word": "זָמַר",
+            "meanings": [
+                "to sing",
+                " praise"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "zāmar"
+        },
+        {
+            "word": "זֶרַע",
+            "meanings": [
+                "seed",
+                " offspring"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "zeraʿ"
+        },
+        {
+            "word": "חָזָק",
+            "meanings": [
+                "strong"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "ḥāzāq"
+        },
+        {
+            "word": "חֵטְא",
+            "meanings": [
+                "sin"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥēṭʾ"
+        },
+        {
+            "word": "חָטָא",
+            "meanings": [
+                "to sin"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥāṭāʾ"
+        },
+        {
+            "word": "חָלַם",
+            "meanings": [
+                "to dream"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥālam"
+        },
+        {
+            "word": "חֵמָה",
+            "meanings": [
+                "wrath",
+                " heat"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ḥēmāh"
+        },
+        {
+            "word": "חָנַן",
+            "meanings": [
+                "to be gracious"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥānan"
+        }
+    ],
+    "section 14": [
+        {
+            "word": "חֲצֵר",
+            "meanings": [
+                "court",
+                " village"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ḥăṣēr"
+        },
+        {
+            "word": "חָרָה",
+            "meanings": [
+                "to burn",
+                " be kindled (with anger)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥārāh"
+        },
+        {
+            "word": "חֶרֶב",
+            "meanings": [
+                "sword"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ḥerev"
+        },
+        {
+            "word": "חָשַׁב",
+            "meanings": [
+                "to think",
+                " account"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ḥāshav"
+        },
+        {
+            "word": "טָהוֹר",
+            "meanings": [
+                "clean",
+                " pure"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "ṭāhôr"
+        },
+        {
+            "word": "טָמֵא",
+            "meanings": [
+                "unclean"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "ṭāmēʾ"
+        },
+        {
+            "word": "יָבֵשׁ",
+            "meanings": [
+                "to be dry"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāvēsh"
+        },
+        {
+            "word": "יָדָה",
+            "meanings": [
+                "to praise",
+                " confess (Hiphil)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yādāh"
+        },
+        {
+            "word": "יָדִיד",
+            "meanings": [
+                "beloved",
+                " friend"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "yādīd"
+        },
+        {
+            "word": "יָהַב",
+            "meanings": [
+                "to give"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāhav"
+        },
+        {
+            "word": "יָהַל",
+            "meanings": [
+                "to shine",
+                " praise (rare)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāhal"
+        },
+        {
+            "word": "יוֹנָה",
+            "meanings": [
+                "dove"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yônāh"
+        },
+        {
+            "word": "יָכֹל",
+            "meanings": [
+                "to be able"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yākōl"
+        },
+        {
+            "word": "יָלַד",
+            "meanings": [
+                "to bear",
+                " give birth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yālad"
+        },
+        {
+            "word": "יַלְדָּה",
+            "meanings": [
+                "girl",
+                " child"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "yaldāh"
+        },
+        {
+            "word": "יָצָא",
+            "meanings": [
+                "to go out",
+                " come out"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāṣāʾ"
+        },
+        {
+            "word": "יָצַר",
+            "meanings": [
+                "to form",
+                " fashion"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāṣar"
+        },
+        {
+            "word": "יָרֵא",
+            "meanings": [
+                "to fear",
+                " be afraid"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yārēʾ"
+        },
+        {
+            "word": "יָרַד",
+            "meanings": [
+                "to go down",
+                " descend"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yārad"
+        },
+        {
+            "word": "יָרַשׁ",
+            "meanings": [
+                "to possess",
+                " inherit"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yārash"
+        },
+        {
+            "word": "יֵשׁ",
+            "meanings": [
+                "there is",
+                " there are"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "particle",
+            "transliteration": "yēsh"
+        },
+        {
+            "word": "יָשַׁב",
+            "meanings": [
+                "to sit",
+                " dwell"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "yāshav"
+        }
+    ],
+    "section 15": [
+        {
+            "word": "יָשָׁר",
+            "meanings": [
+                "upright",
+                " straight"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "yāshār"
+        },
+        {
+            "word": "כֹּחַ",
+            "meanings": [
+                "strength",
+                " power"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kōaḥ"
+        },
+        {
+            "word": "כּוֹכָב",
+            "meanings": [
+                "star"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kōkhāv"
+        },
+        {
+            "word": "כָּתַב",
+            "meanings": [
+                "to write"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "kāṯav"
+        },
+        {
+            "word": "כֵּן",
+            "meanings": [
+                "so",
+                " thus"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "kēn"
+        },
+        {
+            "word": "כִּפֶּר",
+            "meanings": [
+                "to atone (Piel)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "kippēr"
+        },
+        {
+            "word": "כָּרַת",
+            "meanings": [
+                "to cut",
+                " cut off"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "kārat"
+        },
+        {
+            "word": "כִּסֵּא",
+            "meanings": [
+                "throne",
+                " seat"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "kisseʾ"
+        },
+        {
+            "word": "כָּלָה",
+            "meanings": [
+                "to be complete",
+                " be finished"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "kālāh"
+        },
+        {
+            "word": "כָּלַל",
+            "meanings": [
+                "to include",
+                " complete"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "kālal"
+        },
+        {
+            "word": "כַּפֹּרֶת",
+            "meanings": [
+                "mercy seat"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "kappōret"
+        },
+        {
+            "word": "כֶּתֶר",
+            "meanings": [
+                "crown"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "keter"
+        },
+        {
+            "word": "לֹא",
+            "meanings": [
+                "no",
+                " not"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "particle",
+            "transliteration": "lō"
+        },
+        {
+            "word": "לָקַח",
+            "meanings": [
+                "to take"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "lāqaḥ"
+        },
+        {
+            "word": "לֶחֶם",
+            "meanings": [
+                "bread",
+                " food"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "leḥem"
+        },
+        {
+            "word": "לְמַעַן",
+            "meanings": [
+                "in order that",
+                " for the sake of"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "preposition/conjunction",
+            "transliteration": "lemaʿan"
+        },
+        {
+            "word": "מָאֵן",
+            "meanings": [
+                "to refuse"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "māʾēn"
+        }
+    ],
+    "section 16": [
+        {
+            "word": "מָה",
+            "meanings": [
+                "what?"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "interrogative pronoun",
+            "transliteration": "māh"
+        },
+        {
+            "word": "מָוֶת",
+            "meanings": [
+                "death"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "māvet"
+        },
+        {
+            "word": "מוֹעֵד",
+            "meanings": [
+                "appointed time/place"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "môʿēd"
+        },
+        {
+            "word": "מוּל",
+            "meanings": [
+                "in front of",
+                " opposite"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "preposition",
+            "transliteration": "mûl"
+        },
+        {
+            "word": "מוּת",
+            "meanings": [
+                "to die"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "mût"
+        },
+        {
+            "word": "מִי",
+            "meanings": [
+                "who?"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "interrogative pronoun",
+            "transliteration": "mī"
+        },
+        {
+            "word": "מִסְפָּר",
+            "meanings": [
+                "number"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "mispār"
+        },
+        {
+            "word": "מָלֵא",
+            "meanings": [
+                "to be full"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "mālēʾ"
+        },
+        {
+            "word": "מָלַךְ",
+            "meanings": [
+                "to reign",
+                " be king"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "mālak"
+        },
+        {
+            "word": "מָצָא",
+            "meanings": [
+                "to find"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "māṣāʾ"
+        },
+        {
+            "word": "מִצְרַיִם",
+            "meanings": [
+                "Egypt"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "proper noun (feminine (dual form))",
+            "transliteration": "miṣrayim"
+        },
+        {
+            "word": "מֶרְכָּבָה",
+            "meanings": [
+                "chariot"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "merkāvāh"
+        },
+        {
+            "word": "מָשַׁל",
+            "meanings": [
+                "to rule"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "māshal"
+        }
+    ],
+    "section 17": [
+        {
+            "word": "נָא",
+            "meanings": [
+                "please (particle of entreaty)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "particle",
+            "transliteration": "nāʾ"
+        },
+        {
+            "word": "נָגַשׁ",
+            "meanings": [
+                "to approach",
+                " come near"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāgash"
+        },
+        {
+            "word": "נָגִיד",
+            "meanings": [
+                "leader",
+                " ruler"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nāgīd"
+        },
+        {
+            "word": "נָטָה",
+            "meanings": [
+                "to stretch out",
+                " incline"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāṭāh"
+        },
+        {
+            "word": "נָכָה",
+            "meanings": [
+                "to strike",
+                " smite"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nākāh"
+        },
+        {
+            "word": "נָכְרִי",
+            "meanings": [
+                "foreign",
+                " alien"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "nokrī"
+        },
+        {
+            "word": "נָפַל",
+            "meanings": [
+                "to fall"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāphal"
+        },
+        {
+            "word": "נָצַב",
+            "meanings": [
+                "to take one's stand",
+                " be stationed"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāṣav"
+        },
+        {
+            "word": "נָצַר",
+            "meanings": [
+                "to guard",
+                " watch"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāṣar"
+        },
+        {
+            "word": "נָשִׁים",
+            "meanings": [
+                "women"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (plural) (feminine)",
+            "transliteration": "nāshīm"
+        },
+        {
+            "word": "נֶשֶׁר",
+            "meanings": [
+                "eagle",
+                " vulture"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "nesher"
+        },
+        {
+            "word": "נָתַן",
+            "meanings": [
+                "to give"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "nāṯan"
+        },
+        {
+            "word": "סָבִיב",
+            "meanings": [
+                "around",
+                " surrounding"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb/preposition",
+            "transliteration": "sāvīv"
+        },
+        {
+            "word": "סָבַב",
+            "meanings": [
+                "to turn",
+                " go around"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "sāvav"
+        },
+        {
+            "word": "סֵלָה",
+            "meanings": [
+                "Selah (musical/poetic notation)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "interjection",
+            "transliteration": "selāh"
+        },
+        {
+            "word": "סוּר",
+            "meanings": [
+                "to turn aside",
+                " depart"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "sûr"
+        }
+    ],
+    "section 18": [
+        {
+            "word": "סֵתֶר",
+            "meanings": [
+                "hiding place",
+                " shelter"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "sēther"
+        },
+        {
+            "word": "עוֹד",
+            "meanings": [
+                "again",
+                " still",
+                " yet"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "ʿôd"
+        },
+        {
+            "word": "עוֹלָם",
+            "meanings": [
+                "forever",
+                " eternity"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun/adverb (masculine)",
+            "transliteration": "ʿôlām"
+        },
+        {
+            "word": "עֵין",
+            "meanings": [
+                "eye",
+                " spring (of water)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ʿayin"
+        },
+        {
+            "word": "עָנָה",
+            "meanings": [
+                "to answer",
+                " respond"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ʿānāh"
+        },
+        {
+            "word": "עָנִי",
+            "meanings": [
+                "poor",
+                " afflicted"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective/noun",
+            "transliteration": "ʿānī"
+        },
+        {
+            "word": "עָמַד",
+            "meanings": [
+                "to stand"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ʿāmad"
+        },
+        {
+            "word": "עָפָר",
+            "meanings": [
+                "dust",
+                " dry earth"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ʿāphār"
+        },
+        {
+            "word": "עָשָׂה",
+            "meanings": [
+                "to do",
+                " make"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ʿāsāh"
+        },
+        {
+            "word": "עָשִׁיר",
+            "meanings": [
+                "rich"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "ʿāshīr"
+        },
+        {
+            "word": "עָתָה",
+            "meanings": [
+                "now"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb",
+            "transliteration": "ʿattāh"
+        },
+        {
+            "word": "פָּקַד",
+            "meanings": [
+                "to visit",
+                " appoint",
+                " attend to"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "pāqad"
+        },
+        {
+            "word": "פֶּתַח",
+            "meanings": [
+                "opening",
+                " doorway"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "pethaḥ"
+        },
+        {
+            "word": "פַּר",
+            "meanings": [
+                "bull",
+                " young ox"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "par"
+        },
+        {
+            "word": "פַּרְעֹה",
+            "meanings": [
+                "Pharaoh"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "proper noun (masculine)",
+            "transliteration": "parʿōh"
+        },
+        {
+            "word": "פֶּרִי",
+            "meanings": [
+                "fruit"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "perī"
+        },
+        {
+            "word": "פָּתָה",
+            "meanings": [
+                "to entice",
+                " deceive"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "pātāh"
+        }
+    ],
+    "section 19": [
+        {
+            "word": "צֶדֶק / צְדָקָה",
+            "meanings": [
+                "righteousness",
+                " justice"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine / feminine)",
+            "transliteration": "ṣedeq / ṣedāqāh"
+        },
+        {
+            "word": "צָוָה",
+            "meanings": [
+                "to command"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ṣāvāh"
+        },
+        {
+            "word": "צִוָּה",
+            "meanings": [
+                "he commanded (Piel)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ṣivvāh"
+        },
+        {
+            "word": "צֹאן",
+            "meanings": [
+                "flock (of sheep or goats)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (feminine)",
+            "transliteration": "ṣōʾn"
+        },
+        {
+            "word": "צוּר",
+            "meanings": [
+                "rock",
+                " cliff"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ṣûr"
+        },
+        {
+            "word": "צָחַק",
+            "meanings": [
+                "to laugh",
+                " mock"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ṣāḥaq"
+        },
+        {
+            "word": "צָעַק",
+            "meanings": [
+                "to cry out",
+                " call for help"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "ṣāʿaq"
+        },
+        {
+            "word": "צֹר / צוֹר",
+            "meanings": [
+                "Tyre (a Phoenician city)"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "proper noun",
+            "transliteration": "ṣōr"
+        },
+        {
+            "word": "צַר",
+            "meanings": [
+                "enemy",
+                " adversary"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "ṣar"
+        },
+        {
+            "word": "קָדֹשׁ",
+            "meanings": [
+                "holy",
+                " sacred"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "qādōsh"
+        },
+        {
+            "word": "קָדַשׁ",
+            "meanings": [
+                "to be holy",
+                " consecrated"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "qādash"
+        },
+        {
+            "word": "קָוָה",
+            "meanings": [
+                "to wait for",
+                " hope"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "qāvāh"
+        },
+        {
+            "word": "קָטֹן / קָטָן",
+            "meanings": [
+                "small",
+                " little"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective",
+            "transliteration": "qāṭōn / qāṭān"
+        },
+        {
+            "word": "קָטַל",
+            "meanings": [
+                "to kill"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "qāṭal"
+        },
+        {
+            "word": "קָרָא",
+            "meanings": [
+                "to call",
+                " proclaim",
+                " read aloud"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "qārāʾ"
+        },
+        {
+            "word": "רָאָה",
+            "meanings": [
+                "to see"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rāʾāh"
+        },
+        {
+            "word": "רָעָה",
+            "meanings": [
+                "to feed",
+                " pasture",
+                " shepherd",
+                "evil",
+                " distress",
+                " misery"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rāʿāh"
+        }
+    ],
+    "section 20": [
+        {
+            "word": "רֹב",
+            "meanings": [
+                "multitude",
+                " abundance",
+                " greatness"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "rōv"
+        },
+        {
+            "word": "רָבָה",
+            "meanings": [
+                "to be many",
+                " multiply",
+                " become great"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rāvāh"
+        },
+        {
+            "word": "רַגְלַיִם",
+            "meanings": [
+                "feet"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (dual) (feminine)",
+            "transliteration": "raglāyim"
+        },
+        {
+            "word": "רָדַף",
+            "meanings": [
+                "to pursue",
+                " chase",
+                " persecute"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rādaph"
+        },
+        {
+            "word": "רוּם",
+            "meanings": [
+                "to be high",
+                " exalted"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "rûm"
+        },
+        {
+            "word": "רַק",
+            "meanings": [
+                "only",
+                " but",
+                " still"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adverb/particle",
+            "transliteration": "raq"
+        },
+        {
+            "word": "רָע",
+            "meanings": [
+                "evil",
+                " bad",
+                " wicked"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective/noun",
+            "transliteration": "rāʿ"
+        },
+        {
+            "word": "רָעָב",
+            "meanings": [
+                "famine",
+                " hunger"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "rāʿāv"
+        },
+        {
+            "word": "שָׂמַח",
+            "meanings": [
+                "to rejoice",
+                " be glad"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "sāmaḥ"
+        },
+        {
+            "word": "שֶׁם",
+            "meanings": [
+                "name",
+                " reputation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun (masculine)",
+            "transliteration": "shem"
+        },
+        {
+            "word": "שֵׁשׁ / שִׁשָּׁה",
+            "meanings": [
+                "six"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "numeral",
+            "transliteration": "shēsh / shishāh"
+        },
+        {
+            "word": "שָׁתָה",
+            "meanings": [
+                "to drink"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb",
+            "transliteration": "shātāh"
+        }
+    ]
+}

@@ -1,0 +1,3882 @@
+[
+  {
+    "greek": "ἓκων",
+    "meaning": "willing."
+  },
+  {
+    "greek": "ἐθέλω",
+    "meaning": "I wish."
+  },
+  {
+    "greek": "βούλομαι",
+    "meaning": "I will or wish ; volo ; will"
+  },
+  {
+    "greek": "βουλή",
+    "meaning": "will, plan, senate."
+  },
+  {
+    "greek": "βουλεύω",
+    "meaning": "plan, deliberate."
+  },
+  {
+    "greek": "συμβουλεύω",
+    "meaning": "advise (I e., plan with)."
+  },
+  {
+    "greek": "ἐπιβουλεύω",
+    "meaning": "plot (I e., plan against)."
+  },
+  {
+    "greek": "κῆδος (τό)",
+    "meaning": "care, anxiety, connection by marriage."
+  },
+  {
+    "greek": "κομίζω",
+    "meaning": "care for, carry away."
+  },
+  {
+    "greek": "μέλω",
+    "meaning": "am a care."
+  },
+  {
+    "greek": "μελετάω",
+    "meaning": "take care of, study, practice"
+  },
+  {
+    "greek": "μέλλω",
+    "meaning": "am about to (with infin.)."
+  },
+  {
+    "greek": "αἰδως (ἡ)",
+    "meaning": "shame, modesty."
+  },
+  {
+    "greek": "αίδέομαι",
+    "meaning": "am ashamed, stand in awe of."
+  },
+  {
+    "greek": "αἰσχύνη",
+    "meaning": "shame, sense of disgrace."
+  },
+  {
+    "greek": "αἰσχύνομαι",
+    "meaning": "am ashamed, feel disgraced."
+  },
+  {
+    "greek": "αἰσχρος",
+    "meaning": "shameful, disgraceful."
+  },
+  {
+    "greek": "εἰμί",
+    "meaning": "I am"
+  },
+  {
+    "greek": "εἶμι",
+    "meaning": "come or go."
+  },
+  {
+    "greek": "ἔρχομαι",
+    "meaning": "come or go."
+  },
+  {
+    "greek": "πορεύομαι",
+    "meaning": "come or go."
+  },
+  {
+    "greek": "φοιτάω",
+    "meaning": "come or go often."
+  },
+  {
+    "greek": "οἴχομαι",
+    "meaning": "Have gone"
+  },
+  {
+    "greek": "ἥκω",
+    "meaning": "have come."
+  },
+  {
+    "greek": "προσήκω",
+    "meaning": "have come to, belong to, beseem."
+  },
+  {
+    "greek": "λήθη",
+    "meaning": "a forgetting, oblivion ; Lethe ; lethargy."
+  },
+  {
+    "greek": "ἐπιλήθομαι",
+    "meaning": "forget."
+  },
+  {
+    "greek": "λανθάνω",
+    "meaning": "escape the notice of."
+  },
+  {
+    "greek": "ἀληθής",
+    "meaning": "true (i. e., not escaping notice)."
+  },
+  {
+    "greek": "πρό",
+    "meaning": "before (prep, with gen.)."
+  },
+  {
+    "greek": "πρίν",
+    "meaning": "before (conj. with infin.)."
+  },
+  {
+    "greek": "πρότερος",
+    "meaning": "former, earlier."
+  },
+  {
+    "greek": "πρῶτος",
+    "meaning": "first."
+  },
+  {
+    "greek": "ὕστερος",
+    "meaning": "later."
+  },
+  {
+    "greek": "ὕστατος",
+    "meaning": "last."
+  },
+  {
+    "greek": "ἵημι",
+    "meaning": "send, let go."
+  },
+  {
+    "greek": "πέμπω",
+    "meaning": "send (esp. with formality), escort; pomp"
+  },
+  {
+    "greek": "μεταπέμπομαι",
+    "meaning": "send for."
+  },
+  {
+    "greek": "στέλλω",
+    "meaning": "equip, send ; apostle ; epistle."
+  },
+  {
+    "greek": "στόλος",
+    "meaning": "equipment, expedition."
+  },
+  {
+    "greek": "ἀθροίζω",
+    "meaning": "assemble."
+  },
+  {
+    "greek": "ἀγείρω",
+    "meaning": "assemble."
+  },
+  {
+    "greek": "ἀγορά",
+    "meaning": "assembly, place of assembly, market-place."
+  },
+  {
+    "greek": "ἀγορεύω",
+    "meaning": "speak in assembly ; allegory."
+  },
+  {
+    "greek": "κατηγορέω",
+    "meaning": "speak against ; categorical."
+  },
+  {
+    "greek": "τόπος",
+    "meaning": "place ; topography ; Utopia [ού + τόπος]."
+  },
+  {
+    "greek": "χώρα",
+    "meaning": "place, region, country."
+  },
+  {
+    "greek": "χωρέω",
+    "meaning": "give place, move ; ANCHORITE."
+  },
+  {
+    "greek": "εἴκω",
+    "meaning": "jrield, give ground."
+  },
+  {
+    "greek": "μένω",
+    "meaning": "remain."
+  },
+  {
+    "greek": "λείπω",
+    "meaning": "leave ; eclipse."
+  },
+  {
+    "greek": "λοιπός",
+    "meaning": "left, remaining."
+  },
+  {
+    "greek": "ζυγόν",
+    "meaning": "yoke ; jugum"
+  },
+  {
+    "greek": "ζεύγνυμι",
+    "meaning": "I yoke ; zeugma."
+  },
+  {
+    "greek": "εὐθύς",
+    "meaning": "straight."
+  },
+  {
+    "greek": "ὀρθός",
+    "meaning": "straight, upright ; orthodox ; orthography."
+  },
+  {
+    "greek": "κάθημαι",
+    "meaning": "sit."
+  },
+  {
+    "greek": "καθίζω",
+    "meaning": "seat, sit ; sedeo ; sit."
+  },
+  {
+    "greek": "λίσσομαι",
+    "meaning": "pray ; litany."
+  },
+  {
+    "greek": "εὔχομαι",
+    "meaning": "pray, vow, boast."
+  },
+  {
+    "greek": "ἀρλαομαι",
+    "meaning": "pray (esp. as invoking evil), curse."
+  },
+  {
+    "greek": "ὄμνυμι",
+    "meaning": "swear."
+  },
+  {
+    "greek": "νὴ τὸν Δία",
+    "meaning": "yes, by Zeus."
+  },
+  {
+    "greek": "οὐ μὰ τὸν Δία",
+    "meaning": "no, by Zeus."
+  },
+  {
+    "greek": "ὅρκος",
+    "meaning": "oath ; exorcise."
+  },
+  {
+    "greek": "επιορκέω",
+    "meaning": "perjure."
+  },
+  {
+    "greek": "στρέφω",
+    "meaning": "turn round, twist ; APOSTROPHE, catastrophe."
+  },
+  {
+    "greek": "τρέπω",
+    "meaning": "turn ; TROPIC, heliotrope."
+  },
+  {
+    "greek": "ἐπιτρέπω",
+    "meaning": "turn over to, intrust."
+  },
+  {
+    "greek": "τρόπος",
+    "meaning": "turn, way, character."
+  },
+  {
+    "greek": "πρόπαιον",
+    "meaning": "trophy ; trophy (marking the turning of an enemy)."
+  },
+  {
+    "greek": "ὄρνις",
+    "meaning": "bird ; ornithology."
+  },
+  {
+    "greek": "οἰωνός",
+    "meaning": "solitary bird."
+  },
+  {
+    "greek": "πἐτομαι",
+    "meaning": "fly; peto ; penna ; /eatker."
+  },
+  {
+    "greek": "πτερόν",
+    "meaning": "feather, wing."
+  },
+  {
+    "greek": "νέφος (τό)",
+    "meaning": "cloud."
+  },
+  {
+    "greek": "ἀήρ (ὁ)",
+    "meaning": "lower air, haze, mist ; aerolite ; aeronaut."
+  },
+  {
+    "greek": "αἰθήρ (ὁ)",
+    "meaning": "upper air ; ether."
+  },
+  {
+    "greek": "ούρανός",
+    "meaning": "heavens, sky ; Uranus."
+  },
+  {
+    "greek": "γῆ",
+    "meaning": "earth; Geography; George"
+  },
+  {
+    "greek": "χθών (ἡ)",
+    "meaning": "earth; Melanchthon"
+  },
+  {
+    "greek": "ναῦς (ἡ)",
+    "meaning": "ship ; nautical ; nausea."
+  },
+  {
+    "greek": "πλοῖον",
+    "meaning": "ship, transport."
+  },
+  {
+    "greek": "πλέω",
+    "meaning": "Sail"
+  },
+  {
+    "greek": "κώμη",
+    "meaning": "village ; comedy."
+  },
+  {
+    "greek": "ἄστυ (τό)",
+    "meaning": "city."
+  },
+  {
+    "greek": "πὀλις (ἡ)",
+    "meaning": "city as poUtical center ; metropolis ; politics."
+  },
+  {
+    "greek": "πολίτης",
+    "meaning": "citizen."
+  },
+  {
+    "greek": "φύλαξ",
+    "meaning": "watchman ; phylactery."
+  },
+  {
+    "greek": "φυλάσσω",
+    "meaning": "watch, guard."
+  },
+  {
+    "greek": "φῶς (τό) [φάος]",
+    "meaning": "light ; photograph."
+  },
+  {
+    "greek": "φαίνω",
+    "meaning": "bring to light ; phenomenon."
+  },
+  {
+    "greek": "φανερός",
+    "meaning": "clear, manifest."
+  },
+  {
+    "greek": "δῆλος",
+    "meaning": "made dear by attendant circumstance."
+  },
+  {
+    "greek": "δηλόω",
+    "meaning": "make clear by word or deed."
+  },
+  {
+    "greek": "δέικνυμι",
+    "meaning": "point out ; paradigm."
+  },
+  {
+    "greek": "φράζω",
+    "meaning": "point out, tell ; phrase ; paraphrase."
+  },
+  {
+    "greek": "θάλασσα",
+    "meaning": "sea."
+  },
+  {
+    "greek": "πέλαγος (τό)",
+    "meaning": "sea as open expanse ; archipelago."
+  },
+  {
+    "greek": "πόντος",
+    "meaning": "sea as deep, inclosed mass."
+  },
+  {
+    "greek": "ἅλς (ἡ)",
+    "meaning": "sea (poetical)."
+  },
+  {
+    "greek": "ἅλς (ὁ)",
+    "meaning": "salt (esp. in pi.)."
+  },
+  {
+    "greek": "ἀκροάομαι",
+    "meaning": "listen to."
+  },
+  {
+    "greek": "ἀκούω",
+    "meaning": "hear ; acoustic."
+  },
+  {
+    "greek": "μαίνομαι",
+    "meaning": "am frenzied or inspired ; mania ; maniac."
+  },
+  {
+    "greek": "μάντις",
+    "meaning": "prophet ; necromancy."
+  },
+  {
+    "greek": "ἱερός",
+    "meaning": "holy, divine ; hierarchy ; hieroglyphics."
+  },
+  {
+    "greek": "ὅσιος",
+    "meaning": "holy, as sanctioned by tradition."
+  },
+  {
+    "greek": "ἅγιος",
+    "meaning": "holy, awe-inspiring."
+  },
+  {
+    "greek": "οἰκτείρω",
+    "meaning": "pity, feel pity."
+  },
+  {
+    "greek": "ἐλεέω",
+    "meaning": "pity, show pity by act ; eleemosynary ; alms."
+  },
+  {
+    "greek": "τάσσω",
+    "meaning": "set in order (esp. of troops)."
+  },
+  {
+    "greek": "τάξις (ἡ)",
+    "meaning": "order, arrangement ; tactics ; syntax."
+  },
+  {
+    "greek": "κόσμος",
+    "meaning": "order, ornament, universe ; COSMETICS ; COSMOPOLITAN."
+  },
+  {
+    "greek": "ταράσσω",
+    "meaning": "confuse."
+  },
+  {
+    "greek": "τραχύς",
+    "meaning": "rough ; trachea."
+  },
+  {
+    "greek": "σέβομαι",
+    "meaning": "worship."
+  },
+  {
+    "greek": "εὐσεβής",
+    "meaning": "reverential, pious; Eusebius"
+  },
+  {
+    "greek": "σεμνός",
+    "meaning": "revered, august."
+  },
+  {
+    "greek": "θεός",
+    "meaning": "god ; THEOLOGY."
+  },
+  {
+    "greek": "δαίμων (ὁ)",
+    "meaning": "divinity ; demon."
+  },
+  {
+    "greek": "εὐδαίμνω",
+    "meaning": "prosperous, happy."
+  },
+  {
+    "greek": "ἄξιος",
+    "meaning": "worthy ; axiom."
+  },
+  {
+    "greek": "ἀξιόω",
+    "meaning": "deem worthy."
+  },
+  {
+    "greek": "τίω",
+    "meaning": "I honor"
+  },
+  {
+    "greek": "τιμάω",
+    "meaning": "I honor"
+  },
+  {
+    "greek": "τιμή",
+    "meaning": "honor."
+  },
+  {
+    "greek": "τίνω",
+    "meaning": "pay a penalty (for offended honor)."
+  },
+  {
+    "greek": "τιμῳρέω",
+    "meaning": "exact a penalty, take vengeance."
+  },
+  {
+    "greek": "κολάζω",
+    "meaning": "chastise."
+  },
+  {
+    "greek": "ζημιόω",
+    "meaning": "fine."
+  },
+  {
+    "greek": "μῆκος (τό)",
+    "meaning": "length."
+  },
+  {
+    "greek": "μακρός",
+    "meaning": "long."
+  },
+  {
+    "greek": "βραχύς",
+    "meaning": "short ; tribrach ; brachylogy."
+  },
+  {
+    "greek": "στενός",
+    "meaning": "narrow ; stenography."
+  },
+  {
+    "greek": "εὐρυς",
+    "meaning": "broad."
+  },
+  {
+    "greek": "ἔθνος (τό)",
+    "meaning": "nation ; ethnology."
+  },
+  {
+    "greek": "δῆμος",
+    "meaning": "people ; epidemic ; democracy."
+  },
+  {
+    "greek": "δημόσιος",
+    "meaning": "public."
+  },
+  {
+    "greek": "κοινός",
+    "meaning": "common ; cenobite."
+  },
+  {
+    "greek": "ἴδιος",
+    "meaning": "private, peculiar ; idiom ; idiot."
+  },
+  {
+    "greek": "μόνος",
+    "meaning": "alone ; monosyllable."
+  },
+  {
+    "greek": "ἔρημος",
+    "meaning": "desolate ; hermit."
+  },
+  {
+    "greek": "ἒτερος",
+    "meaning": "other of two ; heterodox."
+  },
+  {
+    "greek": "ἄλλος",
+    "meaning": "other ; parallel."
+  },
+  {
+    "greek": "ἀλλά",
+    "meaning": "but (i. e., otherwise)."
+  },
+  {
+    "greek": "ἀλλάσσω",
+    "meaning": "change (i. e., make other)."
+  },
+  {
+    "greek": "ἀπαλλάσσω",
+    "meaning": "release (I e., change from restraint)."
+  },
+  {
+    "greek": "διαλλάσσω",
+    "meaning": "reconcile (I e., change from enmity)."
+  },
+  {
+    "greek": "ἀνδράποδον",
+    "meaning": "slave."
+  },
+  {
+    "greek": "δοῦλος",
+    "meaning": "bom slave."
+  },
+  {
+    "greek": "δουλεύω",
+    "meaning": "serve as a slave."
+  },
+  {
+    "greek": "δουλόω",
+    "meaning": "enslave."
+  },
+  {
+    "greek": "στέφανος",
+    "meaning": "crown ; Stephen."
+  },
+  {
+    "greek": "βασιλεύς",
+    "meaning": "king ; basilica."
+  },
+  {
+    "greek": "τύραννος",
+    "meaning": "despot ; tyrant."
+  },
+  {
+    "greek": "δεσπότης",
+    "meaning": "master as owner ; despot."
+  },
+  {
+    "greek": "κύριος",
+    "meaning": "lord (as adj., having authority) ; KIRK ; CHURCH."
+  },
+  {
+    "greek": "ἄναξ",
+    "meaning": "lord, master (poetical)."
+  },
+  {
+    "greek": "ὄκνος",
+    "meaning": "hesitation."
+  },
+  {
+    "greek": "φόβος",
+    "meaning": "flight, fear ; hydrophobia."
+  },
+  {
+    "greek": "φοβέω",
+    "meaning": "frighten ; in Mid., fear."
+  },
+  {
+    "greek": "δείδω",
+    "meaning": "I fear ; dirus."
+  },
+  {
+    "greek": "δεινός",
+    "meaning": "terrible (i. e., causing fear)."
+  },
+  {
+    "greek": "δειλός",
+    "meaning": "timid (i e., feeling fear)."
+  },
+  {
+    "greek": "ἄδεια",
+    "meaning": "freedom from fear."
+  },
+  {
+    "greek": "διδράσκω",
+    "meaning": "run, as coward or slave."
+  },
+  {
+    "greek": "θέω",
+    "meaning": "run"
+  },
+  {
+    "greek": "τρἐχω",
+    "meaning": "run; Troche; Trochee"
+  },
+  {
+    "greek": "δραμοῦμαι",
+    "meaning": "shall run."
+  },
+  {
+    "greek": "δρόμος",
+    "meaning": "a run, a race ; dromedary ; hippodrome."
+  },
+  {
+    "greek": "φθάνω",
+    "meaning": "get ahead, anticipate."
+  },
+  {
+    "greek": "φθόνος",
+    "meaning": "envy."
+  },
+  {
+    "greek": "ζῆλος",
+    "meaning": "emulation ; zeal."
+  },
+  {
+    "greek": "ἀραρίσκω",
+    "meaning": "fit together, join ; ars."
+  },
+  {
+    "greek": "ἀριθμός",
+    "meaning": "number (i. e., fitting in as one of a series); arithmetic."
+  },
+  {
+    "greek": "ἀρέσκω",
+    "meaning": "please (i. e., fit as to feeling)."
+  },
+  {
+    "greek": "ἀρετή",
+    "meaning": "virtue (i. e., fitness as to conduct)."
+  },
+  {
+    "greek": "ἄρτι",
+    "meaning": "just now (i. e., fitting or coincident in time)."
+  },
+  {
+    "greek": "τόξον",
+    "meaning": "bow ; toxicology ; intoxicate."
+  },
+  {
+    "greek": "τοξεύω",
+    "meaning": "shoot an arrow."
+  },
+  {
+    "greek": "ἄγνυμι",
+    "meaning": "break in pieces."
+  },
+  {
+    "greek": "ῥήγνυμι",
+    "meaning": "break off, rend ; hemorrhage ; frango ; break."
+  },
+  {
+    "greek": "σπεύδω",
+    "meaning": "hasten."
+  },
+  {
+    "greek": "σπουδή",
+    "meaning": "haste, zeal."
+  },
+  {
+    "greek": "σπουδαῖος",
+    "meaning": "earnest, serious."
+  },
+  {
+    "greek": "βραδύς",
+    "meaning": "slow."
+  },
+  {
+    "greek": "ταχύς",
+    "meaning": "quick, swift."
+  },
+  {
+    "greek": "ὠκύς",
+    "meaning": "quick, swift."
+  },
+  {
+    "greek": "ἴσος",
+    "meaning": "equal ; isothermal ; isochronous."
+  },
+  {
+    "greek": "ἴσως",
+    "meaning": "perhaps"
+  },
+  {
+    "greek": "τάχα",
+    "meaning": "perhaps"
+  },
+  {
+    "greek": "πούς [ποδ]",
+    "meaning": "foot ; tripod, antipode ; pes; foot"
+  },
+  {
+    "greek": "ἐμποδών",
+    "meaning": "in the feet, in one*s way."
+  },
+  {
+    "greek": "πεζός",
+    "meaning": "on foot."
+  },
+  {
+    "greek": "τράπεζα [τετρα + ποδ, four-footed]",
+    "meaning": "table ; trapezoid."
+  },
+  {
+    "greek": "πεδίον",
+    "meaning": "plain (that trodden by the feet)."
+  },
+  {
+    "greek": "σκεδάννυμι",
+    "meaning": "scatter."
+  },
+  {
+    "greek": "σπεἰρω",
+    "meaning": "scatter seed, sow ; sperm ; spore."
+  },
+  {
+    "greek": "εσθίω [εδ]",
+    "meaning": "eat ; edo ; eat,"
+  },
+  {
+    "greek": "ἔφαγον",
+    "meaning": "did eat ; esophagus ; sarcophagus."
+  },
+  {
+    "greek": "πίνω [πο]",
+    "meaning": "drink ; symposium."
+  },
+  {
+    "greek": "κρατήρ (ὁ)",
+    "meaning": "mixer ; crater^"
+  },
+  {
+    "greek": "κεράννυμι",
+    "meaning": "mix chemically ; CRASis."
+  },
+  {
+    "greek": "μίγνυμι",
+    "meaning": "mix mechanically."
+  },
+  {
+    "greek": "ἥλιος",
+    "meaning": "sun ; heliotrope ; perihelion."
+  },
+  {
+    "greek": "σελήνη",
+    "meaning": "moon."
+  },
+  {
+    "greek": "ἀστήρ",
+    "meaning": "star ; astronomy ; disaster."
+  },
+  {
+    "greek": "πόρρω",
+    "meaning": "far, far away."
+  },
+  {
+    "greek": "ἔσψατος",
+    "meaning": "farthest, uttermost ; eschatology."
+  },
+  {
+    "greek": "ἐγγύς",
+    "meaning": "near."
+  },
+  {
+    "greek": "πήσίον",
+    "meaning": "near."
+  },
+  {
+    "greek": "πέλας",
+    "meaning": "near."
+  },
+  {
+    "greek": "πελάζω",
+    "meaning": "come or bring near."
+  },
+  {
+    "greek": "ὀφλισκάνω",
+    "meaning": "owe as a fine, am beaten in a lawsuit."
+  },
+  {
+    "greek": "ὀφείλω",
+    "meaning": "owe."
+  },
+  {
+    "greek": "ὤφελον",
+    "meaning": "wojild that (lit., ought to have, etc.)."
+  },
+  {
+    "greek": "χρή",
+    "meaning": "ought."
+  },
+  {
+    "greek": "δεῖ",
+    "meaning": "ought, it is necessary."
+  },
+  {
+    "greek": "ἀνάγκη (ἐστί)",
+    "meaning": "there is necessity."
+  },
+  {
+    "greek": "χράομαι",
+    "meaning": "use."
+  },
+  {
+    "greek": "χρηστός",
+    "meaning": "virtuous (i. e., useful)."
+  },
+  {
+    "greek": "χρῆμα",
+    "meaning": "useful thing ; in pl., = money."
+  },
+  {
+    "greek": "ὠνέομαι",
+    "meaning": "buy."
+  },
+  {
+    "greek": "πωλέω",
+    "meaning": "sell ; monopoly."
+  },
+  {
+    "greek": "κλίνω",
+    "meaning": "cause to recline ; clinic ; climate."
+  },
+  {
+    "greek": "κλῖμαξ (ἡ)",
+    "meaning": "laddef; climax."
+  },
+  {
+    "greek": "κλίνη",
+    "meaning": "bed"
+  },
+  {
+    "greek": "εὐνή",
+    "meaning": "bed; Eunuch"
+  },
+  {
+    "greek": "ἕως",
+    "meaning": "morning, dawn."
+  },
+  {
+    "greek": "ἑσπέρα",
+    "meaning": "evening."
+  },
+  {
+    "greek": "πρωί",
+    "meaning": "early."
+  },
+  {
+    "greek": "ὀψέ",
+    "meaning": "late."
+  },
+  {
+    "greek": "σάος, σῶς",
+    "meaning": "safe,"
+  },
+  {
+    "greek": "σώζω",
+    "meaning": "save ; creosote."
+  },
+  {
+    "greek": "σώφρων",
+    "meaning": "discreet (i. e., safe-minded)."
+  },
+  {
+    "greek": "χρυσός",
+    "meaning": "gold."
+  },
+  {
+    "greek": "ἄργυρος",
+    "meaning": "silver. ^"
+  },
+  {
+    "greek": "χαλκός",
+    "meaning": "copper."
+  },
+  {
+    "greek": "σίδηρος",
+    "meaning": "iron."
+  },
+  {
+    "greek": "θώραξ",
+    "meaning": "breastplate."
+  },
+  {
+    "greek": "πἐλτη",
+    "meaning": "small shield."
+  },
+  {
+    "greek": "ἀσπίς",
+    "meaning": "large shield ; asp."
+  },
+  {
+    "greek": "ξίφος",
+    "meaning": "sword."
+  },
+  {
+    "greek": "μἀχαιρα",
+    "meaning": "short sword."
+  },
+  {
+    "greek": "μάχομαι",
+    "meaning": "fight."
+  },
+  {
+    "greek": "μάχη",
+    "meaning": "battle."
+  },
+  {
+    "greek": "σύμμαχος",
+    "meaning": "ally (i. e., one fighting with)."
+  },
+  {
+    "greek": "κοῖλος",
+    "meaning": "hollow ; hollow,"
+  },
+  {
+    "greek": "κενός",
+    "meaning": "empty ; cenotaph."
+  },
+  {
+    "greek": "σιγάω",
+    "meaning": "am silent."
+  },
+  {
+    "greek": "σιωπάω",
+    "meaning": "am silent."
+  },
+  {
+    "greek": "ἢσυχος",
+    "meaning": "quiet."
+  },
+  {
+    "greek": "ἑταῖρος",
+    "meaning": "companion."
+  },
+  {
+    "greek": "ἀδελφός",
+    "meaning": "brother."
+  },
+  {
+    "greek": "φίλος",
+    "meaning": "friend."
+  },
+  {
+    "greek": "φιλέω",
+    "meaning": "love ; philosophy."
+  },
+  {
+    "greek": "ἀγαπάω",
+    "meaning": "love appreciatively."
+  },
+  {
+    "greek": "στέργω",
+    "meaning": "love as a kinsman."
+  },
+  {
+    "greek": "ἐράω",
+    "meaning": "love passionately."
+  },
+  {
+    "greek": "ἔρως (ὁ)",
+    "meaning": "love ; erotic."
+  },
+  {
+    "greek": "κίνδυνος",
+    "meaning": "danger."
+  },
+  {
+    "greek": "κινδυνεύω",
+    "meaning": "incur danger."
+  },
+  {
+    "greek": "ἀκμή",
+    "meaning": "highest point ; acme."
+  },
+  {
+    "greek": "ἄκρος",
+    "meaning": "highest, topmost ; acropolis ; acrobat."
+  },
+  {
+    "greek": "ἀκριβής",
+    "meaning": "exact, accurate (i. e., done to a nicety, to a point)."
+  },
+  {
+    "greek": "ἀκοντίζω",
+    "meaning": "hurl a pomted missile."
+  },
+  {
+    "greek": "τιτρώσκω",
+    "meaning": "I wound."
+  },
+  {
+    "greek": "τραῦμα",
+    "meaning": "wound."
+  },
+  {
+    "greek": "ῥέω",
+    "meaning": "flow ; RHEUM ; catarrh."
+  },
+  {
+    "greek": "ῥυθμός",
+    "meaning": "a flowing or measured motion ; rhythm."
+  },
+  {
+    "greek": "χέω",
+    "meaning": "pour ; chemistry."
+  },
+  {
+    "greek": "σπένδω",
+    "meaning": "pour (esp. of drink-offerings)."
+  },
+  {
+    "greek": "σπονδή",
+    "meaning": "a drink-offering ; in pi., = peace."
+  },
+  {
+    "greek": "εἰρήνη",
+    "meaning": "peace ; Irene."
+  },
+  {
+    "greek": "πόλεμος",
+    "meaning": "war ; polemic."
+  },
+  {
+    "greek": "πολέμιος",
+    "meaning": "hostile."
+  },
+  {
+    "greek": "ἐχθρός",
+    "meaning": "personally hostile."
+  },
+  {
+    "greek": "μισέω",
+    "meaning": "hate ; misanthrope."
+  },
+  {
+    "greek": "στυγέω",
+    "meaning": "hate, abominate."
+  },
+  {
+    "greek": "τέμνω",
+    "meaning": "cut ; ATOM ; anatomy."
+  },
+  {
+    "greek": "σχίζω",
+    "meaning": "split ; SCHISM."
+  },
+  {
+    "greek": "κλέπτω",
+    "meaning": "steal ; cleptomania."
+  },
+  {
+    "greek": "καλύπτω",
+    "meaning": "cover ; apocalypse ; calyx."
+  },
+  {
+    "greek": "κρύπτω",
+    "meaning": "conceal ; crypt."
+  },
+  {
+    "greek": "θάλαμος",
+    "meaning": "room ; epithalamium."
+  },
+  {
+    "greek": "αὐλή",
+    "meaning": "hall or open center of a house."
+  },
+  {
+    "greek": "οἶκος",
+    "meaning": "house ; economy ; ecumenical."
+  },
+  {
+    "greek": "οἰκεῖος",
+    "meaning": "belonging to a house, akm. ^"
+  },
+  {
+    "greek": "οίκέτης",
+    "meaning": "house-slave."
+  },
+  {
+    "greek": "οίκέω",
+    "meaning": "live in, or manage a house."
+  },
+  {
+    "greek": "φέρω",
+    "meaning": "bear, bring; Metaphor, periphery; fero"
+  },
+  {
+    "greek": "συμφέρω",
+    "meaning": "benefit (L e., bring together, co-operate)."
+  },
+  {
+    "greek": "συμφόρα",
+    "meaning": "disaster (L e., that commg together ill)."
+  },
+  {
+    "greek": "φυγή",
+    "meaning": "flight, exile."
+  },
+  {
+    "greek": "φεύγω",
+    "meaning": "flee ; fugio ; fugitive."
+  },
+  {
+    "greek": "χρίω",
+    "meaning": "anoint; Christ"
+  },
+  {
+    "greek": "ἀλείφω",
+    "meaning": "anoint"
+  },
+  {
+    "greek": "γλυκύς",
+    "meaning": "sweet to the taste ; glucose ; glycerine."
+  },
+  {
+    "greek": "ἡδύς",
+    "meaning": "sweet, pleasant ; suavis ; sweet,"
+  },
+  {
+    "greek": "ἡδονή",
+    "meaning": "pleasure, passion ; hedonism."
+  },
+  {
+    "greek": "ἥδομαι",
+    "meaning": "am pleased."
+  },
+  {
+    "greek": "ἄσμενος",
+    "meaning": "well-pleased, glad."
+  },
+  {
+    "greek": "μιμνήσκω",
+    "meaning": "remind ; amnesty ; mnemonics."
+  },
+  {
+    "greek": "μέμνημαι",
+    "meaning": "remember (i. e., have called to mind)."
+  },
+  {
+    "greek": "μνημονεύω",
+    "meaning": "remember."
+  },
+  {
+    "greek": "πλανάω",
+    "meaning": "cause to wander."
+  },
+  {
+    "greek": "πλανήτης",
+    "meaning": "wanderer ; planet."
+  },
+  {
+    "greek": "δύω",
+    "meaning": "cause to sink, sink."
+  },
+  {
+    "greek": "βάπτω",
+    "meaning": "dip ; baptize."
+  },
+  {
+    "greek": "εὐμενής",
+    "meaning": "kind (i. e., having good impulses)."
+  },
+  {
+    "greek": "μένος",
+    "meaning": "impulse, impulsive anger."
+  },
+  {
+    "greek": "ὀργή",
+    "meaning": "impulse, impulsive anger."
+  },
+  {
+    "greek": "ὀργίζομαι",
+    "meaning": "am angry."
+  },
+  {
+    "greek": "ῥαβδος (ἡ)",
+    "meaning": "a rod."
+  },
+  {
+    "greek": "σκῆπτρον",
+    "meaning": "staff ; scepter."
+  },
+  {
+    "greek": "σκήπτω",
+    "meaning": "to lean ; in Mid. lean."
+  },
+  {
+    "greek": "ἐφείδω (poetical)",
+    "meaning": "to lean ; in Mid. lean."
+  },
+  {
+    "greek": "τύπτω",
+    "meaning": "strike ; type."
+  },
+  {
+    "greek": "πλήσσω",
+    "meaning": "strike with effect; Plague; Apoplexy"
+  },
+  {
+    "greek": "παίω",
+    "meaning": "strike with effect; Anapest"
+  },
+  {
+    "greek": "κόπτω",
+    "meaning": "strike with destructive effect ; syncope."
+  },
+  {
+    "greek": "πλύνω",
+    "meaning": "wash clothes."
+  },
+  {
+    "greek": "νίζω",
+    "meaning": "wash hands or feet."
+  },
+  {
+    "greek": "λούω",
+    "meaning": "wash body, in Mid., bathe ; lave."
+  },
+  {
+    "greek": "λύμη",
+    "meaning": "brutal outrage (lit., offscourings)."
+  },
+  {
+    "greek": "λυμαίνομαι",
+    "meaning": "treat brutally, outrage"
+  },
+  {
+    "greek": "καπνός",
+    "meaning": "smoke."
+  },
+  {
+    "greek": "πῦρ (τό)",
+    "meaning": "fire ; pyrotechnics ; fire,"
+  },
+  {
+    "greek": "καίω",
+    "meaning": "bum ; CAUSTIC ; HOLOCAUST."
+  },
+  {
+    "greek": "μέμφομαι",
+    "meaning": "blame."
+  },
+  {
+    "greek": "ὀνειδίζω",
+    "meaning": "reproach, taunt."
+  },
+  {
+    "greek": "λοιδορέω",
+    "meaning": "rail at, revile."
+  },
+  {
+    "greek": "ἔπαινος",
+    "meaning": "praise."
+  },
+  {
+    "greek": "ἐπαινέω",
+    "meaning": "I praise."
+  },
+  {
+    "greek": "παραινέω",
+    "meaning": "exhort, advise."
+  },
+  {
+    "greek": "σοφός",
+    "meaning": "wise ; PHILOSOPHY ; sapio ; sapiens ; insipid."
+  },
+  {
+    "greek": "σαφής",
+    "meaning": "clear."
+  },
+  {
+    "greek": "πέτρα",
+    "meaning": "rock ; Peter ; petroleum."
+  },
+  {
+    "greek": "λίθας",
+    "meaning": "stone ; lithograph j monolith."
+  },
+  {
+    "greek": "ψῆφος (ἡ)",
+    "meaning": "pebble."
+  },
+  {
+    "greek": "ψηφίζομαι",
+    "meaning": "vote (origmally with pebble)."
+  },
+  {
+    "greek": "ψήφισμα",
+    "meaning": "decree (L e., that voted)."
+  },
+  {
+    "greek": "ἐρωτάω",
+    "meaning": "ask a question."
+  },
+  {
+    "greek": "ἠρόμην",
+    "meaning": "asked a question."
+  },
+  {
+    "greek": "ζητέω",
+    "meaning": "seek."
+  },
+  {
+    "greek": "ἐλέγχω",
+    "meaning": "refute, put to shame (esp. by cross-questioning)."
+  },
+  {
+    "greek": "ἔλεγχος",
+    "meaning": "refutation."
+  },
+  {
+    "greek": "χάρις (ἡ)",
+    "meaning": "favor, grace ; eucharist."
+  },
+  {
+    "greek": "χαρίεις",
+    "meaning": "full of grace, elegant."
+  },
+  {
+    "greek": "χαρίζομαι",
+    "meaning": "gratify (i. e., do a gracious act)."
+  },
+  {
+    "greek": "χαίρω",
+    "meaning": "rejoice."
+  },
+  {
+    "greek": "ἅλλομαι",
+    "meaning": "jump; salio."
+  },
+  {
+    "greek": "πηδάω",
+    "meaning": "jump; salio."
+  },
+  {
+    "greek": "ἀφικνέομαι",
+    "meaning": "reach, arrive at."
+  },
+  {
+    "greek": "ἱκέτης",
+    "meaning": "a suppliant (i. e., one coming for protection)."
+  },
+  {
+    "greek": "ἱκανός",
+    "meaning": "sufficient (i. e., coming far enough)."
+  },
+  {
+    "greek": "δέχομαι",
+    "meaning": "receive ; pandect ; synecdoche."
+  },
+  {
+    "greek": "δόκιμος",
+    "meaning": "tested, approved (i. e., received)."
+  },
+  {
+    "greek": "δοκιμάζω",
+    "meaning": "test, approve."
+  },
+  {
+    "greek": "ἐξετάζω",
+    "meaning": "test, examine."
+  },
+  {
+    "greek": "δῶρον",
+    "meaning": "gift."
+  },
+  {
+    "greek": "δίδωμι",
+    "meaning": "give ; antidote ; dose ; do ; donation."
+  },
+  {
+    "greek": "προδίδωμι",
+    "meaning": "betray (i. e., give beforehand)."
+  },
+  {
+    "greek": "ἱμάτιον",
+    "meaning": "outer garment."
+  },
+  {
+    "greek": "χιτών (ὁ)",
+    "meaning": "inner garment."
+  },
+  {
+    "greek": "ζῷον",
+    "meaning": "living being ; Zoology."
+  },
+  {
+    "greek": "ζάω",
+    "meaning": "live, of physical existence."
+  },
+  {
+    "greek": "βιόω",
+    "meaning": "live (i. e., pass through changing experiences)."
+  },
+  {
+    "greek": "βίος",
+    "meaning": "life as a series of experiences ; biography j biology."
+  },
+  {
+    "greek": "αίών (ὁ)",
+    "meaning": "life as a period of existence, age."
+  },
+  {
+    "greek": "κτάομαι",
+    "meaning": "acquire."
+  },
+  {
+    "greek": "κέκτημαι",
+    "meaning": "possess (i. e., have acquired)."
+  },
+  {
+    "greek": "κτῆμα",
+    "meaning": "possession."
+  },
+  {
+    "greek": "κέρδος (τό)",
+    "meaning": "gain, profit."
+  },
+  {
+    "greek": "κερδαίνω",
+    "meaning": "get gain."
+  },
+  {
+    "greek": "πλοῦτος",
+    "meaning": "wealth, riches ; plutocracy."
+  },
+  {
+    "greek": "πλούσιος",
+    "meaning": "wealthy, rich."
+  },
+  {
+    "greek": "ἵστημι",
+    "meaning": "cause to stand ; ecstasy ; sto ; stand."
+  },
+  {
+    "greek": "ἀφίστημι",
+    "meaning": "cause to revolt (L e., cause to stand from) ; apostasy."
+  },
+  {
+    "greek": "καθίστημι",
+    "meaning": "settle, establish (i. e., cause to stand down)."
+  },
+  {
+    "greek": "γυμνός",
+    "meaning": "naked ; gymnastic."
+  },
+  {
+    "greek": "γύμνάζω",
+    "meaning": "train in gymnastics."
+  },
+  {
+    "greek": "ἀσκέω",
+    "meaning": "train, practice ; ascetic."
+  },
+  {
+    "greek": "μέτρον",
+    "meaning": "measure."
+  },
+  {
+    "greek": "μέτριος",
+    "meaning": "moderate (L e., within measure)."
+  },
+  {
+    "greek": "ἤβη",
+    "meaning": "youthful vigor."
+  },
+  {
+    "greek": "γῆρας (τό)",
+    "meaning": "old age."
+  },
+  {
+    "greek": "γέρων",
+    "meaning": "old man."
+  },
+  {
+    "greek": "πρέσβυς",
+    "meaning": "old man, ambassador ; presbyter."
+  },
+  {
+    "greek": "ἄνθρωπος",
+    "meaning": "man, human, being ; anthropology ; philanthropy."
+  },
+  {
+    "greek": "ἀνήρ",
+    "meaning": "man."
+  },
+  {
+    "greek": "γυνή",
+    "meaning": "woman ; ^ueen."
+  },
+  {
+    "greek": "μικρός",
+    "meaning": "small ; microscope."
+  },
+  {
+    "greek": "ὀλίγος",
+    "meaning": "few, little ; oligarchy."
+  },
+  {
+    "greek": "μέγας",
+    "meaning": "large ; omega."
+  },
+  {
+    "greek": "πολύς",
+    "meaning": "much, many."
+  },
+  {
+    "greek": "πολλάκις",
+    "meaning": "many times ; often."
+  },
+  {
+    "greek": "ενίοτε",
+    "meaning": "sometimes (ένεστι ὅτε)."
+  },
+  {
+    "greek": "ἔνιοι",
+    "meaning": "some (ἐνίοτε)."
+  },
+  {
+    "greek": "ἔθος or ἤθος",
+    "meaning": "custom, habit, character ; ethics."
+  },
+  {
+    "greek": "ἐθίζω",
+    "meaning": "accustom, train."
+  },
+  {
+    "greek": "εἴωθα",
+    "meaning": "am accustomed."
+  },
+  {
+    "greek": "τίθημι",
+    "meaning": "set, place ; antithesis ; synthesis."
+  },
+  {
+    "greek": "θέμις (ἡ)",
+    "meaning": "law, as established by custom."
+  },
+  {
+    "greek": "μιαρός",
+    "meaning": "polluted ; miasma."
+  },
+  {
+    "greek": "καθαρός",
+    "meaning": "pure ; Catharine; cathartic."
+  },
+  {
+    "greek": "καθαίρω",
+    "meaning": "purify, deanse."
+  },
+  {
+    "greek": "φύω",
+    "meaning": "produce, grow, be by nature ; fui ; be,"
+  },
+  {
+    "greek": "φύσις",
+    "meaning": "nature ; physical. y"
+  },
+  {
+    "greek": "γίγνομαι",
+    "meaning": "am bom, become."
+  },
+  {
+    "greek": "γένος (τό)",
+    "meaning": "race, offspring ; GENEALOGY ; kin."
+  },
+  {
+    "greek": "τίκτω",
+    "meaning": "bear, beget"
+  },
+  {
+    "greek": "τέκνον",
+    "meaning": "child."
+  },
+  {
+    "greek": "θήρ (ὁ)",
+    "meaning": "wild beast ; deer,"
+  },
+  {
+    "greek": "θηρεύω",
+    "meaning": "hunt."
+  },
+  {
+    "greek": "κύων",
+    "meaning": "dog ; CYNIC ; canis ; Hound."
+  },
+  {
+    "greek": "lύκος",
+    "meaning": "wolf."
+  },
+  {
+    "greek": "τρέφω",
+    "meaning": "nourish."
+  },
+  {
+    "greek": "τροφή",
+    "meaning": "nourishment, food ; atrophy."
+  },
+  {
+    "greek": "θάλλω",
+    "meaning": "flourish ; Thalia."
+  },
+  {
+    "greek": "ἄνθος (τό)",
+    "meaning": "flower ; anther ; ANTHOLOGY."
+  },
+  {
+    "greek": "φθίνω",
+    "meaning": "decay, perish ; phthisic."
+  },
+  {
+    "greek": "φθείρω",
+    "meaning": "destroy, ruin."
+  },
+  {
+    "greek": "ὄλλυμνι",
+    "meaning": "destroy, make an end of."
+  },
+  {
+    "greek": "ὄλεθρος",
+    "meaning": "destruction."
+  },
+  {
+    "greek": "κτείνω",
+    "meaning": "kill."
+  },
+  {
+    "greek": "σφάζω",
+    "meaning": "kill, cut the throat."
+  },
+  {
+    "greek": "φονεύω",
+    "meaning": "kill, murder."
+  },
+  {
+    "greek": "φόνος",
+    "meaning": "murder."
+  },
+  {
+    "greek": "ἰχθύς (ὁ)",
+    "meaning": "fish ; ICHTHYOLOGY."
+  },
+  {
+    "greek": "σάρξ (ἡ)",
+    "meaning": "flesh ; sarcasm ; SARCOPHAGUS."
+  },
+  {
+    "greek": "κρέας (τό)",
+    "meaning": "flesh (esp. flesh for food) ;• CREOSOTE, PANCREAS."
+  },
+  {
+    "greek": "αἴτιος",
+    "meaning": "chargeable with."
+  },
+  {
+    "greek": "αἰτία",
+    "meaning": "charge, accusation."
+  },
+  {
+    "greek": "αίτιάομαι",
+    "meaning": "charge with, accuse."
+  },
+  {
+    "greek": "λύω",
+    "meaning": "loose ; analysis ; paralysis."
+  },
+  {
+    "greek": "δέω",
+    "meaning": "bind ; DIADEM."
+  },
+  {
+    "greek": "δεσμός",
+    "meaning": "bond, fetter."
+  },
+  {
+    "greek": "δεσμωτήριον",
+    "meaning": "prison."
+  },
+  {
+    "greek": "πυκνλος",
+    "meaning": "thick, close, frequent."
+  },
+  {
+    "greek": "δασλυς",
+    "meaning": "thick with, overgrown with."
+  },
+  {
+    "greek": "χαλεπός",
+    "meaning": "harsh."
+  },
+  {
+    "greek": "μαλακός",
+    "meaning": "soft, gentle."
+  },
+  {
+    "greek": "ἄρσην",
+    "meaning": "masculine ; arsenic."
+  },
+  {
+    "greek": "θῆλυς",
+    "meaning": "feminine."
+  },
+  {
+    "greek": "κῆρυξ",
+    "meaning": "herald."
+  },
+  {
+    "greek": "κηρύσσω",
+    "meaning": "proclaim*"
+  },
+  {
+    "greek": "ἄγγελος",
+    "meaning": "messenger ; ANGEL ; evangelical."
+  },
+  {
+    "greek": "ἀγγέλλω",
+    "meaning": "bring a message ; announce."
+  },
+  {
+    "greek": "κάμνω",
+    "meaning": "work, am weary or sick."
+  },
+  {
+    "greek": "πένομαι",
+    "meaning": "work for bread, am poor"
+  },
+  {
+    "greek": "πένης",
+    "meaning": "poor."
+  },
+  {
+    "greek": "πόνος",
+    "meaning": "toil."
+  },
+  {
+    "greek": "πονηρός",
+    "meaning": "toilsome, vicious."
+  },
+  {
+    "greek": "tέρπω",
+    "meaning": "cheer, gladden; Euterpe"
+  },
+  {
+    "greek": "εὐφραίνω",
+    "meaning": "cheer, gladden."
+  },
+  {
+    "greek": "ἐλπίς (ἡ)",
+    "meaning": "hope."
+  },
+  {
+    "greek": "ἐλπίζω",
+    "meaning": "I hope."
+  },
+  {
+    "greek": "προσδοκάω",
+    "meaning": "expect."
+  },
+  {
+    "greek": "ἀγρός",
+    "meaning": "field ; ager ; acre,"
+  },
+  {
+    "greek": "ἄγριος",
+    "meaning": "wild (i. e., of the field)."
+  },
+  {
+    "greek": "πᾶς",
+    "meaning": "all; panacea; panorama."
+  },
+  {
+    "greek": "ὅλος",
+    "meaning": "whole ; holocaust."
+  },
+  {
+    "greek": "ἥμισυς",
+    "meaning": "half ; hemisphere."
+  },
+  {
+    "greek": "λαμβάνω",
+    "meaning": "take, receive ; syllable ; prolepsis."
+  },
+  {
+    "greek": "αἱρέω",
+    "meaning": "take, seize ; in Mid., choose ; heresy."
+  },
+  {
+    "greek": "ἁρπάζω",
+    "meaning": "seize, snatch away ; harpy ; rapio."
+  },
+  {
+    "greek": "ἁλίσκομαι",
+    "meaning": "am caught or convicted."
+  },
+  {
+    "greek": "χείρ (ἡ)",
+    "meaning": "hand ; chirography ; chiropodist."
+  },
+  {
+    "greek": "ἐπιχειρέω",
+    "meaning": "try, attempt (i. e., put hand to)."
+  },
+  {
+    "greek": "πεῖρα",
+    "meaning": "trial ; empiric ; pirate."
+  },
+  {
+    "greek": "πειράω",
+    "meaning": "try, attempt."
+  },
+  {
+    "greek": "δαπανάω",
+    "meaning": "spend."
+  },
+  {
+    "greek": "ἀναλίσκω",
+    "meaning": "spend."
+  },
+  {
+    "greek": "ὁρμή",
+    "meaning": "onset."
+  },
+  {
+    "greek": "ὁρμάω",
+    "meaning": "set in motion, make a start"
+  },
+  {
+    "greek": "κινέω",
+    "meaning": "set in motion, move."
+  },
+  {
+    "greek": "ἕκαστος",
+    "meaning": "each."
+  },
+  {
+    "greek": "ἑκάτερος",
+    "meaning": "each of two."
+  },
+  {
+    "greek": "ἀμφότεροι",
+    "meaning": "both."
+  },
+  {
+    "greek": "ἀντί",
+    "meaning": "over against, instead of (prep, with gen.)."
+  },
+  {
+    "greek": "ἐναντίος",
+    "meaning": "opposite, contrary."
+  },
+  {
+    "greek": "ἐναντιόομαι",
+    "meaning": "oppose, withstand."
+  },
+  {
+    "greek": "ἀπαντάω",
+    "meaning": "meet, encounter."
+  },
+  {
+    "greek": "πλέθρον",
+    "meaning": "lo1 ft."
+  },
+  {
+    "greek": "στάδιον",
+    "meaning": "606 ft."
+  },
+  {
+    "greek": "ὀβολος",
+    "meaning": "about 3 cents ; obelisk."
+  },
+  {
+    "greek": "δραχμή",
+    "meaning": "6 obols; about 18 cents."
+  },
+  {
+    "greek": "μνᾶ",
+    "meaning": "100 drachmas; about $18.00."
+  },
+  {
+    "greek": "τάλαντον",
+    "meaning": "60 minae; about $1080.00."
+  },
+  {
+    "greek": "πείθω",
+    "meaning": "persuade; in Mid., obey."
+  },
+  {
+    "greek": "πιστεύω",
+    "meaning": "believe, trust."
+  },
+  {
+    "greek": "πίστις (ἡ)",
+    "meaning": "faith, pledge."
+  },
+  {
+    "greek": "ἐπιτήδειος",
+    "meaning": "suitable."
+  },
+  {
+    "greek": "ἀγαθλος",
+    "meaning": "good."
+  },
+  {
+    "greek": "καλός",
+    "meaning": "beautiful, noble ; calisthenics ; calomel"
+  },
+  {
+    "greek": "κακός",
+    "meaning": "bad."
+  },
+  {
+    "greek": "φαῦλος",
+    "meaning": "worthless."
+  },
+  {
+    "greek": "γάλα (τό)",
+    "meaning": "milk ; galaxy ; lacteal"
+  },
+  {
+    "greek": "μέλι (τό)",
+    "meaning": "honey; mel; mellifliums."
+  },
+  {
+    "greek": "μέσος",
+    "meaning": "middle."
+  },
+  {
+    "greek": "μεταξύ",
+    "meaning": "between."
+  },
+  {
+    "greek": "ἀλέξω",
+    "meaning": "Ward off; Alexander"
+  },
+  {
+    "greek": "ἀμύνω",
+    "meaning": "Ward off; Alexander"
+  },
+  {
+    "greek": "χειμών (ὁ)",
+    "meaning": "winter, storm ; hiems."
+  },
+  {
+    "greek": "ἔαρ (τό)",
+    "meaning": "spring ; ver ; vernal."
+  },
+  {
+    "greek": "θέρος (τό)",
+    "meaning": "summer."
+  },
+  {
+    "greek": "θερμός",
+    "meaning": "hot ; THERMOMETER ; ISOTHERMAL."
+  },
+  {
+    "greek": "θάλπος (τό)",
+    "meaning": "heat."
+  },
+  {
+    "greek": "ὁλκάς (ἡ)",
+    "meaning": "a heavy ship to be dragged ; hulk."
+  },
+  {
+    "greek": "ἕλκω",
+    "meaning": "drag."
+  },
+  {
+    "greek": "σπάω",
+    "meaning": "draw ; spasm."
+  },
+  {
+    "greek": "ἐλυω",
+    "meaning": "draw, drag away, rescue (poetical)"
+  },
+  {
+    "greek": "δόλος",
+    "meaning": "a means of deceiving."
+  },
+  {
+    "greek": "ἀπατάω",
+    "meaning": "deceive."
+  },
+  {
+    "greek": "ψεύδω",
+    "meaning": "deceive by lying ; pseudonym."
+  },
+  {
+    "greek": "ψευδής",
+    "meaning": "false."
+  },
+  {
+    "greek": "πάσχω",
+    "meaning": "suffer, experience."
+  },
+  {
+    "greek": "πάθος (τό)",
+    "meaning": "suffering, experience ; Pathos ; Sympathy ; Antipathy"
+  },
+  {
+    "greek": "ἄλγος (τό)",
+    "meaning": "pain of body ; neuralgia."
+  },
+  {
+    "greek": "λύπη",
+    "meaning": "pain of mind or body."
+  },
+  {
+    "greek": "ἀνία",
+    "meaning": "pain of mind."
+  },
+  {
+    "greek": "δράω",
+    "meaning": "do ; DRAMA ; DRASTIC."
+  },
+  {
+    "greek": "πράσσω",
+    "meaning": "do, effect ; practical ; pragmatic."
+  },
+  {
+    "greek": "ποιέω",
+    "meaning": "do, make ; poet ; poem."
+  },
+  {
+    "greek": "προσποιέομαι",
+    "meaning": "pretend (i. e., make over to one's self)."
+  },
+  {
+    "greek": "ἔργον",
+    "meaning": "work, task ; energy ; work."
+  },
+  {
+    "greek": "ἐργάζομαι",
+    "meaning": "work, produce."
+  },
+  {
+    "greek": "μείρομαι",
+    "meaning": "receive as one's share."
+  },
+  {
+    "greek": "μέρος (τό)",
+    "meaning": "share, part."
+  },
+  {
+    "greek": "μοῖρα",
+    "meaning": "lot in life, fate."
+  },
+  {
+    "greek": "κλῆρος",
+    "meaning": "lot, estate obtained by lot, clergy."
+  },
+  {
+    "greek": "λαγχάνω",
+    "meaning": "obtain by lot."
+  },
+  {
+    "greek": "τύχη",
+    "meaning": "fortune."
+  },
+  {
+    "greek": "τυγχάνω",
+    "meaning": "hit, hit upon, happen to (with partic)."
+  },
+  {
+    "greek": "ἁμαρτάνω",
+    "meaning": "miss, sin."
+  },
+  {
+    "greek": "πατρίς (ἡ)",
+    "meaning": "fatherland ; patriotic."
+  },
+  {
+    "greek": "πατήρ",
+    "meaning": "father ; patriarch."
+  },
+  {
+    "greek": "μήτηρ",
+    "meaning": "mother ; metropolis."
+  },
+  {
+    "greek": "θυγάτηρ",
+    "meaning": "daughter."
+  },
+  {
+    "greek": "υἱός",
+    "meaning": "son."
+  },
+  {
+    "greek": "νίκη",
+    "meaning": "victory ; NiCODEMUS."
+  },
+  {
+    "greek": "νικάω",
+    "meaning": "gain the victory ; conquer."
+  },
+  {
+    "greek": "ἀκόλουθος",
+    "meaning": "attendant, as following ; anacoluthon."
+  },
+  {
+    "greek": "ἀκολουθέω",
+    "meaning": "follow (esp. as soldier or slave)."
+  },
+  {
+    "greek": "ἕπομαι",
+    "meaning": "follow."
+  },
+  {
+    "greek": "διώκω",
+    "meaning": "pursue."
+  },
+  {
+    "greek": "θεράπων",
+    "meaning": "attendant, as serving."
+  },
+  {
+    "greek": "θεραπεύω",
+    "meaning": "serve, without implying subjection or degradmg inferi-"
+  },
+  {
+    "greek": "ἰατρός",
+    "meaning": "physician."
+  },
+  {
+    "greek": "ἰάομαι",
+    "meaning": "heal."
+  },
+  {
+    "greek": "ἀκέομαι",
+    "meaning": "heal; Panacea."
+  },
+  {
+    "greek": "ὑγίεια",
+    "meaning": "health ; hygiene."
+  },
+  {
+    "greek": "νόσος (ἡ)",
+    "meaning": "disease."
+  },
+  {
+    "greek": "νοσέω",
+    "meaning": "am sick."
+  },
+  {
+    "greek": "δακρύω",
+    "meaning": "weep, shed tears ; lacrima ; fear."
+  },
+  {
+    "greek": "κλαίω",
+    "meaning": "weep, wail."
+  },
+  {
+    "greek": "οἰμώζω",
+    "meaning": "wail aloud, lament."
+  },
+  {
+    "greek": "στένω",
+    "meaning": "groan."
+  },
+  {
+    "greek": "σκότος",
+    "meaning": "darkness."
+  },
+  {
+    "greek": "σκιά",
+    "meaning": "shadow."
+  },
+  {
+    "greek": "σκηνή",
+    "meaning": "tent ; scene."
+  },
+  {
+    "greek": "ἔτος (τό)",
+    "meaning": "year."
+  },
+  {
+    "greek": "ἐνιαυτός",
+    "meaning": "year."
+  },
+  {
+    "greek": "ὤρα",
+    "meaning": "season ; hour ; horologe."
+  },
+  {
+    "greek": "μήν (ὁ)",
+    "meaning": "month ; mensis (orig. moon)."
+  },
+  {
+    "greek": "ἡμέρα",
+    "meaning": "day ; ephemeral."
+  },
+  {
+    "greek": "νύξ (ἡ)",
+    "meaning": "night ; noχ ; night."
+  },
+  {
+    "greek": "πρώην",
+    "meaning": "day before yesterday."
+  },
+  {
+    "greek": "χθές",
+    "meaning": "yesterday."
+  },
+  {
+    "greek": "σήμερον",
+    "meaning": "to-day."
+  },
+  {
+    "greek": "αὔριον",
+    "meaning": "to-morrow."
+  },
+  {
+    "greek": "ἄρχω",
+    "meaning": "begin, rule ; anarchy ; monarchy."
+  },
+  {
+    "greek": "ἀρχή",
+    "meaning": "beginning, rule, or office."
+  },
+  {
+    "greek": "ἀρχαῖος",
+    "meaning": "old (L e., pertaining to the beginning) ; archaic"
+  },
+  {
+    "greek": "πάλαι",
+    "meaning": "long ago."
+  },
+  {
+    "greek": "παλαιός",
+    "meaning": "old (i. e., existing long ago) ; paleontology."
+  },
+  {
+    "greek": "νέος",
+    "meaning": "young, new ; novus ; new."
+  },
+  {
+    "greek": "καινός",
+    "meaning": "new, recent."
+  },
+  {
+    "greek": "θάρσος (τό)",
+    "meaning": "courage, boldness ; dare."
+  },
+  {
+    "greek": "θαρσέω",
+    "meaning": "take courage, am bold."
+  },
+  {
+    "greek": "θρασύς",
+    "meaning": "courageous, bold."
+  },
+  {
+    "greek": "τόλμα (ἡ)",
+    "meaning": "courage, daring."
+  },
+  {
+    "greek": "ἔτλην (aor. 2, poetical)",
+    "meaning": "endure, dare."
+  },
+  {
+    "greek": "τολμάω",
+    "meaning": "endure, dare."
+  },
+  {
+    "greek": "τολμηρός",
+    "meaning": "enduring, daring."
+  },
+  {
+    "greek": "λευκός",
+    "meaning": "white."
+  },
+  {
+    "greek": "μέλας",
+    "meaning": "black ; MELANCHOLY ; CALOMEL."
+  },
+  {
+    "greek": "ξανθός",
+    "meaning": "yellow."
+  },
+  {
+    "greek": "χλωρός",
+    "meaning": "greenish-yellow, chloride."
+  },
+  {
+    "greek": "γλαυκός",
+    "meaning": "bright, bluish-green, gray."
+  },
+  {
+    "greek": "ποικίλος",
+    "meaning": "many-colored."
+  },
+  {
+    "greek": "πνέω",
+    "meaning": "blow, breathe ; pneumatic ; pneumonia."
+  },
+  {
+    "greek": "πνεῦμα",
+    "meaning": "wind, breath."
+  },
+  {
+    "greek": "ἄνεμος",
+    "meaning": "wind ; anemone ; anemometer."
+  },
+  {
+    "greek": "Βορέας",
+    "meaning": "North wind."
+  },
+  {
+    "greek": "Νότος",
+    "meaning": "South wind."
+  },
+  {
+    "greek": "Εὖρος",
+    "meaning": "East wind."
+  },
+  {
+    "greek": "Ζέφυρος",
+    "meaning": "West wind ; zephyr."
+  },
+  {
+    "greek": "τάφος",
+    "meaning": "tomb; epitaph; cenotaph."
+  },
+  {
+    "greek": "τάφρος",
+    "meaning": "ditch."
+  },
+  {
+    "greek": "θνήσκω",
+    "meaning": "die."
+  },
+  {
+    "greek": "θάνατος",
+    "meaning": "death ; Thanatopsis."
+  },
+  {
+    "greek": "νεκρός",
+    "meaning": "corpse ; necromancy."
+  },
+  {
+    "greek": "σῶμα",
+    "meaning": "body, often dead body."
+  },
+  {
+    "greek": "ὀρύσσω",
+    "meaning": "dig."
+  },
+  {
+    "greek": "σκάπτω",
+    "meaning": "dig."
+  },
+  {
+    "greek": "ψυχή",
+    "meaning": "breath, soul as unmortal part ; psychology."
+  },
+  {
+    "greek": "ψύχω",
+    "meaning": "blow."
+  },
+  {
+    "greek": "ψυχρός",
+    "meaning": "cold."
+  },
+  {
+    "greek": "θυμός",
+    "meaning": "soul as seat of emotion."
+  },
+  {
+    "greek": "πρόθυμος",
+    "meaning": "forward-minded, zealous."
+  },
+  {
+    "greek": "ἐπιθυμέω",
+    "meaning": "desire (i. e., set one's heart upon)."
+  },
+  {
+    "greek": "ἐνθυμέομαι",
+    "meaning": "lay to heart, consider well ; enthymeme."
+  },
+  {
+    "greek": "φρήν (ἡ)",
+    "meaning": "midriff, soul as seat of emotion and intellect ; phrenology"
+  },
+  {
+    "greek": "φρονέω",
+    "meaning": "think; am minded, purpose; reflect"
+  },
+  {
+    "greek": "καταφρονέω",
+    "meaning": "despise (i. e., think or look down upon)."
+  },
+  {
+    "greek": "φροντίζω",
+    "meaning": "Think, take earnest, anxious thought."
+  },
+  {
+    "greek": "μεριμνάω",
+    "meaning": "Think, take earnest, anxious thought."
+  },
+  {
+    "greek": "νόος",
+    "meaning": "soul as intellect."
+  },
+  {
+    "greek": "νοέω",
+    "meaning": "perceive, think."
+  },
+  {
+    "greek": "διανοέομαι",
+    "meaning": "purpose (i. e., think through)."
+  },
+  {
+    "greek": "πύλη",
+    "meaning": "gate ; Thermopylae."
+  },
+  {
+    "greek": "θύρα",
+    "meaning": "door ; door."
+  },
+  {
+    "greek": "οἴγνυμι",
+    "meaning": "open."
+  },
+  {
+    "greek": "πετάννυμι",
+    "meaning": "spread out, open wide ; petal."
+  },
+  {
+    "greek": "ἔργω",
+    "meaning": "shut in or out, bar the way."
+  },
+  {
+    "greek": "πολιορκέω",
+    "meaning": "besiege (L e., shut in a city)."
+  },
+  {
+    "greek": "ληίζομαι",
+    "meaning": "seize as booty, plunder."
+  },
+  {
+    "greek": "πορθέω",
+    "meaning": "lay waste, plunder."
+  },
+  {
+    "greek": "οἴομαι",
+    "meaning": "think (subjective opinion)."
+  },
+  {
+    "greek": "δοκέω",
+    "meaning": "think (subjective opinion)."
+  },
+  {
+    "greek": "νομίζω",
+    "meaning": "think (after careful consideration)."
+  },
+  {
+    "greek": "ἡγέομαι",
+    "meaning": "think (after careful consideration)."
+  },
+  {
+    "greek": "νέμω",
+    "meaning": "distribute ; Nemesis. [economy."
+  },
+  {
+    "greek": "νόμος",
+    "meaning": "law (i. e., that which has been assigned) ; astronomy ; economy"
+  },
+  {
+    "greek": "νομίζω",
+    "meaning": "regard as custom, think."
+  },
+  {
+    "greek": "δοκέω",
+    "meaning": "think, seem, seem good."
+  },
+  {
+    "greek": "δόξα",
+    "meaning": "opinion, reputation (i. e., opinion had of one) ; orthodox ; paradox, dogma"
+  },
+  {
+    "greek": "ἡγέομαι",
+    "meaning": "lead, think ; exegesis ; hegemony."
+  },
+  {
+    "greek": "ἄγω",
+    "meaning": "lead, convey ; pedagogue ; demagogue."
+  },
+  {
+    "greek": "ἀγών",
+    "meaning": "assembly, contest ; agony."
+  },
+  {
+    "greek": "ἀγωνίζομαι",
+    "meaning": "contend for a prize."
+  },
+  {
+    "greek": "ἆθλον",
+    "meaning": "prize, contest."
+  },
+  {
+    "greek": "ἀθλητής",
+    "meaning": "contestant for a prize ; athlete."
+  },
+  {
+    "greek": "ἄθλιος",
+    "meaning": "struggling, wretched."
+  },
+  {
+    "greek": "ὁράω",
+    "meaning": "see ; panorama."
+  },
+  {
+    "greek": "ὄψομαι",
+    "meaning": "shall see ; optics."
+  },
+  {
+    "greek": "ὄψις",
+    "meaning": "sight."
+  },
+  {
+    "greek": "εἶδον",
+    "meaning": "saw ; idea ; video ; wit; wise,"
+  },
+  {
+    "greek": "οἶδα",
+    "meaning": "know (L e., have seen)."
+  },
+  {
+    "greek": "ἐπίσταμαι",
+    "meaning": "know thoroughly, understand."
+  },
+  {
+    "greek": "γιγνώσκω",
+    "meaning": "know ; agnostic ; diagnosis ; κnow."
+  },
+  {
+    "greek": "συγγιγνώσκω",
+    "meaning": "have fellow-feeling with, pardon (L e., know with)."
+  },
+  {
+    "greek": "καταγιγνώσκω",
+    "meaning": "condemn (L e., know against)."
+  },
+  {
+    "greek": "ἀναγιγνώσκω",
+    "meaning": "read (i. e., recognize, know again)."
+  },
+  {
+    "greek": "βλέπω",
+    "meaning": "look."
+  },
+  {
+    "greek": "σκοπέω",
+    "meaning": "look at attentively ; telescope ; episcopal ; bishop."
+  },
+  {
+    "greek": "θεωρέω",
+    "meaning": "look at reflectively ; theory ; theorem."
+  },
+  {
+    "greek": "θεάομαι",
+    "meaning": "look at with wonder ; theater."
+  },
+  {
+    "greek": "βαίνω [βα]",
+    "meaning": "take steps ; acrobat ; diabetes."
+  },
+  {
+    "greek": "ὑπερβαίνω",
+    "meaning": "transgress."
+  },
+  {
+    "greek": "παραβἀινω",
+    "meaning": "transgress."
+  },
+  {
+    "greek": "συμβαίνω",
+    "meaning": "happen (L e., come together)."
+  },
+  {
+    "greek": "βαδίζω",
+    "meaning": "walk, move slowly."
+  },
+  {
+    "greek": "βιβάζω",
+    "meaning": "cause to walk."
+  },
+  {
+    "greek": "βέβαιος",
+    "meaning": "Arm (i. e., with feet firmly planted)."
+  },
+  {
+    "greek": "βάσις",
+    "meaning": "step, pedestal (i. e., that on which one steps) ; basis."
+  },
+  {
+    "greek": "βωμός",
+    "meaning": "altar (i. e., pedestal or platform for sacred rites)."
+  },
+  {
+    "greek": "γράφω",
+    "meaning": "write ; geography ; topography."
+  },
+  {
+    "greek": "γραφή",
+    "meaning": "a writing, an indictment in behalf of the state."
+  },
+  {
+    "greek": "δίκη",
+    "meaning": "right, justice, an indictment in behalf of an individual ; Theodicy; Syndicate"
+  },
+  {
+    "greek": "δίκαιος",
+    "meaning": "just."
+  },
+  {
+    "greek": "δικάζω",
+    "meaning": "I judge a case ; in Mid., I have a case judged (i. e., go to law)"
+  },
+  {
+    "greek": "δικαστής",
+    "meaning": "juror."
+  },
+  {
+    "greek": "κρίνω",
+    "meaning": "discriminate, judge ; crisis ; critic."
+  },
+  {
+    "greek": "ἀποκρίνομαι",
+    "meaning": "reply."
+  },
+  {
+    "greek": "ἔρις (ἡ)",
+    "meaning": "strife."
+  },
+  {
+    "greek": "νεῖκος (τό)",
+    "meaning": "strife."
+  },
+  {
+    "greek": "ἅμα",
+    "meaning": "at the same time."
+  },
+  {
+    "greek": "ἅμαξα (ἡ) [ἅμα +ἄξων, axle]",
+    "meaning": "wagon."
+  },
+  {
+    "greek": "ὅμως",
+    "meaning": "nevertheless (i. e., all the same)."
+  },
+  {
+    "greek": "ὁμῶς",
+    "meaning": "in the same manner."
+  },
+  {
+    "greek": "ὁμολογέω",
+    "meaning": "agree ; homologous."
+  },
+  {
+    "greek": "ὁμιλέω [ὁμ + ἴλη, a troop]",
+    "meaning": "associate with ; homily ; homiletics."
+  },
+  {
+    "greek": "μεταμέλει",
+    "meaning": "repent (is a care when too late)."
+  },
+  {
+    "greek": "μεταγιγνώσκω",
+    "meaning": "repent."
+  },
+  {
+    "greek": "μετανοέω",
+    "meaning": "repent (know after)."
+  },
+  {
+    "greek": "τέλος (τό)",
+    "meaning": "consummation, end; Teleological; initiation into the Mysteries; tax."
+  },
+  {
+    "greek": "τελέω",
+    "meaning": "consummate, initiate, pay a tax."
+  },
+  {
+    "greek": "διατελέω",
+    "meaning": "consummate, continue doing something (with partic)."
+  },
+  {
+    "greek": "τελευτάω",
+    "meaning": "end."
+  },
+  {
+    "greek": "πολυτελής",
+    "meaning": "costly (i. e., involving a large tax)."
+  },
+  {
+    "greek": "λυσιτελής",
+    "meaning": "profitable (i. e., paying the tax)."
+  },
+  {
+    "greek": "ῥίπτω",
+    "meaning": "throw."
+  },
+  {
+    "greek": "βάλλω",
+    "meaning": "throw, hit with a missile ; symbol ; parable."
+  },
+  {
+    "greek": "διαβάλλω",
+    "meaning": "calumniate (L e., throw at through malice) ; DIABOLIC ; Devil"
+  },
+  {
+    "greek": "μεταβάλλω",
+    "meaning": "change (i. e., throw into a different position)."
+  },
+  {
+    "greek": "πέρα",
+    "meaning": "across."
+  },
+  {
+    "greek": "περάω",
+    "meaning": "cross, drive right through."
+  },
+  {
+    "greek": "πορεύω",
+    "meaning": "carry ; in Mid., go."
+  },
+  {
+    "greek": "πορίζω",
+    "meaning": "furnish (i. e., carry to)."
+  },
+  {
+    "greek": "πόρος",
+    "meaning": "a passage, way, ferry ; pore ; porous ; porta ; φord."
+  },
+  {
+    "greek": "ἄπορος",
+    "meaning": "without a way, difficult."
+  },
+  {
+    "greek": "αἰχμή",
+    "meaning": "spear-head, spear."
+  },
+  {
+    "greek": "λόγχη",
+    "meaning": "spear-head, spear."
+  },
+  {
+    "greek": "δόρυ",
+    "meaning": "spear-shaft, spear (lit., trunk of a tree)."
+  },
+  {
+    "greek": "δένδρον",
+    "meaning": "tree ; rhododendron."
+  },
+  {
+    "greek": "ὕλη",
+    "meaning": "forest ; silva."
+  },
+  {
+    "greek": "ξύλον",
+    "meaning": "wood ; XYLOPHONE."
+  },
+  {
+    "greek": "ὅρος (τό)",
+    "meaning": "mountain."
+  },
+  {
+    "greek": "ὅρος (τό)",
+    "meaning": "boundary."
+  },
+  {
+    "greek": "ὁρίζω",
+    "meaning": "bound, define ; horizon."
+  },
+  {
+    "greek": "σῆμα",
+    "meaning": "sign."
+  },
+  {
+    "greek": "σημαίνω",
+    "meaning": "show by a sign."
+  },
+  {
+    "greek": "τέκμαρ (τό)",
+    "meaning": "fixed sign."
+  },
+  {
+    "greek": "τεκμήριον",
+    "meaning": "positive proof."
+  },
+  {
+    "greek": "τεκμαίρομαι",
+    "meaning": "conjecture (i. e., judge by a sign)."
+  },
+  {
+    "greek": "βοηθέω",
+    "meaning": "come to the aid of."
+  },
+  {
+    "greek": "ὄφελος (τό)",
+    "meaning": "help."
+  },
+  {
+    "greek": "ὠφελέω",
+    "meaning": "I help."
+  },
+  {
+    "greek": "όνίνημι",
+    "meaning": "benefit ; Onesimus."
+  },
+  {
+    "greek": "βλάπτω",
+    "meaning": "injure."
+  },
+  {
+    "greek": "ὀξύς",
+    "meaning": "sharp ; OXYGEN ; oxide."
+  },
+  {
+    "greek": "πικρός",
+    "meaning": "pointed, bitter."
+  },
+  {
+    "greek": "λείβω",
+    "meaning": "pour; libo; libation."
+  },
+  {
+    "greek": "λειμών (ὁ)",
+    "meaning": "meadow."
+  },
+  {
+    "greek": "λιμήν (ὁ)",
+    "meaning": "harbor."
+  },
+  {
+    "greek": "λίμνη",
+    "meaning": "lake."
+  },
+  {
+    "greek": "στρώννυμι",
+    "meaning": "spread"
+  },
+  {
+    "greek": "στρατός",
+    "meaning": "army (lit., as spread in camp)."
+  },
+  {
+    "greek": "στρατηγός [στρατός + ἄγω]",
+    "meaning": "general ; strategy."
+  },
+  {
+    "greek": "στρατόπεδον",
+    "meaning": "camp."
+  },
+  {
+    "greek": "μεστός",
+    "meaning": "full."
+  },
+  {
+    "greek": "πλήρης",
+    "meaning": "full."
+  },
+  {
+    "greek": "πίμπλημι",
+    "meaning": "fill ; pleo ; fill."
+  },
+  {
+    "greek": "πλῆθος (τό)",
+    "meaning": "multitude ; plethora."
+  },
+  {
+    "greek": "ὄχλος",
+    "meaning": "multitude, as irregular moving crowd."
+  },
+  {
+    "greek": "ἦτορ (τό)",
+    "meaning": "heart ; cor ; cordial ; heart,"
+  },
+  {
+    "greek": "κῆρ (τό)",
+    "meaning": "heart ; cor ; cordial ; heart,"
+  },
+  {
+    "greek": "καρδία",
+    "meaning": "liver. Hepatica."
+  },
+  {
+    "greek": "ἧπαρ (τό)",
+    "meaning": "stomach ; gastric j gastronomy."
+  },
+  {
+    "greek": "γαστήρ (ἡ)",
+    "meaning": "head ; acephalous ; caput ; head,"
+  },
+  {
+    "greek": "ὀφθαλμός",
+    "meaning": "eye ; ophthalmia."
+  },
+  {
+    "greek": "ῥίς (ἡ)",
+    "meaning": "nose ; rhinoceros."
+  },
+  {
+    "greek": "στόμα",
+    "meaning": "mouth ; stomach."
+  },
+  {
+    "greek": "ὀδούς (ὁ)",
+    "meaning": "tooth ; dens."
+  },
+  {
+    "greek": "γλῶσσα",
+    "meaning": "tongue ; glossary."
+  },
+  {
+    "greek": "πύργος",
+    "meaning": "tower."
+  },
+  {
+    "greek": "τεῖχος (τό)",
+    "meaning": "wall of city."
+  },
+  {
+    "greek": "τοῖχος (ὁ)",
+    "meaning": "wall of house."
+  },
+  {
+    "greek": "φωνή",
+    "meaning": "voice ; phonetic ; telephone."
+  },
+  {
+    "greek": "φθόγγος",
+    "meaning": "sound ; diphthong."
+  },
+  {
+    "greek": "θόρυβος",
+    "meaning": "noise."
+  },
+  {
+    "greek": "ἄχθος (τό)",
+    "meaning": "burden, trouble ; ache."
+  },
+  {
+    "greek": "ἄχθομαι",
+    "meaning": "am burdened or troubled."
+  },
+  {
+    "greek": "ἀείδω",
+    "meaning": "sing ; ode."
+  },
+  {
+    "greek": "βοάω",
+    "meaning": "shout."
+  },
+  {
+    "greek": "καλέω",
+    "meaning": "call; calendar"
+  },
+  {
+    "greek": "παρακαλέω",
+    "meaning": "exhort (i. e., call to)."
+  },
+  {
+    "greek": "ἐγκαλέω",
+    "meaning": "accuse (lit., call in)."
+  },
+  {
+    "greek": "κελεύω",
+    "meaning": "bid, command."
+  },
+  {
+    "greek": "ἔχω",
+    "meaning": "have, I hold or am in a certain condition ; in Mid., with gen., cling to, come next"
+  },
+  {
+    "greek": "ανέχω",
+    "meaning": "endure, tolerate (i. e., hold up)."
+  },
+  {
+    "greek": "παρέχω",
+    "meaning": "furnish (i. e., hold beside)."
+  },
+  {
+    "greek": "ὑπισχνέομαι",
+    "meaning": "promise (i. e., hold one's self under)."
+  },
+  {
+    "greek": "σχῆμα",
+    "meaning": "form, shape (i. e., a result of being or remaining in a certain position); SCHEME"
+  },
+  {
+    "greek": "σχέτλιος",
+    "meaning": "unflinching, merciless, wretched (i. e., holding or enduring)."
+  },
+  {
+    "greek": "ἑξῆς",
+    "meaning": "next in order (from middle sense of cling to, or come next)."
+  },
+  {
+    "greek": "σχεδόν",
+    "meaning": "next, nearly (from middle sense of cling to, or come next)."
+  },
+  {
+    "greek": "πίπτω [πετ]",
+    "meaning": "fall ; symptom."
+  },
+  {
+    "greek": "σφάλλω",
+    "meaning": "cause to fall."
+  },
+  {
+    "greek": "ἀσφαλής",
+    "meaning": "firm, safe (i. e., not liable to fall)."
+  },
+  {
+    "greek": "βαρύς",
+    "meaning": "heavy ; barytone ; barometer."
+  },
+  {
+    "greek": "κοῦφος",
+    "meaning": "light."
+  },
+  {
+    "greek": "ἐλαφρός",
+    "meaning": "light, nimble."
+  },
+  {
+    "greek": "κεῖμαι",
+    "meaning": "lie."
+  },
+  {
+    "greek": "κοιμάω",
+    "meaning": "put to sleep ; cemetery."
+  },
+  {
+    "greek": "εὕδω",
+    "meaning": "I sleep."
+  },
+  {
+    "greek": "ὕπνος",
+    "meaning": "sleep ; hypnotism ; somnus."
+  },
+  {
+    "greek": "ἀγρυπνέω",
+    "meaning": "am sleepless (lit., hunt for sleep)."
+  },
+  {
+    "greek": "ἐγέιρω",
+    "meaning": "arouse, awaken."
+  },
+  {
+    "greek": "χρόνος",
+    "meaning": "time ; chronic ; chronology."
+  },
+  {
+    "greek": "καιρός",
+    "meaning": "fitting time or measure."
+  },
+  {
+    "greek": "μῦθος",
+    "meaning": "word, story ; myth."
+  },
+  {
+    "greek": "ἔπος (τό)",
+    "meaning": "word ; EPIC."
+  },
+  {
+    "greek": "εἶπον",
+    "meaning": "said."
+  },
+  {
+    "greek": "ἵππος",
+    "meaning": "horse ; hippodrome; Philip."
+  },
+  {
+    "greek": "ὄνος",
+    "meaning": "donkey."
+  },
+  {
+    "greek": "βοῦς",
+    "meaning": "ox, cow ; BUCOLIC ; butter, [βοῦς + τυρός, cheese]."
+  },
+  {
+    "greek": "σῦς",
+    "meaning": "swine ; sus ; swine,"
+  },
+  {
+    "greek": "πρόβατον",
+    "meaning": "sheep."
+  },
+  {
+    "greek": "ποιμήν",
+    "meaning": "shepherd."
+  },
+  {
+    "greek": "κόρη",
+    "meaning": "girl ; Cora."
+  },
+  {
+    "greek": "νύμφη",
+    "meaning": "bride ; nymph."
+  },
+  {
+    "greek": "γαμέω",
+    "meaning": "marry ; polygamy ; BIGAMY."
+  },
+  {
+    "greek": "εὖ ἔχω",
+    "meaning": "am well (i. e., in a prosperous condition)."
+  },
+  {
+    "greek": "εὖ πράσσω",
+    "meaning": "do well, prosper."
+  },
+  {
+    "greek": "εὖ ποιέω",
+    "meaning": "do good to, treat well."
+  },
+  {
+    "greek": "εὖ πάσχω",
+    "meaning": "am treated well."
+  },
+  {
+    "greek": "χάριν ἔχω",
+    "meaning": "am grateful."
+  },
+  {
+    "greek": "χάριν οἶδα",
+    "meaning": "am grateful."
+  },
+  {
+    "greek": "σπάνις (ἡ)",
+    "meaning": "scarcity."
+  },
+  {
+    "greek": "πεῖνα",
+    "meaning": "hunger."
+  },
+  {
+    "greek": "δίψα",
+    "meaning": "thirst, Dipsomania."
+  },
+  {
+    "greek": "λέγω",
+    "meaning": "lay (poetical)."
+  },
+  {
+    "greek": "λέχος (τό)",
+    "meaning": "bed (poetical)."
+  },
+  {
+    "greek": "λόχος",
+    "meaning": "ambush, company of soldiers."
+  },
+  {
+    "greek": "λέγω",
+    "meaning": "gather, tell over ; in Attic, say ; theology."
+  },
+  {
+    "greek": "συλλέγω",
+    "meaning": "collect."
+  },
+  {
+    "greek": "λόγος",
+    "meaning": "word, account ; logic."
+  },
+  {
+    "greek": "λογίζομαι",
+    "meaning": "count, reckon."
+  },
+  {
+    "greek": "ὅπλον",
+    "meaning": "implement, arm ; panoply."
+  },
+  {
+    "greek": "ὁπλίτης",
+    "meaning": "hoplite (i. e., heavy-armed soldier)."
+  },
+  {
+    "greek": "σκεῦος (τό)",
+    "meaning": "implement, equipment."
+  },
+  {
+    "greek": "παρασκευάζω",
+    "meaning": "equip, get ready."
+  },
+  {
+    "greek": "ὠθέω",
+    "meaning": "thrust, push."
+  },
+  {
+    "greek": "ἐλαύνω",
+    "meaning": "drive ; elastic."
+  },
+  {
+    "greek": "μάρτυς",
+    "meaning": "witness ; MARTYR."
+  },
+  {
+    "greek": "μηνύω",
+    "meaning": "disclose."
+  },
+  {
+    "greek": "γέλως (ὁ)",
+    "meaning": "laughter."
+  },
+  {
+    "greek": "γελάω",
+    "meaning": "laugh."
+  },
+  {
+    "greek": "ἔοικα",
+    "meaning": "seem like, seem."
+  },
+  {
+    "greek": "εἰκός",
+    "meaning": "likely, probable."
+  },
+  {
+    "greek": "αἰκίζω [α-εικ]",
+    "meaning": "treat in an unseemly manner, torment"
+  },
+  {
+    "greek": "σείω",
+    "meaning": "shake ; seismic."
+  },
+  {
+    "greek": "πάλλω",
+    "meaning": "shake, wing, throw."
+  },
+  {
+    "greek": "πάλη",
+    "meaning": "a wrestling; PALESTRA"
+  },
+  {
+    "greek": "ἀντίπαλος",
+    "meaning": "antagonistic ; as subst., antagonist."
+  },
+  {
+    "greek": "αἴρω",
+    "meaning": "raise, lift."
+  },
+  {
+    "greek": "ὄρνυμι",
+    "meaning": "raise, rise ; orior."
+  },
+  {
+    "greek": "αὐλός",
+    "meaning": "flute, clarionet."
+  },
+  {
+    "greek": "φόρμιγξ (ἡ)",
+    "meaning": "lyre."
+  },
+  {
+    "greek": "κιθάρα",
+    "meaning": "lyre."
+  },
+  {
+    "greek": "λύρα",
+    "meaning": "lyre."
+  },
+  {
+    "greek": "ἐρετμόν",
+    "meaning": "oar ; remus ; oar."
+  },
+  {
+    "greek": "ἐρέσσω",
+    "meaning": "row."
+  },
+  {
+    "greek": "τριήρης (ἡ)",
+    "meaning": "ship with three banks of oars ; trireme."
+  },
+  {
+    "greek": "ὑπηρέτης",
+    "meaning": "an under-rower, servant."
+  },
+  {
+    "greek": "ὑπηρετέω",
+    "meaning": "serve."
+  },
+  {
+    "greek": "ἐρῶ",
+    "meaning": "shall say."
+  },
+  {
+    "greek": "ῥήτωρ",
+    "meaning": "orator ; rhetoric."
+  },
+  {
+    "greek": "ἦλθον [ελυθ]",
+    "meaning": "went ; proselyte."
+  },
+  {
+    "greek": "ἐλεύθερος",
+    "meaning": "free (i. e., going where one lists)."
+  },
+  {
+    "greek": "σφοδρός",
+    "meaning": "intense, ardent."
+  },
+  {
+    "greek": "σφόδρα",
+    "meaning": "very."
+  },
+  {
+    "greek": "λίαν",
+    "meaning": "very."
+  },
+  {
+    "greek": "ἄγαν",
+    "meaning": "very."
+  },
+  {
+    "greek": "μάλα",
+    "meaning": "very."
+  },
+  {
+    "greek": "ἄπαξ",
+    "meaning": "once for all."
+  },
+  {
+    "greek": "τείνω",
+    "meaning": "stretch ; tone."
+  },
+  {
+    "greek": "ὀρέγω",
+    "meaning": "reach; stretch out."
+  },
+  {
+    "greek": "φημί",
+    "meaning": "affirm ; euphemism ; prophet"
+  },
+  {
+    "greek": "ἀρνέομαι",
+    "meaning": "deny."
+  },
+  {
+    "greek": "ἁπλόος",
+    "meaning": "one-fold, single."
+  },
+  {
+    "greek": "διπλόος",
+    "meaning": "two-fold, double ; diploma."
+  },
+  {
+    "greek": "ἀσκός",
+    "meaning": "wine-skin."
+  },
+  {
+    "greek": "δέρω",
+    "meaning": "flay."
+  },
+  {
+    "greek": "δέρμα",
+    "meaning": "skin."
+  },
+  {
+    "greek": "σκῦτος (τό)",
+    "meaning": "tanned skin."
+  },
+  {
+    "greek": "σκυτοτόμος",
+    "meaning": "shoemaker (L e., leather cutter). [σκῦτος + τέμνω.]"
+  },
+  {
+    "greek": "ὑπέρ",
+    "meaning": "over ; super."
+  },
+  {
+    "greek": "ὕβρις",
+    "meaning": "wanton violence, insolence (i e., over-bearing spirit); HYBRID"
+  },
+  {
+    "greek": "ὑβρίζω",
+    "meaning": "grown wanton or insolent. [hybrid."
+  },
+  {
+    "greek": "ὑψηλός",
+    "meaning": "lofty."
+  },
+  {
+    "greek": "πήγνυμι",
+    "meaning": "make fast or solid"
+  },
+  {
+    "greek": "παχύς",
+    "meaning": "thick, stout ; pachyderm."
+  },
+  {
+    "greek": "νεανίας",
+    "meaning": "young man."
+  },
+  {
+    "greek": "μειράκιον",
+    "meaning": "lad, stripling."
+  },
+  {
+    "greek": "παῖς [παιδ]",
+    "meaning": "child ; PEDAGOGUE ; CYCLOPAEDIA."
+  },
+  {
+    "greek": "παιδεύω",
+    "meaning": "train a child, teach."
+  },
+  {
+    "greek": "διδάσκω",
+    "meaning": "teach, inform ; didactic."
+  },
+  {
+    "greek": "αίσθάνομαι",
+    "meaning": "perceive by the senses, learn ; aesthetics."
+  },
+  {
+    "greek": "μανθάνω",
+    "meaning": "learn ; mathematics."
+  },
+  {
+    "greek": "πυνθάνομαι",
+    "meaning": "learn by inquiry, ascertain."
+  },
+  {
+    "greek": "σθένος (τό)",
+    "meaning": "strength ; calisthenics ; Demosthenes."
+  },
+  {
+    "greek": "άσθενής",
+    "meaning": "not strong, weak, sick."
+  },
+  {
+    "greek": "ἰσχύς (ἡ)",
+    "meaning": "strength as inherent."
+  },
+  {
+    "greek": "ἰσχυρός",
+    "meaning": "strong."
+  },
+  {
+    "greek": "ἰσχυρίζομαι",
+    "meaning": "maintain persistently (L e., make one's self strong)."
+  },
+  {
+    "greek": "ῥώμη",
+    "meaning": "strength of body,"
+  },
+  {
+    "greek": "ῥώννυμι",
+    "meaning": "make strong."
+  },
+  {
+    "greek": "κράτος (τό)",
+    "meaning": "strength as giving the mastery ; aristocracy ; democracy."
+  },
+  {
+    "greek": "κρατέω",
+    "meaning": "gain the mastery over."
+  },
+  {
+    "greek": "βιά",
+    "meaning": "force, violence."
+  },
+  {
+    "greek": "βιάζομαι",
+    "meaning": "overpower h^ force."
+  },
+  {
+    "greek": "δύναμις (ἡ)",
+    "meaning": "power ; dynamite ; dynasty."
+  },
+  {
+    "greek": "δύναμαι",
+    "meaning": "am able."
+  },
+  {
+    "greek": "αὐξάνω",
+    "meaning": "increase ; augeo ; augment."
+  },
+  {
+    "greek": "φείδομαι",
+    "meaning": "spare."
+  },
+  {
+    "greek": "πάυω",
+    "meaning": "cause to cease ; in Mid., cease ; pause."
+  },
+  {
+    "greek": "χάσκω",
+    "meaning": "gape, yawn ; chasm ; CHAOS."
+  },
+  {
+    "greek": "χαίνω",
+    "meaning": "gape, yawn ; chasm ; CHAOS."
+  },
+  {
+    "greek": "γόνυ (τό)",
+    "meaning": "knee ; polygon : genu ; knee."
+  },
+  {
+    "greek": "ἅπτομαι",
+    "meaning": "fasten myself to, lay hold of, touch ; apse."
+  },
+  {
+    "greek": "ἀπειλέω",
+    "meaning": "threaten."
+  },
+  {
+    "greek": "εὑρίσκω",
+    "meaning": "find ; EUREKA."
+  },
+  {
+    "greek": "κωλύω",
+    "meaning": "hinder."
+  },
+  {
+    "greek": "στερέω",
+    "meaning": "deprive."
+  },
+  {
+    "greek": "ἔρπω",
+    "meaning": "creep ; serpo ; serpent."
+  },
+  {
+    "greek": "ξένος",
+    "meaning": "guest-friend, alien."
+  },
+  {
+    "greek": "ἐάω",
+    "meaning": "permit."
+  },
+  {
+    "greek": "κύκλος",
+    "meaning": "circle ; cycle ; bicycle."
+  },
+  {
+    "greek": "μισθός",
+    "meaning": "pay."
+  },
+  {
+    "greek": "κέρα (τό)",
+    "meaning": "horn ; rhinoceros."
+  },
+  {
+    "greek": "τρίβω",
+    "meaning": "rub, wear out ; diatribe ; tribulation."
+  },
+  {
+    "greek": "μηχανή",
+    "meaning": "machine, contrivance ; mechanic."
+  },
+  {
+    "greek": "κυλίνδη",
+    "meaning": "roll ; cylinder."
+  },
+  {
+    "greek": "γεύω",
+    "meaning": "give to taste ; gusto."
+  },
+  {
+    "greek": "δεῖπνον",
+    "meaning": "dinner."
+  },
+  {
+    "greek": "σχολή",
+    "meaning": "leisure; SCHOOL."
+  },
+  {
+    "greek": "ῥᾴδιος",
+    "meaning": "easy."
+  },
+  {
+    "greek": "κῦμα",
+    "meaning": "wave."
+  },
+  {
+    "greek": "θαυμάζω",
+    "meaning": "wonder at."
+  },
+  {
+    "greek": "ἀσπάζομαι",
+    "meaning": "welcome."
+  },
+  {
+    "greek": "δίαιτα",
+    "meaning": "manner of life ; diet."
+  },
+  {
+    "greek": "ὁδός (ἡ)",
+    "meaning": "road, street ; method ; synod."
+  },
+  {
+    "greek": "κρεμάννυμι",
+    "meaning": "hang."
+  },
+  {
+    "greek": "κόλαξ",
+    "meaning": "flatterer,"
+  },
+  {
+    "greek": "θύω",
+    "meaning": "sacrifice."
+  },
+  {
+    "greek": "μάκαρ",
+    "meaning": "blessed."
+  },
+  {
+    "greek": "αἶμα",
+    "meaning": "blood ; hemorrhage ; anaemia."
+  },
+  {
+    "greek": "δέω (δεήσω)",
+    "meaning": "lack, need ; in Med., need, beg."
+  },
+  {
+    "greek": "ἀλλά [ἄλλος]",
+    "meaning": "but (strong adversative)."
+  },
+  {
+    "greek": "δέ",
+    "meaning": "but (weak adversative)."
+  },
+  {
+    "greek": "μέν...δέ",
+    "meaning": "introduce contrasted words or clauses."
+  },
+  {
+    "greek": "μέντοι",
+    "meaning": "yet, however."
+  },
+  {
+    "greek": "τὲ",
+    "meaning": "and."
+  },
+  {
+    "greek": "καί",
+    "meaning": "and."
+  },
+  {
+    "greek": "τὲ...καί",
+    "meaning": "both . . . and."
+  },
+  {
+    "greek": "καίτοι",
+    "meaning": "and yet."
+  },
+  {
+    "greek": "καίπερ",
+    "meaning": "although (mostly with participle)."
+  },
+  {
+    "greek": "ὡς",
+    "meaning": "as (implying comparison) ; strengthening adverbs and superlatives ; that, how (introducing indirect discourse ; in order that (purpose) ; because ; when."
+  },
+  {
+    "greek": "ὅτι",
+    "meaning": "because ; that (introducing indirect discourse)."
+  },
+  {
+    "greek": "ἐπεί",
+    "meaning": "after (temporal conj.) ; since (causal conj.)."
+  },
+  {
+    "greek": "ὅπως",
+    "meaning": "that, in order that, how."
+  },
+  {
+    "greek": "γἀρ",
+    "meaning": "for (introducing co-ordinate sentences)."
+  },
+  {
+    "greek": "ὥστε",
+    "meaning": "so that (result, mostly with infin.)."
+  },
+  {
+    "greek": "εἰ",
+    "meaning": "if."
+  },
+  {
+    "greek": "ἐάν",
+    "meaning": "if."
+  },
+  {
+    "greek": "ἤν",
+    "meaning": "if."
+  },
+  {
+    "greek": "ἄρα",
+    "meaning": "accordingly (weak inferential conjunction)."
+  },
+  {
+    "greek": "ἆρα",
+    "meaning": "introduce a question."
+  },
+  {
+    "greek": "ἦ",
+    "meaning": "introduce a question."
+  },
+  {
+    "greek": "οῦν",
+    "meaning": "therefore, then"
+  },
+  {
+    "greek": "τοίνυν",
+    "meaning": "therefore, then"
+  },
+  {
+    "greek": "τοιγαροῦν",
+    "meaning": "therefore, then"
+  },
+  {
+    "greek": "ἤ",
+    "meaning": "or, after comparative, than."
+  },
+  {
+    "greek": "πότερον...ἤ",
+    "meaning": "whether ... or."
+  },
+  {
+    "greek": "τοὶ",
+    "meaning": "let me tell you."
+  },
+  {
+    "greek": "μήν",
+    "meaning": "surely, verily."
+  },
+  {
+    "greek": "ἦ",
+    "meaning": "truly."
+  },
+  {
+    "greek": "δήπου",
+    "meaning": "doubtless, of course."
+  },
+  {
+    "greek": "δτ'",
+    "meaning": "adds emphasis to word or sentence"
+  },
+  {
+    "greek": "γὲ",
+    "meaning": "at least (modifying preceding word)."
+  },
+  {
+    "greek": "πὲρ",
+    "meaning": "very, just (modifying preceding word)."
+  },
+  {
+    "greek": "εἶτα",
+    "meaning": "then, next (implying succession)."
+  },
+  {
+    "greek": "ἔπειτα",
+    "meaning": "then, next (implying succession)."
+  },
+  {
+    "greek": "αὖ",
+    "meaning": "back, again"
+  },
+  {
+    "greek": "αὖθις",
+    "meaning": "back, again"
+  },
+  {
+    "greek": "πάλιν",
+    "meaning": "back, again"
+  },
+  {
+    "greek": "νῦν",
+    "meaning": "now."
+  },
+  {
+    "greek": "ἤδη",
+    "meaning": "already."
+  },
+  {
+    "greek": "οὔπω",
+    "meaning": "not yet."
+  },
+  {
+    "greek": "οὐκέτι",
+    "meaning": "no longer."
+  },
+  {
+    "greek": "οὔποτε",
+    "meaning": "never."
+  },
+  {
+    "greek": "ἔνθα",
+    "meaning": "there, then; where, when."
+  },
+  {
+    "greek": "ένθάδε",
+    "meaning": "to this place, here, there."
+  },
+  {
+    "greek": "ἐκεῖ",
+    "meaning": "there."
+  }
+]

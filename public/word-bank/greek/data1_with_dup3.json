@@ -1,0 +1,4097 @@
+{
+    "greek_difficult_words": [],
+    "group1": [
+        {
+            "word": "ἀγάπη",
+            "root": "ἀγαπ-",
+            "meanings": [
+                "love",
+                "charity"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "λόγος",
+            "root": "λόγ-",
+            "meanings": [
+                "word",
+                "message",
+                "reason",
+                "speech"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χάρις",
+            "root": "χαρ-",
+            "meanings": [
+                "grace",
+                "favor",
+                "kindness",
+                "thanks"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πνεῦμα",
+            "root": "πνευ-",
+            "meanings": [
+                "spirit",
+                "breath",
+                "wind"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θεός",
+            "root": "θε-",
+            "meanings": [
+                "God",
+                "deity",
+                "god"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄνθρωπος",
+            "root": "ἀνθρωπ-",
+            "meanings": [
+                "man",
+                "human being"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κύριος",
+            "root": "κυρι-",
+            "meanings": [
+                "Lord",
+                "master",
+                "lord"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "Χριστός",
+            "root": "χριστ-",
+            "meanings": [
+                "Christ",
+                "Messiah"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἁμαρτία",
+            "root": "ἁμαρτ-",
+            "meanings": [
+                "sin",
+                "wrongdoing",
+                "error"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σῶμα",
+            "root": "σωμα-",
+            "meanings": [
+                "body"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "καρδία",
+            "root": "καρδι-",
+            "meanings": [
+                "heart"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἐκκλησία",
+            "root": "ἐκκλησ-",
+            "meanings": [
+                "church",
+                "assembly",
+                "congregation"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πίστις",
+            "root": "πιστ-",
+            "meanings": [
+                "faith",
+                "belief",
+                "trust"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "νόμος",
+            "root": "νομ-",
+            "meanings": [
+                "law",
+                "principle"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σωτηρία",
+            "root": "σωτηρ-",
+            "meanings": [
+                "salvation",
+                "deliverance"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "εἰρήνη",
+            "root": "εἰρην-",
+            "meanings": [
+                "peace"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δόξα",
+            "root": "δοξ-",
+            "meanings": [
+                "glory",
+                "honor",
+                "opinion",
+                "praise"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πατήρ",
+            "root": "πατρ-",
+            "meanings": [
+                "father"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὕδωρ",
+            "root": "ὕδρ-",
+            "meanings": [
+                "water"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "φῶς",
+            "root": "φωτ-",
+            "meanings": [
+                "light"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "οὐρανός",
+            "root": "οὐραν-",
+            "meanings": [
+                "heaven",
+                "sky"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "βασιλεία",
+            "root": "βασιλει-",
+            "meanings": [
+                "kingdom",
+                "reign",
+                "royalty"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀλήθεια",
+            "root": "ἀληθ-",
+            "meanings": [
+                "truth",
+                "reality"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ζωή",
+            "root": "ζω-",
+            "meanings": [
+                "life"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἁγιάζω",
+            "root": "ἁγιαζ-",
+            "meanings": [
+                "to sanctify",
+                "to make holy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐλπίς",
+            "root": "ἐλπ-",
+            "meanings": [
+                "hope"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χαρά",
+            "root": "χαρ-",
+            "meanings": [
+                "joy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "καλέω",
+            "root": "καλ-",
+            "meanings": [
+                "to call",
+                "to name"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "γινώσκω",
+            "root": "γινωσκ-",
+            "meanings": [
+                "to know",
+                "to understand",
+                "I know"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "γράφω",
+            "root": "γραφ-",
+            "meanings": [
+                "to write",
+                "I write"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "μένω",
+            "root": "μεν-",
+            "meanings": [
+                "to remain",
+                "to abide"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "βλέπω",
+            "root": "βλεπ-",
+            "meanings": [
+                "to see",
+                "to look"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀκούω",
+            "root": "ἀκου-",
+            "meanings": [
+                "to hear",
+                "to listen"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "λαλέω",
+            "root": "λαλ-",
+            "meanings": [
+                "to speak",
+                "to talk"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγαπάω",
+            "root": "ἀγαπ-",
+            "meanings": [
+                "to love",
+                "to cherish"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "πιστεύω",
+            "root": "πιστε-",
+            "meanings": [
+                "to believe",
+                "to trust",
+                "I believe"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ποιέω",
+            "root": "ποιε-",
+            "meanings": [
+                "to do",
+                "to make"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ζάω",
+            "root": "ζα-",
+            "meanings": [
+                "to live"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "λαμβάνω",
+            "root": "λαμβαν-",
+            "meanings": [
+                "to receive",
+                "to take"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "δίδωμι",
+            "root": "διδω-",
+            "meanings": [
+                "to give"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐγείρω",
+            "root": "ἐγείρ-",
+            "meanings": [
+                "to raise up",
+                "to awaken",
+                "to raise"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "σωζω",
+            "root": "σωζ-",
+            "meanings": [
+                "to save",
+                "to rescue"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "εὑρίσκω",
+            "root": "εὑρ-",
+            "meanings": [
+                "to find",
+                "I find",
+                "to discover"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "πιστός",
+            "root": "πιστ-",
+            "meanings": [
+                "faithful",
+                "trustworthy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "κακός",
+            "root": "κακ-",
+            "meanings": [
+                "bad",
+                "evil"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀγαθός",
+            "root": "ἀγαθ-",
+            "meanings": [
+                "good",
+                "noble"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "μέγας",
+            "root": "μεγ-",
+            "meanings": [
+                "great",
+                "large"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πρώτος",
+            "root": "πρωτ-",
+            "meanings": [
+                "first",
+                "chief"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "νέος",
+            "root": "νε-",
+            "meanings": [
+                "new",
+                "young"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "παλαιός",
+            "root": "παλαι-",
+            "meanings": [
+                "old",
+                "ancient"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἅγιος",
+            "root": "ἁγι-",
+            "meanings": [
+                "holy",
+                "sacred"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "μακάριος",
+            "root": "μακαρ-",
+            "meanings": [
+                "blessed",
+                "happy"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἰσχυρός",
+            "root": "ἰσχυρ-",
+            "meanings": [
+                "strong",
+                "powerful"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "τέλειος",
+            "root": "τελει-",
+            "meanings": [
+                "perfect",
+                "complete"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐχθρός",
+            "root": "ἐχθρ-",
+            "meanings": [
+                "enemy",
+                "hostile"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἕκαστος",
+            "root": "ἕκαστ-",
+            "meanings": [
+                "each",
+                "every"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πᾶς",
+            "root": "πᾶ-",
+            "meanings": [
+                "all",
+                "every"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἄλλος",
+            "root": "ἄλλ-",
+            "meanings": [
+                "other",
+                "another"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "αὐτός",
+            "root": "αὐτ-",
+            "meanings": [
+                "he",
+                "she",
+                "it",
+                "self"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "pronoun"
+        },
+        {
+            "word": "ἐμός",
+            "root": "ἐμός",
+            "meanings": [
+                "my",
+                "mine"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "pronoun"
+        },
+        {
+            "word": "σοφός",
+            "root": "σοφ-",
+            "meanings": [
+                "wise",
+                "intelligent"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἡμέρα",
+            "root": "ἡμερ-",
+            "meanings": [
+                "day"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "νύξ",
+            "root": "νυκ-",
+            "meanings": [
+                "night"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χρόνος",
+            "root": "χρον-",
+            "meanings": [
+                "time",
+                "period"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "αἰών",
+            "root": "αἰών-",
+            "meanings": [
+                "age",
+                "eternity"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κόσμος",
+            "root": "κοσμ-",
+            "meanings": [
+                "world",
+                "universe",
+                "cosmos"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χρυσός",
+            "root": "χρυσ-",
+            "meanings": [
+                "gold"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄργυρος",
+            "root": "ἄργυρ-",
+            "meanings": [
+                "silver",
+                "money"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄρτος",
+            "root": "ἄρτ-",
+            "meanings": [
+                "bread",
+                "loaf"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἔργον",
+            "root": "ἔργ-",
+            "meanings": [
+                "work",
+                "deed"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "οἶκος",
+            "root": "οἶκ-",
+            "meanings": [
+                "house",
+                "home"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δόλος",
+            "root": "δόλ-",
+            "meanings": [
+                "deceit",
+                "trickery"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σοφία",
+            "root": "σοφ-",
+            "meanings": [
+                "wisdom"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μικρός",
+            "root": "μικρ-",
+            "meanings": [
+                "small",
+                "little"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πολύς",
+            "root": "πολ-",
+            "meanings": [
+                "many",
+                "much"
+            ],
+            "frequency": 1,
+            "partOfSpeech": "adjective"
+        }
+    ],
+    "group2": [
+        {
+            "word": "χριστός",
+            "root": "χρίω",
+            "meanings": [
+                "Christ",
+                "Anointed One"
+            ],
+            "frequency": 529,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μαθητής",
+            "root": "μανθάνω",
+            "meanings": [
+                "disciple",
+                "student"
+            ],
+            "frequency": 261,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "διδάσκαλος",
+            "root": "διδάσκω",
+            "meanings": [
+                "teacher"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "προφήτης",
+            "root": "προφητεύω",
+            "meanings": [
+                "prophet"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σωτήρ",
+            "root": "σῴζω",
+            "meanings": [
+                "savior"
+            ],
+            "frequency": 24,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "εὐαγγέλιον",
+            "root": "εὐαγγελίζω",
+            "meanings": [
+                "gospel",
+                "good news"
+            ],
+            "frequency": 76,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δικαιοσύνη",
+            "root": "δικαιόω",
+            "meanings": [
+                "righteousness",
+                "justice"
+            ],
+            "frequency": 77,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνάστασις",
+            "root": "ἀναστάσις",
+            "meanings": [
+                "resurrection",
+                "rising up"
+            ],
+            "frequency": 42,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χάρισμα",
+            "root": "χάρισμα",
+            "meanings": [
+                "gift",
+                "grace"
+            ],
+            "frequency": 17,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σωφροσύνη",
+            "root": "σωφρονέω",
+            "meanings": [
+                "self-control",
+                "sound mind"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δικαστής",
+            "root": "δικαίω",
+            "meanings": [
+                "judge"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μαρτυρία",
+            "root": "μαρτυρέω",
+            "meanings": [
+                "testimony",
+                "witness"
+            ],
+            "frequency": 30,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "παραβολή",
+            "root": "παραβάλλω",
+            "meanings": [
+                "parable"
+            ],
+            "frequency": 48,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ψυχή",
+            "root": "ψυχή",
+            "meanings": [
+                "soul",
+                "life"
+            ],
+            "frequency": 105,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "νοῦς",
+            "root": "νοέω",
+            "meanings": [
+                "mind"
+            ],
+            "frequency": 24,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σώμα",
+            "root": "σῶμα",
+            "meanings": [
+                "body"
+            ],
+            "frequency": 142,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἁγιασμός",
+            "root": "ἁγιάζω",
+            "meanings": [
+                "sanctification"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνθρωπος",
+            "root": "ἄνθρωπος",
+            "meanings": [
+                "man",
+                "person"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "γῆ",
+            "root": "",
+            "meanings": [
+                "earth",
+                "land"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀρχή",
+            "root": "ἀρχάω",
+            "meanings": [
+                "beginning",
+                "ruler",
+                "authority",
+                "principle",
+                "rule"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κρίσις",
+            "root": "κρίνω",
+            "meanings": [
+                "judgment",
+                "decision"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἐντολή",
+            "root": "ἐντέλλω",
+            "meanings": [
+                "commandment"
+            ],
+            "frequency": 70,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μαρτύριον",
+            "root": "μαρτυρέω",
+            "meanings": [
+                "witness",
+                "testimony"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "γενεά",
+            "root": "γίνομαι",
+            "meanings": [
+                "generation"
+            ],
+            "frequency": 42,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὑπομονή",
+            "root": "ὑπομένω",
+            "meanings": [
+                "patience",
+                "endurance"
+            ],
+            "frequency": 31,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θεραπεία",
+            "root": "θεραπεύω",
+            "meanings": [
+                "healing"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πληρόω",
+            "root": "πληρόω",
+            "meanings": [
+                "to fulfill"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "μετανοέω",
+            "root": "μετανοέω",
+            "meanings": [
+                "to repent",
+                "to change one's mind"
+            ],
+            "frequency": 24,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "κηρύσσω",
+            "root": "κηρύσσω",
+            "meanings": [
+                "to preach",
+                "proclaim"
+            ],
+            "frequency": 61,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "δοξάζω",
+            "root": "δοξάζω",
+            "meanings": [
+                "to glorify"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "παρακαλέω",
+            "root": "παρακαλέω",
+            "meanings": [
+                "to encourage",
+                "comfort",
+                "to comfort"
+            ],
+            "frequency": 29,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "διακονέω",
+            "root": "διακονέω",
+            "meanings": [
+                "to serve",
+                "minister"
+            ],
+            "frequency": 34,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ὑπακούω",
+            "root": "ὑπακούω",
+            "meanings": [
+                "to obey"
+            ],
+            "frequency": 15,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "κατανοέω",
+            "root": "κατανοέω",
+            "meanings": [
+                "to understand"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "λατρεύω",
+            "root": "λατρεύω",
+            "meanings": [
+                "to worship",
+                "serve",
+                "to serve"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "σωφρονέω",
+            "root": "σωφρονέω",
+            "meanings": [
+                "to be self-controlled"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐξαγοράζω",
+            "root": "ἐξαγοράζω",
+            "meanings": [
+                "to redeem"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐνδύω",
+            "root": "ἐνδύω",
+            "meanings": [
+                "to clothe",
+                "put on"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐπιτιμάω",
+            "root": "ἐπιτιμάω",
+            "meanings": [
+                "to rebuke",
+                "to reprove"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "προσκαλέομαι",
+            "root": "προσκαλέω",
+            "meanings": [
+                "to call",
+                "summon"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "προσκυνέω",
+            "root": "προσκυνέω",
+            "meanings": [
+                "to worship",
+                "to bow down"
+            ],
+            "frequency": 24,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐλπίζω",
+            "root": "ἐλπίζω",
+            "meanings": [
+                "to hope"
+            ],
+            "frequency": 30,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνέχομαι",
+            "root": "ἀνέχω",
+            "meanings": [
+                "to endure",
+                "bear with"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "καταγγέλλω",
+            "root": "καταγγέλλω",
+            "meanings": [
+                "to proclaim",
+                "announce"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐργάζομαι",
+            "root": "ἐργάζομαι",
+            "meanings": [
+                "to work"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "φιλέω",
+            "root": "φιλέω",
+            "meanings": [
+                "to love (as a friend)"
+            ],
+            "frequency": 30,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐκλέγω",
+            "root": "ἐκλέγω",
+            "meanings": [
+                "to choose",
+                "elect"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "καταρτίζω",
+            "root": "καταρτίζω",
+            "meanings": [
+                "to equip",
+                "prepare"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "παραγγέλλω",
+            "root": "παραγγέλλω",
+            "meanings": [
+                "to command",
+                "charge"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "καρποφορέω",
+            "root": "καρποφορέω",
+            "meanings": [
+                "to bear fruit"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀφίημι",
+            "root": "ἀφίημι",
+            "meanings": [
+                "to forgive",
+                "release"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐπαγγέλλομαι",
+            "root": "ἐπαγγέλλω",
+            "meanings": [
+                "to promise"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "δοκιμάζω",
+            "root": "δοκιμάζω",
+            "meanings": [
+                "to test",
+                "examine"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "οἰκοδομέω",
+            "root": "οἰκοδομέω",
+            "meanings": [
+                "to build up"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "διακρίνω",
+            "root": "διακρίνω",
+            "meanings": [
+                "to judge",
+                "discern",
+                "to discern"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        }
+    ],
+    "group3": [
+        {
+            "word": "ὁ, ἡ, τό",
+            "root": "",
+            "meanings": [
+                "the"
+            ],
+            "frequency": 20400,
+            "partOfSpeech": "article"
+        },
+        {
+            "word": "καί",
+            "root": "",
+            "meanings": [
+                "and",
+                "also"
+            ],
+            "frequency": 9268,
+            "partOfSpeech": "conjunction"
+        },
+        {
+            "word": "δέ",
+            "root": "",
+            "meanings": [
+                "but",
+                "and"
+            ],
+            "frequency": 2883,
+            "partOfSpeech": "conjunction"
+        },
+        {
+            "word": "ἐν",
+            "root": "",
+            "meanings": [
+                "in",
+                "on",
+                "among"
+            ],
+            "frequency": 2803,
+            "partOfSpeech": "preposition"
+        },
+        {
+            "word": "εἰς",
+            "root": "",
+            "meanings": [
+                "into",
+                "to",
+                "toward"
+            ],
+            "frequency": 1774,
+            "partOfSpeech": "preposition"
+        },
+        {
+            "word": "λέγω",
+            "root": "λέγ-",
+            "meanings": [
+                "I say",
+                "speak",
+                "to speak",
+                "say",
+                "to say"
+            ],
+            "frequency": 2000,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "εἰμί",
+            "root": "",
+            "meanings": [
+                "I am"
+            ],
+            "frequency": 2500,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "σύ, ὑμεῖς",
+            "root": "",
+            "meanings": [
+                "you (singular/plural)"
+            ],
+            "frequency": 2900,
+            "partOfSpeech": "pronoun"
+        },
+        {
+            "word": "ἐγώ, ἡμεῖς",
+            "root": "",
+            "meanings": [
+                "I",
+                "we"
+            ],
+            "frequency": 2500,
+            "partOfSpeech": "pronoun"
+        },
+        {
+            "word": "μέγας, μεγάλη, μέγα",
+            "root": "",
+            "meanings": [
+                "great",
+                "large"
+            ],
+            "frequency": 243,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "οὐδείς, οὐδεμία, οὐδέν",
+            "root": "",
+            "meanings": [
+                "no one",
+                "nothing"
+            ],
+            "frequency": 234,
+            "partOfSpeech": "pronoun"
+        },
+        {
+            "word": "ἅγιος, α, ον",
+            "root": "",
+            "meanings": [
+                "holy"
+            ],
+            "frequency": 233,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀποκρίνομαι",
+            "root": "ἀποκρι-",
+            "meanings": [
+                "I answer",
+                "to answer",
+                "to reply"
+            ],
+            "frequency": 231,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ὄνομα",
+            "root": "",
+            "meanings": [
+                "name"
+            ],
+            "frequency": 231,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὑπό",
+            "root": "",
+            "meanings": [
+                "under",
+                "by"
+            ],
+            "frequency": 220,
+            "partOfSpeech": "preposition"
+        },
+        {
+            "word": "ἐξέρχομαι",
+            "root": "ἐξέρχ-",
+            "meanings": [
+                "I go out"
+            ],
+            "frequency": 218,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνήρ, ἀνδρός",
+            "root": "",
+            "meanings": [
+                "man",
+                "husband"
+            ],
+            "frequency": 216,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "γυνή, αικός",
+            "root": "",
+            "meanings": [
+                "woman",
+                "wife"
+            ],
+            "frequency": 215,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "τέ",
+            "root": "",
+            "meanings": [
+                "and",
+                "so"
+            ],
+            "frequency": 215,
+            "partOfSpeech": "conjunction"
+        },
+        {
+            "word": "δύναμαι",
+            "root": "",
+            "meanings": [
+                "I am able"
+            ],
+            "frequency": 210,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "θέλω",
+            "root": "",
+            "meanings": [
+                "I want",
+                "wish"
+            ],
+            "frequency": 208,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "οὕτως",
+            "root": "",
+            "meanings": [
+                "thus",
+                "so"
+            ],
+            "frequency": 208,
+            "partOfSpeech": "adverb"
+        },
+        {
+            "word": "ἰδού",
+            "root": "",
+            "meanings": [
+                "behold",
+                "see"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "interjection"
+        },
+        {
+            "word": "Ἰουδαῖος, α, ον",
+            "root": "",
+            "meanings": [
+                "Jewish"
+            ],
+            "frequency": 195,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εἰσέρχομαι",
+            "root": "εἰσέρχ-",
+            "meanings": [
+                "I enter"
+            ],
+            "frequency": 194,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "παρά",
+            "root": "",
+            "meanings": [
+                "from",
+                "beside"
+            ],
+            "frequency": 194,
+            "partOfSpeech": "preposition"
+        },
+        {
+            "word": "καθώς",
+            "root": "",
+            "meanings": [
+                "just as"
+            ],
+            "frequency": 182,
+            "partOfSpeech": "conjunction"
+        },
+        {
+            "word": "μέν",
+            "root": "",
+            "meanings": [
+                "on the one hand"
+            ],
+            "frequency": 179,
+            "partOfSpeech": "particle"
+        },
+        {
+            "word": "χείρ",
+            "root": "",
+            "meanings": [
+                "hand"
+            ],
+            "frequency": 177,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄγγελος",
+            "root": "",
+            "meanings": [
+                "messenger",
+                "angel"
+            ],
+            "frequency": 175,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὄχλος",
+            "root": "",
+            "meanings": [
+                "crowd"
+            ],
+            "frequency": 175,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄν",
+            "root": "",
+            "meanings": [
+                "would",
+                "might"
+            ],
+            "frequency": 166,
+            "partOfSpeech": "particle"
+        },
+        {
+            "word": "ἔθνος",
+            "root": "",
+            "meanings": [
+                "nation",
+                "Gentiles",
+                "people",
+                "tribe"
+            ],
+            "frequency": 162,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πόλις",
+            "root": "",
+            "meanings": [
+                "city",
+                "state"
+            ],
+            "frequency": 162,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "τότε",
+            "root": "",
+            "meanings": [
+                "then"
+            ],
+            "frequency": 160,
+            "partOfSpeech": "adverb"
+        },
+        {
+            "word": "διό",
+            "root": "",
+            "meanings": [
+                "therefore"
+            ],
+            "frequency": 53,
+            "partOfSpeech": "conjunction"
+        },
+        {
+            "word": "ἔσχατος",
+            "root": "",
+            "meanings": [
+                "last"
+            ],
+            "frequency": 52,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "σπείρω",
+            "root": "",
+            "meanings": [
+                "I sow"
+            ],
+            "frequency": 52,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "πείθω",
+            "root": "",
+            "meanings": [
+                "I persuade"
+            ],
+            "frequency": 52,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐπαγγελία",
+            "root": "",
+            "meanings": [
+                "promise"
+            ],
+            "frequency": 52,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "τυφλός",
+            "root": "",
+            "meanings": [
+                "blind"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "γραφή",
+            "root": "",
+            "meanings": [
+                "writing",
+                "Scripture"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "γλῶσσα",
+            "root": "",
+            "meanings": [
+                "tongue",
+                "language"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "noun"
+        }
+    ],
+    "first_declension_nouns": [
+        {
+            "word": "παρρησία",
+            "root": "παρρησιάζομαι",
+            "meanings": [
+                "boldness",
+                "confidence",
+                "freedom of speech"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "φιλοσοφία",
+            "root": "φιλοσοφία",
+            "meanings": [
+                "philosophy",
+                "love of wisdom"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πολιτεία",
+            "root": "πολιτεία",
+            "meanings": [
+                "citizenship",
+                "constitution",
+                "state"
+            ],
+            "frequency": 480,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "διάνοια",
+            "root": "διάνοια",
+            "meanings": [
+                "mind",
+                "thought",
+                "intellect"
+            ],
+            "frequency": 460,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἰατρική",
+            "root": "ἰατρός",
+            "meanings": [
+                "medicine",
+                "healing"
+            ],
+            "frequency": 450,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "οἰκία",
+            "root": "οἰκία",
+            "meanings": [
+                "house",
+                "home"
+            ],
+            "frequency": 370,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀγορά",
+            "root": "ἀγορά",
+            "meanings": [
+                "marketplace",
+                "assembly"
+            ],
+            "frequency": 360,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἡγεμονία",
+            "root": "ἡγεμονία",
+            "meanings": [
+                "government",
+                "leadership"
+            ],
+            "frequency": 340,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἐλευθερία",
+            "root": "ἐλευθερία",
+            "meanings": [
+                "freedom",
+                "liberty"
+            ],
+            "frequency": 330,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀσφάλεια",
+            "root": "ἀσφάλεια",
+            "meanings": [
+                "security",
+                "safety"
+            ],
+            "frequency": 320,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνάγκη",
+            "root": "ἀνάγκη",
+            "meanings": [
+                "necessity",
+                "need"
+            ],
+            "frequency": 310,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀρχαιολογία",
+            "root": "ἀρχαῖος",
+            "meanings": [
+                "archaeology",
+                "study of ancient things"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "συνείδησις",
+            "root": "συνείδησις",
+            "meanings": [
+                "conscience",
+                "awareness"
+            ],
+            "frequency": 290,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "παιδεία",
+            "root": "παιδεύω",
+            "meanings": [
+                "education",
+                "culture",
+                "upbringing"
+            ],
+            "frequency": 280,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "διδαχή",
+            "root": "διδαχή",
+            "meanings": [
+                "teaching",
+                "doctrine"
+            ],
+            "frequency": 270,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μάχη",
+            "root": "μάχη",
+            "meanings": [
+                "battle",
+                "fight"
+            ],
+            "frequency": 260,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "νίκη",
+            "root": "νίκη",
+            "meanings": [
+                "victory",
+                "conquest"
+            ],
+            "frequency": 250,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἐπιθυμία",
+            "root": "ἐπιθυμέω",
+            "meanings": [
+                "desire",
+                "longing",
+                "passion"
+            ],
+            "frequency": 240,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χρηστότης",
+            "root": "χρηστός",
+            "meanings": [
+                "goodness",
+                "kindness"
+            ],
+            "frequency": 230,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἰδιώτης",
+            "root": "ἰδιώτης",
+            "meanings": [
+                "private citizen",
+                "layman",
+                "private",
+                "individual"
+            ],
+            "frequency": 220,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀπολογία",
+            "root": "ἀπολογέομαι",
+            "meanings": [
+                "defense",
+                "apology"
+            ],
+            "frequency": 210,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "λατρεία",
+            "root": "λατρεύω",
+            "meanings": [
+                "worship",
+                "service"
+            ],
+            "frequency": 190,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνάληψις",
+            "root": "ἀναλαμβάνω",
+            "meanings": [
+                "ascension",
+                "taking up"
+            ],
+            "frequency": 180,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σχέσις",
+            "root": "σχέσις",
+            "meanings": [
+                "relation",
+                "connection"
+            ],
+            "frequency": 160,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δοξολογία",
+            "root": "δοξάζω",
+            "meanings": [
+                "doxology",
+                "praise"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "συμμαχία",
+            "root": "συμμαχέω",
+            "meanings": [
+                "alliance",
+                "confederation"
+            ],
+            "frequency": 140,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀποκάλυψις",
+            "root": "ἀποκαλύπτω",
+            "meanings": [
+                "revelation",
+                "disclosure"
+            ],
+            "frequency": 130,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὁδός",
+            "root": "ὁδός",
+            "meanings": [
+                "road",
+                "way",
+                "path"
+            ],
+            "frequency": 120,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀσκησις",
+            "root": "ἀσκέω",
+            "meanings": [
+                "discipline",
+                "exercise"
+            ],
+            "frequency": 110,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀδικία",
+            "root": "ἀδικέω",
+            "meanings": [
+                "injustice",
+                "wrongdoing",
+                "wrong"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "παράκλησις",
+            "root": "παρακαλέω",
+            "meanings": [
+                "encouragement",
+                "comfort"
+            ],
+            "frequency": 80,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χρηματισμός",
+            "root": "χρηματίζω",
+            "meanings": [
+                "wealth",
+                "riches"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἁρμονία",
+            "root": "ἁρμονία",
+            "meanings": [
+                "harmony",
+                "concord"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "noun"
+        }
+    ],
+    "second_declension_nouns": [
+        {
+            "word": "υἱός",
+            "root": "υἱ-",
+            "meanings": [
+                "son"
+            ],
+            "frequency": 800,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνήρ",
+            "root": "ἀνδρ-",
+            "meanings": [
+                "man",
+                "husband"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δέσποτης",
+            "root": "δεσποτ-",
+            "meanings": [
+                "master",
+                "ruler"
+            ],
+            "frequency": 650,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀδελφός",
+            "root": "ἀδελφ-",
+            "meanings": [
+                "brother"
+            ],
+            "frequency": 620,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἱερεύς",
+            "root": "ἱερε-",
+            "meanings": [
+                "priest"
+            ],
+            "frequency": 570,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θέλημα",
+            "root": "θελη-",
+            "meanings": [
+                "will",
+                "desire"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πολίτης",
+            "root": "πολιτ-",
+            "meanings": [
+                "citizen"
+            ],
+            "frequency": 540,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "δοῦλος",
+            "root": "δουλ-",
+            "meanings": [
+                "slave",
+                "servant"
+            ],
+            "frequency": 520,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "παιδίον",
+            "root": "παιδ-",
+            "meanings": [
+                "child",
+                "infant"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀρχιερεύς",
+            "root": "ἀρχιερε-",
+            "meanings": [
+                "high priest"
+            ],
+            "frequency": 440,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀγαπητός",
+            "root": "ἀγαπητ-",
+            "meanings": [
+                "beloved"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "θελημα",
+            "root": "θελη-",
+            "meanings": [
+                "will",
+                "purpose"
+            ],
+            "frequency": 380,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἱερὸν",
+            "root": "ἱερε-",
+            "meanings": [
+                "temple"
+            ],
+            "frequency": 370,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἄριστον",
+            "root": "ἄριστ-",
+            "meanings": [
+                "meal",
+                "food"
+            ],
+            "frequency": 350,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ποτήριον",
+            "root": "ποτηρ-",
+            "meanings": [
+                "cup"
+            ],
+            "frequency": 320,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "χρῖσμα",
+            "root": "χρῖσμα-",
+            "meanings": [
+                "anointing"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κακόν",
+            "root": "κακ-",
+            "meanings": [
+                "evil",
+                "harm"
+            ],
+            "frequency": 290,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀποστόλος",
+            "root": "ἀποστολ-",
+            "meanings": [
+                "apostle",
+                "messenger"
+            ],
+            "frequency": 270,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὄρος",
+            "root": "ὄρ-",
+            "meanings": [
+                "mountain"
+            ],
+            "frequency": 240,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀμπελῶν",
+            "root": "ἀμπελ-",
+            "meanings": [
+                "vineyard"
+            ],
+            "frequency": 230,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θέατρον",
+            "root": "θεατρ-",
+            "meanings": [
+                "theater"
+            ],
+            "frequency": 220,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θέσις",
+            "root": "θέσ-",
+            "meanings": [
+                "position",
+                "place"
+            ],
+            "frequency": 210,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θρόισμα",
+            "root": "θρόισμ-",
+            "meanings": [
+                "sound",
+                "noise"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κύτος",
+            "root": "κύτ-",
+            "meanings": [
+                "vessel",
+                "container"
+            ],
+            "frequency": 190,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἐξουσία",
+            "root": "ἐξουσι-",
+            "meanings": [
+                "authority"
+            ],
+            "frequency": 180,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "στράτευμα",
+            "root": "στρατευ-",
+            "meanings": [
+                "army"
+            ],
+            "frequency": 170,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀριθμός",
+            "root": "ἀριθμ-",
+            "meanings": [
+                "number"
+            ],
+            "frequency": 160,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἴδιον",
+            "root": "ἰδι-",
+            "meanings": [
+                "property"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "λάκκος",
+            "root": "λάκκ-",
+            "meanings": [
+                "pit",
+                "grave"
+            ],
+            "frequency": 140,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "κρατήρ",
+            "root": "κρατηρ-",
+            "meanings": [
+                "bowl",
+                "cup"
+            ],
+            "frequency": 130,
+            "partOfSpeech": "noun"
+        }
+    ],
+    "third_declension_nouns": [
+        {
+            "word": "λέξις",
+            "root": "λεκ-",
+            "meanings": [
+                "word",
+                "speech"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀνθρώπινος",
+            "root": "ἀνθρωπ-",
+            "meanings": [
+                "human"
+            ],
+            "frequency": 660,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἡγεμών",
+            "root": "ἡγεμον-",
+            "meanings": [
+                "leader",
+                "ruler"
+            ],
+            "frequency": 620,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θυγάτηρ",
+            "root": "θυγατ-",
+            "meanings": [
+                "daughter"
+            ],
+            "frequency": 560,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "λαός",
+            "root": "λα-",
+            "meanings": [
+                "people",
+                "nation"
+            ],
+            "frequency": 540,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ὑποκριτής",
+            "root": "ὑποκριτ-",
+            "meanings": [
+                "hypocrite",
+                "actor"
+            ],
+            "frequency": 480,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σοφιστής",
+            "root": "σοφιστ-",
+            "meanings": [
+                "sophist",
+                "wise man"
+            ],
+            "frequency": 440,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀντίθεσις",
+            "root": "ἀντίθεσ-",
+            "meanings": [
+                "opposition",
+                "contrast"
+            ],
+            "frequency": 280,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πάθημα",
+            "root": "παθ-",
+            "meanings": [
+                "suffering",
+                "passion"
+            ],
+            "frequency": 260,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "αἴτιος",
+            "root": "αἰτι-",
+            "meanings": [
+                "cause",
+                "reason"
+            ],
+            "frequency": 90,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "τὸ ἔργον",
+            "root": "εργ-",
+            "meanings": [
+                "work",
+                "task"
+            ],
+            "frequency": 80,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "σχῆμα",
+            "root": "σχημα-",
+            "meanings": [
+                "form",
+                "shape"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "μοιρα",
+            "root": "μοιρ-",
+            "meanings": [
+                "fate",
+                "portion"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "noun"
+        }
+    ],
+    "adjectives_one": [
+        {
+            "word": "ἀκριβής",
+            "root": "ἀκριβ-",
+            "meanings": [
+                "exact",
+                "precise"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀληθινός",
+            "root": "ἀληθιν-",
+            "meanings": [
+                "genuine",
+                "true"
+            ],
+            "frequency": 380,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀνώτερος",
+            "root": "ἀνωτερ-",
+            "meanings": [
+                "higher",
+                "superior"
+            ],
+            "frequency": 360,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀπαλός",
+            "root": "ἀπαλ-",
+            "meanings": [
+                "soft",
+                "tender"
+            ],
+            "frequency": 340,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀπρόσιτος",
+            "root": "ἀπροσιτ-",
+            "meanings": [
+                "inaccessible",
+                "unapproachable"
+            ],
+            "frequency": 320,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀσφαλής",
+            "root": "ἀσφαλ-",
+            "meanings": [
+                "secure",
+                "safe"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀτελής",
+            "root": "ἀτελ-",
+            "meanings": [
+                "imperfect",
+                "incomplete"
+            ],
+            "frequency": 280,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀχρεῖος",
+            "root": "ἀχρει-",
+            "meanings": [
+                "useless",
+                "worthless"
+            ],
+            "frequency": 260,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐλαφρός",
+            "root": "ἐλαφρ-",
+            "meanings": [
+                "light",
+                "easy"
+            ],
+            "frequency": 240,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐπιθυμητός",
+            "root": "ἐπιθυμητ-",
+            "meanings": [
+                "desirable",
+                "coveted"
+            ],
+            "frequency": 220,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐπιτήδειος",
+            "root": "ἐπιτηδει-",
+            "meanings": [
+                "suitable",
+                "appropriate"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐπιχειρητικός",
+            "root": "ἐπιχειρητικ-",
+            "meanings": [
+                "enterprising",
+                "resourceful"
+            ],
+            "frequency": 180,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐργατικός",
+            "root": "ἐργατικ-",
+            "meanings": [
+                "hardworking",
+                "industrious"
+            ],
+            "frequency": 160,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐρυθρός",
+            "root": "ἐρυθρ-",
+            "meanings": [
+                "red",
+                "ruddy"
+            ],
+            "frequency": 140,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἐσχάτος",
+            "root": "ἐσχατ-",
+            "meanings": [
+                "last",
+                "final"
+            ],
+            "frequency": 120,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐδαίμων",
+            "root": "εὐδαιμον-",
+            "meanings": [
+                "happy",
+                "fortunate"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐεργετικός",
+            "root": "εὐεργετικ-",
+            "meanings": [
+                "beneficial",
+                "helpful"
+            ],
+            "frequency": 80,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐκαιρος",
+            "root": "εὐκαιρ-",
+            "meanings": [
+                "opportune",
+                "timely"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐνοϊκός",
+            "root": "εὐνοϊκ-",
+            "meanings": [
+                "favorable",
+                "friendly"
+            ],
+            "frequency": 40,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐπρεπής",
+            "root": "εὐπρεπ-",
+            "meanings": [
+                "handsome",
+                "graceful"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "καλός",
+            "root": "καλ-",
+            "meanings": [
+                "beautiful",
+                "good"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἄγιος",
+            "root": "ἁγ-",
+            "meanings": [
+                "holy",
+                "saintly"
+            ],
+            "frequency": 880,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "δίκαιος",
+            "root": "δικ-",
+            "meanings": [
+                "righteous",
+                "just"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἰατρός",
+            "root": "ἰατρ-",
+            "meanings": [
+                "healer",
+                "medical"
+            ],
+            "frequency": 810,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἰκανός",
+            "root": "ἰκαν-",
+            "meanings": [
+                "sufficient",
+                "capable",
+                "able"
+            ],
+            "frequency": 780,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀληθής",
+            "root": "ἀληθ-",
+            "meanings": [
+                "true",
+                "real"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πνευματικός",
+            "root": "πνευματικ-",
+            "meanings": [
+                "spiritual"
+            ],
+            "frequency": 680,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "φαυλός",
+            "root": "φαυλ-",
+            "meanings": [
+                "base",
+                "evil"
+            ],
+            "frequency": 660,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "μέσος",
+            "root": "μεσ-",
+            "meanings": [
+                "middle",
+                "in between"
+            ],
+            "frequency": 640,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πλούσιος",
+            "root": "πλουσ-",
+            "meanings": [
+                "rich",
+                "wealthy"
+            ],
+            "frequency": 620,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "χρόνιος",
+            "root": "χρον-",
+            "meanings": [
+                "long",
+                "prolonged"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "αἰώνιος",
+            "root": "αἰών-",
+            "meanings": [
+                "eternal"
+            ],
+            "frequency": 580,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "χαριτωμένος",
+            "root": "χαριτωμ-",
+            "meanings": [
+                "gracious",
+                "favored"
+            ],
+            "frequency": 560,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "βίαιος",
+            "root": "βίαι-",
+            "meanings": [
+                "violent",
+                "forceful"
+            ],
+            "frequency": 540,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀρχαῖος",
+            "root": "ἀρχαῖ-",
+            "meanings": [
+                "ancient"
+            ],
+            "frequency": 520,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἁμαρτωλός",
+            "root": "ἁμαρτωλ-",
+            "meanings": [
+                "sinful"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐχάριστος",
+            "root": "εὐχαριστ-",
+            "meanings": [
+                "grateful",
+                "thankful"
+            ],
+            "frequency": 480,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πάντες",
+            "root": "παντ-",
+            "meanings": [
+                "all",
+                "everyone"
+            ],
+            "frequency": 420,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ἀνθρωπῖνος",
+            "root": "ἀνθρωπιν-",
+            "meanings": [
+                "human",
+                "humane"
+            ],
+            "frequency": 380,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "ὁμοῖος",
+            "root": "ὁμοῖ-",
+            "meanings": [
+                "similar"
+            ],
+            "frequency": 360,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "διώκτης",
+            "root": "διώκτ-",
+            "meanings": [
+                "persecutor",
+                "hostile"
+            ],
+            "frequency": 340,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "πονηρός",
+            "root": "πονηρ-",
+            "meanings": [
+                "evil",
+                "wicked"
+            ],
+            "frequency": 320,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "μὴ",
+            "root": "μὴ",
+            "meanings": [
+                "not"
+            ],
+            "frequency": 280,
+            "partOfSpeech": "adverb"
+        },
+        {
+            "word": "θεῖος",
+            "root": "θεῖ-",
+            "meanings": [
+                "divine"
+            ],
+            "frequency": 260,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "δύνατος",
+            "root": "δυνατ-",
+            "meanings": [
+                "possible",
+                "powerful"
+            ],
+            "frequency": 240,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "τρυφώδης",
+            "root": "τρυφωδ-",
+            "meanings": [
+                "luxurious",
+                "indulgent"
+            ],
+            "frequency": 220,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "πτωχός",
+            "root": "πτωχ-",
+            "meanings": [
+                "poor"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "εὐγενής",
+            "root": "εὐγεν-",
+            "meanings": [
+                "noble",
+                "well-born"
+            ],
+            "frequency": 180,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "φανερός",
+            "root": "φανερ-",
+            "meanings": [
+                "visible",
+                "manifest"
+            ],
+            "frequency": 140,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "σφαλερός",
+            "root": "σφαλερ-",
+            "meanings": [
+                "dangerous",
+                "risky"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "σκληρός",
+            "root": "σκληρ-",
+            "meanings": [
+                "hard",
+                "harsh"
+            ],
+            "frequency": 90,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "κενός",
+            "root": "κεν-",
+            "meanings": [
+                "empty",
+                "vain"
+            ],
+            "frequency": 70,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "θαυμάσιος",
+            "root": "θαυμάσι-",
+            "meanings": [
+                "marvelous",
+                "wonderful"
+            ],
+            "frequency": 60,
+            "partOfSpeech": "adjective"
+        },
+        {
+            "word": "κρείττων",
+            "root": "κρείττον-",
+            "meanings": [
+                "stronger",
+                "better"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "adjective"
+        }
+    ],
+    "additional_words_1": [
+        {
+            "word": "ἀγάπησις",
+            "root": "ἀγαπησ-",
+            "meanings": [
+                "loving",
+                "affection"
+            ],
+            "frequency": 650,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "ἀποστολή",
+            "root": "ἀποστολ-",
+            "meanings": [
+                "sending",
+                "mission"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "διαθήκη",
+            "root": "διαθηκ-",
+            "meanings": [
+                "covenant",
+                "testament"
+            ],
+            "frequency": 450,
+            "partOfSpeech": "noun"
+        },
+        {
+            "word": "θάνατος",
+            "root": "θανατ-",
+            "meanings": [
+                "death"
+            ],
+            "frequency": 250,
+            "partOfSpeech": "noun"
+        }
+    ],
+    "verbs": [
+        {
+            "word": "ἀναπηδάω",
+            "root": "ἀναπηδα-",
+            "meanings": [
+                "to leap up",
+                "to spring up"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀνατρέχω",
+            "root": "ἀνατρεχ-",
+            "meanings": [
+                "to run up",
+                "to climb"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀποκλίνω",
+            "root": "ἀποκλιν-",
+            "meanings": [
+                "to lean away",
+                "to turn aside"
+            ],
+            "frequency": 900,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀποκρούω",
+            "root": "ἀποκρου-",
+            "meanings": [
+                "to push away",
+                "to repel"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀναλογίζομαι",
+            "root": "ἀναλογιζ-",
+            "meanings": [
+                "to consider",
+                "to reflect"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀνασκοπέω",
+            "root": "ἀνασκοπ-",
+            "meanings": [
+                "to examine",
+                "to investigate"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀναπνέω",
+            "root": "ἀναπνε-",
+            "meanings": [
+                "to breathe",
+                "to respire"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "verb",
+            "domain": "Sensory Experiences"
+        },
+        {
+            "word": "ἀναφωνέω",
+            "root": "ἀναφων-",
+            "meanings": [
+                "to cry out",
+                "to shout"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "verb",
+            "domain": "Sensory Experiences"
+        },
+        {
+            "word": "ἀγαθοποιέω",
+            "root": "ἀγαθοποι-",
+            "meanings": [
+                "to do good",
+                "to benefit"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγαλλιάω",
+            "root": "ἀγαλλια-",
+            "meanings": [
+                "to rejoice",
+                "to exult"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγρυπνέω",
+            "root": "ἀγρυπν-",
+            "meanings": [
+                "to be awake",
+                "to be watchful"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀθυμέω",
+            "root": "ἀθυμ-",
+            "meanings": [
+                "to be discouraged",
+                "to lose heart"
+            ],
+            "frequency": 900,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀκριβόω",
+            "root": "ἀκριβο-",
+            "meanings": [
+                "to be exact",
+                "to be precise"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀλαζονεύομαι",
+            "root": "ἀλαζονευ-",
+            "meanings": [
+                "to boast",
+                "to brag"
+            ],
+            "frequency": 800,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀλείφω",
+            "root": "ἀλειφ-",
+            "meanings": [
+                "to anoint",
+                "to rub"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀμαυρόω",
+            "root": "ἀμαυρο-",
+            "meanings": [
+                "to darken",
+                "to dim"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀμύνω",
+            "root": "ἀμυν-",
+            "meanings": [
+                "to ward off",
+                "to defend"
+            ],
+            "frequency": 650,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναβλέπω",
+            "root": "ἀναβλεπ-",
+            "meanings": [
+                "to look up",
+                "to recover sight",
+                "to see clearly"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναλίσκω",
+            "root": "ἀναλισκ-",
+            "meanings": [
+                "to spend",
+                "to consume"
+            ],
+            "frequency": 450,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναπτύσσω",
+            "root": "ἀναπτυσσ-",
+            "meanings": [
+                "to unroll",
+                "to open",
+                "to unfold"
+            ],
+            "frequency": 350,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγωνίζομαι",
+            "root": "ἀγωνιζ-",
+            "meanings": [
+                "to struggle",
+                "to compete"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀθλέω",
+            "root": "ἀθλ-",
+            "meanings": [
+                "to compete",
+                "to strive"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναγκαῖος",
+            "root": "ἀναγκα-",
+            "meanings": [
+                "to be necessary",
+                "to be required"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναγνωρίζω",
+            "root": "ἀναγνωριζ-",
+            "meanings": [
+                "to recognize",
+                "to acknowledge"
+            ],
+            "frequency": 800,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναζητέω",
+            "root": "ἀναζητ-",
+            "meanings": [
+                "to seek out",
+                "to search for"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνακοινόω",
+            "root": "ἀνακοιν-",
+            "meanings": [
+                "to communicate",
+                "to share"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνακύπτω",
+            "root": "ἀνακυπ-",
+            "meanings": [
+                "to lift up",
+                "to raise up"
+            ],
+            "frequency": 650,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναλύω",
+            "root": "ἀναλυ-",
+            "meanings": [
+                "to depart",
+                "to return"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναμένω",
+            "root": "ἀναμεν-",
+            "meanings": [
+                "to wait for",
+                "to expect"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναμιμνήσκω",
+            "root": "ἀναμιμνησκ-",
+            "meanings": [
+                "to remind",
+                "to remember",
+                "to recall"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναπείθω",
+            "root": "ἀναπειθ-",
+            "meanings": [
+                "to persuade",
+                "to convince"
+            ],
+            "frequency": 450,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναπληρόω",
+            "root": "ἀναπληρο-",
+            "meanings": [
+                "to fill up",
+                "to complete"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναστενάζω",
+            "root": "ἀναστεναζ-",
+            "meanings": [
+                "to groan",
+                "to sigh",
+                "to sigh deeply"
+            ],
+            "frequency": 350,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνατέλλω",
+            "root": "ἀνατελ-",
+            "meanings": [
+                "to rise",
+                "to spring up"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναφέρω",
+            "root": "ἀναφερ-",
+            "meanings": [
+                "to bring up",
+                "to offer"
+            ],
+            "frequency": 250,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναχωρέω",
+            "root": "ἀναχωρ-",
+            "meanings": [
+                "to withdraw",
+                "to retreat"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνδρίζομαι",
+            "root": "ἀνδριζ-",
+            "meanings": [
+                "to act like a man",
+                "to be brave"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνέχω",
+            "root": "ἀνεχ-",
+            "meanings": [
+                "to endure",
+                "to bear"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνθίστημι",
+            "root": "ἀνθιστ-",
+            "meanings": [
+                "to resist",
+                "to oppose"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνταποδίδωμι",
+            "root": "ἀνταποδιδ-",
+            "meanings": [
+                "to repay",
+                "to give back"
+            ],
+            "frequency": 45,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀντιστρατεύομαι",
+            "root": "ἀντιστρατευ-",
+            "meanings": [
+                "to wage war against",
+                "to oppose"
+            ],
+            "frequency": 35,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπαλλάσσω",
+            "root": "ἀπαλλασσ-",
+            "meanings": [
+                "to set free",
+                "to deliver"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπατάω",
+            "root": "ἀπατ-",
+            "meanings": [
+                "to deceive",
+                "to mislead"
+            ],
+            "frequency": 15,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπειθέω",
+            "root": "ἀπειθ-",
+            "meanings": [
+                "to disobey",
+                "to be disobedient"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπέχω",
+            "root": "ἀπεχ-",
+            "meanings": [
+                "to be distant",
+                "to abstain"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποβάλλω",
+            "root": "ἀποβαλ-",
+            "meanings": [
+                "to throw away",
+                "to cast off"
+            ],
+            "frequency": 3,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγανακτέω",
+            "root": "ἀγανακτ-",
+            "meanings": [
+                "to be indignant",
+                "to be angry"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀγνοέω",
+            "root": "ἀγνο-",
+            "meanings": [
+                "to be ignorant",
+                "to not know"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀθετέω",
+            "root": "ἀθετ-",
+            "meanings": [
+                "to reject",
+                "to set aside"
+            ],
+            "frequency": 900,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀκμάζω",
+            "root": "ἀκμαζ-",
+            "meanings": [
+                "to be at the peak",
+                "to flourish"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναγκάζω",
+            "root": "ἀναγκαζ-",
+            "meanings": [
+                "to compel",
+                "to force"
+            ],
+            "frequency": 800,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναθεωρέω",
+            "root": "ἀναθεωρ-",
+            "meanings": [
+                "to observe",
+                "to consider"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνακράζω",
+            "root": "ἀνακραζ-",
+            "meanings": [
+                "to cry out",
+                "to shout"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναστρέφω",
+            "root": "ἀναστρεφ-",
+            "meanings": [
+                "to turn back",
+                "to return"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀντιλέγω",
+            "root": "ἀντιλεγ-",
+            "meanings": [
+                "to speak against",
+                "to contradict"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπαγγέλλω",
+            "root": "ἀπαγγελ-",
+            "meanings": [
+                "to report",
+                "to announce"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπαιτέω",
+            "root": "ἀπαιτ-",
+            "meanings": [
+                "to demand",
+                "to require"
+            ],
+            "frequency": 450,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποδείκνυμι",
+            "root": "ἀποδεικνυ-",
+            "meanings": [
+                "to demonstrate",
+                "to prove"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποκαλύπτω",
+            "root": "ἀποκαλυπτ-",
+            "meanings": [
+                "to reveal",
+                "to uncover"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπολαμβάνω",
+            "root": "ἀπολαμβαν-",
+            "meanings": [
+                "to receive",
+                "to take back"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπολογέομαι",
+            "root": "ἀπολογ-",
+            "meanings": [
+                "to defend oneself",
+                "to make a defense"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποπνίγω",
+            "root": "ἀποπνιγ-",
+            "meanings": [
+                "to choke",
+                "to suffocate"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποστερέω",
+            "root": "ἀποστερ-",
+            "meanings": [
+                "to defraud",
+                "to deprive"
+            ],
+            "frequency": 50,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποτυγχάνω",
+            "root": "ἀποτυγχαν-",
+            "meanings": [
+                "to fail",
+                "to miss the mark"
+            ],
+            "frequency": 45,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποφεύγω",
+            "root": "ἀποφευγ-",
+            "meanings": [
+                "to escape",
+                "to flee"
+            ],
+            "frequency": 40,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀρπάζω",
+            "root": "ἀρπαζ-",
+            "meanings": [
+                "to snatch",
+                "to seize"
+            ],
+            "frequency": 35,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀσθενέω",
+            "root": "ἀσθεν-",
+            "meanings": [
+                "to be weak",
+                "to be sick"
+            ],
+            "frequency": 30,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀτιμάζω",
+            "root": "ἀτιμαζ-",
+            "meanings": [
+                "to dishonor",
+                "to treat with contempt"
+            ],
+            "frequency": 25,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "αὐξάνω",
+            "root": "αὐξαν-",
+            "meanings": [
+                "to grow",
+                "to increase"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "βασανίζω",
+            "root": "βασανιζ-",
+            "meanings": [
+                "to torment",
+                "to torture"
+            ],
+            "frequency": 15,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "βλασφημέω",
+            "root": "βλασφημ-",
+            "meanings": [
+                "to blaspheme",
+                "to slander"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "βοάω",
+            "root": "βοα-",
+            "meanings": [
+                "to cry out",
+                "to shout"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "γελάω",
+            "root": "γελα-",
+            "meanings": [
+                "to laugh",
+                "to smile"
+            ],
+            "frequency": 3,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποστέλλω",
+            "root": "ἀποστελ-",
+            "meanings": [
+                "to send",
+                "to dispatch"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἔχω",
+            "root": "ἐχ-",
+            "meanings": [
+                "to have",
+                "to hold"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἔρχομαι",
+            "root": "ἐρχ-",
+            "meanings": [
+                "to come",
+                "to go"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποθνήσκω",
+            "root": "ἀποθαν-",
+            "meanings": [
+                "to die",
+                "to perish"
+            ],
+            "frequency": 400,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "διδάσκω",
+            "root": "διδασ-",
+            "meanings": [
+                "to teach",
+                "to instruct"
+            ],
+            "frequency": 350,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "μαρτυρέω",
+            "root": "μαρτυρ-",
+            "meanings": [
+                "to witness",
+                "to testify"
+            ],
+            "frequency": 300,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναβαίνω",
+            "root": "ἀναβα-",
+            "meanings": [
+                "to go up",
+                "to ascend"
+            ],
+            "frequency": 250,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "καταβαίνω",
+            "root": "καταβα-",
+            "meanings": [
+                "to go down",
+                "to descend"
+            ],
+            "frequency": 200,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀνοίγω",
+            "root": "ἀνοιγ-",
+            "meanings": [
+                "to open"
+            ],
+            "frequency": 150,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "κλείω",
+            "root": "κλει-",
+            "meanings": [
+                "to close",
+                "to shut"
+            ],
+            "frequency": 100,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀναγινώσκω",
+            "root": "ἀναγνω-",
+            "meanings": [
+                "to read"
+            ],
+            "frequency": 45,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐρωτάω",
+            "root": "ἐρωτ-",
+            "meanings": [
+                "to ask",
+                "to question"
+            ],
+            "frequency": 35,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀπολύω",
+            "root": "ἀπολυ-",
+            "meanings": [
+                "to release",
+                "to let go",
+                "to set free"
+            ],
+            "frequency": 30,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "σῴζω",
+            "root": "σω-",
+            "meanings": [
+                "to save",
+                "to rescue"
+            ],
+            "frequency": 25,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποστρέφω",
+            "root": "ἀποστρεφ-",
+            "meanings": [
+                "to turn away",
+                "to reject",
+                "to avert"
+            ],
+            "frequency": 20,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἐπιστρέφω",
+            "root": "ἐπιστρεφ-",
+            "meanings": [
+                "to turn to",
+                "to return"
+            ],
+            "frequency": 15,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ἀποκτείνω",
+            "root": "ἀποκτεν-",
+            "meanings": [
+                "to kill",
+                "to put to death"
+            ],
+            "frequency": 10,
+            "partOfSpeech": "verb"
+        },
+        {
+            "word": "ζητέω",
+            "root": "ζητ-",
+            "meanings": [
+                "to seek",
+                "to search for"
+            ],
+            "frequency": 5,
+            "partOfSpeech": "verb"
+        }
+    ],
+    "verbs_10": [
+        {
+            "word": "ἀνασπάω",
+            "root": "ἀνασπα-",
+            "meanings": [
+                "to draw up",
+                "to pull up"
+            ],
+            "frequency": 1000,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀνασείω",
+            "root": "ἀνασει-",
+            "meanings": [
+                "to shake up",
+                "to agitate"
+            ],
+            "frequency": 950,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀναστρέφω",
+            "root": "ἀναστρεφ-",
+            "meanings": [
+                "to turn over",
+                "to overturn"
+            ],
+            "frequency": 900,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀνασχίζω",
+            "root": "ἀνασχιζ-",
+            "meanings": [
+                "to split open",
+                "to tear apart"
+            ],
+            "frequency": 850,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+        {
+            "word": "ἀνατείνω",
+            "root": "ἀνατειν-",
+            "meanings": [
+                "to stretch up",
+                "to extend"
+            ],
+            "frequency": 800,
+            "partOfSpeech": "verb",
+            "domain": "Physical Actions"
+        },
+
+        {
+            "word": "ἀναγινώσκω",
+            "root": "ἀναγινωσκ-",
+            "meanings": [
+                "to read",
+                "to recognize"
+            ],
+            "frequency": 750,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀναθεωρέω",
+            "root": "ἀναθεωρ-",
+            "meanings": [
+                "to observe",
+                "to contemplate"
+            ],
+            "frequency": 700,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀνακρίνω",
+            "root": "ἀνακριν-",
+            "meanings": [
+                "to examine",
+                "to question"
+            ],
+            "frequency": 650,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀναπτύσσω",
+            "root": "ἀναπτυσσ-",
+            "meanings": [
+                "to unroll",
+                "to explain"
+            ],
+            "frequency": 600,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+        {
+            "word": "ἀνασκοπέω",
+            "root": "ἀνασκοπ-",
+            "meanings": [
+                "to examine",
+                "to investigate"
+            ],
+            "frequency": 550,
+            "partOfSpeech": "verb",
+            "domain": "Mental Activities"
+        },
+
+        {
+            "word": "ἀναθάλλω",
+            "root": "ἀναθαλλ-",
+            "meanings": [
+                "to bloom",
+                "to flourish"
+            ],
+            "frequency": 500,
+            "partOfSpeech": "verb",
+            "domain": "Sensory Experiences"
+        }
+    ]
+}

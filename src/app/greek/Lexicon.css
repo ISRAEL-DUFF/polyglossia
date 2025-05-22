@@ -1,0 +1,61 @@
+.gloss {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    /* color: #80ffd0; */
+    text-wrap: balance;
+  }
+
+  .gloss-tag {
+    color: #045e6a;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .gloss-sense {
+    color: #045e6a;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5px;
+  }
+  .gloss-context {
+    margin-right: 5px;
+  }
+  .foreign-text {
+    color: #694186;
+    margin-right: 5px;
+    font-size: 0.9em;
+  }
+  .inline-citation {
+    color: #c2a261;
+    margin-right: 5px;
+    font-size: 0.9em;
+  }
+
+  .inline-bibl {
+    color: #905f90;
+    font-size: 0.7em;
+  }
+
+
+  .quotes ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .quotes li {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid #444;
+    text-wrap: balance;
+    text-align: left;
+  }
+
+  .quote {
+    font-size: 1rem;
+    color: #ffd580;
+  }
+
+  .bibl {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 0.2rem;
+  }

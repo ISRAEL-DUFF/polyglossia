@@ -1,0 +1,7401 @@
+{
+  "section 1": [
+    {
+      "word": "וְ",
+      "meanings": [
+        "and"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "ve"
+    },
+    {
+      "word": "הוּא",
+      "meanings": [
+        "he"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "hûʾ"
+    },
+    {
+      "word": "לֹא",
+      "meanings": [
+        "not"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "lōʾ"
+    },
+    {
+      "word": "כִּי",
+      "meanings": [
+        "because",
+        " that",
+        " when"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "kî"
+    },
+    {
+      "word": "אֲשֶׁר",
+      "meanings": [
+        "who",
+        " which",
+        " that"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "relative pronoun",
+      "transliteration": "ʾăšer"
+    },
+    {
+      "word": "יְהוָה",
+      "meanings": [
+        "the LORD"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "proper noun",
+      "transliteration": "YHWH"
+    },
+    {
+      "word": "אֵת",
+      "meanings": [
+        "[direct object marker]"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "ʾēt"
+    },
+    {
+      "word": "בְּ",
+      "meanings": [
+        "in",
+        " at",
+        " with"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "bə"
+    },
+    {
+      "word": "עַל",
+      "meanings": [
+        "on",
+        " upon",
+        " over"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿal"
+    },
+    {
+      "word": "אֶל",
+      "meanings": [
+        "to",
+        " toward"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʾel"
+    },
+    {
+      "word": "כֹּל",
+      "meanings": [
+        "all",
+        " every"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kol"
+    },
+    {
+      "word": "הָיָה",
+      "meanings": [
+        "to be",
+        " become"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hāyāh"
+    },
+    {
+      "word": "אָמַר",
+      "meanings": [
+        "to say"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʾāmar"
+    },
+    {
+      "word": "לְ",
+      "meanings": [
+        "to",
+        " for"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "lə"
+    },
+    {
+      "word": "בֵּן",
+      "meanings": [
+        "son"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ben"
+    },
+    {
+      "word": "עִם",
+      "meanings": [
+        "with"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿim"
+    },
+    {
+      "word": "עַל־פְּנֵי",
+      "meanings": [
+        "before",
+        " in front of"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "prepositional phrase",
+      "transliteration": "ʿal-pənē"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [
+        "man"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾīš"
+    },
+    {
+      "word": "מִן",
+      "meanings": [
+        "from"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "min"
+    },
+    {
+      "word": "עַם",
+      "meanings": [
+        "people",
+        " nation"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿam"
+    },
+    {
+      "word": "אֱלֹהִים",
+      "meanings": [
+        "God",
+        " gods"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾĕlōhīm"
+    },
+    {
+      "word": "אֵין",
+      "meanings": [
+        "there is not"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "ʾēn"
+    },
+    {
+      "word": "כֵּן",
+      "meanings": [
+        "so",
+        " thus"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "kēn"
+    },
+    {
+      "word": "אַחֵר",
+      "meanings": [
+        "another",
+        " other"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ʾaḥēr"
+    },
+    {
+      "word": "עֵינַיִם",
+      "meanings": [
+        "eyes"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (dual)",
+      "transliteration": "ʿēnāyim"
+    },
+    {
+      "word": "שֵׁם",
+      "meanings": [
+        "name"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "šēm"
+    },
+    {
+      "word": "מֶלֶךְ",
+      "meanings": [
+        "king"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "melekh"
+    },
+    {
+      "word": "אֵם",
+      "meanings": [
+        "mother"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾēm"
+    },
+    {
+      "word": "אָב",
+      "meanings": [
+        "father"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾāv"
+    },
+    {
+      "word": "דָּבָר",
+      "meanings": [
+        "word",
+        " thing",
+        " matter"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "dāvār"
+    },
+    {
+      "word": "שָׁם",
+      "meanings": [
+        "there"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "šām"
+    },
+    {
+      "word": "יָד",
+      "meanings": [
+        "hand"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "yād"
+    },
+    {
+      "word": "עָשָׂה",
+      "meanings": [
+        "to do",
+        " make"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāsāh"
+    },
+    {
+      "word": "אֲנִי",
+      "meanings": [
+        "I"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "ʾănī"
+    },
+    {
+      "word": "בַּיִת",
+      "meanings": [
+        "house"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "bāyit"
+    },
+    {
+      "word": "שָׁנָה",
+      "meanings": [
+        "year"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "שָׁלַח",
+      "meanings": [
+        "to send"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šālaḥ"
+    },
+    {
+      "word": "רָאָה",
+      "meanings": [
+        "to see"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʾāh"
+    },
+    {
+      "word": "שֵׁנִי",
+      "meanings": [
+        "second"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "ordinal number",
+      "transliteration": "šēnī"
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [
+        "great",
+        " large"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gādōl"
+    },
+    {
+      "word": "שָׁמַע",
+      "meanings": [
+        "to hear",
+        " obey"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaʿ"
+    },
+    {
+      "word": "יָשַׁב",
+      "meanings": [
+        "to dwell",
+        " sit"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšav"
+    },
+    {
+      "word": "עֶבֶד",
+      "meanings": [
+        "servant"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿéved"
+    },
+    {
+      "word": "לֵב",
+      "meanings": [
+        "heart"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "lēv"
+    },
+    {
+      "word": "דֶּרֶךְ",
+      "meanings": [
+        "way",
+        " road"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "dérekh"
+    },
+    {
+      "word": "מָקוֹם",
+      "meanings": [
+        "place"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "māqōm"
+    },
+    {
+      "word": "יָדַע",
+      "meanings": [
+        "to know"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yādaʿ"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [
+        "to call",
+        " proclaim"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "שֵׁשׁ",
+      "meanings": [
+        "six"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "šēš"
+    }
+  ],
+  "section 2": [
+    {
+      "word": "שְׁנַיִם",
+      "meanings": [
+        "two"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "šənayim"
+    },
+    {
+      "word": "יָצָא",
+      "meanings": [
+        "to go out"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāṣāʾ"
+    },
+    {
+      "word": "שָׁלֹשׁ",
+      "meanings": [
+        "three"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "šālōš"
+    },
+    {
+      "word": "מַיִם",
+      "meanings": [
+        "water"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (dual)",
+      "transliteration": "māyim"
+    },
+    {
+      "word": "נָתַן",
+      "meanings": [
+        "to give"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nātan"
+    },
+    {
+      "word": "שָׁבַת",
+      "meanings": [
+        "to cease",
+        " rest"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāvat"
+    },
+    {
+      "word": "יוֹם",
+      "meanings": [
+        "day"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "yōm"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [
+        "glory",
+        " honor"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kāvōd"
+    },
+    {
+      "word": "אֶחָד",
+      "meanings": [
+        "one"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "ʾeḥād"
+    },
+    {
+      "word": "נֶפֶשׁ",
+      "meanings": [
+        "soul",
+        " life",
+        " person"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "nefeš"
+    },
+    {
+      "word": "בָּשָׂר",
+      "meanings": [
+        "flesh"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "bāsār"
+    },
+    {
+      "word": "עֵץ",
+      "meanings": [
+        "tree",
+        " wood"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿēṣ"
+    },
+    {
+      "word": "כֹּהֵן",
+      "meanings": [
+        "priest"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kōhēn"
+    },
+    {
+      "word": "עֶרֶב",
+      "meanings": [
+        "evening"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿerev"
+    },
+    {
+      "word": "צָבָא",
+      "meanings": [
+        "army",
+        " host"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ṣāvāʾ"
+    },
+    {
+      "word": "קָדוֹשׁ",
+      "meanings": [
+        "holy"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qādōš"
+    },
+    {
+      "word": "קָרַב",
+      "meanings": [
+        "to come near",
+        " approach"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārav"
+    },
+    {
+      "word": "זָכַר",
+      "meanings": [
+        "to remember"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zākar"
+    },
+    {
+      "word": "אֹכֶל",
+      "meanings": [
+        "food"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾōkhel"
+    },
+    {
+      "word": "דָּם",
+      "meanings": [
+        "blood"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "dām"
+    },
+    {
+      "word": "עֵדָה",
+      "meanings": [
+        "assembly",
+        " congregation"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿēdāh"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [
+        "steadfast love",
+        " mercy"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ḥéśed"
+    },
+    {
+      "word": "שָׁבַר",
+      "meanings": [
+        "to break"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāvar"
+    },
+    {
+      "word": "שָׁפַט",
+      "meanings": [
+        "to judge"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāfaṭ"
+    },
+    {
+      "word": "צֶדֶק",
+      "meanings": [
+        "righteousness",
+        " justice"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ṣeḏeq"
+    },
+    {
+      "word": "שָׁםַּיִם",
+      "meanings": [
+        "heavens",
+        " sky"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (dual)",
+      "transliteration": "šāmayim"
+    },
+    {
+      "word": "עֶרֶךְ",
+      "meanings": [
+        "value",
+        " order"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿéreḵ"
+    },
+    {
+      "word": "לֵאמֹר",
+      "meanings": [
+        "to say (introduces speech)"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "infinitive",
+      "transliteration": "lēʾmōr"
+    },
+    {
+      "word": "בָּרָא",
+      "meanings": [
+        "to create"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bārāʾ"
+    },
+    {
+      "word": "כַּף",
+      "meanings": [
+        "palm (of hand)",
+        " sole (of foot)"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kaf"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [
+        "peace",
+        " completeness"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "šālōm"
+    },
+    {
+      "word": "חָטָא",
+      "meanings": [
+        "to sin",
+        " miss"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāṭāʾ"
+    },
+    {
+      "word": "שֵׁבֶט",
+      "meanings": [
+        "tribe",
+        " rod"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "šēveṭ"
+    },
+    {
+      "word": "נָפַל",
+      "meanings": [
+        "to fall"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāpal"
+    },
+    {
+      "word": "שָׁאַל",
+      "meanings": [
+        "to ask",
+        " inquire"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʾal"
+    },
+    {
+      "word": "רַב",
+      "meanings": [
+        "many",
+        " much",
+        " great"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rav"
+    },
+    {
+      "word": "מִצְוָה",
+      "meanings": [
+        "commandment"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "miṣvāh"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [
+        "evil",
+        " bad"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun/adjective",
+      "transliteration": "rāʿāh"
+    },
+    {
+      "word": "חָיָה",
+      "meanings": [
+        "to live"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāyāh"
+    },
+    {
+      "word": "אֹזֶן",
+      "meanings": [
+        "ear"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾōzen"
+    },
+    {
+      "word": "עָוֹן",
+      "meanings": [
+        "iniquity",
+        " guilt"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿāwōn"
+    },
+    {
+      "word": "גִּבּוֹר",
+      "meanings": [
+        "mighty",
+        " warrior"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun/adjective",
+      "transliteration": "gibbōr"
+    },
+    {
+      "word": "שׁוּב",
+      "meanings": [
+        "to return",
+        " turn back"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šûv"
+    },
+    {
+      "word": "מַלְאָךְ",
+      "meanings": [
+        "messenger",
+        " angel"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "malʾākh"
+    },
+    {
+      "word": "חֹק",
+      "meanings": [
+        "statute",
+        " decree"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ḥōq"
+    },
+    {
+      "word": "אֹרֶךְ",
+      "meanings": [
+        "length"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʾōréḵ"
+    },
+    {
+      "word": "גּוֹי",
+      "meanings": [
+        "nation"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "gōy"
+    },
+    {
+      "word": "חֹשֶׁךְ",
+      "meanings": [
+        "darkness"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ḥōšeḵ"
+    },
+    {
+      "word": "בּוֹא",
+      "meanings": [
+        "to come",
+        " enter"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bōʾ"
+    }
+  ],
+  "section 3": [
+    {
+      "word": "בֵּן",
+      "meanings": [
+        "son"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "bēn"
+    },
+    {
+      "word": "בַּת",
+      "meanings": [
+        "daughter"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "bat"
+    },
+    {
+      "word": "זָקֵן",
+      "meanings": [
+        "old man",
+        " elder"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "zāqēn"
+    },
+    {
+      "word": "נָשָׂא",
+      "meanings": [
+        "to lift",
+        " carry",
+        " bear"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "מִזְבֵּחַ",
+      "meanings": [
+        "altar"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "mizbēaḥ"
+    },
+    {
+      "word": "קֹדֶשׁ",
+      "meanings": [
+        "holiness",
+        " holy thing"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "qōḏeš"
+    },
+    {
+      "word": "לֶחֶם",
+      "meanings": [
+        "bread",
+        " food"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "leḥem"
+    },
+    {
+      "word": "כָּנָף",
+      "meanings": [
+        "wing",
+        " edge"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kānāf"
+    },
+    {
+      "word": "שָׁחַת",
+      "meanings": [
+        "to destroy",
+        " corrupt"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḥat"
+    },
+    {
+      "word": "צָוָה",
+      "meanings": [
+        "to command"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāvāh"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [
+        "to call",
+        " proclaim"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "שָׁמַע",
+      "meanings": [
+        "to hear",
+        " listen"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaʿ"
+    },
+    {
+      "word": "שָׁנָה",
+      "meanings": [
+        "year"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "יָרֵא",
+      "meanings": [
+        "to fear",
+        " revere"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yārēʾ"
+    },
+    {
+      "word": "נָא",
+      "meanings": [
+        "please (particle of entreaty)"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "nā"
+    },
+    {
+      "word": "צַדִּיק",
+      "meanings": [
+        "righteous"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣaddīq"
+    },
+    {
+      "word": "עֵינַיִם",
+      "meanings": [
+        "eyes"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (dual)",
+      "transliteration": "ʿēnāyim"
+    },
+    {
+      "word": "כָּרַת",
+      "meanings": [
+        "to cut",
+        " make (a covenant)"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kārat"
+    },
+    {
+      "word": "גָּאַל",
+      "meanings": [
+        "to redeem"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāʾal"
+    },
+    {
+      "word": "רַע",
+      "meanings": [
+        "evil",
+        " bad"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun/adjective",
+      "transliteration": "raʿ"
+    },
+    {
+      "word": "דֶּרֶךְ",
+      "meanings": [
+        "way",
+        " road"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "déreḵ"
+    },
+    {
+      "word": "שֶׁבַע",
+      "meanings": [
+        "seven"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "ševaʿ"
+    },
+    {
+      "word": "עָשָׂר",
+      "meanings": [
+        "ten"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "ʿāsar"
+    },
+    {
+      "word": "קֶרֶב",
+      "meanings": [
+        "midst",
+        " inner part"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "qérev"
+    },
+    {
+      "word": "עָשָׂה",
+      "meanings": [
+        "to do",
+        " make"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāsāh"
+    },
+    {
+      "word": "שָׂנֵא",
+      "meanings": [
+        "to hate"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "śānēʾ"
+    },
+    {
+      "word": "אָכַל",
+      "meanings": [
+        "to eat"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʾākal"
+    },
+    {
+      "word": "מִשְׁפָּט",
+      "meanings": [
+        "judgment",
+        " justice"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "mišpāṭ"
+    },
+    {
+      "word": "תּוֹרָה",
+      "meanings": [
+        "law",
+        " instruction"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "tōrāh"
+    },
+    {
+      "word": "עַמּוּד",
+      "meanings": [
+        "pillar"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ʿammûd"
+    },
+    {
+      "word": "יָרַד",
+      "meanings": [
+        "to go down"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yārad"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [
+        "covenant"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "berīt"
+    },
+    {
+      "word": "שָׁכַן",
+      "meanings": [
+        "to dwell"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākan"
+    },
+    {
+      "word": "כּוֹכָב",
+      "meanings": [
+        "star"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "kōkāv"
+    },
+    {
+      "word": "קָטֹן",
+      "meanings": [
+        "small",
+        " little"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāṭōn"
+    },
+    {
+      "word": "רָעָב",
+      "meanings": [
+        "famine",
+        " hunger"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "rāʿāv"
+    },
+    {
+      "word": "יָשַׁב",
+      "meanings": [
+        "to sit",
+        " dwell"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšaḇ"
+    },
+    {
+      "word": "כָּבֵד",
+      "meanings": [
+        "to be heavy",
+        " honored"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb/adjective",
+      "transliteration": "kāvēd"
+    },
+    {
+      "word": "הֵן",
+      "meanings": [
+        "behold"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "interjection",
+      "transliteration": "hēn"
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [
+        "great"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gādōl"
+    },
+    {
+      "word": "תּוֹךְ",
+      "meanings": [
+        "midst"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "tōḵ"
+    },
+    {
+      "word": "מָלֵא",
+      "meanings": [
+        "to be full"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "mālēʾ"
+    },
+    {
+      "word": "גָּלָה",
+      "meanings": [
+        "to uncover",
+        " go into exile"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gālāh"
+    },
+    {
+      "word": "שָׁמַיִם",
+      "meanings": [
+        "heavens"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (dual)",
+      "transliteration": "šāmayim"
+    },
+    {
+      "word": "רָחַם",
+      "meanings": [
+        "to have compassion"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥam"
+    },
+    {
+      "word": "יָשָׁר",
+      "meanings": [
+        "upright",
+        " straight"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "yāšār"
+    },
+    {
+      "word": "כֹּל",
+      "meanings": [
+        "all",
+        " every"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun (collective)",
+      "transliteration": "kōl"
+    },
+    {
+      "word": "צֹאן",
+      "meanings": [
+        "flock",
+        " sheep"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "ṣōʾn"
+    },
+    {
+      "word": "כֶּסֶף",
+      "meanings": [
+        "silver",
+        " money"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "késef"
+    },
+    {
+      "word": "מֶלֶךְ",
+      "meanings": [
+        "king"
+      ],
+      "frequency": 1,
+      "partOfSpeech": "noun",
+      "transliteration": "méleḵ"
+    }
+  ],
+  "section 4": [
+    {
+      "word": "נָשָׂא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "צָוָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāwāh"
+    },
+    {
+      "word": "יָכֹל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāḵōl"
+    },
+    {
+      "word": "אֵשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾēš"
+    },
+    {
+      "word": "דֶּרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f./m.)",
+      "transliteration": "derek"
+    },
+    {
+      "word": "פָּנִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "pānîm"
+    },
+    {
+      "word": "רַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective/noun",
+      "transliteration": "rav"
+    },
+    {
+      "word": "נָכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nākāh"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾîš"
+    },
+    {
+      "word": "כֹּהֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kōhēn"
+    },
+    {
+      "word": "רֶגֶל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "regel"
+    },
+    {
+      "word": "עָנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿānāh"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāvōd"
+    },
+    {
+      "word": "בָּטַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bāṭaḥ"
+    },
+    {
+      "word": "זֶבַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "zevaḥ"
+    },
+    {
+      "word": "עָוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿāwōn"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿāh"
+    },
+    {
+      "word": "מִשְׁפָּט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mishpāṭ"
+    },
+    {
+      "word": "מָלֵא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "mālēʾ"
+    },
+    {
+      "word": "שֵׁם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šēm"
+    },
+    {
+      "word": "זָכַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zāḵar"
+    },
+    {
+      "word": "חָיָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāyāh"
+    },
+    {
+      "word": "שָׂדֶה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "śāḏeh"
+    },
+    {
+      "word": "בָּקָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bāqār"
+    },
+    {
+      "word": "יָשָׁר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "yāšār"
+    },
+    {
+      "word": "חַטָּאת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥaṭṭāʾt"
+    },
+    {
+      "word": "נָטָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāṭāh"
+    },
+    {
+      "word": "כָּנָף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kānāf"
+    },
+    {
+      "word": "עַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿam"
+    },
+    {
+      "word": "כָּלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kālāh"
+    },
+    {
+      "word": "לְבַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "levad"
+    },
+    {
+      "word": "שָׁנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "עֹז",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿōz"
+    },
+    {
+      "word": "חֹק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥōq"
+    },
+    {
+      "word": "כָּסָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kāsāh"
+    },
+    {
+      "word": "מִזְבֵּחַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mizbēaḥ"
+    },
+    {
+      "word": "גָּדַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gādal"
+    },
+    {
+      "word": "שָׁמַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaḥ"
+    },
+    {
+      "word": "כָּרַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kārat"
+    },
+    {
+      "word": "תָּוֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "tāwek"
+    },
+    {
+      "word": "בֵּין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "bēn"
+    },
+    {
+      "word": "שָׁחַט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḥaṭ"
+    },
+    {
+      "word": "יָשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšaʿ"
+    },
+    {
+      "word": "מָשַׁל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māšal"
+    },
+    {
+      "word": "נָגַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāgaʿ"
+    },
+    {
+      "word": "נָגַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāgad"
+    },
+    {
+      "word": "עֵדָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēdāh"
+    },
+    {
+      "word": "גִּבּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gibbōr"
+    },
+    {
+      "word": "יָרַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yārad"
+    },
+    {
+      "word": "חֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥēn"
+    }
+  ],
+  "section 5": [
+    {
+      "word": "צָדִיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣaddîq"
+    },
+    {
+      "word": "זָקֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective/noun (m.)",
+      "transliteration": "zāqēn"
+    },
+    {
+      "word": "כֹּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kol"
+    },
+    {
+      "word": "לָקַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "lāqaḥ"
+    },
+    {
+      "word": "דָּרַשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "dāraš"
+    },
+    {
+      "word": "עֵת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēt"
+    },
+    {
+      "word": "שָׂר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "śar"
+    },
+    {
+      "word": "מָשָׁל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "māšāl"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    },
+    {
+      "word": "מַטֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maṭṭeh"
+    },
+    {
+      "word": "נָפַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāpal"
+    },
+    {
+      "word": "שָׁכַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākan"
+    },
+    {
+      "word": "רֵאשִׁית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "rēʾšît"
+    },
+    {
+      "word": "צָפוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣāfôn"
+    },
+    {
+      "word": "גָּאַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāʾal"
+    },
+    {
+      "word": "נָשִׂיא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "nāśîʾ"
+    },
+    {
+      "word": "פֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "peh"
+    },
+    {
+      "word": "זָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective/noun (m.)",
+      "transliteration": "zār"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "minḥāh"
+    },
+    {
+      "word": "בָּכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bākāh"
+    },
+    {
+      "word": "רָחַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥaq"
+    },
+    {
+      "word": "נַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "naʿar"
+    },
+    {
+      "word": "חֹשֶׁךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥōšeḵ"
+    },
+    {
+      "word": "כָּבֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kāvēd"
+    },
+    {
+      "word": "צַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣad"
+    },
+    {
+      "word": "מָהַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māhar"
+    },
+    {
+      "word": "גֶּפֶן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "gefen"
+    },
+    {
+      "word": "חָטָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāṭāʾ"
+    },
+    {
+      "word": "חָסָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāsāh"
+    },
+    {
+      "word": "צֹאן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣōʾn"
+    },
+    {
+      "word": "מִדְבָּר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "midbār"
+    },
+    {
+      "word": "בַּעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "baʿal"
+    },
+    {
+      "word": "שָׁאַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʾal"
+    },
+    {
+      "word": "כָּנַס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kānas"
+    },
+    {
+      "word": "זֶרַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "zeraʿ"
+    },
+    {
+      "word": "יָסַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāsaf"
+    },
+    {
+      "word": "אֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾēm"
+    },
+    {
+      "word": "סוּס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sûs"
+    },
+    {
+      "word": "גָּנַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gānav"
+    },
+    {
+      "word": "חָרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥārāh"
+    },
+    {
+      "word": "נֶגֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "neged"
+    },
+    {
+      "word": "עָשִׁיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ʿāšîr"
+    },
+    {
+      "word": "צָעִיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣāʿîr"
+    },
+    {
+      "word": "רָדַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rādap̄"
+    },
+    {
+      "word": "מִשְׁכָּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miškān"
+    },
+    {
+      "word": "יָצַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāṣaq"
+    },
+    {
+      "word": "סָתַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "sāṭar"
+    },
+    {
+      "word": "עֶבֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeved"
+    },
+    {
+      "word": "צַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣar"
+    },
+    {
+      "word": "בָּרוּךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "bārûḵ"
+    }
+  ],
+  "section 6": [
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kisseʾ"
+    },
+    {
+      "word": "יָשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšaʿ"
+    },
+    {
+      "word": "שָׁרַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šārat"
+    },
+    {
+      "word": "נָשָׂא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "צַדִּיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣaddîq"
+    },
+    {
+      "word": "אֹרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōrek"
+    },
+    {
+      "word": "קָהָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qāhāl"
+    },
+    {
+      "word": "יָדַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yādaʿ"
+    },
+    {
+      "word": "כָּרַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kārat"
+    },
+    {
+      "word": "כָּסָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kāsāh"
+    },
+    {
+      "word": "שָׁבַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šābar"
+    },
+    {
+      "word": "מָשַׁח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māšaḥ"
+    },
+    {
+      "word": "רָכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rākav"
+    },
+    {
+      "word": "שֶׁקֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šeqer"
+    },
+    {
+      "word": "רָעֵב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāʿēv"
+    },
+    {
+      "word": "שֵׁם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šēm"
+    },
+    {
+      "word": "תְּפִלָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "tepillāh"
+    },
+    {
+      "word": "נֶפֶשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "nefeš"
+    },
+    {
+      "word": "יָכֹל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yākōl"
+    },
+    {
+      "word": "עֵצָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēṣāh"
+    },
+    {
+      "word": "שָׁמַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmad"
+    },
+    {
+      "word": "צָוָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāvāh"
+    },
+    {
+      "word": "עֲבֹדָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿăvōdāh"
+    },
+    {
+      "word": "חָכָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥākām"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāvōd"
+    },
+    {
+      "word": "רָעָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rāʿāv"
+    },
+    {
+      "word": "מָוֶת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "māvet"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "berît"
+    },
+    {
+      "word": "אֹהֶל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōhel"
+    },
+    {
+      "word": "אֹיֵב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōyēv"
+    },
+    {
+      "word": "צַרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣārāh"
+    },
+    {
+      "word": "רָחַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥam"
+    },
+    {
+      "word": "קָטָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāṭān"
+    },
+    {
+      "word": "סֵפֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sēfer"
+    },
+    {
+      "word": "נָהָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "nāhār"
+    },
+    {
+      "word": "אֹרַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōraḥ"
+    },
+    {
+      "word": "חָזַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāzaq"
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gādōl"
+    },
+    {
+      "word": "בָּרַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bāraḵ"
+    },
+    {
+      "word": "מַעֲשֶׂה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maʿăśeh"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "נָכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nākāh"
+    },
+    {
+      "word": "אֵל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾēl"
+    },
+    {
+      "word": "רֹאשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rōʾš"
+    },
+    {
+      "word": "דָּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dām"
+    },
+    {
+      "word": "צָחַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāḥaq"
+    },
+    {
+      "word": "עָנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿānāh"
+    },
+    {
+      "word": "מִצְוָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "miṣwāh"
+    },
+    {
+      "word": "נִצָּב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "niṣṣāv"
+    },
+    {
+      "word": "נֶאֱמָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "neʾĕmān"
+    }
+  ],
+  "section 7": [
+    {
+      "word": "רָחוֹק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāḥōq"
+    },
+    {
+      "word": "נָסַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāsáʿ"
+    },
+    {
+      "word": "נָכָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "nākhār"
+    },
+    {
+      "word": "צָפוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣāfōn"
+    },
+    {
+      "word": "יָשָׁר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "yāšār"
+    },
+    {
+      "word": "שָׁכַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākan"
+    },
+    {
+      "word": "סוּר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "sûr"
+    },
+    {
+      "word": "דֶּרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m./f.)",
+      "transliteration": "déreḵ"
+    },
+    {
+      "word": "חָטָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāṭāʾ"
+    },
+    {
+      "word": "סֵפֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sēfer"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿāh"
+    },
+    {
+      "word": "נָגַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāgaʿ"
+    },
+    {
+      "word": "עָזַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāzav"
+    },
+    {
+      "word": "קָרַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārav"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥéseḏ"
+    },
+    {
+      "word": "נָסַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāsar"
+    },
+    {
+      "word": "כָּנָף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kānāf"
+    },
+    {
+      "word": "זָכַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zākar"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "minḥāh"
+    },
+    {
+      "word": "פָּנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pānāh"
+    },
+    {
+      "word": "רֵאשִׁית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "rēʾšît"
+    },
+    {
+      "word": "שָׁאַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʾar"
+    },
+    {
+      "word": "רָצָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāṣāh"
+    },
+    {
+      "word": "אֲרוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾārōn"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālōm"
+    },
+    {
+      "word": "יָסַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāsaf"
+    },
+    {
+      "word": "פֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "peh"
+    },
+    {
+      "word": "נָהַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāhal"
+    },
+    {
+      "word": "לָקַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "lāqaḥ"
+    },
+    {
+      "word": "עֵדוּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēdût"
+    },
+    {
+      "word": "סוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sōḏ"
+    },
+    {
+      "word": "קִיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qîr"
+    },
+    {
+      "word": "כָּנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kānāh"
+    },
+    {
+      "word": "שָׁוְא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šāwʾ"
+    },
+    {
+      "word": "שָׁנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "בֶּטַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bétaḥ"
+    },
+    {
+      "word": "יָד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yād"
+    },
+    {
+      "word": "צַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣad"
+    },
+    {
+      "word": "מָלֵא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "mālēʾ"
+    },
+    {
+      "word": "יְהוֹשֻׁעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "proper noun",
+      "transliteration": "Yəhôšúaʿ"
+    },
+    {
+      "word": "בֹּקֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bōqer"
+    },
+    {
+      "word": "תָּמִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "tāmîm"
+    },
+    {
+      "word": "חָדָשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥādāš"
+    },
+    {
+      "word": "קָדִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qādîm"
+    },
+    {
+      "word": "עֵצִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "ʿēṣîm"
+    },
+    {
+      "word": "פָּרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "pārāh"
+    },
+    {
+      "word": "צַדִּיקָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣaddîqāh"
+    },
+    {
+      "word": "מַחֲנֶה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maḥănēh"
+    },
+    {
+      "word": "רַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "raq"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    }
+  ],
+  "section 8": [
+    {
+      "word": "דּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dôr"
+    },
+    {
+      "word": "עֵין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿayin"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "צֶדֶק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣeḏeq"
+    },
+    {
+      "word": "מַעֲשֶׂה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maʿăśeh"
+    },
+    {
+      "word": "עָנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿānāh"
+    },
+    {
+      "word": "צָבָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣābāʾ"
+    },
+    {
+      "word": "שֵׁם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šēm"
+    },
+    {
+      "word": "חֹק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥōq"
+    },
+    {
+      "word": "שָׁלַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šālaḵ"
+    },
+    {
+      "word": "דַּרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m./f.)",
+      "transliteration": "dárek"
+    },
+    {
+      "word": "שָׁמַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaʿ"
+    },
+    {
+      "word": "אֶלֶף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾélef"
+    },
+    {
+      "word": "עֵץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēṣ"
+    },
+    {
+      "word": "חֶרֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥérev"
+    },
+    {
+      "word": "תָּפַשׂ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "tāfaś"
+    },
+    {
+      "word": "זָכָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "zākār"
+    },
+    {
+      "word": "קָטֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāṭōn"
+    },
+    {
+      "word": "שָׁלֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šālēm"
+    },
+    {
+      "word": "חֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥēn"
+    },
+    {
+      "word": "מַטֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maṭṭeh"
+    },
+    {
+      "word": "פֶּתַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pétaḥ"
+    },
+    {
+      "word": "חָשַׁב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāšav"
+    },
+    {
+      "word": "אֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾēm"
+    },
+    {
+      "word": "יָשַׁב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšav"
+    },
+    {
+      "word": "נָבִיא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "nāḇîʾ"
+    },
+    {
+      "word": "חֹדֶשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥōḏeš"
+    },
+    {
+      "word": "צַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣar"
+    },
+    {
+      "word": "מְאֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "məʾōḏ"
+    },
+    {
+      "word": "סֵפֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sēfer"
+    },
+    {
+      "word": "יָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "yām"
+    },
+    {
+      "word": "מַלְאָךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "malʾāḵ"
+    },
+    {
+      "word": "חָיָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāyāh"
+    },
+    {
+      "word": "שָׁפַט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāphaṭ"
+    },
+    {
+      "word": "בֶּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ben"
+    },
+    {
+      "word": "שְׁנַיִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "numeral",
+      "transliteration": "šənāyim"
+    },
+    {
+      "word": "מַיִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "māyim"
+    },
+    {
+      "word": "שֵׁשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "numeral",
+      "transliteration": "šēš"
+    },
+    {
+      "word": "כֶּסֶף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "késef"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "יֵשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "yēš"
+    },
+    {
+      "word": "בָּכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bākhāh"
+    },
+    {
+      "word": "אֹרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōrek"
+    },
+    {
+      "word": "מָחָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "māḥār"
+    },
+    {
+      "word": "יָרֵא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yārēʾ"
+    },
+    {
+      "word": "חַטָּאת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥaṭṭāʾt"
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gādōl"
+    },
+    {
+      "word": "עָשָׂר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "numeral",
+      "transliteration": "ʿāsar"
+    },
+    {
+      "word": "דָּבָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dāḇār"
+    },
+    {
+      "word": "גַּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "gam"
+    }
+  ],
+  "section 9": [
+    {
+      "word": "עָוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿāvōn"
+    },
+    {
+      "word": "סָבִיב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb/preposition",
+      "transliteration": "sāḇîḇ"
+    },
+    {
+      "word": "מָלֵא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "mālēʾ"
+    },
+    {
+      "word": "קָטָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāṭān"
+    },
+    {
+      "word": "צַדִּיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣaddîq"
+    },
+    {
+      "word": "רַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rav"
+    },
+    {
+      "word": "אֹיֵב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōyēv"
+    },
+    {
+      "word": "שָׂפָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "śāpāh"
+    },
+    {
+      "word": "רָדַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rādaph"
+    },
+    {
+      "word": "זָקֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun/adjective",
+      "transliteration": "zāqēn"
+    },
+    {
+      "word": "נָשָׂא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "קָרוֹב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qārōv"
+    },
+    {
+      "word": "שָׁחַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḥat"
+    },
+    {
+      "word": "חָמָס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāmās"
+    },
+    {
+      "word": "כָּנָף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kānāf"
+    },
+    {
+      "word": "מִצְוָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "miṣwāh"
+    },
+    {
+      "word": "עֵדָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēdāh"
+    },
+    {
+      "word": "נָהָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "nāhār"
+    },
+    {
+      "word": "זָבַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zāvaḥ"
+    },
+    {
+      "word": "בּוֹשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bôš"
+    },
+    {
+      "word": "חָזָק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥāzāq"
+    },
+    {
+      "word": "רָכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rākav"
+    },
+    {
+      "word": "דָּרַשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "dāraš"
+    },
+    {
+      "word": "עֵדוּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēdût"
+    },
+    {
+      "word": "צִיּוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "proper noun",
+      "transliteration": "ṣiyyôn"
+    },
+    {
+      "word": "שִׂמְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "śimḥāh"
+    },
+    {
+      "word": "רֶכֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rekhev"
+    },
+    {
+      "word": "שֶׁקֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šeqer"
+    },
+    {
+      "word": "מָשָׁל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "māšāl"
+    },
+    {
+      "word": "בֶּגֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "béged"
+    },
+    {
+      "word": "עָפָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿāfār"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāvôḏ"
+    },
+    {
+      "word": "קָרַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārav"
+    },
+    {
+      "word": "קָהָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qāhāl"
+    },
+    {
+      "word": "עַתָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ʿattāh"
+    },
+    {
+      "word": "שָׁכַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākhaḥ"
+    },
+    {
+      "word": "תְּפִלָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "təpillāh"
+    },
+    {
+      "word": "אֹרַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōraḥ"
+    },
+    {
+      "word": "רֹאשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rōʾš"
+    },
+    {
+      "word": "גְּבוּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gəḇûl"
+    },
+    {
+      "word": "קָשֶׁה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāšeh"
+    },
+    {
+      "word": "כַּף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kaf"
+    },
+    {
+      "word": "פָּנִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "pānîm"
+    },
+    {
+      "word": "דֶּרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "déreḵ"
+    },
+    {
+      "word": "נָגַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāgaʿ"
+    },
+    {
+      "word": "קֶרֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qérev"
+    },
+    {
+      "word": "נָכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nākāh"
+    },
+    {
+      "word": "גָּלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gālāh"
+    },
+    {
+      "word": "שָׁאַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʾar"
+    },
+    {
+      "word": "עֶבֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿéḇeḏ"
+    }
+  ],
+  "section 10": [
+    {
+      "word": "אֹרֶךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾōrek"
+    },
+    {
+      "word": "צְבָאוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "ṣəḇāʾōṯ"
+    },
+    {
+      "word": "עֵצָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēṣāh"
+    },
+    {
+      "word": "מָשַׁל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māšal"
+    },
+    {
+      "word": "יָשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšaʿ"
+    },
+    {
+      "word": "שׁוֹפֵט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šōfēṭ"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥéṯed"
+    },
+    {
+      "word": "חֶרֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥérev"
+    },
+    {
+      "word": "רֵעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rēaʿ"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālōm"
+    },
+    {
+      "word": "כָּנַס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kānas"
+    },
+    {
+      "word": "בֶּן־אָדָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "phrase",
+      "transliteration": "ben-ʾādām"
+    },
+    {
+      "word": "אֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾēm"
+    },
+    {
+      "word": "שָׁמַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmad"
+    },
+    {
+      "word": "מָשַׁח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māšaḥ"
+    },
+    {
+      "word": "אֵשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾēš"
+    },
+    {
+      "word": "שִׁיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šîr"
+    },
+    {
+      "word": "כָּסָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kāsāh"
+    },
+    {
+      "word": "דָּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dām"
+    },
+    {
+      "word": "שָׁנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "אֵלֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "demonstrative pronoun",
+      "transliteration": "ʾēlleh"
+    },
+    {
+      "word": "עָבַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāḇad"
+    },
+    {
+      "word": "רֵאשִׁית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "rēʾšît"
+    },
+    {
+      "word": "חָנַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥānan"
+    },
+    {
+      "word": "מַעֲשֶׂה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maʿăśeh"
+    },
+    {
+      "word": "שַׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kisseʾ"
+    },
+    {
+      "word": "דָּרַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "dāraḵ"
+    },
+    {
+      "word": "לְבַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ləḇad"
+    },
+    {
+      "word": "נֶגֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "néḡeḏ"
+    },
+    {
+      "word": "זָכַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zāḵar"
+    },
+    {
+      "word": "עַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿam"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿāh"
+    },
+    {
+      "word": "צֶדֶק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣéḏeq"
+    },
+    {
+      "word": "מִשְׁפָּט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mišpāṭ"
+    },
+    {
+      "word": "מִקְדָּשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miqdāš"
+    },
+    {
+      "word": "עָנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿānāh"
+    },
+    {
+      "word": "עָשָׂר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "ʿāsar"
+    },
+    {
+      "word": "יָרַשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāraš"
+    },
+    {
+      "word": "לָמַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "lāmaḏ"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "minḥāh"
+    },
+    {
+      "word": "שָׁבַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḇaʿ"
+    },
+    {
+      "word": "רָפָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāfāʾ"
+    },
+    {
+      "word": "קִרְיָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "qiryāh"
+    },
+    {
+      "word": "נָסַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāsāʿ"
+    },
+    {
+      "word": "דּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dōr"
+    },
+    {
+      "word": "שָׁחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḥāh"
+    },
+    {
+      "word": "קֶשֶׁת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "qešet"
+    },
+    {
+      "word": "חֹק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥōq"
+    },
+    {
+      "word": "מִגְרָשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "migraš"
+    }
+  ],
+  "section 11": [
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "רֶשֶׁף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rešeph"
+    },
+    {
+      "word": "עָרַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿārab"
+    },
+    {
+      "word": "תַּֽעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "taʿar"
+    },
+    {
+      "word": "נָסַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāsaḵ"
+    },
+    {
+      "word": "שִׁי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šî"
+    },
+    {
+      "word": "מַיִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "mayim"
+    },
+    {
+      "word": "רָעַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿaʿ"
+    },
+    {
+      "word": "רָחַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥam"
+    },
+    {
+      "word": "צָרוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "ṣārōt"
+    },
+    {
+      "word": "מִזְבֵּחַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miḇzeaḥ"
+    },
+    {
+      "word": "יְהוֹשֻׁעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "proper noun",
+      "transliteration": "yəhōšūaʿ"
+    },
+    {
+      "word": "רָאָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʾāh"
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gādōl"
+    },
+    {
+      "word": "לַחַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laḥam"
+    },
+    {
+      "word": "שְׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šelōm"
+    },
+    {
+      "word": "קָטַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qāṭaʿ"
+    },
+    {
+      "word": "עָנָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿānān"
+    },
+    {
+      "word": "דָּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "dām"
+    },
+    {
+      "word": "חַפַּךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥappaḵ"
+    },
+    {
+      "word": "אֵרוּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾērūm"
+    },
+    {
+      "word": "לַיְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laylāh"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    },
+    {
+      "word": "צָעַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāʿaq"
+    },
+    {
+      "word": "הַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "har"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "כָּתוּב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective (passive participle)",
+      "transliteration": "kātūḇ"
+    },
+    {
+      "word": "עַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿal"
+    },
+    {
+      "word": "גָּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "gām"
+    },
+    {
+      "word": "מִקְרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miqrāʾ"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "minḥāh"
+    },
+    {
+      "word": "פָּרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "pārāh"
+    },
+    {
+      "word": "כַּסְפֵּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "kaśpē"
+    },
+    {
+      "word": "עַפְעַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿapʿap"
+    },
+    {
+      "word": "אִשָּׁה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾiššāh"
+    },
+    {
+      "word": "הַצְלָחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "haṣlāḥāh"
+    },
+    {
+      "word": "רָאָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʾāh"
+    },
+    {
+      "word": "זֶרַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "zeraʿ"
+    },
+    {
+      "word": "שָׁלֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "šālem"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥéṯed"
+    },
+    {
+      "word": "גָּדַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāḏal"
+    },
+    {
+      "word": "חָג",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāg"
+    },
+    {
+      "word": "גָּרוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gārōn"
+    },
+    {
+      "word": "לָמַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "lāmaḏ"
+    },
+    {
+      "word": "מְשַׁרֵּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mešarēṯ"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "סֵפֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sēper"
+    },
+    {
+      "word": "בַּיִת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bayit"
+    },
+    {
+      "word": "עֵת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿēt"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālōm"
+    }
+  ],
+  "section 12": [
+    {
+      "word": "שָׁנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šānāh"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "אָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾāv"
+    },
+    {
+      "word": "כָּבֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kāḇēḏ"
+    },
+    {
+      "word": "עֶבֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeḇeḏ"
+    },
+    {
+      "word": "בִּירָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bīrāh"
+    },
+    {
+      "word": "לִפְנֵי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "lifnē"
+    },
+    {
+      "word": "שְׁמוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šēmōr"
+    },
+    {
+      "word": "צָעַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāʿaq"
+    },
+    {
+      "word": "אִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "ʾim"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaq"
+    },
+    {
+      "word": "שַּׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "עָפַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāpar"
+    },
+    {
+      "word": "שַׁבַּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šabbāṯ"
+    },
+    {
+      "word": "כִּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "kî"
+    },
+    {
+      "word": "עֵז",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēz"
+    },
+    {
+      "word": "שִׁיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šīr"
+    },
+    {
+      "word": "כָּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kāl"
+    },
+    {
+      "word": "אֶבֶן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾeven"
+    },
+    {
+      "word": "בַּר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bar"
+    },
+    {
+      "word": "יָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "yām"
+    },
+    {
+      "word": "עַתָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ʿattāh"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "חֵיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥēq"
+    },
+    {
+      "word": "בִּנְיָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "binyān"
+    },
+    {
+      "word": "הֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "hēm"
+    },
+    {
+      "word": "רִבְעִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "number",
+      "transliteration": "ribʿīm"
+    },
+    {
+      "word": "מַכְּתוֹע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "maketōa"
+    },
+    {
+      "word": "צִיּוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "proper noun",
+      "transliteration": "ṣiyyōn"
+    },
+    {
+      "word": "קַבּוּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qabbūl"
+    },
+    {
+      "word": "עֲרוּבָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿarūbāh"
+    },
+    {
+      "word": "הַבַּיִת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "habbayit"
+    },
+    {
+      "word": "גָּאַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāʿal"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "שָׁבוּע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šāḇuʿa"
+    },
+    {
+      "word": "רִיב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rīb"
+    },
+    {
+      "word": "צָהַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāhab"
+    },
+    {
+      "word": "כָּרוּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kārūt"
+    },
+    {
+      "word": "קָהַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qāhal"
+    },
+    {
+      "word": "סָעַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "saʿad"
+    },
+    {
+      "word": "חַיִל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥayil"
+    },
+    {
+      "word": "עָזַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāzar"
+    },
+    {
+      "word": "רָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāḇ"
+    },
+    {
+      "word": "יָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "yām"
+    },
+    {
+      "word": "חָשַׁב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāšab"
+    },
+    {
+      "word": "לַיְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laylāh"
+    },
+    {
+      "word": "עֵצֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeṣer"
+    },
+    {
+      "word": "הֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "hēm"
+    },
+    {
+      "word": "כָּתַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kātav"
+    },
+    {
+      "word": "כַּסֶּף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāśef"
+    }
+  ],
+  "section 13": [
+    {
+      "word": "צָרוּף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣārūp"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    },
+    {
+      "word": "בַּת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bat"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālôm"
+    },
+    {
+      "word": "סֵפֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sēper"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāḇôd"
+    },
+    {
+      "word": "עַתִּיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ʿattīq"
+    },
+    {
+      "word": "פָּנֶה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pānēh"
+    },
+    {
+      "word": "רַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "raʿ"
+    },
+    {
+      "word": "צָפָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāpāh"
+    },
+    {
+      "word": "מִשְׁפָּחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "mišpāḥāh"
+    },
+    {
+      "word": "שִׁים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šīm"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥesed"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaq"
+    },
+    {
+      "word": "בָּרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bārāʾ"
+    },
+    {
+      "word": "כַּעַס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kaʿas"
+    },
+    {
+      "word": "מִשְׁכָּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miškān"
+    },
+    {
+      "word": "שִׁיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šīr"
+    },
+    {
+      "word": "רָחַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥam"
+    },
+    {
+      "word": "גִּבּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "gibbôr"
+    },
+    {
+      "word": "תַּעַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "taʿan"
+    },
+    {
+      "word": "יָד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yād"
+    },
+    {
+      "word": "נָפַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāpal"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "צָפַה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāpāh"
+    },
+    {
+      "word": "שָׁלֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "šālēm"
+    },
+    {
+      "word": "בַּיִת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bayit"
+    },
+    {
+      "word": "כַּתֵּב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "katēv"
+    },
+    {
+      "word": "רַשְׁעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "rašʿāh"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šīpḥāh"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    },
+    {
+      "word": "עִיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿir"
+    },
+    {
+      "word": "קָטַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qāṭal"
+    },
+    {
+      "word": "שַׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "זָבַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zābaḥ"
+    },
+    {
+      "word": "פָּעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāʿal"
+    },
+    {
+      "word": "שָׁבַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḇaʿ"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bərīt"
+    },
+    {
+      "word": "נֶפֶשׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "nepeš"
+    },
+    {
+      "word": "נַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "naʿar"
+    },
+    {
+      "word": "קָהָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qāhāl"
+    },
+    {
+      "word": "שָׁבוּע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šāḇuʿa"
+    },
+    {
+      "word": "רֶשֶׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "rešeʿ"
+    },
+    {
+      "word": "אֵין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʾēn"
+    },
+    {
+      "word": "חָפֵץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāpēs"
+    },
+    {
+      "word": "רָצָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāṣāh"
+    },
+    {
+      "word": "שָׁוַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāwaʿ"
+    },
+    {
+      "word": "רָפָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāpāʾ"
+    },
+    {
+      "word": "אָז",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ʾāz"
+    }
+  ],
+  "section 14": [
+    {
+      "word": "אֵל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾēl"
+    },
+    {
+      "word": "כִּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "kî"
+    },
+    {
+      "word": "קָרַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārab"
+    },
+    {
+      "word": "שָׁעַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šaʿan"
+    },
+    {
+      "word": "אָכְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʾoklâ"
+    },
+    {
+      "word": "שָׁבוּעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šāḇuʿa"
+    },
+    {
+      "word": "הֵיכָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "hēḵāl"
+    },
+    {
+      "word": "הַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "har"
+    },
+    {
+      "word": "בָּרוּךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "bārûḵ"
+    },
+    {
+      "word": "שָׁכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākab"
+    },
+    {
+      "word": "אֶרֶץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾereṣ"
+    },
+    {
+      "word": "גָּדַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gādal"
+    },
+    {
+      "word": "אִשָּׁה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾišāh"
+    },
+    {
+      "word": "חָטָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāṭāʾ"
+    },
+    {
+      "word": "מַטֶּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maṭṭeh"
+    },
+    {
+      "word": "עַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿad"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "raʿāh"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "שָׁמַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaʿ"
+    },
+    {
+      "word": "כָּתַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kāṯab"
+    },
+    {
+      "word": "יָשָׁר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "yāšār"
+    },
+    {
+      "word": "חַסְדִּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥasdî"
+    },
+    {
+      "word": "עָבַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāḇad"
+    },
+    {
+      "word": "תְּרוּמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "terûmāh"
+    },
+    {
+      "word": "תַּרְתִּיב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "tartîb"
+    },
+    {
+      "word": "עַמִּים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿammîm"
+    },
+    {
+      "word": "כָּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "kāl"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šīpḥāh"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālôm"
+    },
+    {
+      "word": "רָקִיעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "raqîaʿ"
+    },
+    {
+      "word": "עָרְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿōremāh"
+    },
+    {
+      "word": "שָׁבַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḇaʿ"
+    },
+    {
+      "word": "פָּתַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāṯaḥ"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēd"
+    },
+    {
+      "word": "צָרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣārāh"
+    },
+    {
+      "word": "רָקַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāqaʿ"
+    },
+    {
+      "word": "חִי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥî"
+    },
+    {
+      "word": "פָּנִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pānîm"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kisse"
+    },
+    {
+      "word": "עָזְרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿāzərāh"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaḥ"
+    },
+    {
+      "word": "פָּשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāšaʿ"
+    },
+    {
+      "word": "צֵאָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣeʾāh"
+    },
+    {
+      "word": "פָּנֶה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pānēh"
+    },
+    {
+      "word": "עַמָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿammāh"
+    },
+    {
+      "word": "מִשְׁפַּט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mišpaṭ"
+    },
+    {
+      "word": "סַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "saʿar"
+    },
+    {
+      "word": "מַעְיָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maʿyān"
+    },
+    {
+      "word": "שָׁתַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāṭaf"
+    },
+    {
+      "word": "עָפָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿāpar"
+    }
+  ],
+  "section 15": [
+    {
+      "word": "עֶרֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿereḇ"
+    },
+    {
+      "word": "בָּרוּךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "bārûḵ"
+    },
+    {
+      "word": "תַּחַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "taḥat"
+    },
+    {
+      "word": "עַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿal"
+    },
+    {
+      "word": "פָּסַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāsaḥ"
+    },
+    {
+      "word": "שָׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "אֶת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "ʾet"
+    },
+    {
+      "word": "כָּסָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "kāsāh"
+    },
+    {
+      "word": "חָלַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥālam"
+    },
+    {
+      "word": "עָפָר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿāpar"
+    },
+    {
+      "word": "נָשָׁא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "הִכָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hikkāh"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "גָּבַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāḇar"
+    },
+    {
+      "word": "הָלַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hālaḵ"
+    },
+    {
+      "word": "סוּס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sûs"
+    },
+    {
+      "word": "קִיטוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qîṭôr"
+    },
+    {
+      "word": "זָכַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "zāḵar"
+    },
+    {
+      "word": "פָּעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāʿal"
+    },
+    {
+      "word": "עִיר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿîr"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾîš"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "kəṯōʿăḇōṯ"
+    },
+    {
+      "word": "מִשְׁכַּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "miškan"
+    },
+    {
+      "word": "שַׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "בָּשָׂר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bāsār"
+    },
+    {
+      "word": "זְרוֹעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "zərōaʿ"
+    },
+    {
+      "word": "תָּמִיד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "tāmîḏ"
+    },
+    {
+      "word": "פִּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pî"
+    },
+    {
+      "word": "עָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿām"
+    },
+    {
+      "word": "הָפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hāpaḵ"
+    },
+    {
+      "word": "הֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "hên"
+    },
+    {
+      "word": "קָהָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qāhāl"
+    },
+    {
+      "word": "בָּרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bārāʾ"
+    },
+    {
+      "word": "צְבָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣĕbāʿ"
+    },
+    {
+      "word": "רָחַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḥam"
+    },
+    {
+      "word": "בַּיִת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bayiṯ"
+    },
+    {
+      "word": "חָבַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāḇar"
+    },
+    {
+      "word": "שָׁרוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šārôn"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "miḵnāḥ"
+    },
+    {
+      "word": "עֶצֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeṣeb"
+    },
+    {
+      "word": "עַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʿal"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥeseḏ"
+    },
+    {
+      "word": "בֵּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bēn"
+    },
+    {
+      "word": "סַכְסֵך",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "saksec"
+    },
+    {
+      "word": "שַׁקָּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šakkal"
+    },
+    {
+      "word": "תָּבוֹא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "tāvōʾ"
+    },
+    {
+      "word": "עֲבוֹדָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿăḇōḏāh"
+    },
+    {
+      "word": "מִשְׁפָּט",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "mišpāṭ"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾîš"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥeseḏ"
+    }
+  ],
+  "section 16": [
+    {
+      "word": "בָּרוּךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "bārûḵ"
+    },
+    {
+      "word": "יָשָׁב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšab"
+    },
+    {
+      "word": "פָּנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pānāh"
+    },
+    {
+      "word": "שָׁוֵא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "šāwê"
+    },
+    {
+      "word": "צַדִּיק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ṣaddîq"
+    },
+    {
+      "word": "אֶרֶץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾereṣ"
+    },
+    {
+      "word": "סוּס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sûs"
+    },
+    {
+      "word": "פָּנִים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m. pl.)",
+      "transliteration": "pānîm"
+    },
+    {
+      "word": "גְּבוּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gəḇûl"
+    },
+    {
+      "word": "חָזָק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥāzāq"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "kəṯōʿăḇōṯ"
+    },
+    {
+      "word": "תֵּבֵל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "tēḇēl"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kîsēʾ"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēḏ"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šiḇḥāh"
+    },
+    {
+      "word": "צָפוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣāpôn"
+    },
+    {
+      "word": "סוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sōḏ"
+    },
+    {
+      "word": "קָטֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "qāṭôn"
+    },
+    {
+      "word": "פָּרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "pārāh"
+    },
+    {
+      "word": "רָשָׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāšāʿ"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "kəṯōʿăḇōṯ"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaḵ"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bərîṯ"
+    },
+    {
+      "word": "אָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾāḇ"
+    },
+    {
+      "word": "רָעַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿaʿ"
+    },
+    {
+      "word": "קָבַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qāḇar"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "אֵין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "particle",
+      "transliteration": "ʾēn"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "לִפְנֵי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "lifnê"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "עַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿam"
+    },
+    {
+      "word": "בִּין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bîn"
+    },
+    {
+      "word": "יָד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yād"
+    },
+    {
+      "word": "אִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "conjunction",
+      "transliteration": "ʾim"
+    },
+    {
+      "word": "פָּקַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāqad"
+    },
+    {
+      "word": "אֲרוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾārôn"
+    },
+    {
+      "word": "מִנְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "miḵnāḥ"
+    },
+    {
+      "word": "כָּבֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kāḇēḏ"
+    },
+    {
+      "word": "כִּכָּר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kiḵār"
+    },
+    {
+      "word": "בִּנְיָן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bînyān"
+    },
+    {
+      "word": "כַּף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kaf"
+    },
+    {
+      "word": "גּוֹי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gôy"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kîsēʾ"
+    },
+    {
+      "word": "סִפְרֵי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "siphrē"
+    },
+    {
+      "word": "לַיְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laylāh"
+    },
+    {
+      "word": "בֵּית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bēṯ"
+    },
+    {
+      "word": "חִי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥî"
+    },
+    {
+      "word": "עַכְשָׁו",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ʿaḵšāw"
+    },
+    {
+      "word": "הִנֵּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "interjection",
+      "transliteration": "hînēh"
+    }
+  ],
+  "section 17": [
+    {
+      "word": "פָּתַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāṭaḥ"
+    },
+    {
+      "word": "שָׁבוּעַ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šāḇuʿaʿ"
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "qārāʾ"
+    },
+    {
+      "word": "בָּבוֹא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bāḇôʾ"
+    },
+    {
+      "word": "כָּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kāḇôḏ"
+    },
+    {
+      "word": "אֶחָד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ʾeḥād"
+    },
+    {
+      "word": "יָדַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāḏaʿ"
+    },
+    {
+      "word": "נִשְׁמַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nišmaʿ"
+    },
+    {
+      "word": "רָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rām"
+    },
+    {
+      "word": "הַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "har"
+    },
+    {
+      "word": "גָּדַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gādal"
+    },
+    {
+      "word": "חָלַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥālal"
+    },
+    {
+      "word": "דָּרַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "dāraḵ"
+    },
+    {
+      "word": "עַיִן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿayin"
+    },
+    {
+      "word": "יָרוֹש",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "yārôš"
+    },
+    {
+      "word": "סָמַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "sāmaḵ"
+    },
+    {
+      "word": "עַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿam"
+    },
+    {
+      "word": "הָלַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hālaḵ"
+    },
+    {
+      "word": "לְפָנֵי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "lɛfāné"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šipḥāh"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaḵ"
+    },
+    {
+      "word": "רָשָׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāšāʿ"
+    },
+    {
+      "word": "הָמַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hāmar"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bərîṯ"
+    },
+    {
+      "word": "לַיְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laylāh"
+    },
+    {
+      "word": "פָּעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāʿal"
+    },
+    {
+      "word": "מִלְחָמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "milḥāmāh"
+    },
+    {
+      "word": "בַּיִת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "undefined",
+      "transliteration": "bāyit"
+    },
+    {
+      "word": "בִּלְתִּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "biltî"
+    },
+    {
+      "word": "אָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾāḇ"
+    },
+    {
+      "word": "נָבָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nābāl"
+    },
+    {
+      "word": "שָׁם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "šām"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālôm"
+    },
+    {
+      "word": "פַּעַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "paʿam"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "עֶצֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeṣeb"
+    },
+    {
+      "word": "הִנֵּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "interjection",
+      "transliteration": "hînēh"
+    },
+    {
+      "word": "הֵם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "hēm"
+    },
+    {
+      "word": "חִפְּשָׂה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥippesāh"
+    },
+    {
+      "word": "רַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "raq"
+    },
+    {
+      "word": "נָשָׁא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāśāʾ"
+    },
+    {
+      "word": "כֵּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "kên"
+    },
+    {
+      "word": "עַכְשָׁו",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adverb",
+      "transliteration": "ʿaḵšāw"
+    },
+    {
+      "word": "רֶגֶל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "reḡel"
+    },
+    {
+      "word": "קַרְבָּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "qarbān"
+    },
+    {
+      "word": "רָעָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāʿāh"
+    },
+    {
+      "word": "שַׁעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šaʿar"
+    },
+    {
+      "word": "גַּן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gan"
+    },
+    {
+      "word": "צָרוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f. pl.)",
+      "transliteration": "ṣārôt"
+    },
+    {
+      "word": "צִיּוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣîyôn"
+    }
+  ],
+  "section 18": [
+    {
+      "word": "אֵת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "ʾēt"
+    },
+    {
+      "word": "סָבִיב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "sāvîḇ"
+    },
+    {
+      "word": "עָמַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ʿāmad"
+    },
+    {
+      "word": "שָׁרַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šārat"
+    },
+    {
+      "word": "שָׁעַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʿan"
+    },
+    {
+      "word": "פָּסַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāsal"
+    },
+    {
+      "word": "יָצָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāṣāʾ"
+    },
+    {
+      "word": "זֶה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "zeh"
+    },
+    {
+      "word": "נָתַן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "nāṯan"
+    },
+    {
+      "word": "פָּקַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāqaḏ"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaḵ"
+    },
+    {
+      "word": "בָּכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "bākaḥ"
+    },
+    {
+      "word": "חָפֵץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāp̄eṣ"
+    },
+    {
+      "word": "חָסַד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāsad"
+    },
+    {
+      "word": "שָׁתַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāṭap̄"
+    },
+    {
+      "word": "חָכְמָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ḥokmāh"
+    },
+    {
+      "word": "אֱמוּנָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʾĕmūnāh"
+    },
+    {
+      "word": "פָּשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pāšaʿ"
+    },
+    {
+      "word": "רָצָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāṣāh"
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālôm"
+    },
+    {
+      "word": "הָכִין",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hāḵīn"
+    },
+    {
+      "word": "כָּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kātoʿăḇōt"
+    },
+    {
+      "word": "שָׁמַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāmaʿ"
+    },
+    {
+      "word": "תָּבוֹא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "tāḇôʾ"
+    },
+    {
+      "word": "שָׁפַךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāpaḵ"
+    },
+    {
+      "word": "מָעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "māʿal"
+    },
+    {
+      "word": "הִתְפַלֵּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hithpālēl"
+    },
+    {
+      "word": "סַף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "śap̄"
+    },
+    {
+      "word": "מַסֵּכָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "masseḵāh"
+    },
+    {
+      "word": "שָׁפֵל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "šāp̄el"
+    },
+    {
+      "word": "נִפְנֵי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "nifnê"
+    },
+    {
+      "word": "תַּפְסֶרֶת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "taṯseret"
+    },
+    {
+      "word": "סָבַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "sāḇab"
+    },
+    {
+      "word": "תָּבַס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "tāḇas"
+    },
+    {
+      "word": "מַרְפֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "marpēʾ"
+    },
+    {
+      "word": "נַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "naʿar"
+    },
+    {
+      "word": "מַשָּׂא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "masśāʾ"
+    },
+    {
+      "word": "עֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēḏ"
+    },
+    {
+      "word": "רָשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāšaʿ"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "כָּבֵד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kāḇēḏ"
+    },
+    {
+      "word": "גָּעַל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "gāʿal"
+    },
+    {
+      "word": "תֵּבֵל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "tēḇel"
+    },
+    {
+      "word": "צָדַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣādaq"
+    },
+    {
+      "word": "תְּבוּאָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "təbûʿāh"
+    },
+    {
+      "word": "שִׁלַּח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šil·laḥ"
+    },
+    {
+      "word": "יְרוּשָׁלִַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yerûšālayim"
+    },
+    {
+      "word": "עָרְבֵּי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿārēbî"
+    },
+    {
+      "word": "מַאֲכָל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maʾăkāl"
+    },
+    {
+      "word": "חָזָק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥāzāq"
+    }
+  ],
+  "section 19": [
+    {
+      "word": "פַּעַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "paʿam"
+    },
+    {
+      "word": "שָׁכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākab"
+    },
+    {
+      "word": "שָׁעַה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʿa"
+    },
+    {
+      "word": "מַהֵר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "maḥēr"
+    },
+    {
+      "word": "שׁוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šōr"
+    },
+    {
+      "word": "סַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "saʿar"
+    },
+    {
+      "word": "רָפָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāp̄āʾ"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kiseʾ"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šiḇḥāh"
+    },
+    {
+      "word": "צָהַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāhar"
+    },
+    {
+      "word": "שָׁכֵן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḵēn"
+    },
+    {
+      "word": "לַיְלָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "laylāh"
+    },
+    {
+      "word": "חַבַּל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥabal"
+    },
+    {
+      "word": "תַּעַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "taʿat"
+    },
+    {
+      "word": "הִסְתַּעֵף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "histaʿēf"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "צָרָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ṣārāh"
+    },
+    {
+      "word": "מַכְאָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maḵʾāḇ"
+    },
+    {
+      "word": "הִשְׁפִּיל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hišpîl"
+    },
+    {
+      "word": "רְשָפֶּיהָ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rəšāpêhā"
+    },
+    {
+      "word": "פָּרַץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pārāṣ"
+    },
+    {
+      "word": "יְרוּשָׁלִָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yerûšālayim"
+    },
+    {
+      "word": "פָּלָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pālāʾ"
+    },
+    {
+      "word": "חָתַם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥāṯam"
+    },
+    {
+      "word": "צָמַח",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāmaḥ"
+    },
+    {
+      "word": "פָּרָש",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pārāš"
+    },
+    {
+      "word": "מַהְמוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maḥmōr"
+    },
+    {
+      "word": "חַמֵּש",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "numeral",
+      "transliteration": "ḥammeš"
+    },
+    {
+      "word": "שַׁפַּיִךְ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šappayik"
+    },
+    {
+      "word": "הַרְמָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "hirmāʿ"
+    },
+    {
+      "word": "עֵזֶר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēzer"
+    },
+    {
+      "word": "בֵּית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "bêṯ"
+    },
+    {
+      "word": "כְּלָבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "klāḇōt"
+    },
+    {
+      "word": "כֶּסֶף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "keśep"
+    },
+    {
+      "word": "הֵמָּה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "pronoun",
+      "transliteration": "hēmā"
+    },
+    {
+      "word": "שׂוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sōm"
+    },
+    {
+      "word": "סוֹף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sōp̄"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾîš"
+    },
+    {
+      "word": "חָלָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥālǎḇ"
+    },
+    {
+      "word": "עֵקֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿeqeb"
+    },
+    {
+      "word": "גִּבּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gibbôr"
+    },
+    {
+      "word": "חֲרִי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥārî"
+    },
+    {
+      "word": "חָתוּם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥātūm"
+    },
+    {
+      "word": "הַסְפֵּד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "haspēḏ"
+    },
+    {
+      "word": "פְּרוּשִׁים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "pərūšîm"
+    },
+    {
+      "word": "רְחַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "reḥaḇ"
+    },
+    {
+      "word": "עֲבוֹדָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "ʿăḇôḏāh"
+    },
+    {
+      "word": "כְּמוֹ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "preposition",
+      "transliteration": "kəmō"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥesed"
+    },
+    {
+      "word": "מַכַּבֵּס",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "maḵabbēs"
+    }
+  ],
+  "section 20": [
+    {
+      "word": "הֵבֵּיא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "hēḇēʾ"
+    },
+    {
+      "word": "יָשַׁב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "yāšaḇ"
+    },
+    {
+      "word": "צָעַק",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāʿaq"
+    },
+    {
+      "word": "רָכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḵaḇ"
+    },
+    {
+      "word": "שִׁמְרוֹן",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šimrōn"
+    },
+    {
+      "word": "יְרוּשָׁלִִם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yerûšālayim"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "כְּבוֹד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kəḇôḏ"
+    },
+    {
+      "word": "חֵלֶב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥēleḇ"
+    },
+    {
+      "word": "כַּסְפִּים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kaśpîm"
+    },
+    {
+      "word": "חָג",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥāḡ"
+    },
+    {
+      "word": "חַי",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥay"
+    },
+    {
+      "word": "שָׁעַה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʿa"
+    },
+    {
+      "word": "רָב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "rāḇ"
+    },
+    {
+      "word": "צָהַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ṣāhar"
+    },
+    {
+      "word": "רָמַע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāmaʿ"
+    },
+    {
+      "word": "חָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "ḥām"
+    },
+    {
+      "word": "פָּרַש",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pārāš"
+    },
+    {
+      "word": "שָׁחַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāḥaṯ"
+    },
+    {
+      "word": "יְרוּשָׁלִָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "yerûšālayim"
+    },
+    {
+      "word": "גִּבּוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "gibbôr"
+    },
+    {
+      "word": "סָמַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "sāmar"
+    },
+    {
+      "word": "אִישׁ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʾîš"
+    },
+    {
+      "word": "חֶסֶד",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ḥesed"
+    },
+    {
+      "word": "מַהֵר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "maḥēr"
+    },
+    {
+      "word": "רָכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāḵaḇ"
+    },
+    {
+      "word": "רָפָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāp̄āʾ"
+    },
+    {
+      "word": "פָּרַץ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "pārāṣ"
+    },
+    {
+      "word": "שָׁעַה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šāʿa"
+    },
+    {
+      "word": "שָׁכַב",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šākab"
+    },
+    {
+      "word": "כִּסֵּא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kiseʾ"
+    },
+    {
+      "word": "סַעַר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "saʿar"
+    },
+    {
+      "word": "שִׁפְחָה",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "šiḇḥāh"
+    },
+    {
+      "word": "כְּתוֹעֲבוֹת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "kətoʿăḇōt"
+    },
+    {
+      "word": "רָפָא",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "rāp̄āʾ"
+    },
+    {
+      "word": "שַׁחַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šaḥaṯ"
+    },
+    {
+      "word": "חִיוּ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥîyyū"
+    },
+    {
+      "word": "שְׁמוֹר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šemōr"
+    },
+    {
+      "word": "שְׁלוֹם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "šālôm"
+    },
+    {
+      "word": "חָרָם",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "ḥārām"
+    },
+    {
+      "word": "סָף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ṣāp̄"
+    },
+    {
+      "word": "בְּרִית",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (f.)",
+      "transliteration": "bəriṯ"
+    },
+    {
+      "word": "סוֹף",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "sōp̄"
+    },
+    {
+      "word": "כַּסְפִּים",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "kaśpîm"
+    },
+    {
+      "word": "כְּסִיל",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "adjective",
+      "transliteration": "kəsīl"
+    },
+    {
+      "word": "שַׁחַת",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "šaḥaṯ"
+    },
+    {
+      "word": "רְשָפֶּיהָ",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "rəsāpêhā"
+    },
+    {
+      "word": "תָּשַׁע",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "tāšaʿ"
+    },
+    {
+      "word": "עֵז",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "noun (m.)",
+      "transliteration": "ʿēz"
+    },
+    {
+      "word": "מַהֵר",
+      "meanings": [],
+      "frequency": 1,
+      "partOfSpeech": "verb",
+      "transliteration": "maḥēr"
+    }
+  ]
+}

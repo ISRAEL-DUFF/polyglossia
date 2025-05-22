@@ -1,0 +1,7027 @@
+{
+  "Chapter 33": [
+    {
+      "word": "ve",
+      "meanings": [
+        "or (suffix)"
+      ],
+      "frequency": 1,
+      "inflection": "-ve"
+    },
+    {
+      "word": "candidatus",
+      "meanings": [
+        "shining",
+        " bright",
+        " white; beautiful"
+      ],
+      "frequency": 1,
+      "inflection": "candidatus, -a, -um"
+    },
+    {
+      "word": "heu",
+      "meanings": [
+        "ah! alas!"
+      ],
+      "frequency": 1,
+      "inflection": "heu"
+    },
+    {
+      "word": "initium",
+      "meanings": [
+        "beginning",
+        " commencement"
+      ],
+      "frequency": 1,
+      "inflection": "initium, initii (n)"
+    },
+    {
+      "word": "merus",
+      "meanings": [
+        "pure",
+        " undiluted"
+      ],
+      "frequency": 1,
+      "inflection": "merus, -a, -um"
+    },
+    {
+      "word": "ops",
+      "meanings": [
+        "help",
+        " aid"
+      ],
+      "frequency": 1,
+      "inflection": "ops, opis (f)"
+    },
+    {
+      "word": "philosophus",
+      "meanings": [
+        "philosopher"
+      ],
+      "frequency": 1,
+      "inflection": "philosophus, philosophi (m)"
+    },
+    {
+      "word": "plebs",
+      "meanings": [
+        "the common people",
+        " populace",
+        " plebeians"
+      ],
+      "frequency": 1,
+      "inflection": "plebs, plebis (f)"
+    },
+    {
+      "word": "quis",
+      "meanings": [
+        "anyone",
+        " anything",
+        " someone",
+        " something"
+      ],
+      "frequency": 1,
+      "inflection": "quis, quid [after: si, nisi, num, or ne]"
+    },
+    {
+      "word": "recuso",
+      "meanings": [
+        "to refuse"
+      ],
+      "frequency": 1,
+      "inflection": "recuso, recusāre, recusavi, recusatum"
+    },
+    {
+      "word": "sal",
+      "meanings": [
+        "salt; wit"
+      ],
+      "frequency": 1,
+      "inflection": "sal, salis (m)"
+    },
+    {
+      "word": "sauvis",
+      "meanings": [
+        "sweet"
+      ],
+      "frequency": 1,
+      "inflection": "sauvis, suave"
+    },
+    {
+      "word": "speculum",
+      "meanings": [
+        "mirror"
+      ],
+      "frequency": 1,
+      "inflection": "speculum, speculi (n)"
+    },
+    {
+      "word": "subito",
+      "meanings": [
+        "suddenly"
+      ],
+      "frequency": 1,
+      "inflection": "subito"
+    },
+    {
+      "word": "trado",
+      "meanings": [
+        "to give over",
+        " surrender; hand down",
+        " transmit",
+        " teach (trans + do)"
+      ],
+      "frequency": 1,
+      "inflection": "trado, tradere, tradidi, traditum"
+    }
+  ],
+  "Chapter 14": [
+    {
+      "word": "ab",
+      "meanings": [
+        "away from",
+        " from; by"
+      ],
+      "frequency": 1,
+      "inflection": "a/ab (+abl)"
+    },
+    {
+      "word": "animal",
+      "meanings": [
+        "animal",
+        " living creature"
+      ],
+      "frequency": 1,
+      "inflection": "animal, animalis (n)*"
+    },
+    {
+      "word": "appello",
+      "meanings": [
+        "to speak to",
+        " address (as)",
+        " call",
+        " name"
+      ],
+      "frequency": 1,
+      "inflection": "appello, appellāre, appellavi, appellatum"
+    },
+    {
+      "word": "aqua",
+      "meanings": [
+        "water"
+      ],
+      "frequency": 1,
+      "inflection": "aqua, aquae (f)"
+    },
+    {
+      "word": "ars",
+      "meanings": [
+        "art",
+        " skill"
+      ],
+      "frequency": 1,
+      "inflection": "ars, artis (f)*"
+    },
+    {
+      "word": "auris",
+      "meanings": [
+        "ear"
+      ],
+      "frequency": 1,
+      "inflection": "auris, auris (f)*"
+    },
+    {
+      "word": "civis",
+      "meanings": [
+        "citizen"
+      ],
+      "frequency": 1,
+      "inflection": "civis, civis (m/f)*"
+    },
+    {
+      "word": "curro",
+      "meanings": [
+        "to run",
+        " rush",
+        " move quickly"
+      ],
+      "frequency": 1,
+      "inflection": "curro, currere, cucurri, cursum"
+    },
+    {
+      "word": "ius",
+      "meanings": [
+        "right",
+        " justice",
+        " law"
+      ],
+      "frequency": 1,
+      "inflection": "ius, iuris (n)"
+    },
+    {
+      "word": "mare",
+      "meanings": [
+        "sea"
+      ],
+      "frequency": 1,
+      "inflection": "mare, maris (n)*"
+    },
+    {
+      "word": "mors",
+      "meanings": [
+        "death"
+      ],
+      "frequency": 1,
+      "inflection": "mors, mortis (f)*"
+    },
+    {
+      "word": "muto",
+      "meanings": [
+        "to change",
+        "  alter; exchange"
+      ],
+      "frequency": 1,
+      "inflection": "muto, mutāre, mutavi, mutatum"
+    },
+    {
+      "word": "nubes",
+      "meanings": [
+        "cloud"
+      ],
+      "frequency": 1,
+      "inflection": "nubes, nubis (f)*"
+    },
+    {
+      "word": "os",
+      "meanings": [
+        "mouth",
+        " face"
+      ],
+      "frequency": 1,
+      "inflection": "os, oris (n)"
+    },
+    {
+      "word": "pars",
+      "meanings": [
+        "part",
+        " share; direction"
+      ],
+      "frequency": 1,
+      "inflection": "pars, partis (f)*"
+    },
+    {
+      "word": "Roma",
+      "meanings": [
+        "Rome"
+      ],
+      "frequency": 1,
+      "inflection": "Roma, Romae (f)"
+    },
+    {
+      "word": "teneo",
+      "meanings": [
+        "to hold",
+        " keep",
+        " possess; restrain"
+      ],
+      "frequency": 1,
+      "inflection": "teneo, tenere, tenui, tentum"
+    },
+    {
+      "word": "trans",
+      "meanings": [
+        "across"
+      ],
+      "frequency": 1,
+      "inflection": "trans (+acc)"
+    },
+    {
+      "word": "turba",
+      "meanings": [
+        "uproar",
+        " disturbance; mob",
+        " crowd",
+        " multitude"
+      ],
+      "frequency": 1,
+      "inflection": "turba, turbae (f)"
+    },
+    {
+      "word": "urbs",
+      "meanings": [
+        "city"
+      ],
+      "frequency": 1,
+      "inflection": "urbs, urbis (f)*"
+    },
+    {
+      "word": "vis",
+      "meanings": [
+        "force",
+        " power",
+        " violence (plural = strength)"
+      ],
+      "frequency": 1,
+      "inflection": "vis, vis (f)"
+    },
+    {
+      "word": "vito",
+      "meanings": [
+        "shun",
+        " avoid"
+      ],
+      "frequency": 1,
+      "inflection": "vito, vitāre, vitavi, vitatum"
+    }
+  ],
+  "Chapter 37": [
+    {
+      "word": "absens",
+      "meanings": [
+        "absent"
+      ],
+      "frequency": 1,
+      "inflection": "absens (gen: absentis)"
+    },
+    {
+      "word": "Athenae",
+      "meanings": [
+        "Athens"
+      ],
+      "frequency": 1,
+      "inflection": "Athenae, Athenarum (f)"
+    },
+    {
+      "word": "domus",
+      "meanings": [
+        "home",
+        " house"
+      ],
+      "frequency": 1,
+      "inflection": "domus, domus (-i) (f)"
+    },
+    {
+      "word": "eo",
+      "meanings": [
+        "to go (also: abeo",
+        " adeo",
+        " exeo",
+        " ineo",
+        " obeo",
+        " pereo",
+        " redeo)"
+      ],
+      "frequency": 1,
+      "inflection": "eo, ire, ii, itum"
+    },
+    {
+      "word": "foris",
+      "meanings": [
+        "out of doors",
+        " outside"
+      ],
+      "frequency": 1,
+      "inflection": "foris"
+    },
+    {
+      "word": "gratus",
+      "meanings": [
+        "grateful; pleasing",
+        " agreeable"
+      ],
+      "frequency": 1,
+      "inflection": "gratus, grata, gratum"
+    },
+    {
+      "word": "humus",
+      "meanings": [
+        "ground",
+        " earth; soil"
+      ],
+      "frequency": 1,
+      "inflection": "humus, humi (f)"
+    },
+    {
+      "word": "idoneus",
+      "meanings": [
+        "suitable",
+        " fit",
+        " appropriate"
+      ],
+      "frequency": 1,
+      "inflection": "idoneus, idonea, idoneum"
+    },
+    {
+      "word": "immotus",
+      "meanings": [
+        "unmoved; unchanged; unrelenting"
+      ],
+      "frequency": 1,
+      "inflection": "immotus, immota, immotum"
+    },
+    {
+      "word": "interficio",
+      "meanings": [
+        "to kill",
+        " murder"
+      ],
+      "frequency": 1,
+      "inflection": "interficio, interficere, interfeci, interfectum"
+    },
+    {
+      "word": "iter",
+      "meanings": [
+        "journey; route",
+        " road"
+      ],
+      "frequency": 1,
+      "inflection": "iter, itineris (n)"
+    },
+    {
+      "word": "licet",
+      "meanings": [
+        "it is permitted",
+        " one may"
+      ],
+      "frequency": 1,
+      "inflection": "licet, licere, licuit (impersonal)"
+    },
+    {
+      "word": "peregrinor",
+      "meanings": [
+        "to  travel abroad",
+        " wander"
+      ],
+      "frequency": 1,
+      "inflection": "peregrinor, peregrinari, peregrinatus sum"
+    },
+    {
+      "word": "requiesco",
+      "meanings": [
+        "to rest"
+      ],
+      "frequency": 1,
+      "inflection": "requiesco, requiescere, requievi, requietum"
+    },
+    {
+      "word": "rus",
+      "meanings": [
+        "the country",
+        " countryside"
+      ],
+      "frequency": 1,
+      "inflection": "rus, ruris (n)"
+    },
+    {
+      "word": "soleo",
+      "meanings": [
+        "to be accustomed"
+      ],
+      "frequency": 1,
+      "inflection": "soleo, solēre, solitus sum"
+    },
+    {
+      "word": "Syracusae",
+      "meanings": [
+        "Syracuse"
+      ],
+      "frequency": 1,
+      "inflection": "Syracusae, Syracusarum (f)"
+    }
+  ],
+  "Chapter 36": [
+    {
+      "word": "accedo",
+      "meanings": [
+        "to come (to)",
+        " approach"
+      ],
+      "frequency": 1,
+      "inflection": "accedo, accedere, accessi, accessum"
+    },
+    {
+      "word": "carpo",
+      "meanings": [
+        "to harvest",
+        " pluck; seize"
+      ],
+      "frequency": 1,
+      "inflection": "carpo, carpere, carpsi, carptum"
+    },
+    {
+      "word": "cogo",
+      "meanings": [
+        "to drive/bring together",
+        " force",
+        " compel"
+      ],
+      "frequency": 1,
+      "inflection": "cogo, cogere, coegi, coactum (cum + ago)"
+    },
+    {
+      "word": "contemno",
+      "meanings": [
+        "to despise",
+        " scorn"
+      ],
+      "frequency": 1,
+      "inflection": "contemno, contemnere, contempsi, contemptum"
+    },
+    {
+      "word": "contundo",
+      "meanings": [
+        "to beat",
+        " crush",
+        " bruise",
+        " destroy"
+      ],
+      "frequency": 1,
+      "inflection": "contundo, contundere, contudi, contusum"
+    },
+    {
+      "word": "cotidie",
+      "meanings": [
+        "daily",
+        " every day"
+      ],
+      "frequency": 1,
+      "inflection": "cotidie"
+    },
+    {
+      "word": "cupido",
+      "meanings": [
+        "desire",
+        " passion"
+      ],
+      "frequency": 1,
+      "inflection": "cupido, cupidinis (f)"
+    },
+    {
+      "word": "curo",
+      "meanings": [
+        "to care  for",
+        "  attend to; heal",
+        " cure"
+      ],
+      "frequency": 1,
+      "inflection": "curo, curāre, curavi, curatum"
+    },
+    {
+      "word": "decerno",
+      "meanings": [
+        "to decide",
+        " settle",
+        " decree"
+      ],
+      "frequency": 1,
+      "inflection": "decerno, decernere,decrevi, decretum"
+    },
+    {
+      "word": "exigo",
+      "meanings": [
+        "to drive  out",
+        " force  out",
+        " exact; drive through",
+        " complete",
+        " perfect"
+      ],
+      "frequency": 1,
+      "inflection": "exigo, exigere, exegi, exactum (ex + ago)"
+    },
+    {
+      "word": "fio",
+      "meanings": [
+        "to occur",
+        " happen; become; be made",
+        " be done"
+      ],
+      "frequency": 1,
+      "inflection": "fio, fieri, factus sum"
+    },
+    {
+      "word": "fortasse",
+      "meanings": [
+        "perhaps"
+      ],
+      "frequency": 1,
+      "inflection": "fortasse"
+    },
+    {
+      "word": "lector",
+      "meanings": [
+        "reader"
+      ],
+      "frequency": 1,
+      "inflection": "lector, lectoris (m) & lectrix lectricis (f)"
+    },
+    {
+      "word": "oblecto",
+      "meanings": [
+        "to please",
+        " amuse",
+        " delight; pass time pleasantly"
+      ],
+      "frequency": 1,
+      "inflection": "oblecto, oblectāre, oblectavi, oblectatum"
+    },
+    {
+      "word": "oro",
+      "meanings": [
+        "to speak",
+        " plead; beg",
+        " beseech",
+        " entreat",
+        " pray"
+      ],
+      "frequency": 1,
+      "inflection": "oro, orāre, oravi, oratum"
+    },
+    {
+      "word": "recreo",
+      "meanings": [
+        "to  restore",
+        " revive; refresh",
+        " cheer"
+      ],
+      "frequency": 1,
+      "inflection": "recreo, recreāre, recreavi, recreatum"
+    },
+    {
+      "word": "requiro",
+      "meanings": [
+        "to seek",
+        " ask for; miss",
+        " need",
+        " require"
+      ],
+      "frequency": 1,
+      "inflection": "requiro, requirere, requisivi, requisitum"
+    },
+    {
+      "word": "sereno",
+      "meanings": [
+        "to  make clear",
+        " brighten; cheer up",
+        " soothe"
+      ],
+      "frequency": 1,
+      "inflection": "sereno, serenāre, serenavi, serenatum"
+    },
+    {
+      "word": "vinculum",
+      "meanings": [
+        "chain",
+        " bond",
+        " fetter"
+      ],
+      "frequency": 1,
+      "inflection": "vinculum, vinculi (n)"
+    }
+  ],
+  "Chapter 24": [
+    {
+      "word": "accipio",
+      "meanings": [
+        "to take (to one’s self)",
+        " receive",
+        " accept"
+      ],
+      "frequency": 1,
+      "inflection": "accipio, accipere, accepi, acceptum"
+    },
+    {
+      "word": "Carthago",
+      "meanings": [
+        "Carthage"
+      ],
+      "frequency": 1,
+      "inflection": "Carthago, Carthaginis (f)"
+    },
+    {
+      "word": "excipio",
+      "meanings": [
+        "to take out",
+        " except; take",
+        " receive",
+        " capture"
+      ],
+      "frequency": 1,
+      "inflection": "excipio, excipere, excepi, exceptum"
+    },
+    {
+      "word": "expello",
+      "meanings": [
+        "to drive out",
+        " expel",
+        " banish"
+      ],
+      "frequency": 1,
+      "inflection": "expello, expellere, expuli, expulsum"
+    },
+    {
+      "word": "fabula",
+      "meanings": [
+        "story",
+        " tale; play"
+      ],
+      "frequency": 1,
+      "inflection": "fabula, fabulae (f)"
+    },
+    {
+      "word": "imperator",
+      "meanings": [
+        "general",
+        " commander-in-chief",
+        " emperor"
+      ],
+      "frequency": 1,
+      "inflection": "imperator, imperatoris (m)"
+    },
+    {
+      "word": "imperium",
+      "meanings": [
+        "power to command",
+        " supreme power",
+        " authority",
+        " command",
+        " control",
+        " imperium"
+      ],
+      "frequency": 1,
+      "inflection": "imperium, imperii (n)"
+    },
+    {
+      "word": "narro",
+      "meanings": [
+        "to tell",
+        " report",
+        " narrate"
+      ],
+      "frequency": 1,
+      "inflection": "narro, narrāre, narravi, narratum"
+    },
+    {
+      "word": "pello",
+      "meanings": [
+        "to strike",
+        " push; drive out",
+        " banish"
+      ],
+      "frequency": 1,
+      "inflection": "pello, pellere, pepuli, pulsum"
+    },
+    {
+      "word": "perfugium",
+      "meanings": [
+        "refuge",
+        "  solace",
+        " shelter"
+      ],
+      "frequency": 1,
+      "inflection": "perfugium, perfugii (n)"
+    },
+    {
+      "word": "postea",
+      "meanings": [
+        "afterwards"
+      ],
+      "frequency": 1,
+      "inflection": "postea"
+    },
+    {
+      "word": "quaero",
+      "meanings": [
+        "to seek",
+        " look for",
+        " strive for; ask",
+        " inquire",
+        " inquire into"
+      ],
+      "frequency": 1,
+      "inflection": "quaero, quaerere, quaesivi, quaesitum"
+    },
+    {
+      "word": "recipio",
+      "meanings": [
+        "to take back",
+        " regain; admit",
+        " receive"
+      ],
+      "frequency": 1,
+      "inflection": "recipio, recipere, recepi, receptum"
+    },
+    {
+      "word": "rideo",
+      "meanings": [
+        "to laugh",
+        " laugh at"
+      ],
+      "frequency": 1,
+      "inflection": "rideo, ridēre, risi, risum"
+    },
+    {
+      "word": "servus",
+      "meanings": [
+        "slave"
+      ],
+      "frequency": 1,
+      "inflection": "servus, servi (m) or serva, servae (f)"
+    },
+    {
+      "word": "solacium",
+      "meanings": [
+        "comfort",
+        " relief"
+      ],
+      "frequency": 1,
+      "inflection": "solacium, solacii (n)"
+    },
+    {
+      "word": "ut",
+      "meanings": [
+        "(+indic) as",
+        " just as",
+        " when"
+      ],
+      "frequency": 1,
+      "inflection": "ut"
+    },
+    {
+      "word": "vulnus",
+      "meanings": [
+        "wound"
+      ],
+      "frequency": 1,
+      "inflection": "vulnus, vulneris (n)"
+    }
+  ],
+  "Chapter 16": [
+    {
+      "word": "acer",
+      "meanings": [
+        "sharp",
+        " keep",
+        " eager; severe",
+        " fierce"
+      ],
+      "frequency": 1,
+      "inflection": "acer, acris, acre"
+    },
+    {
+      "word": "aetas",
+      "meanings": [
+        "period of life",
+        " life",
+        " age",
+        " an age",
+        " time"
+      ],
+      "frequency": 1,
+      "inflection": "aetas, aetatis (f)"
+    },
+    {
+      "word": "auditor",
+      "meanings": [
+        "hearer",
+        " listener; member of an audience"
+      ],
+      "frequency": 1,
+      "inflection": "auditor, auditoris (m)"
+    },
+    {
+      "word": "brevis",
+      "meanings": [
+        "short",
+        " small",
+        " brief"
+      ],
+      "frequency": 1,
+      "inflection": "brevis, breve"
+    },
+    {
+      "word": "celer",
+      "meanings": [
+        "quick",
+        " swift",
+        " rapid"
+      ],
+      "frequency": 1,
+      "inflection": "celer, celeris, celere"
+    },
+    {
+      "word": "clementia",
+      "meanings": [
+        "mercy",
+        " mildness",
+        " gentleness"
+      ],
+      "frequency": 1,
+      "inflection": "clementia, clementiae (f)"
+    },
+    {
+      "word": "difficilis",
+      "meanings": [
+        "difficult",
+        " hard",
+        " troublesome"
+      ],
+      "frequency": 1,
+      "inflection": "difficilis, difficile"
+    },
+    {
+      "word": "dulcis",
+      "meanings": [
+        "sweet",
+        " pleasant",
+        " agreeable"
+      ],
+      "frequency": 1,
+      "inflection": "dulcis, dulce"
+    },
+    {
+      "word": "facilis",
+      "meanings": [
+        "easy",
+        " agreeable"
+      ],
+      "frequency": 1,
+      "inflection": "facilis, facile"
+    },
+    {
+      "word": "fortis",
+      "meanings": [
+        "brave",
+        " strong"
+      ],
+      "frequency": 1,
+      "inflection": "fortis, forte"
+    },
+    {
+      "word": "ingens",
+      "meanings": [
+        "huge"
+      ],
+      "frequency": 1,
+      "inflection": "ingens (gen: ingentis)"
+    },
+    {
+      "word": "iucundus",
+      "meanings": [
+        "pleasant",
+        " delightful",
+        " agreeable",
+        " pleasing"
+      ],
+      "frequency": 1,
+      "inflection": "iucundus, iucunda, iucundum"
+    },
+    {
+      "word": "longus",
+      "meanings": [
+        "long"
+      ],
+      "frequency": 1,
+      "inflection": "longus, longa, longum"
+    },
+    {
+      "word": "mens",
+      "meanings": [
+        "mind",
+        " thought",
+        " intention"
+      ],
+      "frequency": 1,
+      "inflection": "mens, mentis (f)*"
+    },
+    {
+      "word": "omnis",
+      "meanings": [
+        "every",
+        " all"
+      ],
+      "frequency": 1,
+      "inflection": "omnis, omne"
+    },
+    {
+      "word": "potens",
+      "meanings": [
+        "powerful"
+      ],
+      "frequency": 1,
+      "inflection": "potens (gen: potentis)"
+    },
+    {
+      "word": "quam",
+      "meanings": [
+        "how"
+      ],
+      "frequency": 1,
+      "inflection": "quam"
+    },
+    {
+      "word": "rego",
+      "meanings": [
+        "to rule",
+        " guide",
+        " direct"
+      ],
+      "frequency": 1,
+      "inflection": "rego, regere, rexi, rectum"
+    },
+    {
+      "word": "satura",
+      "meanings": [
+        "satire"
+      ],
+      "frequency": 1,
+      "inflection": "satura, saturae (f)"
+    },
+    {
+      "word": "senex",
+      "meanings": [
+        "old",
+        " aged"
+      ],
+      "frequency": 1,
+      "inflection": "senex (gen: senis)"
+    }
+  ],
+  "Chapter 12": [
+    {
+      "word": "acerbus",
+      "meanings": [
+        "harsh",
+        " bitter",
+        " grievous"
+      ],
+      "frequency": 1,
+      "inflection": "acerbus, acerba, acerbum"
+    },
+    {
+      "word": "adulescens",
+      "meanings": [
+        "young man or woman"
+      ],
+      "frequency": 1,
+      "inflection": "adulescens, adulescentis (m/f)"
+    },
+    {
+      "word": "amitto",
+      "meanings": [
+        "to lose",
+        " let go"
+      ],
+      "frequency": 1,
+      "inflection": "amitto, amittere, amisi, amissum"
+    },
+    {
+      "word": "annus",
+      "meanings": [
+        "year"
+      ],
+      "frequency": 1,
+      "inflection": "annus, anni (m)"
+    },
+    {
+      "word": "Asia",
+      "meanings": [
+        "Asia"
+      ],
+      "frequency": 1,
+      "inflection": "Asia, Asiae (f)"
+    },
+    {
+      "word": "cado",
+      "meanings": [
+        "to fall"
+      ],
+      "frequency": 1,
+      "inflection": "cado, cadere, cecidi, casurum"
+    },
+    {
+      "word": "Caesar",
+      "meanings": [
+        "(Gaius Julius) Caesar"
+      ],
+      "frequency": 1,
+      "inflection": "Caesar, Caesaris (m)"
+    },
+    {
+      "word": "creo",
+      "meanings": [
+        "to create"
+      ],
+      "frequency": 1,
+      "inflection": "creo, creāre, creavi, creatum"
+    },
+    {
+      "word": "diu",
+      "meanings": [
+        "for a long time"
+      ],
+      "frequency": 1,
+      "inflection": "diu"
+    },
+    {
+      "word": "mater",
+      "meanings": [
+        "mother"
+      ],
+      "frequency": 1,
+      "inflection": "mater, matris (f)"
+    },
+    {
+      "word": "medicus",
+      "meanings": [
+        "doctor",
+        " physician"
+      ],
+      "frequency": 1,
+      "inflection": "medicus, medici (m)"
+    },
+    {
+      "word": "nuper",
+      "meanings": [
+        "recently"
+      ],
+      "frequency": 1,
+      "inflection": "nuper"
+    },
+    {
+      "word": "pater",
+      "meanings": [
+        "father"
+      ],
+      "frequency": 1,
+      "inflection": "pater, patris (m)"
+    },
+    {
+      "word": "patientia",
+      "meanings": [
+        "suffering; patience",
+        " endurance"
+      ],
+      "frequency": 1,
+      "inflection": "patientia, patientiae (f)"
+    },
+    {
+      "word": "principium",
+      "meanings": [
+        "beginning"
+      ],
+      "frequency": 1,
+      "inflection": "principium, principii (n)"
+    },
+    {
+      "word": "pro",
+      "meanings": [
+        "in front of",
+        " before",
+        " on behalf of",
+        " for the sake of",
+        " in return for",
+        " instead of",
+        " for",
+        " as"
+      ],
+      "frequency": 1,
+      "inflection": "pro (+abl)"
+    }
+  ],
+  "Chapter 8": [
+    {
+      "word": "ad",
+      "meanings": [
+        "to(ward)",
+        " up to",
+        " near"
+      ],
+      "frequency": 1,
+      "inflection": "ad (+acc)"
+    },
+    {
+      "word": "ago",
+      "meanings": [
+        "to drive",
+        " lead",
+        " do",
+        " act; pass",
+        " spend"
+      ],
+      "frequency": 1,
+      "inflection": "ago, agere, egi, actum"
+    },
+    {
+      "word": "Cicero",
+      "meanings": [
+        "(Marcus Tullius) Cicero"
+      ],
+      "frequency": 1,
+      "inflection": "Cicero, Ciceronis (m)"
+    },
+    {
+      "word": "copia",
+      "meanings": [
+        "supply",
+        " abundance (plural = supplies",
+        " troops",
+        " forces)"
+      ],
+      "frequency": 1,
+      "inflection": "copia, copiae (f)"
+    },
+    {
+      "word": "demonstro",
+      "meanings": [
+        "to point out",
+        " show"
+      ],
+      "frequency": 1,
+      "inflection": "demonstro, demonstrāre, demonstravi, demonstratum"
+    },
+    {
+      "word": "disco",
+      "meanings": [
+        "to learn"
+      ],
+      "frequency": 1,
+      "inflection": "disco, discere, didici"
+    },
+    {
+      "word": "doceo",
+      "meanings": [
+        "to teach"
+      ],
+      "frequency": 1,
+      "inflection": "doceo, docēre, docui, doctum"
+    },
+    {
+      "word": "duco",
+      "meanings": [
+        "to lead",
+        " consider",
+        " regard; prolong"
+      ],
+      "frequency": 1,
+      "inflection": "duco, ducere,  duxi, ductum"
+    },
+    {
+      "word": "dum",
+      "meanings": [
+        "while",
+        " as long as"
+      ],
+      "frequency": 1,
+      "inflection": "dum"
+    },
+    {
+      "word": "ex",
+      "meanings": [
+        "out of",
+        " from",
+        " from within; by reason of",
+        " on account of"
+      ],
+      "frequency": 1,
+      "inflection": "ex (+abl)"
+    },
+    {
+      "word": "frater",
+      "meanings": [
+        "brother"
+      ],
+      "frequency": 1,
+      "inflection": "frater, fratris (m)"
+    },
+    {
+      "word": "gero",
+      "meanings": [
+        "to carry; carry on",
+        " manage",
+        " conduct",
+        " wage"
+      ],
+      "frequency": 1,
+      "inflection": "gero, gerere, gessi, gestum"
+    },
+    {
+      "word": "laus",
+      "meanings": [
+        "praise"
+      ],
+      "frequency": 1,
+      "inflection": "laus, laudis (f)"
+    },
+    {
+      "word": "libertas",
+      "meanings": [
+        "freedom",
+        " liberty"
+      ],
+      "frequency": 1,
+      "inflection": "libertas, libertatis (f)"
+    },
+    {
+      "word": "numquam",
+      "meanings": [
+        "never"
+      ],
+      "frequency": 1,
+      "inflection": "numquam"
+    },
+    {
+      "word": "ratio",
+      "meanings": [
+        "reckoning",
+        " account; reason",
+        " judgement",
+        " consideration; system; manner",
+        " method"
+      ],
+      "frequency": 1,
+      "inflection": "ratio, rationis (f)"
+    },
+    {
+      "word": "scribo",
+      "meanings": [
+        "to write",
+        " compose"
+      ],
+      "frequency": 1,
+      "inflection": "scribo, scribere, scripsi, scriptum"
+    },
+    {
+      "word": "scriptor",
+      "meanings": [
+        "writer",
+        " author"
+      ],
+      "frequency": 1,
+      "inflection": "scriptor, scriptoris (m)"
+    },
+    {
+      "word": "soror",
+      "meanings": [
+        "sister"
+      ],
+      "frequency": 1,
+      "inflection": "soror, sororis (f)"
+    },
+    {
+      "word": "tamen",
+      "meanings": [
+        "nevertheless",
+        " still"
+      ],
+      "frequency": 1,
+      "inflection": "tamen"
+    },
+    {
+      "word": "traho",
+      "meanings": [
+        "to drag",
+        " draw; derive",
+        " acquire"
+      ],
+      "frequency": 1,
+      "inflection": "traho, trahere, traxi, tractum"
+    },
+    {
+      "word": "victoria",
+      "meanings": [
+        "victory"
+      ],
+      "frequency": 1,
+      "inflection": "victoria, victoriae (f)"
+    },
+    {
+      "word": "vinco",
+      "meanings": [
+        "to conquer",
+        " overcome"
+      ],
+      "frequency": 1,
+      "inflection": "vinco, vincere, vici, victum"
+    }
+  ],
+  "Chapter 31": [
+    {
+      "word": "adfero",
+      "meanings": [
+        "to bring to"
+      ],
+      "frequency": 1,
+      "inflection": "adfero, adferre, attuli, allatum"
+    },
+    {
+      "word": "apud",
+      "meanings": [
+        "among",
+        " in the presence of",
+        " at the house of"
+      ],
+      "frequency": 1,
+      "inflection": "apud (+acc)"
+    },
+    {
+      "word": "as",
+      "meanings": [
+        "an as"
+      ],
+      "frequency": 1,
+      "inflection": "as, assis (m)"
+    },
+    {
+      "word": "auxilium",
+      "meanings": [
+        "help",
+        " aid"
+      ],
+      "frequency": 1,
+      "inflection": "auxilium, auxilii (n)"
+    },
+    {
+      "word": "confero",
+      "meanings": [
+        "to bring together",
+        " compare; confer",
+        " bestow"
+      ],
+      "frequency": 1,
+      "inflection": "confero, conferre, contuli, collatum"
+    },
+    {
+      "word": "cum when",
+      "meanings": [],
+      "frequency": 1,
+      "inflection": "cum (+subjunctive) when, since, although; (+indicative) when"
+    },
+    {
+      "word": "digitus",
+      "meanings": [
+        "finger",
+        " toe"
+      ],
+      "frequency": 1,
+      "inflection": "digitus, digiti (m)"
+    },
+    {
+      "word": "doleo",
+      "meanings": [
+        "to grieve",
+        "  suffer",
+        " hurt",
+        " give pain"
+      ],
+      "frequency": 1,
+      "inflection": "doleo, dolēre, dolui, doliturum"
+    },
+    {
+      "word": "dormio",
+      "meanings": [
+        "to sleep"
+      ],
+      "frequency": 1,
+      "inflection": "dormio, dormire, dormivi, dormitum"
+    },
+    {
+      "word": "elephantus",
+      "meanings": [
+        "elephant"
+      ],
+      "frequency": 1,
+      "inflection": "elephantus, elephanti (m)"
+    },
+    {
+      "word": "exsilium",
+      "meanings": [
+        "exile",
+        " banishment"
+      ],
+      "frequency": 1,
+      "inflection": "exsilium, exsilii (n)"
+    },
+    {
+      "word": "fero",
+      "meanings": [
+        "to bear",
+        " bring; suffer",
+        " endure",
+        " tolerate",
+        " say",
+        " report"
+      ],
+      "frequency": 1,
+      "inflection": "fero, ferre, tuli, latum"
+    },
+    {
+      "word": "invideo",
+      "meanings": [
+        "to be envious (+dat)",
+        " to look at with envy",
+        " to envy",
+        " be jealous of"
+      ],
+      "frequency": 1,
+      "inflection": "invideo, invidēre, invidi, invisum"
+    },
+    {
+      "word": "invidia",
+      "meanings": [
+        "jealousy"
+      ],
+      "frequency": 1,
+      "inflection": "invidia, invidiae (f)"
+    },
+    {
+      "word": "mediocris",
+      "meanings": [
+        "ordinary",
+        " moderate",
+        " mediocre"
+      ],
+      "frequency": 1,
+      "inflection": "mediocris, mediocre"
+    },
+    {
+      "word": "occido",
+      "meanings": [
+        "to fall down; die; set"
+      ],
+      "frequency": 1,
+      "inflection": "occido, occidere, occidi, occasum"
+    },
+    {
+      "word": "offero",
+      "meanings": [
+        "to offer"
+      ],
+      "frequency": 1,
+      "inflection": "offero, offere, obtuli, oblatum"
+    },
+    {
+      "word": "refero",
+      "meanings": [
+        "to carry back",
+        " bring back; repeat",
+        " answer",
+        " report"
+      ],
+      "frequency": 1,
+      "inflection": "refero, referre,  rettuli,  relatum"
+    },
+    {
+      "word": "rumor",
+      "meanings": [
+        "rumor",
+        " gossip"
+      ],
+      "frequency": 1,
+      "inflection": "rumor, rumoris (m)"
+    },
+    {
+      "word": "semel",
+      "meanings": [
+        "a single time",
+        " once",
+        " once and for all",
+        " simultaneously"
+      ],
+      "frequency": 1,
+      "inflection": "semel"
+    },
+    {
+      "word": "usque",
+      "meanings": [
+        "all the way up (to)",
+        " even (to)",
+        " continuously",
+        " always"
+      ],
+      "frequency": 1,
+      "inflection": "usque"
+    },
+    {
+      "word": "vinum",
+      "meanings": [
+        "wine"
+      ],
+      "frequency": 1,
+      "inflection": "vinum, vini (n)"
+    }
+  ],
+  "Chapter 17": [
+    {
+      "word": "admitto",
+      "meanings": [
+        "to admit",
+        " receive",
+        " let in"
+      ],
+      "frequency": 1,
+      "inflection": "admitto, admittere, admisi, admissum"
+    },
+    {
+      "word": "aut",
+      "meanings": [
+        "or (aut . . . aut"
+      ],
+      "frequency": 1,
+      "inflection": "aut"
+    },
+    {
+      "word": "caecus",
+      "meanings": [
+        "blind"
+      ],
+      "frequency": 1,
+      "inflection": "caecus, -a, -um"
+    },
+    {
+      "word": "cito",
+      "meanings": [
+        "quickly"
+      ],
+      "frequency": 1,
+      "inflection": "cito"
+    },
+    {
+      "word": "coepi",
+      "meanings": [
+        "began"
+      ],
+      "frequency": 1,
+      "inflection": "coepi, coepisse, coeptum"
+    },
+    {
+      "word": "cupio",
+      "meanings": [
+        "to desire",
+        " wish",
+        " long for"
+      ],
+      "frequency": 1,
+      "inflection": "cupio, cupere, cupivi, cupitum"
+    },
+    {
+      "word": "deleo",
+      "meanings": [
+        "to destroy",
+        " wipe out",
+        " erase"
+      ],
+      "frequency": 1,
+      "inflection": "deleo, delēre, delevi, deletum"
+    },
+    {
+      "word": "desidero",
+      "meanings": [
+        "to desire",
+        " long for",
+        " miss"
+      ],
+      "frequency": 1,
+      "inflection": "desidero, desiderāre, desideravi, desideratum"
+    },
+    {
+      "word": "incipio",
+      "meanings": [
+        "to begin"
+      ],
+      "frequency": 1,
+      "inflection": "incipio, incipere, incepi, inceptum"
+    },
+    {
+      "word": "levis",
+      "meanings": [
+        "light",
+        " trivial"
+      ],
+      "frequency": 1,
+      "inflection": "levis, leve"
+    },
+    {
+      "word": "libellus",
+      "meanings": [
+        "little book"
+      ],
+      "frequency": 1,
+      "inflection": "libellus, libelli (m)"
+    },
+    {
+      "word": "navigo",
+      "meanings": [
+        "to sail",
+        " navigate"
+      ],
+      "frequency": 1,
+      "inflection": "navigo, navigāre, navigavi, navigatum"
+    },
+    {
+      "word": "neglego",
+      "meanings": [
+        "to neglect",
+        " disregard"
+      ],
+      "frequency": 1,
+      "inflection": "neglego, neglegere, neglexi, neglectum"
+    },
+    {
+      "word": "qui",
+      "meanings": [
+        "(relative pronoun) who",
+        " which",
+        " what",
+        " that"
+      ],
+      "frequency": 1,
+      "inflection": "qui, quae, quod"
+    },
+    {
+      "word": "quoque",
+      "meanings": [
+        "also",
+        " too"
+      ],
+      "frequency": 1,
+      "inflection": "quoque"
+    },
+    {
+      "word": "recito",
+      "meanings": [
+        "to read aloud",
+        " recite"
+      ],
+      "frequency": 1,
+      "inflection": "recito, recitāre, recitavi, recitatum"
+    }
+  ],
+  "Chapter 5": [
+    {
+      "word": "adulescentia",
+      "meanings": [
+        "youth",
+        " young manhood; youthfulness"
+      ],
+      "frequency": 1,
+      "inflection": "adulescentia, adulescentiae (f)"
+    },
+    {
+      "word": "animus",
+      "meanings": [
+        "soul",
+        " spirit",
+        " mind; heart",
+        " mind",
+        " intellect",
+        " courage"
+      ],
+      "frequency": 1,
+      "inflection": "animus, animi (m)"
+    },
+    {
+      "word": "caelum",
+      "meanings": [
+        "sky"
+      ],
+      "frequency": 1,
+      "inflection": "caelum, caeli (n)"
+    },
+    {
+      "word": "ceno",
+      "meanings": [
+        "to dine"
+      ],
+      "frequency": 1,
+      "inflection": "ceno, cenāre, cenavi, cenatum"
+    },
+    {
+      "word": "cras",
+      "meanings": [
+        "tomorrow"
+      ],
+      "frequency": 1,
+      "inflection": "cras"
+    },
+    {
+      "word": "culpa",
+      "meanings": [
+        "blame",
+        " fault"
+      ],
+      "frequency": 1,
+      "inflection": "culpa, culpae (f)"
+    },
+    {
+      "word": "culpo",
+      "meanings": [
+        "to blame",
+        " censure"
+      ],
+      "frequency": 1,
+      "inflection": "culpo, culpāre, culpavi, culpatum"
+    },
+    {
+      "word": "gloria",
+      "meanings": [
+        "glory"
+      ],
+      "frequency": 1,
+      "inflection": "gloria, gloriae (f)"
+    },
+    {
+      "word": "heri",
+      "meanings": [
+        "yesterday"
+      ],
+      "frequency": 1,
+      "inflection": "heri"
+    },
+    {
+      "word": "igitur",
+      "meanings": [
+        "(post positive) therefore",
+        " consequently"
+      ],
+      "frequency": 1,
+      "inflection": "igitur"
+    },
+    {
+      "word": "liber",
+      "meanings": [
+        "free"
+      ],
+      "frequency": 1,
+      "inflection": "liber, libera, liberum"
+    },
+    {
+      "word": "noster",
+      "meanings": [
+        "our"
+      ],
+      "frequency": 1,
+      "inflection": "noster, nostra, nostrum"
+    },
+    {
+      "word": "propter",
+      "meanings": [
+        "on account of",
+        " because of"
+      ],
+      "frequency": 1,
+      "inflection": "propter (+accusative)"
+    },
+    {
+      "word": "pulcher",
+      "meanings": [
+        "beautiful"
+      ],
+      "frequency": 1,
+      "inflection": "pulcher, pulchra, pulchrum"
+    },
+    {
+      "word": "quando",
+      "meanings": [
+        "when"
+      ],
+      "frequency": 1,
+      "inflection": "quando"
+    },
+    {
+      "word": "remaneo",
+      "meanings": [
+        "to remain",
+        " stay; stay behind",
+        " abide",
+        " continue"
+      ],
+      "frequency": 1,
+      "inflection": "remaneo, remanēre, remansi, remansum (or maneo)"
+    },
+    {
+      "word": "sanus",
+      "meanings": [
+        "sound",
+        " healthy",
+        " sane"
+      ],
+      "frequency": 1,
+      "inflection": "sanus, sana, sanum"
+    },
+    {
+      "word": "satis",
+      "meanings": [
+        "enough",
+        " sufficient"
+      ],
+      "frequency": 1,
+      "inflection": "satis"
+    },
+    {
+      "word": "supero",
+      "meanings": [
+        "to be above",
+        " have the upper hand",
+        " surpass; overcome",
+        " conquer"
+      ],
+      "frequency": 1,
+      "inflection": "supero, superāre, superavi, superatum"
+    },
+    {
+      "word": "te",
+      "meanings": [
+        "you (accusative)"
+      ],
+      "frequency": 1,
+      "inflection": "te"
+    },
+    {
+      "word": "tum",
+      "meanings": [
+        "then",
+        " at that time; thereupon",
+        " in the next place"
+      ],
+      "frequency": 1,
+      "inflection": "tum"
+    },
+    {
+      "word": "verbum",
+      "meanings": [
+        "word"
+      ],
+      "frequency": 1,
+      "inflection": "verbum, verbi (n)"
+    },
+    {
+      "word": "ne",
+      "meanings": [],
+      "frequency": 1,
+      "inflection": "ne"
+    }
+  ],
+  "Chapter 34": [
+    {
+      "word": "adversus",
+      "meanings": [
+        "opposite",
+        " adverse"
+      ],
+      "frequency": 1,
+      "inflection": "adversus, adversa, adversum"
+    },
+    {
+      "word": "anima",
+      "meanings": [
+        "soul",
+        " spirit"
+      ],
+      "frequency": 1,
+      "inflection": "anima, animae (f)"
+    },
+    {
+      "word": "arbitror",
+      "meanings": [
+        "to judge",
+        " think"
+      ],
+      "frequency": 1,
+      "inflection": "arbitror, arbitrāri, arbitratus sum"
+    },
+    {
+      "word": "conor",
+      "meanings": [
+        "to try",
+        " attempt"
+      ],
+      "frequency": 1,
+      "inflection": "conor, conāri, conatus sum"
+    },
+    {
+      "word": "cresco",
+      "meanings": [
+        "to increase"
+      ],
+      "frequency": 1,
+      "inflection": "cresco, crescere, crevi, cretum"
+    },
+    {
+      "word": "egredior",
+      "meanings": [
+        "to go out"
+      ],
+      "frequency": 1,
+      "inflection": "egredior, egredi, egressus sum"
+    },
+    {
+      "word": "fateor",
+      "meanings": [
+        "to confess",
+        " admit"
+      ],
+      "frequency": 1,
+      "inflection": "fateor, fatēri, fassus sum"
+    },
+    {
+      "word": "hortor",
+      "meanings": [
+        "to encourage",
+        " urge"
+      ],
+      "frequency": 1,
+      "inflection": "hortor, hortāri, hortatus sum"
+    },
+    {
+      "word": "loquor",
+      "meanings": [
+        "to speak",
+        " say",
+        " tell"
+      ],
+      "frequency": 1,
+      "inflection": "loquor, loqui, locutus sum"
+    },
+    {
+      "word": "molior",
+      "meanings": [
+        "to work at",
+        " build",
+        " undertake",
+        " plan"
+      ],
+      "frequency": 1,
+      "inflection": "molior, moliri, molitus sum"
+    },
+    {
+      "word": "morior",
+      "meanings": [
+        "to die"
+      ],
+      "frequency": 1,
+      "inflection": "morior, mori, mortuus sum"
+    },
+    {
+      "word": "nascor",
+      "meanings": [
+        "to be born; spring forth arise"
+      ],
+      "frequency": 1,
+      "inflection": "nascor, nasci, natus sum"
+    },
+    {
+      "word": "patior",
+      "meanings": [
+        "to suffer",
+        " endure; permit"
+      ],
+      "frequency": 1,
+      "inflection": "patior, pati, passus sum"
+    },
+    {
+      "word": "proficiscor",
+      "meanings": [
+        "to set out",
+        " start"
+      ],
+      "frequency": 1,
+      "inflection": "proficiscor, proficisci, profectus sum"
+    },
+    {
+      "word": "remissio",
+      "meanings": [
+        "letting go",
+        " release; relaxation"
+      ],
+      "frequency": 1,
+      "inflection": "remissio, remissionis (f)"
+    },
+    {
+      "word": "rusticor",
+      "meanings": [
+        "to live in the country"
+      ],
+      "frequency": 1,
+      "inflection": "rusticor, rusticāri, rusticatus sum"
+    },
+    {
+      "word": "sedeo",
+      "meanings": [
+        "to sit"
+      ],
+      "frequency": 1,
+      "inflection": "sedeo, sedēre, sedi, sessum"
+    },
+    {
+      "word": "sequor",
+      "meanings": [
+        "to follow"
+      ],
+      "frequency": 1,
+      "inflection": "sequor, sequi, secutus sum"
+    },
+    {
+      "word": "specto",
+      "meanings": [
+        "to look at",
+        " watch",
+        " see"
+      ],
+      "frequency": 1,
+      "inflection": "specto, spectāre, spectavi, spectatum"
+    },
+    {
+      "word": "talis",
+      "meanings": [
+        "such",
+        " of such a sort"
+      ],
+      "frequency": 1,
+      "inflection": "talis, tale"
+    },
+    {
+      "word": "utor",
+      "meanings": [
+        "to use; enjoy",
+        " experience"
+      ],
+      "frequency": 1,
+      "inflection": "utor, uti, usus sum (+abl)"
+    },
+    {
+      "word": "vae",
+      "meanings": [
+        "alas",
+        " woe to"
+      ],
+      "frequency": 1,
+      "inflection": "vae (often +dat)"
+    },
+    {
+      "word": "vox",
+      "meanings": [
+        "voice"
+      ],
+      "frequency": 1,
+      "inflection": "vox, vocis (f)"
+    }
+  ],
+  "Chapter 39": [
+    {
+      "word": "aedificium",
+      "meanings": [
+        "building",
+        " structure"
+      ],
+      "frequency": 1,
+      "inflection": "aedificium, aedificii (n)"
+    },
+    {
+      "word": "ambulo",
+      "meanings": [
+        "to walk"
+      ],
+      "frequency": 1,
+      "inflection": "ambulo, ambulāre, ambulavi, ambulatum"
+    },
+    {
+      "word": "cupidus",
+      "meanings": [
+        "desirous",
+        " eager",
+        " fond; (often +gen.)"
+      ],
+      "frequency": 1,
+      "inflection": "cupidus, cupida, cupidum"
+    },
+    {
+      "word": "experior",
+      "meanings": [
+        "to try",
+        " test; experience"
+      ],
+      "frequency": 1,
+      "inflection": "experior, experiri, expertus sum"
+    },
+    {
+      "word": "iniuria",
+      "meanings": [
+        "injury",
+        " injustice",
+        " wrong"
+      ],
+      "frequency": 1,
+      "inflection": "iniuria, inuriae (f)"
+    },
+    {
+      "word": "liberalis",
+      "meanings": [
+        "of",
+        " relating to a free person; worthy of a free man",
+        " decent",
+        " liberal; generous"
+      ],
+      "frequency": 1,
+      "inflection": "liberalis, liberale"
+    },
+    {
+      "word": "libo",
+      "meanings": [
+        "to pour a libation on; pour ritually; sip; touch gently"
+      ],
+      "frequency": 1,
+      "inflection": "libo, libāre, libavi, libatum"
+    },
+    {
+      "word": "mulier",
+      "meanings": [
+        "woman"
+      ],
+      "frequency": 1,
+      "inflection": "mulier, mulieris (f)"
+    },
+    {
+      "word": "necesse",
+      "meanings": [
+        "necessary",
+        " inevitable"
+      ],
+      "frequency": 1,
+      "inflection": "necesse"
+    },
+    {
+      "word": "oportet",
+      "meanings": [
+        "it is proper",
+        " right",
+        " necessary"
+      ],
+      "frequency": 1,
+      "inflection": "oportet, oportere, oportuit (impersonal)"
+    },
+    {
+      "word": "oppugno",
+      "meanings": [
+        "to fight against",
+        " attack",
+        " assault",
+        " assail"
+      ],
+      "frequency": 1,
+      "inflection": "oppugno, oppugnāre, oppugnavi, oppugnatum"
+    },
+    {
+      "word": "orno",
+      "meanings": [
+        "to equip",
+        " furnish",
+        " adorn"
+      ],
+      "frequency": 1,
+      "inflection": "orno, ornāre, ornavi, ornatum"
+    },
+    {
+      "word": "pernocto",
+      "meanings": [
+        "to spend the night"
+      ],
+      "frequency": 1,
+      "inflection": "pernocto, pernoctāre,  pernoctavi, pernoctatum"
+    },
+    {
+      "word": "quasi",
+      "meanings": [
+        "as if",
+        " as it were"
+      ],
+      "frequency": 1,
+      "inflection": "quasi"
+    },
+    {
+      "word": "transeo",
+      "meanings": [
+        "to go across",
+        " cross; pass over",
+        " ignore"
+      ],
+      "frequency": 1,
+      "inflection": "transeo, transire, transii, transitum"
+    },
+    {
+      "word": "transitus",
+      "meanings": [
+        "passing over",
+        " transit; transition"
+      ],
+      "frequency": 1,
+      "inflection": "transitus, transitus (m)"
+    },
+    {
+      "word": "ventus",
+      "meanings": [
+        "wind"
+      ],
+      "frequency": 1,
+      "inflection": "ventus, venti (m)"
+    },
+    {
+      "word": "vetus",
+      "meanings": [
+        "old"
+      ],
+      "frequency": 1,
+      "inflection": "vetus (gen: veteris)"
+    }
+  ],
+  "Chapter 22": [
+    {
+      "word": "aequus",
+      "meanings": [
+        "level",
+        " even; calm",
+        " equal",
+        " just; favorable"
+      ],
+      "frequency": 1,
+      "inflection": "aequus, aequa, aequum"
+    },
+    {
+      "word": "cerno",
+      "meanings": [
+        "to distinguish",
+        " discern",
+        " perceive"
+      ],
+      "frequency": 1,
+      "inflection": "cerno, cernere, crevi, cretum"
+    },
+    {
+      "word": "dies",
+      "meanings": [
+        "day"
+      ],
+      "frequency": 1,
+      "inflection": "dies, diei (m)"
+    },
+    {
+      "word": "eripio",
+      "meanings": [
+        "to snatch away",
+        " take away",
+        " rescue"
+      ],
+      "frequency": 1,
+      "inflection": "eripio, eripere,  eripui, ereptum"
+    },
+    {
+      "word": "felix",
+      "meanings": [
+        "lucky",
+        " fortunate",
+        " happy"
+      ],
+      "frequency": 1,
+      "inflection": "felix (gen: felicis)"
+    },
+    {
+      "word": "ferrum",
+      "meanings": [
+        "iron; sword"
+      ],
+      "frequency": 1,
+      "inflection": "ferrum, ferri (n)"
+    },
+    {
+      "word": "fides",
+      "meanings": [
+        "faith",
+        " trust",
+        " trustworthiness",
+        " fidelity; promise",
+        " guarantee",
+        " protection"
+      ],
+      "frequency": 1,
+      "inflection": "fides, fidei (f)"
+    },
+    {
+      "word": "ignis",
+      "meanings": [
+        "fire"
+      ],
+      "frequency": 1,
+      "inflection": "ignis, ignis (m)*"
+    },
+    {
+      "word": "incertus",
+      "meanings": [
+        "uncertain",
+        " unsure",
+        " doubtful"
+      ],
+      "frequency": 1,
+      "inflection": "incertus, incerta, incertum"
+    },
+    {
+      "word": "inquit",
+      "meanings": [
+        "he says",
+        " he said"
+      ],
+      "frequency": 1,
+      "inflection": "inquit"
+    },
+    {
+      "word": "Latinus",
+      "meanings": [
+        "Latin"
+      ],
+      "frequency": 1,
+      "inflection": "Latinus, Latina, Latinum"
+    },
+    {
+      "word": "medius",
+      "meanings": [
+        "middle",
+        " the middle of"
+      ],
+      "frequency": 1,
+      "inflection": "medius, media, medium"
+    },
+    {
+      "word": "modus",
+      "meanings": [
+        "measure",
+        " bound",
+        " limit; manner",
+        " method",
+        " mode",
+        " way"
+      ],
+      "frequency": 1,
+      "inflection": "modus, modi (m)"
+    },
+    {
+      "word": "protinus",
+      "meanings": [
+        "immediately"
+      ],
+      "frequency": 1,
+      "inflection": "protinus"
+    },
+    {
+      "word": "quondam",
+      "meanings": [
+        "formerly",
+        " once"
+      ],
+      "frequency": 1,
+      "inflection": "quondam"
+    },
+    {
+      "word": "res publica",
+      "meanings": [],
+      "frequency": 1,
+      "inflection": "res publica, rei publicae (f) state,  commonwealth, republic"
+    },
+    {
+      "word": "res",
+      "meanings": [
+        "thing",
+        " matter",
+        "  business",
+        " affair"
+      ],
+      "frequency": 1,
+      "inflection": "res, rei (f)"
+    },
+    {
+      "word": "spes",
+      "meanings": [
+        "hope"
+      ],
+      "frequency": 1,
+      "inflection": "spes, spei (f)"
+    },
+    {
+      "word": "tollo",
+      "meanings": [
+        "to raise up",
+        " lift up; take away",
+        " remove",
+        " destroy"
+      ],
+      "frequency": 1,
+      "inflection": "tollo, tollere, sustuli, sublatum"
+    },
+    {
+      "word": "ultra",
+      "meanings": [
+        "beyond",
+        " on the other side of"
+      ],
+      "frequency": 1,
+      "inflection": "ultra (+acc)"
+    }
+  ],
+  "Chapter 40": [
+    {
+      "word": "aes",
+      "meanings": [
+        "bronze"
+      ],
+      "frequency": 1,
+      "inflection": "aes, aeris (n)"
+    },
+    {
+      "word": "dominus",
+      "meanings": [
+        "master"
+      ],
+      "frequency": 1,
+      "inflection": "dominus, domini (n)"
+    },
+    {
+      "word": "explico",
+      "meanings": [
+        "to unfold; explain; spread out",
+        " deploy"
+      ],
+      "frequency": 1,
+      "inflection": "explico, explicāre, explicavi, explicatum"
+    },
+    {
+      "word": "fatigo",
+      "meanings": [
+        "to weary",
+        " tire out"
+      ],
+      "frequency": 1,
+      "inflection": "fatigo, fatigāre, fatigavi, fatigatum"
+    },
+    {
+      "word": "for",
+      "meanings": [
+        "to speak (prophetically)",
+        " talk",
+        " foretell"
+      ],
+      "frequency": 1,
+      "inflection": "for, fāri, fatus sum"
+    },
+    {
+      "word": "iustus",
+      "meanings": [
+        "just",
+        " right"
+      ],
+      "frequency": 1,
+      "inflection": "iustus, iusta, iustum"
+    },
+    {
+      "word": "lacrima",
+      "meanings": [
+        "tear"
+      ],
+      "frequency": 1,
+      "inflection": "lacrima, lacrimae (f)"
+    },
+    {
+      "word": "meta",
+      "meanings": [
+        "turning point",
+        " goal; limit",
+        " boundary"
+      ],
+      "frequency": 1,
+      "inflection": "meta, metae (f)"
+    },
+    {
+      "word": "monumentum",
+      "meanings": [
+        "monument"
+      ],
+      "frequency": 1,
+      "inflection": "monumentum, monumenti (n)"
+    },
+    {
+      "word": "nasus",
+      "meanings": [
+        "nose"
+      ],
+      "frequency": 1,
+      "inflection": "nasus, nasi (m)"
+    },
+    {
+      "word": "nonne",
+      "meanings": [
+        "introduces question anticipating a “yes”"
+      ],
+      "frequency": 1,
+      "inflection": "nonne"
+    },
+    {
+      "word": "num",
+      "meanings": [
+        "1. introduces question anticipating a “no”. 2. introduces indirect questions and means “whether.”"
+      ],
+      "frequency": 1,
+      "inflection": "num"
+    },
+    {
+      "word": "omnino",
+      "meanings": [
+        "wholly",
+        " entirely",
+        " altogether"
+      ],
+      "frequency": 1,
+      "inflection": "omnino"
+    },
+    {
+      "word": "opinor",
+      "meanings": [
+        "to suppose"
+      ],
+      "frequency": 1,
+      "inflection": "opinor, opināri, opinatus sum"
+    },
+    {
+      "word": "postremum",
+      "meanings": [
+        "after all",
+        " finally; for the last time"
+      ],
+      "frequency": 1,
+      "inflection": "postremum"
+    },
+    {
+      "word": "praeter",
+      "meanings": [
+        "besides",
+        " except; beyond",
+        " past"
+      ],
+      "frequency": 1,
+      "inflection": "praeter (+acc)"
+    },
+    {
+      "word": "quin",
+      "meanings": [
+        "indeed",
+        " in fact"
+      ],
+      "frequency": 1,
+      "inflection": "quin"
+    },
+    {
+      "word": "reperio",
+      "meanings": [
+        "to find",
+        " discover",
+        " learn; get"
+      ],
+      "frequency": 1,
+      "inflection": "reperio, reperire, repperi, repertum"
+    },
+    {
+      "word": "saxum",
+      "meanings": [
+        "rock"
+      ],
+      "frequency": 1,
+      "inflection": "saxum, saxi (n)"
+    },
+    {
+      "word": "tot",
+      "meanings": [
+        "so many"
+      ],
+      "frequency": 1,
+      "inflection": "tot"
+    },
+    {
+      "word": "vereor",
+      "meanings": [
+        "to show reverence for",
+        " respect; be afraid of"
+      ],
+      "frequency": 1,
+      "inflection": "vereor, verēri, veritus sum"
+    },
+    {
+      "word": "vultus",
+      "meanings": [
+        "countenance",
+        " face"
+      ],
+      "frequency": 1,
+      "inflection": "vultus, vultus (m)"
+    }
+  ],
+  "Chapter 35": [
+    {
+      "word": "aestas",
+      "meanings": [
+        "summer"
+      ],
+      "frequency": 1,
+      "inflection": "aestas, aestatis (f)"
+    },
+    {
+      "word": "antepono",
+      "meanings": [
+        "to put before",
+        " prefer"
+      ],
+      "frequency": 1,
+      "inflection": "antepono, anteponere, anteposui, antepositum"
+    },
+    {
+      "word": "foveo",
+      "meanings": [
+        "to comfort",
+        " nurture",
+        " cherish"
+      ],
+      "frequency": 1,
+      "inflection": "foveo, fovēre, fovi, fotum"
+    },
+    {
+      "word": "ianua",
+      "meanings": [
+        "door"
+      ],
+      "frequency": 1,
+      "inflection": "ianua, ianuae (f)"
+    },
+    {
+      "word": "ignosco",
+      "meanings": [
+        "to  grant pardon to",
+        " forgive"
+      ],
+      "frequency": 1,
+      "inflection": "ignosco, ignoscere, ignovi, ignotum (+dat)"
+    },
+    {
+      "word": "impero",
+      "meanings": [
+        "to give orders to",
+        " command"
+      ],
+      "frequency": 1,
+      "inflection": "impero, imperāre, imperavi, imperatum (+dat)"
+    },
+    {
+      "word": "iratus",
+      "meanings": [
+        "angry"
+      ],
+      "frequency": 1,
+      "inflection": "iratus, irata, iratum"
+    },
+    {
+      "word": "miror",
+      "meanings": [
+        "to marvel at",
+        " admire",
+        " wonder"
+      ],
+      "frequency": 1,
+      "inflection": "miror, mirāri, miratus sum"
+    },
+    {
+      "word": "noceo",
+      "meanings": [
+        "to do harm to",
+        " harm",
+        " injure"
+      ],
+      "frequency": 1,
+      "inflection": "noceo, nocēre, nocui, nocitum (+dat)"
+    },
+    {
+      "word": "nubo",
+      "meanings": [
+        "to cover",
+        " veil; (+dat) to be married to",
+        " marry"
+      ],
+      "frequency": 1,
+      "inflection": "nubo, nubere, nupsi, nuptum"
+    },
+    {
+      "word": "parco",
+      "meanings": [
+        "to be lenient to; spare"
+      ],
+      "frequency": 1,
+      "inflection": "parco, parcere, peperci, parsurum (+dat)"
+    },
+    {
+      "word": "pareo",
+      "meanings": [
+        "to be obedient to",
+        " obey"
+      ],
+      "frequency": 1,
+      "inflection": "pareo, parēre, parui (+dat)"
+    },
+    {
+      "word": "pectus",
+      "meanings": [
+        "breast",
+        " heart"
+      ],
+      "frequency": 1,
+      "inflection": "pectus, pectoris (n)"
+    },
+    {
+      "word": "persuadeo",
+      "meanings": [
+        "to succeed in urging",
+        " persuade",
+        " convince"
+      ],
+      "frequency": 1,
+      "inflection": "persuadeo, persuadēre, persuasi, persuasum (+dat)"
+    },
+    {
+      "word": "placeo",
+      "meanings": [
+        "to be pleasing to",
+        " please"
+      ],
+      "frequency": 1,
+      "inflection": "placeo, placēre, placui, placitum (+dat)"
+    },
+    {
+      "word": "praemium",
+      "meanings": [
+        "reward",
+        " prize"
+      ],
+      "frequency": 1,
+      "inflection": "praemium, praemii (n)"
+    },
+    {
+      "word": "sapio",
+      "meanings": [
+        "to have good taste; have good sense",
+        " be wise"
+      ],
+      "frequency": 1,
+      "inflection": "sapio, sapere, sapivi"
+    },
+    {
+      "word": "servio",
+      "meanings": [
+        "to be a slave to",
+        " serve"
+      ],
+      "frequency": 1,
+      "inflection": "servio, servire, servivi, servitum (+dat)"
+    },
+    {
+      "word": "studeo",
+      "meanings": [
+        "to direct one’s zeal to",
+        " be eager for",
+        " study"
+      ],
+      "frequency": 1,
+      "inflection": "studeo, studēre, studui (+dat)"
+    },
+    {
+      "word": "subrideo",
+      "meanings": [
+        "to smile (down) upon"
+      ],
+      "frequency": 1,
+      "inflection": "subrideo, subridēre, subrisi, subrisum"
+    }
+  ],
+  "Chapter 3": [
+    {
+      "word": "ager",
+      "meanings": [
+        "field",
+        " farm"
+      ],
+      "frequency": 1,
+      "inflection": "ager, agri (m)"
+    },
+    {
+      "word": "agricola",
+      "meanings": [
+        "farmer"
+      ],
+      "frequency": 1,
+      "inflection": "agricola, agricolae (m)"
+    },
+    {
+      "word": "amica",
+      "meanings": [
+        "friend"
+      ],
+      "frequency": 1,
+      "inflection": "amica, amicae  (f) and amicus, amici (m)"
+    },
+    {
+      "word": "avarus",
+      "meanings": [
+        "greedy",
+        " avaricious"
+      ],
+      "frequency": 1,
+      "inflection": "avarus, avara, avarum"
+    },
+    {
+      "word": "de",
+      "meanings": [
+        "down from",
+        " from; concerning",
+        " about"
+      ],
+      "frequency": 1,
+      "inflection": "de (+ablative)"
+    },
+    {
+      "word": "femina",
+      "meanings": [
+        "woman"
+      ],
+      "frequency": 1,
+      "inflection": "femina, feminae (f)"
+    },
+    {
+      "word": "filia",
+      "meanings": [
+        "daughter (filiabus: dat. and abl. pl.)"
+      ],
+      "frequency": 1,
+      "inflection": "filia, filiae (f)"
+    },
+    {
+      "word": "filius",
+      "meanings": [
+        "son"
+      ],
+      "frequency": 1,
+      "inflection": "filius, filii (m)"
+    },
+    {
+      "word": "habeo",
+      "meanings": [
+        "to have",
+        " hold",
+        " possess; consider",
+        " regard"
+      ],
+      "frequency": 1,
+      "inflection": "habeo, habēre, habui, habitum"
+    },
+    {
+      "word": "hodie",
+      "meanings": [
+        "today"
+      ],
+      "frequency": 1,
+      "inflection": "hodie"
+    },
+    {
+      "word": "in",
+      "meanings": [
+        "in",
+        " on"
+      ],
+      "frequency": 1,
+      "inflection": "in (+ablative)"
+    },
+    {
+      "word": "numerus",
+      "meanings": [
+        "number"
+      ],
+      "frequency": 1,
+      "inflection": "numerus, numeri (m)"
+    },
+    {
+      "word": "pauci",
+      "meanings": [
+        "few",
+        " a few"
+      ],
+      "frequency": 1,
+      "inflection": "pauci, paucae, pauca"
+    },
+    {
+      "word": "populus",
+      "meanings": [
+        "people",
+        " the people",
+        " a nation"
+      ],
+      "frequency": 1,
+      "inflection": "populus, populi (m)"
+    },
+    {
+      "word": "puer",
+      "meanings": [
+        "boy"
+      ],
+      "frequency": 1,
+      "inflection": "puer, pueri (m)"
+    },
+    {
+      "word": "Romanus",
+      "meanings": [
+        "Roman"
+      ],
+      "frequency": 1,
+      "inflection": "Romanus, Romana, Romanum"
+    },
+    {
+      "word": "sapientia",
+      "meanings": [
+        "wisdom"
+      ],
+      "frequency": 1,
+      "inflection": "sapientia, sapientiae (f)"
+    },
+    {
+      "word": "satio",
+      "meanings": [
+        "to satisfy",
+        " sate"
+      ],
+      "frequency": 1,
+      "inflection": "satio, satiāre, satiavi, satiatum"
+    },
+    {
+      "word": "semper",
+      "meanings": [
+        "always"
+      ],
+      "frequency": 1,
+      "inflection": "semper"
+    },
+    {
+      "word": "vir",
+      "meanings": [
+        "man",
+        " hero",
+        " husband"
+      ],
+      "frequency": 1,
+      "inflection": "vir, viri (m)"
+    }
+  ],
+  "Chapter 25": [
+    {
+      "word": "ait",
+      "meanings": [
+        "he says",
+        " they say"
+      ],
+      "frequency": 1,
+      "inflection": "ait, aiunt"
+    },
+    {
+      "word": "credo",
+      "meanings": [
+        "to believe",
+        " trust"
+      ],
+      "frequency": 1,
+      "inflection": "credo, credere, credidi, creditum"
+    },
+    {
+      "word": "dehinc",
+      "meanings": [
+        "then",
+        " next"
+      ],
+      "frequency": 1,
+      "inflection": "dehinc"
+    },
+    {
+      "word": "ferox",
+      "meanings": [
+        "fierce",
+        " savage"
+      ],
+      "frequency": 1,
+      "inflection": "ferox"
+    },
+    {
+      "word": "fidelis",
+      "meanings": [
+        "faithful",
+        " loyal"
+      ],
+      "frequency": 1,
+      "inflection": "fidelis, fidele"
+    },
+    {
+      "word": "geminus",
+      "meanings": [
+        "twin"
+      ],
+      "frequency": 1,
+      "inflection": "geminus, -a, -um"
+    },
+    {
+      "word": "hīc",
+      "meanings": [
+        "here"
+      ],
+      "frequency": 1,
+      "inflection": "hīc"
+    },
+    {
+      "word": "iaceo",
+      "meanings": [
+        "to lie; lie prostrate; lie dead"
+      ],
+      "frequency": 1,
+      "inflection": "iaceo, iacēre, iacui"
+    },
+    {
+      "word": "lingua",
+      "meanings": [
+        "language; tongue"
+      ],
+      "frequency": 1,
+      "inflection": "lingua, linguae (f)"
+    },
+    {
+      "word": "nego",
+      "meanings": [
+        "to deny",
+        " to say that . . . not"
+      ],
+      "frequency": 1,
+      "inflection": "nego, negāre, negavi, negatum"
+    },
+    {
+      "word": "nescio",
+      "meanings": [
+        "not to know",
+        " to be ignorant"
+      ],
+      "frequency": 1,
+      "inflection": "nescio, nescire, nescivi, nescitum"
+    },
+    {
+      "word": "nuntio",
+      "meanings": [
+        "to announce",
+        " report",
+        " relate"
+      ],
+      "frequency": 1,
+      "inflection": "nuntio, nuntiāre, nuntiavi, nuntiatum"
+    },
+    {
+      "word": "patefacio",
+      "meanings": [
+        "to make open",
+        " open; disclose",
+        " expose"
+      ],
+      "frequency": 1,
+      "inflection": "patefacio, patefacere, patefeci, patefactum"
+    },
+    {
+      "word": "puto",
+      "meanings": [
+        "to reckon",
+        " suppose",
+        " judge",
+        " think",
+        " imagine"
+      ],
+      "frequency": 1,
+      "inflection": "puto, putāre, putavi, putatum"
+    },
+    {
+      "word": "sapiens",
+      "meanings": [
+        "wise",
+        " judicious"
+      ],
+      "frequency": 1,
+      "inflection": "sapiens (gen: sapientis)"
+    },
+    {
+      "word": "spero",
+      "meanings": [
+        "to hope for",
+        " hope"
+      ],
+      "frequency": 1,
+      "inflection": "spero, sperāre, speravi, speratum"
+    },
+    {
+      "word": "suscipio",
+      "meanings": [
+        "to undertake"
+      ],
+      "frequency": 1,
+      "inflection": "suscipio, suscipere, suscepi, susceptum"
+    },
+    {
+      "word": "ultimus",
+      "meanings": [
+        "farthest",
+        " extreme; last",
+        " final"
+      ],
+      "frequency": 1,
+      "inflection": "ultimus, -a, -um"
+    }
+  ],
+  "Chapter 23": [
+    {
+      "word": "aliquis",
+      "meanings": [
+        "someone",
+        " somebody",
+        " something"
+      ],
+      "frequency": 1,
+      "inflection": "aliquis, aliquid"
+    },
+    {
+      "word": "arx",
+      "meanings": [
+        "citadel",
+        " stronghold"
+      ],
+      "frequency": 1,
+      "inflection": "arx, arcis (f)*"
+    },
+    {
+      "word": "dux",
+      "meanings": [
+        "leader; guide; commander",
+        " general"
+      ],
+      "frequency": 1,
+      "inflection": "dux, ducis (m)"
+    },
+    {
+      "word": "educo",
+      "meanings": [
+        "to bring up",
+        " educate"
+      ],
+      "frequency": 1,
+      "inflection": "educo, educāre, educavi, educatum"
+    },
+    {
+      "word": "equus",
+      "meanings": [
+        "horse"
+      ],
+      "frequency": 1,
+      "inflection": "equus, equi (m)"
+    },
+    {
+      "word": "gaudeo",
+      "meanings": [
+        "to rejoice",
+        " be glad"
+      ],
+      "frequency": 1,
+      "inflection": "gaudeo, gaudēre, gavisus sum"
+    },
+    {
+      "word": "hasta",
+      "meanings": [
+        "spear"
+      ],
+      "frequency": 1,
+      "inflection": "hasta, hastae (f)"
+    },
+    {
+      "word": "insula",
+      "meanings": [
+        "island"
+      ],
+      "frequency": 1,
+      "inflection": "insula, insulae (f)"
+    },
+    {
+      "word": "litus",
+      "meanings": [
+        "shore",
+        " coast"
+      ],
+      "frequency": 1,
+      "inflection": "litus, litoris (n)"
+    },
+    {
+      "word": "magnanimus",
+      "meanings": [
+        "great-hearted",
+        " brave",
+        " magnanimous"
+      ],
+      "frequency": 1,
+      "inflection": "magnanimus, magnanima, magnanimum"
+    },
+    {
+      "word": "miles",
+      "meanings": [
+        "soldier"
+      ],
+      "frequency": 1,
+      "inflection": "miles,  militis (m)"
+    },
+    {
+      "word": "opprimo",
+      "meanings": [
+        "to suppress",
+        " overwhelm",
+        " overpower",
+        " check"
+      ],
+      "frequency": 1,
+      "inflection": "opprimo, opprimere, oppressi, oppressum"
+    },
+    {
+      "word": "orator",
+      "meanings": [
+        "orator; speaker"
+      ],
+      "frequency": 1,
+      "inflection": "orator, oratoris (m)"
+    },
+    {
+      "word": "ostendo",
+      "meanings": [
+        "to exhibit",
+        " show",
+        " display"
+      ],
+      "frequency": 1,
+      "inflection": "ostendo, ostendere, ostendi, ostentum"
+    },
+    {
+      "word": "peto",
+      "meanings": [
+        "to seek",
+        " aim at",
+        " beseech"
+      ],
+      "frequency": 1,
+      "inflection": "peto, petere, petivi, petitum"
+    },
+    {
+      "word": "premo",
+      "meanings": [
+        "to press; press hard",
+        " pursue"
+      ],
+      "frequency": 1,
+      "inflection": "premo, premere, pressi, pressum"
+    },
+    {
+      "word": "quisquis",
+      "meanings": [
+        "whoever",
+        " whatever"
+      ],
+      "frequency": 1,
+      "inflection": "quisquis, quidquid"
+    },
+    {
+      "word": "sacerdos",
+      "meanings": [
+        "priest"
+      ],
+      "frequency": 1,
+      "inflection": "sacerdos, sacerdotis (m)"
+    },
+    {
+      "word": "umquam",
+      "meanings": [
+        "ever",
+        " at any time"
+      ],
+      "frequency": 1,
+      "inflection": "umquam"
+    },
+    {
+      "word": "verto",
+      "meanings": [
+        "to turn; change"
+      ],
+      "frequency": 1,
+      "inflection": "verto, vertere, verti, versum"
+    }
+  ],
+  "Chapter 9": [
+    {
+      "word": "alius",
+      "meanings": [
+        "other",
+        " another"
+      ],
+      "frequency": 1,
+      "inflection": "alius, alia, aliud"
+    },
+    {
+      "word": "alter",
+      "meanings": [
+        "the other (of two)",
+        " second"
+      ],
+      "frequency": 1,
+      "inflection": "alter, altera, alterum"
+    },
+    {
+      "word": "enim",
+      "meanings": [
+        "(post positive) for; in fact",
+        " truly"
+      ],
+      "frequency": 1,
+      "inflection": "enim"
+    },
+    {
+      "word": "hic",
+      "meanings": [
+        "this; the latter; (at times) he",
+        " she",
+        " it"
+      ],
+      "frequency": 1,
+      "inflection": "hic, haec, hoc"
+    },
+    {
+      "word": "ille",
+      "meanings": [
+        "that; the former; the famous; (at times) he",
+        " she",
+        " it"
+      ],
+      "frequency": 1,
+      "inflection": "ille, illa, illud"
+    },
+    {
+      "word": "in",
+      "meanings": [
+        "into",
+        " on to",
+        " toward; against"
+      ],
+      "frequency": 1,
+      "inflection": "in (+acc)"
+    },
+    {
+      "word": "iste",
+      "meanings": [
+        "that of yours",
+        " that; (sometimes pejorative: that despicable",
+        " that wretched)"
+      ],
+      "frequency": 1,
+      "inflection": "iste, ista, istud"
+    },
+    {
+      "word": "locus",
+      "meanings": [
+        "place; passage in literature"
+      ],
+      "frequency": 1,
+      "inflection": "locus, loci (m)"
+    },
+    {
+      "word": "morbus",
+      "meanings": [
+        "disease",
+        " sickness"
+      ],
+      "frequency": 1,
+      "inflection": "morbus, morbi (m)"
+    },
+    {
+      "word": "neuter",
+      "meanings": [
+        "neither",
+        " not either"
+      ],
+      "frequency": 1,
+      "inflection": "neuter, neutra neutrum"
+    },
+    {
+      "word": "nimium",
+      "meanings": [
+        "too",
+        " too much",
+        " excessively"
+      ],
+      "frequency": 1,
+      "inflection": "nimium"
+    },
+    {
+      "word": "nimis",
+      "meanings": [
+        "too",
+        " too much",
+        " excessively"
+      ],
+      "frequency": 1,
+      "inflection": "nimis or nimium"
+    },
+    {
+      "word": "nullus",
+      "meanings": [
+        "not any; no",
+        " none"
+      ],
+      "frequency": 1,
+      "inflection": "nullus, nulla, nullum"
+    },
+    {
+      "word": "solus",
+      "meanings": [
+        "alone",
+        " only (non solum . . . sed etiam"
+      ],
+      "frequency": 1,
+      "inflection": "solus, sola, solum"
+    },
+    {
+      "word": "studium",
+      "meanings": [
+        "zeal",
+        " eagerness",
+        " pursuit",
+        " study"
+      ],
+      "frequency": 1,
+      "inflection": "studium, studii (n)"
+    },
+    {
+      "word": "totus",
+      "meanings": [
+        "whole",
+        " entire"
+      ],
+      "frequency": 1,
+      "inflection": "totus, tota, totum"
+    },
+    {
+      "word": "ullus",
+      "meanings": [
+        "any"
+      ],
+      "frequency": 1,
+      "inflection": "ullus, ulla, ulllum"
+    },
+    {
+      "word": "unus",
+      "meanings": [
+        "one",
+        " single",
+        " alone"
+      ],
+      "frequency": 1,
+      "inflection": "unus, una, unum"
+    },
+    {
+      "word": "uter",
+      "meanings": [
+        "either",
+        " which (of two)"
+      ],
+      "frequency": 1,
+      "inflection": "uter, utra, utrum"
+    }
+  ],
+  "Chapter 13": [
+    {
+      "word": "alo",
+      "meanings": [
+        "to nourish",
+        " support",
+        " sustain",
+        " increase; cherish"
+      ],
+      "frequency": 1,
+      "inflection": "alo, alere, alui, altum"
+    },
+    {
+      "word": "ante",
+      "meanings": [
+        "before",
+        " in front of"
+      ],
+      "frequency": 1,
+      "inflection": "ante (+acc)"
+    },
+    {
+      "word": "diligo",
+      "meanings": [
+        "to esteem",
+        " love"
+      ],
+      "frequency": 1,
+      "inflection": "diligo, diligere, dilexi, dilectum"
+    },
+    {
+      "word": "divitiae",
+      "meanings": [
+        "riches",
+        " wealth"
+      ],
+      "frequency": 1,
+      "inflection": "divitiae, divitiarum (f)"
+    },
+    {
+      "word": "doctus",
+      "meanings": [
+        "taught",
+        " learned",
+        " skilled"
+      ],
+      "frequency": 1,
+      "inflection": "doctus, docta, doctum"
+    },
+    {
+      "word": "factum",
+      "meanings": [
+        "deed",
+        " act",
+        " achievement"
+      ],
+      "frequency": 1,
+      "inflection": "factum, facti (n)"
+    },
+    {
+      "word": "fortunatus",
+      "meanings": [
+        "forunate",
+        " lucky",
+        " happy"
+      ],
+      "frequency": 1,
+      "inflection": "fortunatus, fortunata, fortunatum"
+    },
+    {
+      "word": "ipse",
+      "meanings": [
+        "(intensive pronoun) myself",
+        " yourself",
+        " him/her/itself",
+        " etc; the very",
+        " the actual"
+      ],
+      "frequency": 1,
+      "inflection": "ipse, ipsa, ipsum"
+    },
+    {
+      "word": "iungo",
+      "meanings": [
+        "to join"
+      ],
+      "frequency": 1,
+      "inflection": "iungo, iungere, iunxi, iunctum"
+    },
+    {
+      "word": "nam",
+      "meanings": [
+        "for"
+      ],
+      "frequency": 1,
+      "inflection": "nam"
+    },
+    {
+      "word": "olim",
+      "meanings": [
+        "at that time",
+        " once",
+        " formerly; in the future"
+      ],
+      "frequency": 1,
+      "inflection": "olim"
+    },
+    {
+      "word": "per",
+      "meanings": [
+        "through"
+      ],
+      "frequency": 1,
+      "inflection": "per (+acc)"
+    },
+    {
+      "word": "quisque",
+      "meanings": [
+        "each one",
+        "  each person",
+        " each thing"
+      ],
+      "frequency": 1,
+      "inflection": "quisque, quidque"
+    },
+    {
+      "word": "signum",
+      "meanings": [
+        "sign",
+        " signal",
+        " indication; seal"
+      ],
+      "frequency": 1,
+      "inflection": "signum, signi (n)"
+    },
+    {
+      "word": "sto",
+      "meanings": [
+        "to stand",
+        " stand still",
+        " stand firm"
+      ],
+      "frequency": 1,
+      "inflection": "sto, stare, steti, statum"
+    },
+    {
+      "word": "sui",
+      "meanings": [
+        "(reflexive pronoun) him/her/itself",
+        " themselves"
+      ],
+      "frequency": 1,
+      "inflection": "sui"
+    },
+    {
+      "word": "suus",
+      "meanings": [
+        "his own",
+        " her own",
+        " its own",
+        " their own"
+      ],
+      "frequency": 1,
+      "inflection": "suus, sua, suum"
+    }
+  ],
+  "Chapter 10": [
+    {
+      "word": "amicitia",
+      "meanings": [
+        "friendship"
+      ],
+      "frequency": 1,
+      "inflection": "amicitia, amicitiae (f)"
+    },
+    {
+      "word": "audio",
+      "meanings": [
+        "to hear",
+        " listen to"
+      ],
+      "frequency": 1,
+      "inflection": "audio, audire, audivi, auditum"
+    },
+    {
+      "word": "beatus",
+      "meanings": [
+        "happy",
+        " fortunate",
+        " blessed"
+      ],
+      "frequency": 1,
+      "inflection": "beatus, beata, beatum"
+    },
+    {
+      "word": "capio",
+      "meanings": [
+        "to take",
+        " capture",
+        " seize",
+        " get"
+      ],
+      "frequency": 1,
+      "inflection": "capio, capere, cepi, captum"
+    },
+    {
+      "word": "cum",
+      "meanings": [
+        "with"
+      ],
+      "frequency": 1,
+      "inflection": "cum (+abl)"
+    },
+    {
+      "word": "cupiditas",
+      "meanings": [
+        "desire",
+        " longing",
+        " passion; avarice",
+        " cupidity"
+      ],
+      "frequency": 1,
+      "inflection": "cupiditas, cupiditatis (f)"
+    },
+    {
+      "word": "dico",
+      "meanings": [
+        "to say; tell",
+        " speak; name",
+        " call"
+      ],
+      "frequency": 1,
+      "inflection": "dico, dicere, dixi, dictum"
+    },
+    {
+      "word": "facio",
+      "meanings": [
+        "to make",
+        " do",
+        " accomplish"
+      ],
+      "frequency": 1,
+      "inflection": "facio, facere, feci, factum"
+    },
+    {
+      "word": "fugio",
+      "meanings": [
+        "to flee",
+        " hurry away; escape; go into exile; avoid",
+        " shun"
+      ],
+      "frequency": 1,
+      "inflection": "fugio, fugere, fugi, fugiturum"
+    },
+    {
+      "word": "hora",
+      "meanings": [
+        "hour",
+        " time"
+      ],
+      "frequency": 1,
+      "inflection": "hora, horae (f)"
+    },
+    {
+      "word": "invenio",
+      "meanings": [
+        "to find",
+        " come upon",
+        " discover"
+      ],
+      "frequency": 1,
+      "inflection": "invenio, invenire, inveni, inventum"
+    },
+    {
+      "word": "natura",
+      "meanings": [
+        "nature"
+      ],
+      "frequency": 1,
+      "inflection": "natura, naturae (f)"
+    },
+    {
+      "word": "quoniam",
+      "meanings": [
+        "since",
+        " inasmuch as"
+      ],
+      "frequency": 1,
+      "inflection": "quoniam"
+    },
+    {
+      "word": "senectus",
+      "meanings": [
+        "old age"
+      ],
+      "frequency": 1,
+      "inflection": "senectus, senectutis (f)"
+    },
+    {
+      "word": "timor",
+      "meanings": [
+        "fear"
+      ],
+      "frequency": 1,
+      "inflection": "timor, timoris (m)"
+    },
+    {
+      "word": "venio",
+      "meanings": [
+        "to come"
+      ],
+      "frequency": 1,
+      "inflection": "venio, venire, veni, ventum"
+    },
+    {
+      "word": "veritas",
+      "meanings": [
+        "truth"
+      ],
+      "frequency": 1,
+      "inflection": "veritas, veritatis (f)"
+    },
+    {
+      "word": "via",
+      "meanings": [
+        "road",
+        " way",
+        " street"
+      ],
+      "frequency": 1,
+      "inflection": "via, viae (f)"
+    },
+    {
+      "word": "vivo",
+      "meanings": [
+        "to live"
+      ],
+      "frequency": 1,
+      "inflection": "vivo, vivere, vixi, victum"
+    },
+    {
+      "word": "voluptas",
+      "meanings": [
+        "pleasure"
+      ],
+      "frequency": 1,
+      "inflection": "voluptas, voluptatis (f)"
+    }
+  ],
+  "Chapter 11": [
+    {
+      "word": "amicus",
+      "meanings": [
+        "friendly"
+      ],
+      "frequency": 1,
+      "inflection": "amicus, amica, amicum"
+    },
+    {
+      "word": "autem",
+      "meanings": [
+        "(post positive) however; moreover"
+      ],
+      "frequency": 1,
+      "inflection": "autem"
+    },
+    {
+      "word": "bene",
+      "meanings": [
+        "well",
+        " satisfactorily",
+        " quite"
+      ],
+      "frequency": 1,
+      "inflection": "bene"
+    },
+    {
+      "word": "caput",
+      "meanings": [
+        "head; leader; beginning; life; heading; chapter"
+      ],
+      "frequency": 1,
+      "inflection": "caput, capitis (n)"
+    },
+    {
+      "word": "carus",
+      "meanings": [
+        "dear"
+      ],
+      "frequency": 1,
+      "inflection": "carus, cara, carum"
+    },
+    {
+      "word": "consul",
+      "meanings": [
+        "consul"
+      ],
+      "frequency": 1,
+      "inflection": "consul, consulis (m)"
+    },
+    {
+      "word": "ego",
+      "meanings": [
+        "I"
+      ],
+      "frequency": 1,
+      "inflection": "ego, mei"
+    },
+    {
+      "word": "etiam",
+      "meanings": [
+        "even",
+        " also"
+      ],
+      "frequency": 1,
+      "inflection": "etiam"
+    },
+    {
+      "word": "idem",
+      "meanings": [
+        "the same"
+      ],
+      "frequency": 1,
+      "inflection": "idem, eadem, idem"
+    },
+    {
+      "word": "intellego",
+      "meanings": [
+        "to understand"
+      ],
+      "frequency": 1,
+      "inflection": "intellego, intellegere, intellexi, intellectum"
+    },
+    {
+      "word": "is",
+      "meanings": [
+        "he",
+        " she",
+        " it"
+      ],
+      "frequency": 1,
+      "inflection": "is, ea, id"
+    },
+    {
+      "word": "mitto",
+      "meanings": [
+        "to send",
+        " let go"
+      ],
+      "frequency": 1,
+      "inflection": "mitto, mittere, misi, missum"
+    },
+    {
+      "word": "nemo",
+      "meanings": [
+        "no one",
+        " nobody"
+      ],
+      "frequency": 1,
+      "inflection": "nemo, nullius, nemini, neminem, nullo/nulla"
+    },
+    {
+      "word": "nec",
+      "meanings": [
+        "and not",
+        " nor (neque/nec . . . neque/nec"
+      ],
+      "frequency": 1,
+      "inflection": "nec"
+    },
+    {
+      "word": "neque",
+      "meanings": [
+        "and not",
+        " nor (neque/nec . . . neque/nec"
+      ],
+      "frequency": 1,
+      "inflection": "neque/nec"
+    },
+    {
+      "word": "quod",
+      "meanings": [
+        "because"
+      ],
+      "frequency": 1,
+      "inflection": "quod"
+    },
+    {
+      "word": "sentio",
+      "meanings": [
+        "to  feel",
+        " perceive",
+        " think",
+        " experience"
+      ],
+      "frequency": 1,
+      "inflection": "sentio, sentire, sensi, sensum"
+    },
+    {
+      "word": "tu",
+      "meanings": [
+        "you"
+      ],
+      "frequency": 1,
+      "inflection": "tu, tui"
+    }
+  ],
+  "Chapter 1": [
+    {
+      "word": "amo",
+      "meanings": [
+        "to love"
+      ],
+      "frequency": 1,
+      "inflection": "amo, amāre, amavi, amatum"
+    },
+    {
+      "word": "cogito",
+      "meanings": [
+        "to think",
+        " ponder",
+        " consider",
+        " plan"
+      ],
+      "frequency": 1,
+      "inflection": "cogito, cogitāre, cogitavi, cogitatum"
+    },
+    {
+      "word": "debeo",
+      "meanings": [
+        "to owe; ought",
+        " must",
+        " should"
+      ],
+      "frequency": 1,
+      "inflection": "debeo, debēre, debui, debitum"
+    },
+    {
+      "word": "do",
+      "meanings": [
+        "to give",
+        " offer"
+      ],
+      "frequency": 1,
+      "inflection": "do, dare, dedi, datum"
+    },
+    {
+      "word": "erro",
+      "meanings": [
+        "to err",
+        " go astray",
+        " make a mistake",
+        " be mistaken; wander"
+      ],
+      "frequency": 1,
+      "inflection": "erro, errāre, erravi, erratum"
+    },
+    {
+      "word": "laudo",
+      "meanings": [
+        "to praise"
+      ],
+      "frequency": 1,
+      "inflection": "laudo, laudāre, laudavi, laudatum"
+    },
+    {
+      "word": "me",
+      "meanings": [
+        "me",
+        " myself (accusative case)"
+      ],
+      "frequency": 1,
+      "inflection": "me"
+    },
+    {
+      "word": "moneo",
+      "meanings": [
+        "to warn",
+        " remind",
+        " advise"
+      ],
+      "frequency": 1,
+      "inflection": "moneo, monēre, monui, monitum"
+    },
+    {
+      "word": "nihil",
+      "meanings": [
+        "nothing"
+      ],
+      "frequency": 1,
+      "inflection": "nihil"
+    },
+    {
+      "word": "non",
+      "meanings": [
+        "not"
+      ],
+      "frequency": 1,
+      "inflection": "non"
+    },
+    {
+      "word": "quid",
+      "meanings": [
+        "what"
+      ],
+      "frequency": 1,
+      "inflection": "quid"
+    },
+    {
+      "word": "saepe",
+      "meanings": [
+        "often"
+      ],
+      "frequency": 1,
+      "inflection": "saepe"
+    },
+    {
+      "word": "salveo",
+      "meanings": [
+        "to be well",
+        " be in good health"
+      ],
+      "frequency": 1,
+      "inflection": "salveo, salvēre"
+    },
+    {
+      "word": "servo",
+      "meanings": [
+        "to save",
+        " preserve",
+        " keep",
+        " guard",
+        " protect"
+      ],
+      "frequency": 1,
+      "inflection": "servo, servāre, servavi, servatum"
+    },
+    {
+      "word": "si",
+      "meanings": [
+        "if"
+      ],
+      "frequency": 1,
+      "inflection": "si"
+    },
+    {
+      "word": "terreo",
+      "meanings": [
+        "to frighten",
+        " terrify"
+      ],
+      "frequency": 1,
+      "inflection": "terreo, terrēre, terrui, territum"
+    },
+    {
+      "word": "valeo",
+      "meanings": [
+        "to be strong",
+        " have power; be well"
+      ],
+      "frequency": 1,
+      "inflection": "valeo, valēre, valui, valiturum"
+    },
+    {
+      "word": "video",
+      "meanings": [
+        "to see; observe",
+        " understand"
+      ],
+      "frequency": 1,
+      "inflection": "video, vidēre, vidi, visum"
+    },
+    {
+      "word": "voco",
+      "meanings": [
+        "to call",
+        " summon"
+      ],
+      "frequency": 1,
+      "inflection": "voco, vocāre, vocavi, vocatum"
+    }
+  ],
+  "Chapter 7": [
+    {
+      "word": "amor",
+      "meanings": [
+        "love"
+      ],
+      "frequency": 1,
+      "inflection": "amor, amoris (m)"
+    },
+    {
+      "word": "audeo",
+      "meanings": [
+        "to dare"
+      ],
+      "frequency": 1,
+      "inflection": "audeo, audēre, ausus sum"
+    },
+    {
+      "word": "carmen",
+      "meanings": [
+        "song",
+        " poem"
+      ],
+      "frequency": 1,
+      "inflection": "carmen, carminis (n)"
+    },
+    {
+      "word": "civitas",
+      "meanings": [
+        "state",
+        " citizenship"
+      ],
+      "frequency": 1,
+      "inflection": "civitas, civitatis (f)"
+    },
+    {
+      "word": "corpus",
+      "meanings": [
+        "body"
+      ],
+      "frequency": 1,
+      "inflection": "corpus, corporis (n)"
+    },
+    {
+      "word": "homo",
+      "meanings": [
+        "human being",
+        " man"
+      ],
+      "frequency": 1,
+      "inflection": "homo, hominis (m)"
+    },
+    {
+      "word": "labor",
+      "meanings": [
+        "work",
+        " work",
+        " toil; a work",
+        " production"
+      ],
+      "frequency": 1,
+      "inflection": "labor, laboris (m)"
+    },
+    {
+      "word": "littera",
+      "meanings": [
+        "a letter of the alphabet; (plural = letter",
+        " literature)"
+      ],
+      "frequency": 1,
+      "inflection": "littera, litterae (f)"
+    },
+    {
+      "word": "mos",
+      "meanings": [
+        "habit",
+        "  custom",
+        " manner; (plural  = character",
+        " morals)"
+      ],
+      "frequency": 1,
+      "inflection": "mos, moris (m)"
+    },
+    {
+      "word": "neco",
+      "meanings": [
+        "to kill",
+        " murder"
+      ],
+      "frequency": 1,
+      "inflection": "neco, necāre, necavi, necatum"
+    },
+    {
+      "word": "nomen",
+      "meanings": [
+        "name"
+      ],
+      "frequency": 1,
+      "inflection": "nomen, nominis (n)"
+    },
+    {
+      "word": "novus",
+      "meanings": [
+        "new; strange"
+      ],
+      "frequency": 1,
+      "inflection": "novus, nova, novum"
+    },
+    {
+      "word": "pax",
+      "meanings": [
+        "peace"
+      ],
+      "frequency": 1,
+      "inflection": "pax, pacis (f)"
+    },
+    {
+      "word": "post",
+      "meanings": [
+        "after",
+        " behind"
+      ],
+      "frequency": 1,
+      "inflection": "post (+acc)"
+    },
+    {
+      "word": "regina",
+      "meanings": [
+        "queen"
+      ],
+      "frequency": 1,
+      "inflection": "regina, reginae (f)"
+    },
+    {
+      "word": "rex",
+      "meanings": [
+        "king"
+      ],
+      "frequency": 1,
+      "inflection": "rex, regis (m)"
+    },
+    {
+      "word": "sub",
+      "meanings": [
+        "under",
+        " up under",
+        " close to",
+        " at the foot of"
+      ],
+      "frequency": 1,
+      "inflection": "sub (+abl with verbs of rest, +acc with verbs of motion)"
+    },
+    {
+      "word": "tempus",
+      "meanings": [
+        "time; occasion",
+        " opportunity"
+      ],
+      "frequency": 1,
+      "inflection": "tempus, temporis (n)"
+    },
+    {
+      "word": "terra",
+      "meanings": [
+        "land",
+        " earth",
+        " ground",
+        " country"
+      ],
+      "frequency": 1,
+      "inflection": "terra, terrae (f)"
+    },
+    {
+      "word": "uxor",
+      "meanings": [
+        "wife"
+      ],
+      "frequency": 1,
+      "inflection": "uxor, uxoris (f)"
+    },
+    {
+      "word": "virgo",
+      "meanings": [
+        "maiden",
+        " virgin",
+        " young woman"
+      ],
+      "frequency": 1,
+      "inflection": "virgo, virginis (f)"
+    },
+    {
+      "word": "virtus",
+      "meanings": [
+        "manliness",
+        " courage; excellence",
+        " character",
+        " worth",
+        " virtue"
+      ],
+      "frequency": 1,
+      "inflection": "virtus, virtutis (f)"
+    }
+  ],
+  "Chapter 2": [
+    {
+      "word": "antiquus",
+      "meanings": [
+        "ancient",
+        " old"
+      ],
+      "frequency": 1,
+      "inflection": "antiquus, antiqua, antiquum"
+    },
+    {
+      "word": "est",
+      "meanings": [
+        "is"
+      ],
+      "frequency": 1,
+      "inflection": "est"
+    },
+    {
+      "word": "et",
+      "meanings": [
+        "and (et . . . et"
+      ],
+      "frequency": 1,
+      "inflection": "et"
+    },
+    {
+      "word": "fama",
+      "meanings": [
+        "rumor",
+        " report; fame"
+      ],
+      "frequency": 1,
+      "inflection": "fama, famae (f)"
+    },
+    {
+      "word": "forma",
+      "meanings": [
+        "form",
+        " shape; beauty"
+      ],
+      "frequency": 1,
+      "inflection": "forma, formae (f)"
+    },
+    {
+      "word": "fortuna",
+      "meanings": [
+        "fortune",
+        " luck"
+      ],
+      "frequency": 1,
+      "inflection": "fortuna, fortunae (f)"
+    },
+    {
+      "word": "ira",
+      "meanings": [
+        "ire",
+        " anger"
+      ],
+      "frequency": 1,
+      "inflection": "ira, irae (f)"
+    },
+    {
+      "word": "magnus",
+      "meanings": [
+        "great",
+        " large; important"
+      ],
+      "frequency": 1,
+      "inflection": "magnus, magna, magnum"
+    },
+    {
+      "word": "meus",
+      "meanings": [
+        "my"
+      ],
+      "frequency": 1,
+      "inflection": "meus, mea, meum"
+    },
+    {
+      "word": "multus",
+      "meanings": [
+        "many"
+      ],
+      "frequency": 1,
+      "inflection": "multus, multa, multum"
+    },
+    {
+      "word": "nauta",
+      "meanings": [
+        "sailor"
+      ],
+      "frequency": 1,
+      "inflection": "nauta, nautae (m)"
+    },
+    {
+      "word": "patria",
+      "meanings": [
+        "fatherland",
+        " native land",
+        " homeland"
+      ],
+      "frequency": 1,
+      "inflection": "patria, patriae (f)"
+    },
+    {
+      "word": "pecunia",
+      "meanings": [
+        "money"
+      ],
+      "frequency": 1,
+      "inflection": "pecunia, pecuniae (f)"
+    },
+    {
+      "word": "philosophia",
+      "meanings": [
+        "philosophy"
+      ],
+      "frequency": 1,
+      "inflection": "philosophia, philosophiae (f)"
+    },
+    {
+      "word": "poena",
+      "meanings": [
+        "penalty",
+        " punishment"
+      ],
+      "frequency": 1,
+      "inflection": "poena, poenae (f)"
+    },
+    {
+      "word": "poeta",
+      "meanings": [
+        "poet"
+      ],
+      "frequency": 1,
+      "inflection": "poeta, poetae (m)"
+    },
+    {
+      "word": "porta",
+      "meanings": [
+        "gate",
+        " entrance"
+      ],
+      "frequency": 1,
+      "inflection": "porta, portae (f)"
+    },
+    {
+      "word": "puella",
+      "meanings": [
+        "girl"
+      ],
+      "frequency": 1,
+      "inflection": "puella, puellae (f)"
+    },
+    {
+      "word": "rosa",
+      "meanings": [
+        "rose"
+      ],
+      "frequency": 1,
+      "inflection": "rosa, rosae (f)"
+    },
+    {
+      "word": "sed",
+      "meanings": [
+        "but"
+      ],
+      "frequency": 1,
+      "inflection": "sed"
+    },
+    {
+      "word": "sententia",
+      "meanings": [
+        "feeling",
+        " though",
+        " opinion",
+        " vote",
+        " sentence"
+      ],
+      "frequency": 1,
+      "inflection": "sententia, sententiae (f)"
+    },
+    {
+      "word": "sine",
+      "meanings": [
+        "without"
+      ],
+      "frequency": 1,
+      "inflection": "sine (+ablative)"
+    },
+    {
+      "word": "tuus",
+      "meanings": [
+        "your (singular)"
+      ],
+      "frequency": 1,
+      "inflection": "tuus, tua, tuum"
+    },
+    {
+      "word": "vita",
+      "meanings": [
+        "life; mode of life"
+      ],
+      "frequency": 1,
+      "inflection": "vita, vitae (f)"
+    }
+  ],
+  "Chapter 38": [
+    {
+      "word": "arbor",
+      "meanings": [
+        "tree"
+      ],
+      "frequency": 1,
+      "inflection": "arbor, arboris (f)"
+    },
+    {
+      "word": "dignitas",
+      "meanings": [
+        "merit",
+        " prestige",
+        " dignity"
+      ],
+      "frequency": 1,
+      "inflection": "dignitas, dignitatis (f)"
+    },
+    {
+      "word": "dolor",
+      "meanings": [
+        "pain",
+        " grief"
+      ],
+      "frequency": 1,
+      "inflection": "dolor, doloris (m)"
+    },
+    {
+      "word": "erga",
+      "meanings": [
+        "toward"
+      ],
+      "frequency": 1,
+      "inflection": "erga (+acc)"
+    },
+    {
+      "word": "etsi",
+      "meanings": [
+        "even if"
+      ],
+      "frequency": 1,
+      "inflection": "etsi"
+    },
+    {
+      "word": "firmus",
+      "meanings": [
+        "firm",
+        " strong; reliable"
+      ],
+      "frequency": 1,
+      "inflection": "firmus, firma, firmum"
+    },
+    {
+      "word": "infirmus",
+      "meanings": [
+        "not strong",
+        " weak",
+        " feeble"
+      ],
+      "frequency": 1,
+      "inflection": "infirmus, infirma, infirmum"
+    },
+    {
+      "word": "libenter",
+      "meanings": [
+        "with pleasure",
+        " gladly"
+      ],
+      "frequency": 1,
+      "inflection": "libenter"
+    },
+    {
+      "word": "mirabilis",
+      "meanings": [
+        "amazing",
+        " wondrous"
+      ],
+      "frequency": 1,
+      "inflection": "mirabilis, mirabile"
+    },
+    {
+      "word": "odium",
+      "meanings": [
+        "hatred"
+      ],
+      "frequency": 1,
+      "inflection": "odium, odii (n)"
+    },
+    {
+      "word": "opus",
+      "meanings": [
+        "work",
+        " task; deed",
+        " accomplishment"
+      ],
+      "frequency": 1,
+      "inflection": "opus, operis (n)"
+    },
+    {
+      "word": "pes",
+      "meanings": [
+        "lower leg",
+        " foot"
+      ],
+      "frequency": 1,
+      "inflection": "pes, pedis (m)"
+    },
+    {
+      "word": "pristinus",
+      "meanings": [
+        "ancient; former",
+        " previous"
+      ],
+      "frequency": 1,
+      "inflection": "pristinus, pristina, pristinum"
+    },
+    {
+      "word": "sator",
+      "meanings": [
+        "sower",
+        " planter; begetter",
+        " father; founder"
+      ],
+      "frequency": 1,
+      "inflection": "sator, satoris (m)"
+    },
+    {
+      "word": "sublimis",
+      "meanings": [
+        "elevated",
+        " lofty; heroic",
+        " noble"
+      ],
+      "frequency": 1,
+      "inflection": "sublimis, sublime"
+    }
+  ],
+  "Chapter 19": [
+    {
+      "word": "argumentum",
+      "meanings": [
+        "proof",
+        " evidence",
+        " argument"
+      ],
+      "frequency": 1,
+      "inflection": "argumentum, argumenti (n)"
+    },
+    {
+      "word": "at",
+      "meanings": [
+        "but; but",
+        " mind you; but",
+        " you say (more  emotional than sed)"
+      ],
+      "frequency": 1,
+      "inflection": "at"
+    },
+    {
+      "word": "auctor",
+      "meanings": [
+        "increaser",
+        " author",
+        " originator"
+      ],
+      "frequency": 1,
+      "inflection": "auctor, auctoris (m)"
+    },
+    {
+      "word": "beneficium",
+      "meanings": [
+        "benefit",
+        " kindness; favor"
+      ],
+      "frequency": 1,
+      "inflection": "beneficium, beneficii (n)"
+    },
+    {
+      "word": "certus",
+      "meanings": [
+        "definite",
+        " sure",
+        " certain",
+        " reliable"
+      ],
+      "frequency": 1,
+      "inflection": "certus, certa, certum"
+    },
+    {
+      "word": "contra",
+      "meanings": [
+        "against"
+      ],
+      "frequency": 1,
+      "inflection": "contra (+acc)"
+    },
+    {
+      "word": "delecto",
+      "meanings": [
+        "to  delight",
+        " charm",
+        " please"
+      ],
+      "frequency": 1,
+      "inflection": "delecto, delectāre, delectavi, delectatum"
+    },
+    {
+      "word": "familia",
+      "meanings": [
+        "household",
+        " family"
+      ],
+      "frequency": 1,
+      "inflection": "familia, familiae (f)"
+    },
+    {
+      "word": "Graecia",
+      "meanings": [
+        "Greece"
+      ],
+      "frequency": 1,
+      "inflection": "Graecia, Graeciae (f)"
+    },
+    {
+      "word": "gravis",
+      "meanings": [
+        "heavy",
+        " weighty; serious",
+        " important; severe",
+        " grievous"
+      ],
+      "frequency": 1,
+      "inflection": "gravis, grave"
+    },
+    {
+      "word": "iam",
+      "meanings": [
+        "now",
+        " already",
+        " soon"
+      ],
+      "frequency": 1,
+      "inflection": "iam"
+    },
+    {
+      "word": "immortalis",
+      "meanings": [
+        "not subject to death",
+        " immortal"
+      ],
+      "frequency": 1,
+      "inflection": "immortalis, immortale"
+    },
+    {
+      "word": "iudex",
+      "meanings": [
+        "judge",
+        " juror"
+      ],
+      "frequency": 1,
+      "inflection": "iudex, iudicis (m)"
+    },
+    {
+      "word": "iudicium",
+      "meanings": [
+        "judgement",
+        " decision",
+        " opinion; trial"
+      ],
+      "frequency": 1,
+      "inflection": "iudicium, iudicii (n)"
+    },
+    {
+      "word": "libero",
+      "meanings": [
+        "to free",
+        " set free",
+        " liberate"
+      ],
+      "frequency": 1,
+      "inflection": "libero, liberāre, liberavi, liberatum"
+    },
+    {
+      "word": "nisi",
+      "meanings": [
+        "if . . . not",
+        " unless"
+      ],
+      "frequency": 1,
+      "inflection": "nisi"
+    },
+    {
+      "word": "paro",
+      "meanings": [
+        "to  prepare",
+        " provide; get",
+        " obtain"
+      ],
+      "frequency": 1,
+      "inflection": "paro, parāre, paravi, paratum"
+    },
+    {
+      "word": "qui? quae? quod?",
+      "meanings": [
+        "(interrogative adj)"
+      ],
+      "frequency": 1,
+      "inflection": "qui? quae? quod?"
+    },
+    {
+      "word": "quis? quid?",
+      "meanings": [
+        "(interrogative pronoun) who? whose? whom? what? which?"
+      ],
+      "frequency": 1,
+      "inflection": "quis? quid?"
+    },
+    {
+      "word": "scelus",
+      "meanings": [
+        "crime",
+        " wickedness",
+        " evil deed"
+      ],
+      "frequency": 1,
+      "inflection": "scelus, sceleris (n)"
+    }
+  ],
+  "Chapter 28": [
+    {
+      "word": "arma",
+      "meanings": [
+        "arms",
+        " weapons"
+      ],
+      "frequency": 1,
+      "inflection": "arma, armorum (n)"
+    },
+    {
+      "word": "cedo",
+      "meanings": [
+        "to go",
+        " withdraw; yield to",
+        " grant",
+        " submit"
+      ],
+      "frequency": 1,
+      "inflection": "cedo, cedere, cessi, cessum"
+    },
+    {
+      "word": "cursus",
+      "meanings": [
+        "running",
+        " race; course"
+      ],
+      "frequency": 1,
+      "inflection": "cursus, cursus (m)"
+    },
+    {
+      "word": "dedico",
+      "meanings": [
+        "to dedicate"
+      ],
+      "frequency": 1,
+      "inflection": "dedico, dedicāre, dedicavi, dedicatum"
+    },
+    {
+      "word": "egeo",
+      "meanings": [
+        "(+ abl. or gen.) to need",
+        " lack",
+        " want"
+      ],
+      "frequency": 1,
+      "inflection": "egeo, egēre, egui"
+    },
+    {
+      "word": "expleo",
+      "meanings": [
+        "to fill",
+        " fill up",
+        " complete"
+      ],
+      "frequency": 1,
+      "inflection": "expleo, explēre, explevi, expletum"
+    },
+    {
+      "word": "luna",
+      "meanings": [
+        "moon"
+      ],
+      "frequency": 1,
+      "inflection": "luna, lunae (f)"
+    },
+    {
+      "word": "mortuus",
+      "meanings": [
+        "dead"
+      ],
+      "frequency": 1,
+      "inflection": "mortuus, mortua, mortuum"
+    },
+    {
+      "word": "ne",
+      "meanings": [
+        "(+subjunct) not",
+        " in order that . . . not",
+        " that . . . not",
+        " in order not to"
+      ],
+      "frequency": 1,
+      "inflection": "ne"
+    },
+    {
+      "word": "occasio",
+      "meanings": [
+        "occasion",
+        " opportunity"
+      ],
+      "frequency": 1,
+      "inflection": "occasio, occasionis (f)"
+    },
+    {
+      "word": "parens",
+      "meanings": [
+        "parent"
+      ],
+      "frequency": 1,
+      "inflection": "parens, parentis (m/f)"
+    },
+    {
+      "word": "praesto",
+      "meanings": [
+        "to excel; exhibit",
+        " show",
+        "  offer",
+        " supply",
+        " furnish"
+      ],
+      "frequency": 1,
+      "inflection": "praesto, praestāre,  praestiti, praestitum"
+    },
+    {
+      "word": "princeps",
+      "meanings": [
+        "chief",
+        " foremost"
+      ],
+      "frequency": 1,
+      "inflection": "princeps (gen: principis)"
+    },
+    {
+      "word": "stella",
+      "meanings": [
+        "star"
+      ],
+      "frequency": 1,
+      "inflection": "stella, stellae (f)"
+    },
+    {
+      "word": "taceo",
+      "meanings": [
+        "to be silent",
+        " leave unmentioned"
+      ],
+      "frequency": 1,
+      "inflection": "taceo, tacēre, tacui, tacitum"
+    },
+    {
+      "word": "ut",
+      "meanings": [
+        "(+indic) as",
+        " when; (+subjunct) in order that",
+        " so that",
+        " that",
+        " in order to",
+        " so as to",
+        " to"
+      ],
+      "frequency": 1,
+      "inflection": "ut"
+    },
+    {
+      "word": "vesper",
+      "meanings": [
+        "evening; evening star"
+      ],
+      "frequency": 1,
+      "inflection": "vesper, vesperis/vesperi (m)"
+    }
+  ],
+  "Chapter 21": [
+    {
+      "word": "asper",
+      "meanings": [
+        "rough",
+        " harsh"
+      ],
+      "frequency": 1,
+      "inflection": "asper, aspera, asperum"
+    },
+    {
+      "word": "ac",
+      "meanings": [
+        "and",
+        " and also",
+        " and even"
+      ],
+      "frequency": 1,
+      "inflection": "ac"
+    },
+    {
+      "word": "atque",
+      "meanings": [
+        "and",
+        " and also",
+        " and even"
+      ],
+      "frequency": 1,
+      "inflection": "atque/ac"
+    },
+    {
+      "word": "casa",
+      "meanings": [
+        "house",
+        " cottage",
+        " hut"
+      ],
+      "frequency": 1,
+      "inflection": "casa, casae (f)"
+    },
+    {
+      "word": "causa",
+      "meanings": [
+        "cause",
+        "  reason; case",
+        " situation. (in ablative + preceding genitive: for the sake of)"
+      ],
+      "frequency": 1,
+      "inflection": "causa, causae (f)"
+    },
+    {
+      "word": "contineo",
+      "meanings": [
+        "to hold together",
+        " contain",
+        " keep",
+        " enclose"
+      ],
+      "frequency": 1,
+      "inflection": "contineo, continēre, continui, contentum"
+    },
+    {
+      "word": "fenestra",
+      "meanings": [
+        "window"
+      ],
+      "frequency": 1,
+      "inflection": "fenestra, fenestrae (f)"
+    },
+    {
+      "word": "finis",
+      "meanings": [
+        "end",
+        " limit",
+        " boundary; purpose"
+      ],
+      "frequency": 1,
+      "inflection": "finis, finis (m)*"
+    },
+    {
+      "word": "gens",
+      "meanings": [
+        "clan",
+        " race",
+        " nation",
+        " people"
+      ],
+      "frequency": 1,
+      "inflection": "gens, gentis (f)*"
+    },
+    {
+      "word": "iterum",
+      "meanings": [
+        "again",
+        " a second time"
+      ],
+      "frequency": 1,
+      "inflection": "iterum"
+    },
+    {
+      "word": "iubeo",
+      "meanings": [
+        "to order",
+        " bid",
+        " command"
+      ],
+      "frequency": 1,
+      "inflection": "iubeo, iubēre, iussi, iussum"
+    },
+    {
+      "word": "laboro",
+      "meanings": [
+        "to labor; be in distress"
+      ],
+      "frequency": 1,
+      "inflection": "laboro, laborāre, laboravi, laboratum"
+    },
+    {
+      "word": "mundus",
+      "meanings": [
+        "world",
+        " universe"
+      ],
+      "frequency": 1,
+      "inflection": "mundus, mundi (m)"
+    },
+    {
+      "word": "navis",
+      "meanings": [
+        "ship",
+        " boat"
+      ],
+      "frequency": 1,
+      "inflection": "navis, navis (f)*"
+    },
+    {
+      "word": "rapio",
+      "meanings": [
+        "to seize",
+        " snatch",
+        " carry away"
+      ],
+      "frequency": 1,
+      "inflection": "rapio, rapere, rapui, raptum"
+    },
+    {
+      "word": "relinquo",
+      "meanings": [
+        "to leave behind",
+        " leave",
+        " abandon",
+        " desert"
+      ],
+      "frequency": 1,
+      "inflection": "relinquo, relinquere, reliqui, relictum"
+    },
+    {
+      "word": "salus",
+      "meanings": [
+        "health",
+        " safety; greeting"
+      ],
+      "frequency": 1,
+      "inflection": "salus, salutis (f)"
+    },
+    {
+      "word": "scio",
+      "meanings": [
+        "to know"
+      ],
+      "frequency": 1,
+      "inflection": "scio, scire, scivi, scitum"
+    },
+    {
+      "word": "tango",
+      "meanings": [
+        "to touch"
+      ],
+      "frequency": 1,
+      "inflection": "tango, tangere, tetigi, tactum"
+    },
+    {
+      "word": "Troia",
+      "meanings": [
+        "Troy"
+      ],
+      "frequency": 1,
+      "inflection": "Troia, Troiae (f)"
+    },
+    {
+      "word": "vicinus",
+      "meanings": [
+        "neighbor"
+      ],
+      "frequency": 1,
+      "inflection": "vicinus, vicini (m)"
+    },
+    {
+      "word": "vulgus",
+      "meanings": [
+        "the common people",
+        " mob",
+        " rabble"
+      ],
+      "frequency": 1,
+      "inflection": "vulgus, vulgi (n)"
+    }
+  ],
+  "Chapter 4": [
+    {
+      "word": "basium",
+      "meanings": [
+        "kiss"
+      ],
+      "frequency": 1,
+      "inflection": "basium, basii (n)"
+    },
+    {
+      "word": "bellum",
+      "meanings": [
+        "war"
+      ],
+      "frequency": 1,
+      "inflection": "bellum, belli (n)"
+    },
+    {
+      "word": "bellus",
+      "meanings": [
+        "pretty",
+        " handsome",
+        " charming"
+      ],
+      "frequency": 1,
+      "inflection": "bellus, bella, bellum"
+    },
+    {
+      "word": "bonus",
+      "meanings": [
+        "good",
+        " kind"
+      ],
+      "frequency": 1,
+      "inflection": "bonus, bona, bonum"
+    },
+    {
+      "word": "consilium",
+      "meanings": [
+        "plan",
+        " purpose",
+        " counsel",
+        " advice",
+        " judgement",
+        " wisdom"
+      ],
+      "frequency": 1,
+      "inflection": "consilium, consilii (n)"
+    },
+    {
+      "word": "cura",
+      "meanings": [
+        "care",
+        " attention",
+        " caution",
+        " anxiety"
+      ],
+      "frequency": 1,
+      "inflection": "cura, curae (f)"
+    },
+    {
+      "word": "donum",
+      "meanings": [
+        "gift",
+        " present"
+      ],
+      "frequency": 1,
+      "inflection": "donum, doni (n)"
+    },
+    {
+      "word": "exitium",
+      "meanings": [
+        "destruction",
+        " ruin"
+      ],
+      "frequency": 1,
+      "inflection": "exitium, exitii (n)"
+    },
+    {
+      "word": "humanus",
+      "meanings": [
+        "pertaining to man",
+        " human; humane",
+        " kind",
+        " refined",
+        " cultivated"
+      ],
+      "frequency": 1,
+      "inflection": "humanus, humana, humanum"
+    },
+    {
+      "word": "iuvo",
+      "meanings": [
+        "to help"
+      ],
+      "frequency": 1,
+      "inflection": "iuvo, iuvāre, iuvi, iutum"
+    },
+    {
+      "word": "magister",
+      "meanings": [
+        "ae (f)"
+      ],
+      "frequency": 1,
+      "inflection": "magister, magistri (m) or magistra,"
+    },
+    {
+      "word": "malus",
+      "meanings": [
+        "bad",
+        " wicked",
+        " evil"
+      ],
+      "frequency": 1,
+      "inflection": "malus, mala, malum"
+    },
+    {
+      "word": "mora",
+      "meanings": [
+        "delay"
+      ],
+      "frequency": 1,
+      "inflection": "mora, morae (f)"
+    },
+    {
+      "word": "nihil",
+      "meanings": [
+        "nothing"
+      ],
+      "frequency": 1,
+      "inflection": "nihil"
+    },
+    {
+      "word": "oculus",
+      "meanings": [
+        "eye"
+      ],
+      "frequency": 1,
+      "inflection": "oculus, oculi (m)"
+    },
+    {
+      "word": "officium",
+      "meanings": [
+        "duty",
+        " service"
+      ],
+      "frequency": 1,
+      "inflection": "officium, officii (n)"
+    },
+    {
+      "word": "otium",
+      "meanings": [
+        "leisure",
+        " peace"
+      ],
+      "frequency": 1,
+      "inflection": "otium, otii (n)"
+    },
+    {
+      "word": "parvus",
+      "meanings": [
+        "small",
+        " little"
+      ],
+      "frequency": 1,
+      "inflection": "parvus, parva, parvum"
+    },
+    {
+      "word": "periculum",
+      "meanings": [
+        "danger",
+        " risk"
+      ],
+      "frequency": 1,
+      "inflection": "periculum, periculi (n)"
+    },
+    {
+      "word": "remedium",
+      "meanings": [
+        "cure",
+        " remedy"
+      ],
+      "frequency": 1,
+      "inflection": "remedium, remedii (n)"
+    },
+    {
+      "word": "stultus",
+      "meanings": [
+        "foolish"
+      ],
+      "frequency": 1,
+      "inflection": "stultus, stulta, stultum"
+    },
+    {
+      "word": "sum",
+      "meanings": [
+        "to be",
+        " exist"
+      ],
+      "frequency": 1,
+      "inflection": "sum, esse, fui, futurum"
+    },
+    {
+      "word": "verus",
+      "meanings": [
+        "'true'",
+        " real",
+        " proper"
+      ],
+      "frequency": 1,
+      "inflection": "verus, vera, verum"
+    }
+  ],
+  "Chapter 30": [
+    {
+      "word": "bibo",
+      "meanings": [
+        "to drink"
+      ],
+      "frequency": 1,
+      "inflection": "bibo, bibere,  bibi"
+    },
+    {
+      "word": "ceteri",
+      "meanings": [
+        "the remaining",
+        " the rest",
+        " the other",
+        " all the others"
+      ],
+      "frequency": 1,
+      "inflection": "ceteri, ceterae, cetera"
+    },
+    {
+      "word": "cognosco",
+      "meanings": [
+        "to become acquainted with",
+        " learn",
+        " recognize"
+      ],
+      "frequency": 1,
+      "inflection": "cognosco, cognoscere, cognovi, cognitum"
+    },
+    {
+      "word": "comprehendo",
+      "meanings": [
+        "to grasp",
+        " seize",
+        " arrest; comprehend",
+        " understand"
+      ],
+      "frequency": 1,
+      "inflection": "comprehendo, comprehendere, comprehendi, comprehensum"
+    },
+    {
+      "word": "consumo",
+      "meanings": [
+        "to consume",
+        " use up"
+      ],
+      "frequency": 1,
+      "inflection": "consumo, consumere, consumpsi, consumptum"
+    },
+    {
+      "word": "dubito",
+      "meanings": [
+        "to doubt",
+        " hesitate"
+      ],
+      "frequency": 1,
+      "inflection": "dubito, dubitāre, dubitavi, dubitatum"
+    },
+    {
+      "word": "expono",
+      "meanings": [
+        "to set forth",
+        " explain",
+        " expose"
+      ],
+      "frequency": 1,
+      "inflection": "expono, exponere, exposui, expositum"
+    },
+    {
+      "word": "furtim",
+      "meanings": [
+        "stealthily",
+        " secretly"
+      ],
+      "frequency": 1,
+      "inflection": "furtim"
+    },
+    {
+      "word": "honor",
+      "meanings": [
+        "honor",
+        " esteem; public office"
+      ],
+      "frequency": 1,
+      "inflection": "honor, honoris (m)"
+    },
+    {
+      "word": "minuo",
+      "meanings": [
+        "to lessen",
+        " diminish"
+      ],
+      "frequency": 1,
+      "inflection": "minuo, minuere, minui, minutum"
+    },
+    {
+      "word": "mox",
+      "meanings": [
+        "soon"
+      ],
+      "frequency": 1,
+      "inflection": "mox"
+    },
+    {
+      "word": "primo",
+      "meanings": [
+        "at first",
+        " at the beginning"
+      ],
+      "frequency": 1,
+      "inflection": "primo"
+    },
+    {
+      "word": "quantus",
+      "meanings": [
+        "how large",
+        " how great",
+        " how much"
+      ],
+      "frequency": 1,
+      "inflection": "quantus, quanta, quantum"
+    },
+    {
+      "word": "repente",
+      "meanings": [
+        "suddenly"
+      ],
+      "frequency": 1,
+      "inflection": "repente"
+    },
+    {
+      "word": "ridiculus",
+      "meanings": [
+        "laughable",
+        " ridiculous"
+      ],
+      "frequency": 1,
+      "inflection": "ridiculus, ridicula, ridiculum"
+    },
+    {
+      "word": "rogo",
+      "meanings": [
+        "to ask"
+      ],
+      "frequency": 1,
+      "inflection": "rogo, rogāre, rogavi, rogatum"
+    },
+    {
+      "word": "unde",
+      "meanings": [
+        "whence",
+        " from what/which place",
+        " from which",
+        " from whom"
+      ],
+      "frequency": 1,
+      "inflection": "unde"
+    },
+    {
+      "word": "utrum . . . an",
+      "meanings": [
+        "whether . . . or"
+      ],
+      "frequency": 1,
+      "inflection": "utrum . . . an"
+    },
+    {
+      "word": "vivus",
+      "meanings": [
+        "living",
+        " alive"
+      ],
+      "frequency": 1,
+      "inflection": "vivus, viva, vivum"
+    }
+  ],
+  "Chapter 20": [
+    {
+      "word": "careo",
+      "meanings": [
+        "to be without",
+        " to be deprived of",
+        " want",
+        " lack; be free from"
+      ],
+      "frequency": 1,
+      "inflection": "careo, carēre, carui, cariturum (+abl)"
+    },
+    {
+      "word": "communis",
+      "meanings": [
+        "common",
+        " general",
+        " of/for the community"
+      ],
+      "frequency": 1,
+      "inflection": "communis, commune"
+    },
+    {
+      "word": "coniurati",
+      "meanings": [
+        "conspirators"
+      ],
+      "frequency": 1,
+      "inflection": "coniurati, coniuratorum (m)"
+    },
+    {
+      "word": "cornu",
+      "meanings": [
+        "horn"
+      ],
+      "frequency": 1,
+      "inflection": "cornu, cornus (n)"
+    },
+    {
+      "word": "defendo",
+      "meanings": [
+        "to ward off; defend",
+        " protect"
+      ],
+      "frequency": 1,
+      "inflection": "defendo, defendere,  defendi, defensum"
+    },
+    {
+      "word": "dexter",
+      "meanings": [
+        "right",
+        " right"
+      ],
+      "frequency": 1,
+      "inflection": "dexter, dextra, dextrum"
+    },
+    {
+      "word": "discedo",
+      "meanings": [
+        "to go away",
+        " depart"
+      ],
+      "frequency": 1,
+      "inflection": "discedo, discedere, discessi, discessum"
+    },
+    {
+      "word": "fructus",
+      "meanings": [
+        "fruit; profit",
+        " benefit",
+        " enjoyment"
+      ],
+      "frequency": 1,
+      "inflection": "fructus, fructus (m)"
+    },
+    {
+      "word": "genu",
+      "meanings": [
+        "knee"
+      ],
+      "frequency": 1,
+      "inflection": "genu, genus (n)"
+    },
+    {
+      "word": "manus",
+      "meanings": [
+        "hand; handwriting; band"
+      ],
+      "frequency": 1,
+      "inflection": "manus, manus (f)"
+    },
+    {
+      "word": "metus",
+      "meanings": [
+        "fear"
+      ],
+      "frequency": 1,
+      "inflection": "metus, metus (m)"
+    },
+    {
+      "word": "mons",
+      "meanings": [
+        "mountain"
+      ],
+      "frequency": 1,
+      "inflection": "mons, montis (m)*"
+    },
+    {
+      "word": "odi",
+      "meanings": [
+        "to hate"
+      ],
+      "frequency": 1,
+      "inflection": "odi, odisse, osum"
+    },
+    {
+      "word": "prohibeo",
+      "meanings": [
+        "to keep (back)",
+        " prevent",
+        " hinder",
+        " restrain"
+      ],
+      "frequency": 1,
+      "inflection": "prohibeo, prohibēre, prohibui, prohibitum"
+    },
+    {
+      "word": "pronuntio",
+      "meanings": [
+        "to proclaim",
+        " announce",
+        " declaim; pronounce"
+      ],
+      "frequency": 1,
+      "inflection": "pronuntio, pronuntiāre, pronuntiavi, pronuntiatum"
+    },
+    {
+      "word": "senatus",
+      "meanings": [
+        "senate"
+      ],
+      "frequency": 1,
+      "inflection": "senatus, senatus (m)"
+    },
+    {
+      "word": "sensus",
+      "meanings": [
+        "feeling",
+        "  sense"
+      ],
+      "frequency": 1,
+      "inflection": "sensus, sensus (m)"
+    },
+    {
+      "word": "servitus",
+      "meanings": [
+        "slavery",
+        " servitude"
+      ],
+      "frequency": 1,
+      "inflection": "servitus, servitutis (f)"
+    },
+    {
+      "word": "sinister",
+      "meanings": [
+        "left",
+        " left"
+      ],
+      "frequency": 1,
+      "inflection": "sinister, sinistra, sinistrum"
+    },
+    {
+      "word": "spiritus",
+      "meanings": [
+        "breath",
+        " breathing; spirit",
+        " soul"
+      ],
+      "frequency": 1,
+      "inflection": "spiritus, spiritus (m)"
+    },
+    {
+      "word": "versus",
+      "meanings": [
+        "line of verse",
+        " verse"
+      ],
+      "frequency": 1,
+      "inflection": "versus, versus (m)"
+    }
+  ],
+  "Chapter 26": [
+    {
+      "word": "cena",
+      "meanings": [
+        "dinner"
+      ],
+      "frequency": 1,
+      "inflection": "cena, cenae (f)"
+    },
+    {
+      "word": "forum",
+      "meanings": [
+        "forum",
+        " marketplace"
+      ],
+      "frequency": 1,
+      "inflection": "forum, fori (n)"
+    },
+    {
+      "word": "invito",
+      "meanings": [
+        "to entertain",
+        " invite; summon"
+      ],
+      "frequency": 1,
+      "inflection": "invito, invitāre, invitavi, invitatum"
+    },
+    {
+      "word": "lex",
+      "meanings": [
+        "law",
+        " statute"
+      ],
+      "frequency": 1,
+      "inflection": "lex, legis (f)"
+    },
+    {
+      "word": "limen",
+      "meanings": [
+        "threshold"
+      ],
+      "frequency": 1,
+      "inflection": "limen, liminis (n)"
+    },
+    {
+      "word": "lux",
+      "meanings": [
+        "light"
+      ],
+      "frequency": 1,
+      "inflection": "lux, lucis (f)"
+    },
+    {
+      "word": "mensa",
+      "meanings": [
+        "table"
+      ],
+      "frequency": 1,
+      "inflection": "mensa, mensae (f)"
+    },
+    {
+      "word": "nox",
+      "meanings": [
+        "night"
+      ],
+      "frequency": 1,
+      "inflection": "nox, noctis (f)*"
+    },
+    {
+      "word": "prae",
+      "meanings": [
+        "in front of",
+        " before"
+      ],
+      "frequency": 1,
+      "inflection": "prae (+abl)"
+    },
+    {
+      "word": "pudicus",
+      "meanings": [
+        "modest",
+        " chaste"
+      ],
+      "frequency": 1,
+      "inflection": "pudicus, pudica, pudicum"
+    },
+    {
+      "word": "quam",
+      "meanings": [
+        "than"
+      ],
+      "frequency": 1,
+      "inflection": "quam"
+    },
+    {
+      "word": "quidam",
+      "meanings": [
+        "certain",
+        " some"
+      ],
+      "frequency": 1,
+      "inflection": "quidam, quaedam, quiddam"
+    },
+    {
+      "word": "somnus",
+      "meanings": [
+        "sleep"
+      ],
+      "frequency": 1,
+      "inflection": "somnus, somni (m)"
+    },
+    {
+      "word": "superbus",
+      "meanings": [
+        "arrogant",
+        " overbearing",
+        " haughty",
+        " proud"
+      ],
+      "frequency": 1,
+      "inflection": "superbus, superba, superbum"
+    },
+    {
+      "word": "tantum",
+      "meanings": [
+        "only"
+      ],
+      "frequency": 1,
+      "inflection": "tantum"
+    },
+    {
+      "word": "tristis",
+      "meanings": [
+        "sad",
+        " sorrowful; joyless",
+        " grim",
+        " severe"
+      ],
+      "frequency": 1,
+      "inflection": "tristis, triste"
+    },
+    {
+      "word": "turpis",
+      "meanings": [
+        "ugly; shameful",
+        " base",
+        " disgraceful"
+      ],
+      "frequency": 1,
+      "inflection": "turpis, turpe"
+    },
+    {
+      "word": "urbanus",
+      "meanings": [
+        "of the city",
+        " urban; urbane",
+        " elegant"
+      ],
+      "frequency": 1,
+      "inflection": "urbanus, urbana, urbanum"
+    }
+  ],
+  "Chapter 15": [
+    {
+      "word": "centum",
+      "meanings": [
+        "hundred"
+      ],
+      "frequency": 1,
+      "inflection": "centum"
+    },
+    {
+      "word": "committo",
+      "meanings": [
+        "to entrust",
+        " commit"
+      ],
+      "frequency": 1,
+      "inflection": "committo, committere, comisi, comissum"
+    },
+    {
+      "word": "exspecto",
+      "meanings": [
+        "to look for",
+        " expect",
+        " await"
+      ],
+      "frequency": 1,
+      "inflection": "exspecto, expsectāre, exspectavi, exspectatum"
+    },
+    {
+      "word": "iacio",
+      "meanings": [
+        "to thow; hurl"
+      ],
+      "frequency": 1,
+      "inflection": "iacio, iacere, ieci, iactum"
+    },
+    {
+      "word": "inter",
+      "meanings": [
+        "between",
+        " among"
+      ],
+      "frequency": 1,
+      "inflection": "inter (+acc)"
+    },
+    {
+      "word": "Italia",
+      "meanings": [
+        "Italy"
+      ],
+      "frequency": 1,
+      "inflection": "Italia, Italiae (f)"
+    },
+    {
+      "word": "itaque",
+      "meanings": [
+        "and so",
+        " therefore"
+      ],
+      "frequency": 1,
+      "inflection": "itaque"
+    },
+    {
+      "word": "memoria",
+      "meanings": [
+        "memory",
+        " recollection"
+      ],
+      "frequency": 1,
+      "inflection": "memoria, memoriae (f)"
+    },
+    {
+      "word": "mille",
+      "meanings": [
+        "thousand"
+      ],
+      "frequency": 1,
+      "inflection": "mille"
+    },
+    {
+      "word": "miser",
+      "meanings": [
+        "sad",
+        " wretched",
+        " miserable",
+        " unfortunate"
+      ],
+      "frequency": 1,
+      "inflection": "miser, misera, miserum"
+    },
+    {
+      "word": "tempestas",
+      "meanings": [
+        "period of time",
+        " season; weather; storm"
+      ],
+      "frequency": 1,
+      "inflection": "tempestas, tempestatis (f)"
+    },
+    {
+      "word": "timeo",
+      "meanings": [
+        "to be afraid",
+        " fear"
+      ],
+      "frequency": 1,
+      "inflection": "timeo, timēre, timui"
+    }
+  ],
+  "Chapter 18": [
+    {
+      "word": "clarus",
+      "meanings": [
+        "clear",
+        " bright",
+        " famous",
+        " renowned",
+        " illustrious"
+      ],
+      "frequency": 1,
+      "inflection": "clarus, clara, clarum"
+    },
+    {
+      "word": "cur",
+      "meanings": [
+        "why"
+      ],
+      "frequency": 1,
+      "inflection": "cur"
+    },
+    {
+      "word": "deinde",
+      "meanings": [
+        "then",
+        " next",
+        " thereupon"
+      ],
+      "frequency": 1,
+      "inflection": "deinde"
+    },
+    {
+      "word": "flumen",
+      "meanings": [
+        "river"
+      ],
+      "frequency": 1,
+      "inflection": "flumen, fluminis (n)"
+    },
+    {
+      "word": "fluo",
+      "meanings": [
+        "to flow"
+      ],
+      "frequency": 1,
+      "inflection": "fluo, fluere, fluxi, fluxum"
+    },
+    {
+      "word": "genus",
+      "meanings": [
+        "origin; kind",
+        " type",
+        " sort",
+        " class"
+      ],
+      "frequency": 1,
+      "inflection": "genus, generis (n)"
+    },
+    {
+      "word": "hostis",
+      "meanings": [
+        "an enemy (of the state); (plural = the enemy)"
+      ],
+      "frequency": 1,
+      "inflection": "hostis, hostis (m)*"
+    },
+    {
+      "word": "lego",
+      "meanings": [
+        "to read; pick out",
+        " choose",
+        " select"
+      ],
+      "frequency": 1,
+      "inflection": "lego, legere, legi, lectum"
+    },
+    {
+      "word": "ludus",
+      "meanings": [
+        "game",
+        " sport; school"
+      ],
+      "frequency": 1,
+      "inflection": "ludus, ludi (m)"
+    },
+    {
+      "word": "misceo",
+      "meanings": [
+        "to mix",
+        " stir up",
+        " disturb"
+      ],
+      "frequency": 1,
+      "inflection": "misceo, miscēre, miscui, mixtum"
+    },
+    {
+      "word": "mortalis",
+      "meanings": [
+        "mortal"
+      ],
+      "frequency": 1,
+      "inflection": "mortalis, mortale"
+    },
+    {
+      "word": "moveo",
+      "meanings": [
+        "to move; arouse",
+        " affect"
+      ],
+      "frequency": 1,
+      "inflection": "moveo, movēre, movi, motum"
+    },
+    {
+      "word": "probitas",
+      "meanings": [
+        "uprightness",
+        " honesty"
+      ],
+      "frequency": 1,
+      "inflection": "probitas, probitatis (f)"
+    },
+    {
+      "word": "scientia",
+      "meanings": [
+        "knowledge"
+      ],
+      "frequency": 1,
+      "inflection": "scientia, scientiae (f)"
+    },
+    {
+      "word": "videor",
+      "meanings": [
+        "to be seen; seem",
+        " appear"
+      ],
+      "frequency": 1,
+      "inflection": "videor, vidēri, visus sum"
+    }
+  ],
+  "Chapter 29": [
+    {
+      "word": "condo",
+      "meanings": [
+        "to put together/into",
+        " store; found",
+        " establish"
+      ],
+      "frequency": 1,
+      "inflection": "condo, condere, condidi, conditum"
+    },
+    {
+      "word": "contendo",
+      "meanings": [
+        "to strive",
+        " struggle",
+        " contend; hasten"
+      ],
+      "frequency": 1,
+      "inflection": "contendo, contendere, contendi, contentum"
+    },
+    {
+      "word": "denique",
+      "meanings": [
+        "finally",
+        " at last",
+        " lastly"
+      ],
+      "frequency": 1,
+      "inflection": "denique"
+    },
+    {
+      "word": "dignus",
+      "meanings": [
+        "(+abl.) worthy",
+        " worthy of"
+      ],
+      "frequency": 1,
+      "inflection": "dignus, digna, dignum"
+    },
+    {
+      "word": "durus",
+      "meanings": [
+        "hard",
+        " harsh",
+        " rough",
+        " stern",
+        " unfeeling",
+        " hardy",
+        " difficult"
+      ],
+      "frequency": 1,
+      "inflection": "durus, dura, durum"
+    },
+    {
+      "word": "fatum",
+      "meanings": [
+        "fate; death"
+      ],
+      "frequency": 1,
+      "inflection": "fatum, fati (n)"
+    },
+    {
+      "word": "ingenium",
+      "meanings": [
+        "nature",
+        " innate talent"
+      ],
+      "frequency": 1,
+      "inflection": "ingenium, ingenii (n)"
+    },
+    {
+      "word": "ita",
+      "meanings": [
+        "so thus"
+      ],
+      "frequency": 1,
+      "inflection": "ita"
+    },
+    {
+      "word": "moenia",
+      "meanings": [
+        "city walls"
+      ],
+      "frequency": 1,
+      "inflection": "moenia, moenium (n)"
+    },
+    {
+      "word": "mollio",
+      "meanings": [
+        "to soften; make calm",
+        " make less hostile"
+      ],
+      "frequency": 1,
+      "inflection": "mollio, mollire, mollivi, mollitum"
+    },
+    {
+      "word": "nata",
+      "meanings": [
+        "daughter"
+      ],
+      "frequency": 1,
+      "inflection": "nata, natae (f)"
+    },
+    {
+      "word": "osculum",
+      "meanings": [
+        "kiss"
+      ],
+      "frequency": 1,
+      "inflection": "osculum, osculi (n)"
+    },
+    {
+      "word": "pugno",
+      "meanings": [
+        "to fight"
+      ],
+      "frequency": 1,
+      "inflection": "pugno, pugnāre, pugnavi, pugnatum"
+    },
+    {
+      "word": "quidem",
+      "meanings": [
+        "indeed",
+        " certainly",
+        " at least",
+        " even"
+      ],
+      "frequency": 1,
+      "inflection": "quidem"
+    },
+    {
+      "word": "respondeo",
+      "meanings": [
+        "to answer"
+      ],
+      "frequency": 1,
+      "inflection": "respondeo, respondēre, respondi, responsum"
+    },
+    {
+      "word": "sic",
+      "meanings": [
+        "so thus"
+      ],
+      "frequency": 1,
+      "inflection": "sic"
+    },
+    {
+      "word": "sidus",
+      "meanings": [
+        "constellation",
+        " star"
+      ],
+      "frequency": 1,
+      "inflection": "sidus, sideris (n)"
+    },
+    {
+      "word": "surgo",
+      "meanings": [
+        "to get up",
+        " arise"
+      ],
+      "frequency": 1,
+      "inflection": "surgo, surgere, surrexi, surrectum"
+    },
+    {
+      "word": "tam",
+      "meanings": [
+        "so",
+        " to such a degree (tam . . quam"
+      ],
+      "frequency": 1,
+      "inflection": "tam"
+    },
+    {
+      "word": "tantus",
+      "meanings": [
+        "so large",
+        " so great",
+        " of such a size"
+      ],
+      "frequency": 1,
+      "inflection": "tantus, tanta, tantum"
+    },
+    {
+      "word": "vero",
+      "meanings": [
+        "in truth",
+        " indeed",
+        " to be sure",
+        " however"
+      ],
+      "frequency": 1,
+      "inflection": "vero"
+    }
+  ],
+  "Chapter 32": [
+    {
+      "word": "custodia",
+      "meanings": [
+        "protection",
+        " custody (pl: guards)"
+      ],
+      "frequency": 1,
+      "inflection": "custodia, custodiae (f)"
+    },
+    {
+      "word": "dives (gen: divitis or ditis)",
+      "meanings": [
+        "rich"
+      ],
+      "frequency": 1,
+      "inflection": "dives (gen: divitis or ditis)"
+    },
+    {
+      "word": "dummodo",
+      "meanings": [
+        "provided that",
+        " so long as"
+      ],
+      "frequency": 1,
+      "inflection": "dummodo (+subjunctive)"
+    },
+    {
+      "word": "exercitus",
+      "meanings": [
+        "army"
+      ],
+      "frequency": 1,
+      "inflection": "exercitus, exercitus (m)"
+    },
+    {
+      "word": "malo",
+      "meanings": [
+        "to want (something) more",
+        " instead; prefer"
+      ],
+      "frequency": 1,
+      "inflection": "malo, malle, malui"
+    },
+    {
+      "word": "nolo",
+      "meanings": [
+        "to not . . . wish",
+        " be unwilling"
+      ],
+      "frequency": 1,
+      "inflection": "nolo, nolle, nolui"
+    },
+    {
+      "word": "par",
+      "meanings": [
+        "equal (to)",
+        " like"
+      ],
+      "frequency": 1,
+      "inflection": "par (gen: paris) (+dat)"
+    },
+    {
+      "word": "pateo",
+      "meanings": [
+        "to be open",
+        " lie open; be accessible; be evident"
+      ],
+      "frequency": 1,
+      "inflection": "pateo, patēre, patui"
+    },
+    {
+      "word": "pauper",
+      "meanings": [
+        "of small means",
+        " poor"
+      ],
+      "frequency": 1,
+      "inflection": "pauper (gen: pauperis)"
+    },
+    {
+      "word": "paupertas",
+      "meanings": [
+        "poverty"
+      ],
+      "frequency": 1,
+      "inflection": "paupertas, paupertatis (f)"
+    },
+    {
+      "word": "praebeo",
+      "meanings": [
+        "to offer",
+        " provide"
+      ],
+      "frequency": 1,
+      "inflection": "praebeo, praebēre, praebui, praebitum"
+    },
+    {
+      "word": "promitto",
+      "meanings": [
+        "to send forth; promise"
+      ],
+      "frequency": 1,
+      "inflection": "promitto, promittere, promisi, promissum"
+    },
+    {
+      "word": "volo",
+      "meanings": [
+        "to wish",
+        " want",
+        " be willing",
+        " will"
+      ],
+      "frequency": 1,
+      "inflection": "volo, velle, volui"
+    }
+  ],
+  "Chapter 6": [
+    {
+      "word": "dea",
+      "meanings": [
+        "goddess"
+      ],
+      "frequency": 1,
+      "inflection": "dea, deae (f)"
+    },
+    {
+      "word": "deus",
+      "meanings": [
+        "god"
+      ],
+      "frequency": 1,
+      "inflection": "deus, dei (m)"
+    },
+    {
+      "word": "discipula",
+      "meanings": [
+        "learner",
+        " pupil",
+        " student"
+      ],
+      "frequency": 1,
+      "inflection": "discipula, discipulae (f)  and discipulus, discipuli (m)"
+    },
+    {
+      "word": "Graecus",
+      "meanings": [
+        "Greek"
+      ],
+      "frequency": 1,
+      "inflection": "Graecus, Graeca, Graecum"
+    },
+    {
+      "word": "ibi",
+      "meanings": [
+        "there"
+      ],
+      "frequency": 1,
+      "inflection": "ibi"
+    },
+    {
+      "word": "insidiae",
+      "meanings": [
+        "ambush",
+        " plot",
+        " treachery"
+      ],
+      "frequency": 1,
+      "inflection": "insidiae, insidiarum (f)"
+    },
+    {
+      "word": "liber",
+      "meanings": [
+        "book"
+      ],
+      "frequency": 1,
+      "inflection": "liber, libri (m)"
+    },
+    {
+      "word": "nunc",
+      "meanings": [
+        "now"
+      ],
+      "frequency": 1,
+      "inflection": "nunc"
+    },
+    {
+      "word": "perpetuus",
+      "meanings": [
+        "perpetual",
+        " lasting",
+        " uninterrupted",
+        " continuous"
+      ],
+      "frequency": 1,
+      "inflection": "perpetuus, perpetua, perpetuum"
+    },
+    {
+      "word": "plenus",
+      "meanings": [
+        "full",
+        " abundant",
+        " generous"
+      ],
+      "frequency": 1,
+      "inflection": "plenus, plena, plenum"
+    },
+    {
+      "word": "possum",
+      "meanings": [
+        "to be able",
+        " can",
+        " could",
+        " have power"
+      ],
+      "frequency": 1,
+      "inflection": "possum, posse, potui"
+    },
+    {
+      "word": "quare",
+      "meanings": [
+        "because of which thing",
+        " therefore",
+        " wherefore",
+        " why"
+      ],
+      "frequency": 1,
+      "inflection": "quare"
+    },
+    {
+      "word": "que",
+      "meanings": [
+        "and (suffix added to the end a word",
+        " joining it to the previous)"
+      ],
+      "frequency": 1,
+      "inflection": "que"
+    },
+    {
+      "word": "salvus",
+      "meanings": [
+        "safe",
+        " sound"
+      ],
+      "frequency": 1,
+      "inflection": "salvus, salva, salvum"
+    },
+    {
+      "word": "secundus",
+      "meanings": [
+        "second; favorable"
+      ],
+      "frequency": 1,
+      "inflection": "secundus, secunda, secundum"
+    },
+    {
+      "word": "tolero",
+      "meanings": [
+        "to bear",
+        " endure"
+      ],
+      "frequency": 1,
+      "inflection": "tolero, tolerāre, toleravi, toleratum"
+    },
+    {
+      "word": "tyrannus",
+      "meanings": [
+        "absolute ruler",
+        " tyrant"
+      ],
+      "frequency": 1,
+      "inflection": "tyrannus, tyranni (m)"
+    },
+    {
+      "word": "ubi",
+      "meanings": [
+        "where",
+        " when"
+      ],
+      "frequency": 1,
+      "inflection": "ubi"
+    },
+    {
+      "word": "vester",
+      "meanings": [
+        "your (plural)"
+      ],
+      "frequency": 1,
+      "inflection": "vester, vestra, vestrum"
+    },
+    {
+      "word": "vitium",
+      "meanings": [
+        "fault",
+        " crime",
+        " vice"
+      ],
+      "frequency": 1,
+      "inflection": "vitium, vitii (n)"
+    }
+  ],
+  "Chapter 27": [
+    {
+      "word": "delectatio",
+      "meanings": [
+        "delight",
+        " pleasure",
+        " enjoyment"
+      ],
+      "frequency": 1,
+      "inflection": "delectatio, delectationis (f)"
+    },
+    {
+      "word": "diligens",
+      "meanings": [
+        "diligent",
+        " careful"
+      ],
+      "frequency": 1,
+      "inflection": "diligens"
+    },
+    {
+      "word": "dissimilis",
+      "meanings": [
+        "unlike",
+        " different"
+      ],
+      "frequency": 1,
+      "inflection": "dissimilis, dissimile"
+    },
+    {
+      "word": "gracilis",
+      "meanings": [
+        "slender",
+        " thin"
+      ],
+      "frequency": 1,
+      "inflection": "gracilis, gracile"
+    },
+    {
+      "word": "humilis",
+      "meanings": [
+        "humble",
+        " lowly"
+      ],
+      "frequency": 1,
+      "inflection": "humilis, humile"
+    },
+    {
+      "word": "maior",
+      "meanings": [
+        "greater; older"
+      ],
+      "frequency": 1,
+      "inflection": "maior, maius"
+    },
+    {
+      "word": "nepos",
+      "meanings": [
+        "grandson",
+        " descendant"
+      ],
+      "frequency": 1,
+      "inflection": "nepos, nepotis (m)"
+    },
+    {
+      "word": "pono",
+      "meanings": [
+        "to put",
+        " place",
+        " set"
+      ],
+      "frequency": 1,
+      "inflection": "pono, ponere, posui, positum"
+    },
+    {
+      "word": "primus",
+      "meanings": [
+        "first",
+        " foremost",
+        " chief",
+        " principal"
+      ],
+      "frequency": 1,
+      "inflection": "primus, prima, primum"
+    },
+    {
+      "word": "probo",
+      "meanings": [
+        "to approve",
+        " recommend; test"
+      ],
+      "frequency": 1,
+      "inflection": "probo, probāre, probavi, probatum"
+    },
+    {
+      "word": "quot",
+      "meanings": [
+        "how many",
+        " as many as"
+      ],
+      "frequency": 1,
+      "inflection": "quot"
+    },
+    {
+      "word": "similis",
+      "meanings": [
+        "(+ gen. or dat.) similar (to)",
+        " like",
+        " resembling"
+      ],
+      "frequency": 1,
+      "inflection": "similis, simile"
+    },
+    {
+      "word": "sol",
+      "meanings": [
+        "sun"
+      ],
+      "frequency": 1,
+      "inflection": "sol, solis (m)"
+    },
+    {
+      "word": "superus",
+      "meanings": [
+        "above",
+        " upper"
+      ],
+      "frequency": 1,
+      "inflection": "superus, supera, superum"
+    },
+    {
+      "word": "utilis",
+      "meanings": [
+        "useful",
+        " advantageous"
+      ],
+      "frequency": 1,
+      "inflection": "utilis, utile"
+    }
+  ]
+}
