@@ -39,19 +39,40 @@ interface Sense {
   htmlText: string;
 }
 
+// interface DodsonEntry {
+//   "Strong's"?: string;
+//   "Goodrick-Kohlenberger"?: string;
+//   "English Definition (brief)"?: string;
+//   "English Definition (longer)"?: string;
+//   "greekWord"?: string;
+//   "Beta Code"?: string;
+//   [key: string]: string | undefined;
+// }
+
 interface DodsonEntry {
-  "Strong's"?: string;
-  "Goodrick-Kohlenberger"?: string;
-  "English Definition (brief)"?: string;
-  "English Definition (longer)"?: string;
-  "greekWord"?: string;
-  "Beta Code"?: string;
+  strong_number?: string;
+  lemma: string;
+  short_definition?: string;
+  long_definition?: string;
+  greek_word?: string;
+  beta_code?: string;
   [key: string]: string | undefined;
 }
 
+interface StrongsEntry {
+    "strongs_def":string,
+    "derivation":string,
+    "translit":string,
+    "lemma":string,
+    "kjv_def":string
+}
+
 interface LexiconEntry {
-  senses: Sense[];
+  lsj: {
+    senses: Sense[];
+  }[],
   dodson?: DodsonEntry;
+  strongs?: StrongsEntry;
 }
 
 interface MorphologyData {
@@ -79,8 +100,8 @@ interface LexiconResponse {
   };
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
-// const BASE_URL = 'http://localhost:3001'
+// const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
+const BASE_URL = 'http://localhost:3001'
 
 const LexicaTool: React.FC = () => {
   const [word, setWord] = useState("");
@@ -152,8 +173,12 @@ const LexicaTool: React.FC = () => {
       if (!lexiconRes.ok) {
         throw new Error("Failed to fetch lexicon data");
       }
-
+ 
       const lexiconResponse: LexiconResponse = await lexiconRes.json();
+      console.log({
+        lexiconResponse
+      })
+
       setMorphologyData(lexiconResponse.morphology);
       setLexiconData(lexiconResponse.lexica);
 
@@ -195,7 +220,8 @@ const LexicaTool: React.FC = () => {
 
     try {
       const lexiconEntry = lexiconData[currentLemma];
-      const meanings = lexiconEntry?.senses.flatMap(sense => sense.glosses) || [];
+    //   const meanings = lexiconEntry?.senses.flatMap(sense => sense.glosses) || [];
+      const meanings = lexiconEntry?.lsj[0]?.senses.flatMap(sense => sense.glosses) || [];
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
@@ -310,9 +336,9 @@ const LexicaTool: React.FC = () => {
           
           <div className="flex justify-center mt-2">
             <a
-              href="./vocab"
+              href="/vocabulary-browser"
               className="text-primary hover:text-primary/80"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" 
             >
               Browse Vocabulary
             </a>
@@ -347,14 +373,15 @@ const LexicaTool: React.FC = () => {
           <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-hidden px-6">
             <TabsList className="mb-2 shrink-0">
               <TabsTrigger value="morphology">Morphology</TabsTrigger>
-              <TabsTrigger value="lexicon">Lexicon Entries</TabsTrigger>
-              <TabsTrigger value="dodson">Dodson Entry</TabsTrigger>
+              <TabsTrigger value="lexicon">LSJ</TabsTrigger>
+              <TabsTrigger value="dodson">Dodson</TabsTrigger>
+              <TabsTrigger value="strongs">Strongs</TabsTrigger>
             </TabsList>
 
             <TabsContent value="morphology" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
               {morphologyData.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold mb-2">Morphological Forms</h4>
+                  <h4 className="text-lg font-semi bold mb-2">Morphological Forms</h4>
                   <ScrollArea className="max-h-40">
                     <div className="flex gap-2 pb-2">
                       {morphologyData.map((morph, index) => (
@@ -412,12 +439,12 @@ const LexicaTool: React.FC = () => {
             </TabsContent>
 
             <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
-              {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].senses.length > 0 ? (
+              {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0].senses.length > 0 ? (
                 <div className="space-y-4">
-                  {lexiconData[currentLemma].senses.map((sense, index) => (
+                  {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
                     <Card key={index} className="p-4">
                       <div className="text-sm text-muted-foreground mb-2">
-                        Entry {index + 1} of {lexiconData[currentLemma].senses.length}
+                        Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
                       </div>
                       <div 
                         className="prose dark:prose-invert max-w-full lexicon-html-content" // Added lexicon-html-content class
@@ -463,7 +490,7 @@ const LexicaTool: React.FC = () => {
                         {Object.entries(lexiconData[currentLemma].dodson || {}).map(
                           ([key, value]) => (
                             <TableRow key={key}>
-                              <TableCell className="font-medium py-2">{key}</TableCell>
+                              <TableCell className="font-medium py-2">{key.replace('_', '')}</TableCell>
                               <TableCell className="py-2">{String(value)}</TableCell>
                             </TableRow>
                           )
@@ -474,6 +501,29 @@ const LexicaTool: React.FC = () => {
                 </Card>
               ) : (
                 <p className="text-muted-foreground">No Dodson entry available for "{currentLemma || word}".</p>
+              )}
+            </TabsContent>
+
+            <TabsContent value="strongs" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+              {currentLemma && lexiconData[currentLemma]?.strongs ? (
+                <Card>
+                  <CardContent className="p-0">
+                    <Table>
+                      <TableBody>
+                        {Object.entries(lexiconData[currentLemma].strongs || {}).map(
+                          ([key, value]) => (
+                            <TableRow key={key}>
+                              <TableCell className="font-medium py-2">{key}</TableCell>
+                              <TableCell className="py-2">{String(value)}</TableCell>
+                            </TableRow>
+                          )
+                        )}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              ) : (
+                <p className="text-muted-foreground">No Strongs entry available for "{currentLemma || word}".</p>
               )}
             </TabsContent>
           </Tabs>
