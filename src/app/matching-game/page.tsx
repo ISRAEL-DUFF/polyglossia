@@ -224,6 +224,12 @@ const MatchingGame = () => {
     setTempWordData(null);
   }, []);
 
+  const getWordMeaning = (entry: Word) => {
+    const maxLength = isMobile ? 20 : 35;
+    const meaning = (entry.meanings && entry.meanings.length > 0) ? entry.meanings[0] : entry.meaning || '';
+    return meaning.length > maxLength ? meaning.slice(0, maxLength) + "..." : meaning;
+  };
+
   const generatePairs = useCallback((wordListToPair: Word[]) => {
     if (!wordListToPair || wordListToPair.length === 0) {
         setPairs([]);
@@ -235,8 +241,9 @@ const MatchingGame = () => {
         newPairs.push({ text: word.word, value: wordId, word, isMeaning: false, id: `${wordId}-word` });
         newPairs.push({ text: getWordMeaning(word), value: wordId, word, isMeaning: true, id: `${wordId}-meaning` });
     });
-    setPairs(fisherYateShuffle(newPairs));
-  }, [isMobile]);
+    fisherYateShuffle(newPairs);
+    setPairs(newPairs);
+  }, [isMobile, getWordMeaning]);
 
 
   const resetGame = useCallback((wordsToUse?: Word[]) => {
@@ -399,11 +406,6 @@ const MatchingGame = () => {
     oscillator.stop(audioContextRef.current.currentTime + (type === 'end' ? 0.6 : 0.2));
   };
 
-  const getWordMeaning = (entry: Word) => {
-    const maxLength = isMobile ? 20 : 35;
-    const meaning = (entry.meanings && entry.meanings.length > 0) ? entry.meanings[0] : entry.meaning || '';
-    return meaning.length > maxLength ? meaning.slice(0, maxLength) + "..." : meaning;
-  };
 
   const showFlashcard = useCallback(({ type, word, color }: { type: string, word: Word, color: string }) => {
     const flashcardContainer = document.getElementById("flashcard-container");
@@ -972,4 +974,3 @@ export function startCountdown(options: { countDownTime?: number, displayText?: 
 
 export default MatchingGame;
 
-    
