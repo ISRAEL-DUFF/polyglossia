@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,28 +9,27 @@ import { Label } from "@/components/ui/label";
 import { 
   RefreshCw, 
   Play, 
-  BarChart, 
   Redo, 
   Save,
-  Globe,
-  AlertCircle,
   Settings,
   BookOpen,
-  GroupIcon,
   Camera,
   SaveIcon,
-  ForwardIcon
+  ForwardIcon,
+  X,
+  PlusCircle,
+  Trash2
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { loadDataSources, loadVocabularyData, WordGroups } from "@/lib/utils/vocabLoader";
+import { loadDataSources, loadVocabularyData, type WordGroups } from "@/lib/utils/vocabLoader";
 import { localDatabase } from '@/lib/utils/storageUtil';
 import { colorGenerator, getRandomWords, eventEmitter, fisherYateShuffle } from '@/lib/utils/gameUtils';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import './MatchingGame.css'
 
 // Types
@@ -43,7 +43,8 @@ interface Word {
   inflection?: string; // For Latin
   semanticGroup?: string; // For Latin
   frequency?: number;
-  id?: string;
+  id?: string; // UUID for localDB
+  savedId?: string; // ID if saved in difficult words
 }
 
 interface MatchingItem {
@@ -51,6 +52,7 @@ interface MatchingItem {
   value: string;
   word: Word;
   isMeaning: boolean;
+  id: string;
 }
 
 interface DataSource {
@@ -58,1354 +60,906 @@ interface DataSource {
   value: string;
 }
 
-// Demo Player State interface
 interface DemoPlayerState {
   isPlaying: boolean;
   speedInSec: number;
   repeat: number;
-  timer1?: any;
-  timer2?: any;
+  timer1?: NodeJS.Timeout;
+  timer2?: NodeJS.Timeout;
 }
 
 interface SaveWordProps {
-  currentWord: Word | null; // Pass the current word as a prop
+  currentWord: Word | null;
   currentLanguage: string;
+  onWordSavedOrRemoved: () => void;
 }
 
-// Mock word data for different languages as fallback
 const demoWords: Record<string, Word[]> = {
   greek: [
-    { word: "λόγος", meanings: ["word", "reason", "account"], partOfSpeech: "noun" },
-    { word: "γράφω", meanings: ["I write", "I record"], partOfSpeech: "verb" },
-    { word: "δίκαιος", meanings: ["righteous", "just", "fair"], partOfSpeech: "adjective" },
-    { word: "θεός", meanings: ["god", "deity"], partOfSpeech: "noun" },
-    { word: "ἀγάπη", meanings: ["love", "charity"], partOfSpeech: "noun" },
-    { word: "ἔργον", meanings: ["work", "deed", "action"], partOfSpeech: "noun" }
+    { word: "λόγος", meanings: ["word", "reason", "account"], partOfSpeech: "noun", id: "demo_logos" },
+    { word: "γράφω", meanings: ["I write", "I record"], partOfSpeech: "verb", id: "demo_grapho" },
+    { word: "δίκαιος", meanings: ["righteous", "just", "fair"], partOfSpeech: "adjective", id: "demo_dikaios" },
+    { word: "θεός", meanings: ["god", "deity"], partOfSpeech: "noun", id: "demo_theos" },
+    { word: "ἀγάπη", meanings: ["love", "charity"], partOfSpeech: "noun", id: "demo_agape" },
+    { word: "ἔργον", meanings: ["work", "deed", "action"], partOfSpeech: "noun", id: "demo_ergon" }
   ],
   hebrew: [
-    { word: "אֱלֹהִים", meanings: ["God", "gods"], partOfSpeech: "noun", transliteration: "Elohim" },
-    { word: "בְּרֵאשִׁית", meanings: ["in the beginning"], partOfSpeech: "noun", transliteration: "B'reshit" },
-    { word: "תּוֹרָה", meanings: ["instruction", "law"], partOfSpeech: "noun", transliteration: "Torah" },
-    { word: "שָׁלוֹם", meanings: ["peace", "completeness"], partOfSpeech: "noun", transliteration: "Shalom" },
-    { word: "אָהַב", meanings: ["to love"], partOfSpeech: "verb", transliteration: "Ahav" },
-    { word: "קֹדֶשׁ", meanings: ["holiness", "sacred"], partOfSpeech: "noun", transliteration: "Kodesh" }
+    { word: "אֱלֹהִים", meanings: ["God", "gods"], partOfSpeech: "noun", transliteration: "Elohim", id: "demo_elohim" },
+    { word: "בְּרֵאשִׁית", meanings: ["in the beginning"], partOfSpeech: "noun", transliteration: "B'reshit", id: "demo_bereshit" },
+    { word: "תּוֹרָה", meanings: ["instruction", "law"], partOfSpeech: "noun", transliteration: "Torah", id: "demo_torah" },
+    { word: "שָׁלוֹם", meanings: ["peace", "completeness"], partOfSpeech: "noun", transliteration: "Shalom", id: "demo_shalom" },
+    { word: "אָהַב", meanings: ["to love"], partOfSpeech: "verb", transliteration: "Ahav", id: "demo_ahav" },
+    { word: "קֹדֶשׁ", meanings: ["holiness", "sacred"], partOfSpeech: "noun", transliteration: "Kodesh", id: "demo_kodesh" }
   ],
   latin: [
-    { word: "amor", meanings: ["love"], partOfSpeech: "noun", inflection: "amoris" },
-    { word: "pax", meanings: ["peace"], partOfSpeech: "noun", inflection: "pacis" },
-    { word: "vita", meanings: ["life"], partOfSpeech: "noun", inflection: "vitae" },
-    { word: "deus", meanings: ["god"], partOfSpeech: "noun", inflection: "dei" },
-    { word: "homo", meanings: ["human", "man"], partOfSpeech: "noun", inflection: "hominis" },
-    { word: "virtus", meanings: ["virtue", "courage"], partOfSpeech: "noun", inflection: "virtutis" }
+    { word: "amor", meanings: ["love"], partOfSpeech: "noun", inflection: "amoris", id: "demo_amor" },
+    { word: "pax", meanings: ["peace"], partOfSpeech: "noun", inflection: "pacis", id: "demo_pax" },
+    { word: "vita", meanings: ["life"], partOfSpeech: "noun", inflection: "vitae", id: "demo_vita" },
+    { word: "deus", meanings: ["god"], partOfSpeech: "noun", inflection: "dei", id: "demo_deus" },
+    { word: "homo", meanings: ["human", "man"], partOfSpeech: "noun", inflection: "hominis", id: "demo_homo" },
+    { word: "virtus", meanings: ["virtue", "courage"], partOfSpeech: "noun", inflection: "virtutis", id: "demo_virtus" }
   ]
 };
 
-function localDatabases(currentLanguage: string) {
-  let database = localDatabase(`${currentLanguage}_difficult_words`)
-  let databaseSnapshot = localDatabase(`${currentLanguage}_snapshots`)
-  let savedWords = `${currentLanguage}_difficult_words`; // TODO: change for each language
-
+function getLocalDatabases(currentLanguage: string) {
   return {
-    difficultWordsDb: database,
-    databaseSnapshot,
-    savedWords
-  }
+    difficultWordsDb: localDatabase(`${currentLanguage}_difficult_words`),
+    snapshotsDb: localDatabase(`${currentLanguage}_snapshots`),
+  };
 }
 
 const DEFAULT_WORD_COUNT_DESKTOP = 10;
 const DEFAULT_WORD_COUNT_MOBILE = 6;
 
-
-const SaveDifficultWord: React.FC<SaveWordProps> = ({ currentWord, currentLanguage }) => {
+const SaveDifficultWord: React.FC<SaveWordProps> = ({ currentWord, currentLanguage, onWordSavedOrRemoved }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hasId, setHasId] = useState(currentWord?.id ? true : false);
   const { toast } = useToast();
+  const { difficultWordsDb } = getLocalDatabases(currentLanguage);
 
-  const handleSaveWord = async () => {
+  const isWordSaved = currentWord?.savedId && difficultWordsDb.getAll().some(w => w.id === currentWord.savedId);
+
+  const handleSaveToggle = async () => {
+    if (!currentWord) {
+      toast({ title: 'Error', description: 'No word selected.', variant: 'destructive' });
+      return;
+    }
+
     try {
-      if (!currentWord) {
-        throw new Error('No word selected to save.');
-      }
-
-      // Simulate saving the word (replace this with actual save logic)
-      // await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate async save
-
-      const { difficultWordsDb } = localDatabases(currentLanguage);
-      if (hasId) {
-        // Remove the word from the database
-        difficultWordsDb.remove(currentWord.id);
-        toast({
-          title: 'Word Removed',
-          description: `The word "${currentWord.word}" has been removed from your saved words.`,
-          variant: 'destructive',
-        });
+      if (isWordSaved) {
+        difficultWordsDb.remove(currentWord.savedId!);
+        toast({ title: 'Word Removed', description: `"${currentWord.word}" removed from your saved words.` });
       } else {
-        // Add the word to the database
-        difficultWordsDb.add({
-          ...currentWord,
-          id: currentWord.word // Use the word as the ID
-        });
-        toast({
-          title: 'Word Saved',
-          description: `The word "${currentWord.word}" has been saved successfully.`,
-          variant: 'default',
-        });
+        const newSavedId = difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); // Let DB generate ID
+        toast({ title: 'Word Saved', description: `"${currentWord.word}" saved successfully.` });
       }
-      // Update the state to reflect the change
-
-      // Close the modal
+      onWordSavedOrRemoved(); // Notify parent to refresh state
       setIsModalOpen(false);
-    } catch (error) {
-      // Show error toast
-      toast({
-        title: 'Error',
-        description: error.message || 'Failed to save the word.',
-        variant: 'destructive',
-      });
+    } catch (error: any) {
+      toast({ title: 'Error', description: error.message || 'Operation failed.', variant: 'destructive' });
     }
   };
 
+  if (!currentWord) return null;
+
   return (
-    <div>
-      {/* Save Button */}
-      {/* <Button  variant="default" className="flex items-center px-1 py-1">
-        <SaveIcon className="h-4 w-4 mr-1" onClick={() => setIsModalOpen(true)}/>
-      </Button> */}
-      <SaveIcon className="h-4 w-4 mr-1 float-right" onClick={() => setIsModalOpen(true)}/>
+    <>
+      <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-primary" onClick={() => setIsModalOpen(true)}>
+        {isWordSaved ? <Trash2 className="h-4 w-4" /> : <SaveIcon className="h-4 w-4" />}
+      </Button>
 
-
-      {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>{ hasId ? "Remove Word" : "Save Word"}</DialogTitle>
+            <DialogTitle>{isWordSaved ? "Remove Word" : "Save Word"}</DialogTitle>
           </DialogHeader>
-          <div className="p-4">
-            <p>{hasId ? "Do you want to delete the current word?" : "Do you want to save the current word?"}</p>
-            {currentWord && (
-              <p className="mt-2 text-sm text-gray-500">
-                Word: <strong>{currentWord.word}</strong>
-              </p>
-            )}
-          </div>
+          <DialogDescription>
+            {isWordSaved ? `Remove "${currentWord.word}" from your difficult words list?` : `Save "${currentWord.word}" to your difficult words list?`}
+          </DialogDescription>
           <DialogFooter>
-            <Button onClick={handleSaveWord} variant={hasId ? "destructive" : "default"}>
-              {hasId ? "Delete" : "Save"}
+            <Button onClick={handleSaveToggle} variant={isWordSaved ? "destructive" : "default"}>
+              {isWordSaved ? "Remove" : "Save"}
             </Button>
-            <Button onClick={() => setIsModalOpen(false)} variant="outline">
-              Cancel
-            </Button>
+            <Button onClick={() => setIsModalOpen(false)} variant="outline">Cancel</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 };
 
 const MatchingGame = () => {
   const { toast } = useToast();
   const isMobile = useIsMobile();
-  const [words, setWords] = useState<Word[]>([]);
+  
+  const [gameWords, setGameWords] = useState<Word[]>([]);
   const [pairs, setPairs] = useState<MatchingItem[]>([]);
   const [tempWordData, setTempWordData] = useState<MatchingItem | null>(null);
-  const [selectedPair, setSelectedPair] = useState<HTMLDivElement[]>([]);
+  const [selectedPairElements, setSelectedPairElements] = useState<HTMLDivElement[]>([]);
   const [wordCount, setWordCount] = useState(isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP);
   const [matchCounts, setMatchCounts] = useState(0);
   const [colorMap, setColorMap] = useState<Record<string, string>>({});
-  const [showPopup, setShowPopup] = useState(false);
-  const [snapshots, setSnapshots] = useState<{id?: string, name: string, data: Word[]}[]>([]);
+  
+  const [snapshots, setSnapshots] = useState<{id: string, name: string, data: Word[]}[]>([]);
   const [snapshotName, setSnapshotName] = useState('');
-  const [currentSnapshot, setCurrentSnapshot] = useState<{id?: string, name: string, data: Word[]} | null>(null);
-  const [isSnapshot, setIsSnapshot] = useState(false);
-  const [matchingList, setMatchingList] = useState('difficult_words');
+  const [currentSnapshotId, setCurrentSnapshotId] = useState<string | null>(null);
+
+  const [activeListType, setActiveListType] = useState<'inview' | 'snapshots' | 'groups'>('inview');
+  
   const [currentLanguage, setCurrentLanguage] = useState<string>("greek");
   const [wordGroups, setWordGroups] = useState<WordGroups>({});
   const [selectedWordGroup, setSelectedWordGroup] = useState<string | null>(null);
   const [dataSources, setDataSources] = useState<DataSource[]>([]);
   const [selectedDataSource, setSelectedDataSource] = useState<string | null>(null);
+  
   const [demoPlayerState, setDemoPlayerState] = useState<DemoPlayerState>({
-    isPlaying: false,
-    speedInSec: 6,
-    repeat: 2
+    isPlaying: false, speedInSec: 4, repeat: 1, timer1: undefined, timer2: undefined
   });
+  
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [isSettingsSheetOpen, setIsSettingsSheetOpen] = useState(false);
+  const [isGameModalOpen, setIsGameModalOpen] = useState(false);
 
-  
-  // Countdown modal state
-  const [showCountdown, setShowCountdown] = useState(false);
-  const [countdownValue, setCountdownValue] = useState(3);
-  const [countdownText, setCountdownText] = useState("");
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const availableColors = ["#45B39D", "#227bc4", "#8d0b96", "#f48fb1", "#ffab91", "#b39ddb", "#64b5f6", "#ff8a65", "#ba68c8", "#d1058d", "#4db6ac"];
+  const nextCardColorRef = useRef(colorGenerator(availableColors));
 
-const handleSettingsSheetOpenChange = (open: boolean) => {
-  if (open && demoPlayerState.isPlaying) {
-    // Code to run before the Sheet opens
-    console.log("Sheet is about to open and demo is ongoing...");
-    // Add any logic here, e.g., fetching data or setting state
-    return;
-  }
-  setIsSettingsSheetOpen(open); // Update the state
-};
-  
-  // Colors for matching cards
-  const availableColors = [
-    "#45B39D", "#227bc4", "#8d0b96", "#f48fb1", 
-    "#ffab91", "#b39ddb", "#64b5f6", "#ff8a65", 
-    "#ba68c8", "#d1058d", "#4db6ac"
-  ];
-  const nextCardColor = colorGenerator(availableColors);
 
-  const getDefaultWordCount = () => {
-    if (isMobile) {
-      return DEFAULT_WORD_COUNT_MOBILE
+  const getDefaultWordCount = useCallback(() => {
+    return isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP;
+  }, [isMobile]);
+
+  const clearFlashcard = useCallback(() => {
+    const flashcardContainer = document.getElementById("flashcard-container");
+    if (flashcardContainer) {
+      flashcardContainer.innerHTML = `<p class="text-muted-foreground">Select a word to match</p>`;
+    }
+    setTempWordData(null);
+  }, []);
+
+  const generatePairs = useCallback((wordListToPair: Word[]) => {
+    if (!wordListToPair || wordListToPair.length === 0) {
+        setPairs([]);
+        return;
+    }
+    let newPairs: MatchingItem[] = [];
+    wordListToPair.forEach(word => {
+        const wordId = word.id || word.word; // Use actual ID or word as fallback for value
+        newPairs.push({ text: word.word, value: wordId, word, isMeaning: false, id: `${wordId}-word` });
+        newPairs.push({ text: getWordMeaning(word), value: wordId, word, isMeaning: true, id: `${wordId}-meaning` });
+    });
+    setPairs(fisherYateShuffle(newPairs));
+  }, [isMobile]);
+
+
+  const resetGame = useCallback((wordsToUse?: Word[]) => {
+    setSelectedPairElements([]);
+    setMatchCounts(0);
+    setColorMap({});
+    clearFlashcard();
+    nextCardColorRef.current = colorGenerator(availableColors);
+
+    const currentWords = wordsToUse || gameWords;
+    if (currentWords.length > 0) {
+        const wordsForGame = getRandomWords(currentWords, wordCount);
+        setGameWords(wordsForGame); // Keep a copy of the words actually in the game
+        generatePairs(wordsForGame);
     } else {
-      return DEFAULT_WORD_COUNT_DESKTOP
+        setGameWords([]);
+        setPairs([]);
     }
-  }
+  }, [gameWords, wordCount, generatePairs, clearFlashcard]);
 
-  // Display matching list names
-  const displayMatchingListName = () => {
-    if(matchingList === 'difficult_words') {
-      return "New Words"
-    }
 
-    if(matchingList === 'word_groups') {
-      for(const key in dataSources) {
-        if(dataSources[key].value === selectedDataSource) {
-          const sourceName = dataSources[key].key;
-          return `${sourceName} - ${selectedWordGroup}`
-        }
+  const loadVocabDataSources = useCallback(async (language: string) => {
+    setIsLoading(true); setLoadError(null);
+    try {
+      const sources = await loadDataSources(language);
+      setDataSources(sources);
+      if (sources.length > 0) {
+        setSelectedDataSource(sources[0].value);
+        // await loadVocabData(language, sources[0].value); // Don't auto-load groups initially
+      } else {
+        setLoadError(`No vocabulary files found for ${language}.`);
+        setWordGroups({}); setSelectedWordGroup(null);
       }
-    }
+    } catch (error) {
+      setLoadError(`Failed to load vocabulary data sources for ${language}.`);
+    } finally { setIsLoading(false); }
+  }, []);
 
-    if(matchingList === 'snapshots') {
-      return currentSnapshot ? `Snapshot - ${currentSnapshot.name}` : ""
+  const loadVocabData = useCallback(async (language: string, filename: string) => {
+    setIsLoading(true); setLoadError(null);
+    try {
+      const data = await loadVocabularyData(language, filename);
+      setWordGroups(data);
+      const groupKeys = Object.keys(data);
+      if (groupKeys.length > 0) {
+        setSelectedWordGroup(groupKeys[0]);
+        // resetGame(getRandomWords(data[groupKeys[0]], wordCount)); // auto-load first group words
+      } else {
+        setLoadError(`No word groups found in ${filename}.`);
+        // resetGame([]);
+      }
+    } catch (error) {
+      setLoadError(`Failed to load vocabulary data from ${filename}.`);
+    } finally { setIsLoading(false); }
+  }, [wordCount, resetGame]);
+
+  const loadSnapshots = useCallback(() => {
+    const { snapshotsDb } = getLocalDatabases(currentLanguage);
+    const savedSnapshots = snapshotsDb.getAll() as {id: string, name: string, data: Word[]}[];
+    setSnapshots(savedSnapshots || []);
+    if (savedSnapshots.length > 0 && !currentSnapshotId) {
+      // setCurrentSnapshotId(savedSnapshots[0].id); // Don't auto-select
     }
-  }
-  
-  // Sound effects using Web Audio API
-  const audioContext = useRef<AudioContext | null>(null);
-  
+  }, [currentLanguage, currentSnapshotId]);
+
   useEffect(() => {
-    // Initialize audio context
-    audioContext.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
-    // Load saved snapshots from localStorage
+    audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
     loadSnapshots();
-    
-    // Load demo words based on current language
-    const initialWords = demoWords[currentLanguage] || [];
-    setWords(initialWords);
-    
-    // Generate initial matching game
-    generateMatchingGame(initialWords);
-    
-    // Load data sources for the current language
     loadVocabDataSources(currentLanguage);
-    
-    // Setup event listeners for countdown
-    eventEmitter.on('countdown:start', () => {
-      console.log('Countdown started');
-    });
-    
-    eventEmitter.on('countdown:end', () => {
-      console.log('Countdown ended');
-    });
+    resetGame(demoWords[currentLanguage]); // Initial game with demo words
+
+    eventEmitter.on('countdown:start', () => {});
+    eventEmitter.on('countdown:end', () => {});
     
     return () => {
-      // Cleanup
-      if (audioContext.current && audioContext.current.state !== 'closed') {
-        audioContext.current.close();
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+        audioContextRef.current.close();
       }
-      
-      // Cleanup event listeners
       eventEmitter.off('countdown:start');
       eventEmitter.off('countdown:end');
-      
-      // Clear any running timers
       if (demoPlayerState.timer1) clearInterval(demoPlayerState.timer1);
       if (demoPlayerState.timer2) clearTimeout(demoPlayerState.timer2);
     };
-  }, []);
-  
-  // Effect to update the game when language changes
-  useEffect(() => {
-    // Load words for the selected language
-    const languageWords = demoWords[currentLanguage] || [];
-    setWords(languageWords);
-    
-    // Reset game state
-    setSelectedPair([]);
-    setMatchCounts(0);
-    setColorMap({});
-    clearFlashcard();
-    
-    // Reset selected data source and word group
-    setSelectedDataSource(null);
-    setSelectedWordGroup(null);
-    setWordGroups({});
-    
-    // Load data sources for the new language
+  }, []); // Initial setup
+
+  useEffect(() => { // Language change
     loadVocabDataSources(currentLanguage);
-    
-    // Generate new matching game
-    generateMatchingGame(languageWords);
-  }, [currentLanguage]);
-  
-  // Effect to update the game when word count changes
-  useEffect(() => {
-    generateMatchingGame(words);
-  }, [wordCount]);
+    loadSnapshots();
+    setWordGroups({}); setSelectedWordGroup(null); setSelectedDataSource(null);
+    setCurrentSnapshotId(null);
+    setActiveListType('inview'); // Reset to default list type
+    resetGame(demoWords[currentLanguage]);
+  }, [currentLanguage, resetGame, loadSnapshots, loadVocabDataSources]);
 
-  // Effect to update the game when words change
-  useEffect(() => {
-    generateMatchingGame(words);
-  }, [words]);
+  useEffect(() => { // Word count or active list type change
+    if (activeListType === 'inview') {
+        resetGame(demoWords[currentLanguage]);
+    } else if (activeListType === 'snapshots' && currentSnapshotId) {
+        const snapshot = snapshots.find(s => s.id === currentSnapshotId);
+        if (snapshot) resetGame(snapshot.data);
+    } else if (activeListType === 'groups' && selectedWordGroup && wordGroups[selectedWordGroup]) {
+        resetGame(wordGroups[selectedWordGroup]);
+    } else if (activeListType === 'difficult_words') {
+        const { difficultWordsDb } = getLocalDatabases(currentLanguage);
+        resetGame(difficultWordsDb.getAll());
+    }
+  }, [wordCount, activeListType, currentSnapshotId, selectedWordGroup, snapshots, wordGroups, resetGame, currentLanguage]);
 
-  // Effect to update wordCount based on screen size
-  useEffect(() => {
+
+  useEffect(() => { // Screen size change
     setWordCount(getDefaultWordCount());
-  }, [isMobile]);
+  }, [isMobile, getDefaultWordCount]);
 
-  useEffect(() => {
-    if (matchingList === 'difficult_words') {
-      const { difficultWordsDb } = localDatabases(currentLanguage);
-      const savedWords = difficultWordsDb.getAll();
-      if (savedWords) {
-        setWords(savedWords);
-        generateMatchingGame(savedWords);
-      }
-    } else if (matchingList === 'snapshots') {
-      // Load saved snapshots
-      if(currentSnapshot) {
-        const snapshotWords = getRandomWords(currentSnapshot.data, wordCount)
-        setWords(snapshotWords);
-        generateMatchingGame(snapshotWords);
-      } else {
-        // setWords([]);
-        // setPairs([]);
-        // setSelectedPair([]);
-        // setMatchCounts(0);
-        // setColorMap({});
-        // clearFlashcard();
+  const refreshSavedWordsStatus = () => {
+    const { difficultWordsDb } = getLocalDatabases(currentLanguage);
+    const savedDifficultWords = difficultWordsDb.getAll();
+    
+    setGameWords(prevGameWords => prevGameWords.map(gw => {
+        const savedVersion = savedDifficultWords.find(sw => sw.word === gw.word && sw.meanings.join(',') === gw.meanings.join(','));
+        return { ...gw, savedId: savedVersion?.id };
+    }));
 
-        loadSnapshots();
-        if (snapshots.length > 0) {
-          const firstSnapshot = snapshots[0];
-          setCurrentSnapshot(firstSnapshot);
-          setIsSnapshot(true);
-          generateMatchingGame(getRandomWords(firstSnapshot.data, wordCount));
-        }
-      }
-    } else if(matchingList === 'word_groups') {
-      // Load words from the selected word group
-      if (selectedWordGroup && wordGroups[selectedWordGroup]) {
-        const groupWords = getRandomWords(wordGroups[selectedWordGroup], wordCount);
-        setWords(groupWords);
-        generateMatchingGame(groupWords);
-      } else {
-        setWords([]);
-        setPairs([]);
-        setSelectedPair([]);
-        setMatchCounts(0);
-        setColorMap({});
-        clearFlashcard();
-        setLoadError(`No words found in the selected word group`);
-      }
-    }
-  }, [matchingList]);
-  
-  const loadVocabDataSources = async (language: string) => {
-    setIsLoading(true);
-    setLoadError(null);
-    
-    try {
-      const sources = await loadDataSources(language);
-      console.log("sources:", sources)
-      setDataSources(sources);
-      
-      if (sources.length > 0) {
-        // Auto-select the first data source
-        setSelectedDataSource(sources[0].value);
-        await loadVocabData(language, sources[0].value);
-      } else {
-        setLoadError(`No vocabulary files found for ${language}`);
-      }
-    } catch (error) {
-      console.error('Error loading data sources:', error);
-      setLoadError(`Failed to load vocabulary data for ${language}`);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const loadVocabData = async (language: string, filename: string) => {
-    setIsLoading(true);
-    setLoadError(null);
-    
-    try {
-      const data = await loadVocabularyData(language, filename);
-      console.log('Loaded data:', data);
-      setWordGroups(data);
-      
-      // Auto-select the first word group
-      const groupKeys = Object.keys(data);
-      if (groupKeys.length > 0) {
-        const firstGroup = groupKeys[0];
-        setSelectedWordGroup(firstGroup);
-        
-        // Load words from the first group
-        const groupWords = getRandomWords(data[firstGroup], wordCount) // data[firstGroup].slice(0, wordCount);
-        setWords(groupWords);
-        generateMatchingGame(groupWords);
-      } else {
-        setLoadError(`No word groups found in the selected vocabulary file`);
-      }
-    } catch (error) {
-      console.error('Error loading vocabulary data:', error);
-      setLoadError(`Failed to load vocabulary data from file`);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const loadSnapshots = () => {
-    const { databaseSnapshot } = localDatabases(currentLanguage);
-    const savedSnapshots = databaseSnapshot.getAll();
-    // console.log('savedSnapshots:', savedSnapshots);
-    
-    if (savedSnapshots) {
-      try {
-        setSnapshots(savedSnapshots);
-      } catch (e) {
-        console.error('Error loading snapshots:', e);
-        setSnapshots([]);
-      }
-    } else {
-      setSnapshots([]);
+    setPairs(prevPairs => prevPairs.map(p => {
+        const savedVersion = savedDifficultWords.find(sw => sw.word === p.word.word && sw.meanings.join(',') === p.word.meanings.join(','));
+        return { ...p, word: { ...p.word, savedId: savedVersion?.id }};
+    }));
+
+    if (tempWordData) {
+        const savedVersion = savedDifficultWords.find(sw => sw.word === tempWordData.word.word && sw.meanings.join(',') === tempWordData.word.meanings.join(','));
+        setTempWordData(prev => prev ? ({ ...prev, word: {...prev.word, savedId: savedVersion?.id }}) : null);
     }
   };
 
-  // Countdown modal function
-  const startCountdown = (options: { countDownTime?: number, displayText?: string }) => {
-    const { countDownTime = 3, displayText = "" } = options;
-    
-    setCountdownText(displayText);
-    setCountdownValue(countDownTime);
-    setShowCountdown(true);
-    
-    eventEmitter.emit('countdown:start');
-    
-    let timeLeft = countDownTime;
-    const countdownInterval = setInterval(() => {
-      timeLeft--;
-      setCountdownValue(timeLeft);
-      
-      if (timeLeft < 0) {
-        clearInterval(countdownInterval);
-        setShowCountdown(false);
-        eventEmitter.emit('countdown:end');
-      }
-    }, 1000);
-  };
-
-  const handleLanguageChange = (language: string) => {
-    setCurrentLanguage(language);
-    
-    // Reset game state
-    setSelectedPair([]);
-    setMatchCounts(0);
-    setColorMap({});
-    setIsSnapshot(false);
-    setCurrentSnapshot(null);
-    
-    // Load saved snapshots for this language
-    const snapshotKey = `${language}_snapshots`;
-    const savedSnapshots = localStorage.getItem(snapshotKey);
-    if (savedSnapshots) {
-      try {
-        setSnapshots(JSON.parse(savedSnapshots));
-      } catch (e) {
-        console.error('Error loading snapshots:', e);
-        setSnapshots([]);
-      }
-    } else {
-      setSnapshots([]);
-    }
-    
-    toast({
-      title: "Language Changed",
-      description: `Switched to ${language.charAt(0).toUpperCase() + language.slice(1)} vocabulary`,
-    });
-  };
-  
-  const saveSnapshot = () => {
-    if (!snapshotName) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Please enter a snapshot name",
-      });
-      return;
-    }
-    
-    // Create new snapshot
-    const newSnapshot = {
-      name: snapshotName,
-      data: [...words]
-    };
-    
-    // Set as current snapshot
-    setCurrentSnapshot(newSnapshot);
-    setIsSnapshot(true);
-    
-    // Save to localStorage
-    const { databaseSnapshot } = localDatabases(currentLanguage);
-    databaseSnapshot.add(newSnapshot);
-    const updatedSnapshots = databaseSnapshot.getAll();
-    setSnapshots(updatedSnapshots);
-    
-    // Clear input
-    setSnapshotName('');
-    
-    toast({
-      title: "Snapshot Saved",
-      description: `Saved "${snapshotName}" with ${words.length} words`,
-    });
-  };
-  
-  const deleteSnapshot = () => {
-    if (!currentSnapshot) return;
-    
-    // Remove from snapshots list
-    const { databaseSnapshot } = localDatabases(currentLanguage);
-    const updatedSnapshots = databaseSnapshot.remove(currentSnapshot.id);
-    setSnapshots(updatedSnapshots);
-    
-    // Clear current snapshot
-    setCurrentSnapshot(null);
-    setIsSnapshot(false);
-    
-    // Reset to default words
-    const languageWords = demoWords[currentLanguage] || [];
-    setWords(languageWords);
-    generateMatchingGame(languageWords);
-    
-    toast({
-      title: "Snapshot Deleted",
-      description: `Deleted "${currentSnapshot.name}" snapshot`,
-    });
-  };
-  
-  const handleDataSourceChange = async (source: string) => {
-    setSelectedDataSource(source);
-    
-    try {
-      await loadVocabData(currentLanguage, source);
-      
-      toast({
-        title: "Data Source Changed",
-        description: `Loaded vocabulary from ${dataSources.find(ds => ds.value === source)?.key || source}`,
-      });
-    } catch (error) {
-      console.error('Error changing data source:', error);
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: `Failed to load vocabulary data`,
-      });
-    }
-  };
-  
-  const handleWordGroupChange = (group: string) => { 
-    setSelectedWordGroup(group);
-    
-    if (wordGroups[group]) {
-      const groupWords = getRandomWords(wordGroups[group], wordCount) //wordGroups[group].slice(0, wordCount);
-      setWords(groupWords);
-      generateMatchingGame(groupWords);
-      
-      toast({
-        title: "Word Group Selected",
-        description: `Loaded "${group}" word group`,
-      });
-    }
-  };
-  
-  const getWordMeaning = (entry: Word) => {
-    const maxLength = isMobile ? 25 : 40;
-    if (entry.meanings && entry.meanings.length > 0) {
-      const randomMeaning = entry.meanings[Math.floor(Math.random() * entry.meanings.length)];
-      return randomMeaning.length > maxLength ? randomMeaning.slice(0, maxLength) + "..." : randomMeaning;
-    } else if (entry.meaning) {
-      return entry.meaning.length > maxLength ? entry.meaning.slice(0, maxLength) + "..." : entry.meaning;
-    }
-    return '';
-  };
-
-  const generateMatchingGame = (wordList: Word[]) => {
-    // Reset state
-    setSelectedPair([]);
-    setMatchCounts(0);
-    setColorMap({});
-    clearFlashcard();
-    
-    // Create shuffled pairs
-    let shuffledWords = wordList.slice(0, wordCount);
-    
-    // Create the pairs (word + meaning)
-    let newPairs: MatchingItem[] = [];
-    shuffledWords.forEach(word => {
-      newPairs.push({ text: word.word, value: word.word, word, isMeaning: false });
-      newPairs.push({ text: getWordMeaning(word), value: word.word, word, isMeaning: true });
-    });
-    
-    // Shuffle the pairs
-    newPairs.sort(() => Math.random() - 0.5);
-    
-    setPairs(newPairs);
-  };
-
-  // Play sound based on type
   const playSound = (type: 'right' | 'wrong' | 'end') => {
-    if (!audioContext.current) return;
-    
-    const oscillator = audioContext.current.createOscillator();
-    const gainNode = audioContext.current.createGain();
-    
+    if (!audioContextRef.current) return;
+    const oscillator = audioContextRef.current.createOscillator();
+    const gainNode = audioContextRef.current.createGain();
     oscillator.connect(gainNode);
-    gainNode.connect(audioContext.current.destination);
-    
+    gainNode.connect(audioContextRef.current.destination);
+    gainNode.gain.setValueAtTime(0.3, audioContextRef.current.currentTime);
+
     switch (type) {
       case 'right':
         oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(660, audioContext.current.currentTime);
-        gainNode.gain.setValueAtTime(0.5, audioContext.current.currentTime);
-        oscillator.start();
-        oscillator.stop(audioContext.current.currentTime + 0.2);
+        oscillator.frequency.setValueAtTime(660, audioContextRef.current.currentTime);
         break;
       case 'wrong':
         oscillator.type = 'sawtooth';
-        oscillator.frequency.setValueAtTime(220, audioContext.current.currentTime);
-        gainNode.gain.setValueAtTime(0.3, audioContext.current.currentTime);
-        oscillator.start();
-        oscillator.stop(audioContext.current.currentTime + 0.3);
+        oscillator.frequency.setValueAtTime(220, audioContextRef.current.currentTime);
         break;
       case 'end':
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(880, audioContext.current.currentTime);
-        gainNode.gain.setValueAtTime(0.5, audioContext.current.currentTime);
-        oscillator.start();
-        
-        // Create a small melody
-        oscillator.frequency.setValueAtTime(880, audioContext.current.currentTime);
-        oscillator.frequency.setValueAtTime(990, audioContext.current.currentTime + 0.2);
-        oscillator.frequency.setValueAtTime(1100, audioContext.current.currentTime + 0.4);
-        
-        oscillator.stop(audioContext.current.currentTime + 0.6);
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(880, audioContextRef.current.currentTime);
+        oscillator.frequency.linearRampToValueAtTime(1100, audioContextRef.current.currentTime + 0.2);
+        oscillator.frequency.linearRampToValueAtTime(1320, audioContextRef.current.currentTime + 0.4);
         break;
     }
+    oscillator.start();
+    oscillator.stop(audioContextRef.current.currentTime + (type === 'end' ? 0.6 : 0.2));
   };
 
-  const selectMatch = (element: HTMLDivElement, wordData: MatchingItem) => {
-    // If clicking the same item, deselect it
-    if (selectedPair.length === 1 && selectedPair[0] === element) {
-      element.classList.remove("selected");
-      setSelectedPair([]);
-      return;
-    }
-
-    if(selectedPair.length === 0) {
-      setTempWordData(wordData);
-    }
-    
-    // If we have less than 2 items selected
-    if (selectedPair.length < 2) {
-      element.classList.add("selected");
-      
-      const newSelectedPair = [...selectedPair, element];
-      setSelectedPair(newSelectedPair);
-      
-      // Show flashcard for the selected item
-      showFlashcard({
-        type: wordData.isMeaning ? 'meaning' : 'word',
-        word: wordData.word,
-        color: 'white'
-      });
-      
-      // If we now have 2 items selected
-      if (newSelectedPair.length === 2) {
-        const [first, second] = newSelectedPair;
-        
-        // Check if they match
-        if (first.dataset.value === second.dataset.value) {
-          playSound('right');
-          
-          const newMatchCount = matchCounts + 1;
-          setMatchCounts(newMatchCount);
-          
-          let newColorMap = { ...colorMap };
-          let assignedColor = newColorMap[first.dataset.value!];
-          
-          if (!assignedColor) {
-            // Assign a color from our palette 
-            assignedColor = nextCardColor() // availableColors[matchCounts % availableColors.length];
-            newColorMap[first.dataset.value!] = assignedColor;
-            setColorMap(newColorMap);
-          }
-          
-          first.classList.add("matched");
-          second.classList.add("matched");
-          
-          first.style.backgroundColor = assignedColor;
-          first.style.borderColor = assignedColor;
-          second.style.backgroundColor = assignedColor;
-          second.style.borderColor = assignedColor;
-          
-          showFlashcard({
-            type: 'all',
-            word: wordData.word,
-            color: assignedColor
-          });
-          
-          if (newMatchCount === Math.min(wordCount, words.length)) {
-            // Game over - all words matched
-            playSound('end');
-            toast({
-              title: "Great job!",
-              description: `You matched all ${Math.min(wordCount, words.length)} word pairs!`
-            });
-          }
-        } else {
-          // No match
-          playSound('wrong');
-          
-          first.classList.add("unmatch-item");
-          second.classList.add("unmatch-item");
-          
-          // Remove classes after animation
-          setTimeout(() => {
-            first.classList.remove("selected", "unmatch-item");
-            second.classList.remove("selected", "unmatch-item");
-            clearFlashcard();
-            setSelectedPair([]);
-            setTempWordData(null);
-          }, 500);
-        }
-        
-        // Reset selection after handling match/no match
-        if (first.dataset.value === second.dataset.value) {
-          setSelectedPair([]);
-        }
-      }
-    }
+  const getWordMeaning = (entry: Word) => {
+    const maxLength = isMobile ? 20 : 35;
+    const meaning = (entry.meanings && entry.meanings.length > 0) ? entry.meanings[0] : entry.meaning || '';
+    return meaning.length > maxLength ? meaning.slice(0, maxLength) + "..." : meaning;
   };
-  
-  const showFlashcard = ({ type, word, color }: { type: string, word: Word, color: string }) => {
+
+  const showFlashcard = useCallback(({ type, word, color }: { type: string, word: Word, color: string }) => {
     const flashcardContainer = document.getElementById("flashcard-container");
     if (!flashcardContainer) return;
-    
-    let meaning = '';
-    let defaultMeaningColor = 'blue';
-    
-    if (word.meaning) {
-      meaning = word.meaning;
-    } else if (word.meanings && word.meanings.length > 0) {
-      meaning = word.meanings.join(' | ');
-    }
 
-    // Different content based on language and type
-    let content = '';
-    
+    let meaningText = (word.meanings && word.meanings.length > 0) ? word.meanings.join(' | ') : word.meaning || 'N/A';
+    let displayWord = word.word;
+    let details = '';
+
     if (currentLanguage === 'greek') {
-      switch (type) {
-        case 'all':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold text-xl mb-2 bib-lit-text greek-size">${word.word}</p>
-              <p class="text-amber-500">${word.root ? "root: " + word.root : ''}</p>
-              <p class="p-2 rounded-md font-bold text-white" style="background-color: ${color}">${meaning}</p>
-            </div>
-          `;
-          break;
-        case 'meaning':
-          content = `
-            <div class="flashcard-animation show">
-              <!-- <h4 class="text-xl font-semibold" style="color: ${color}">${meaning}</h4> -->
-              <h4 class="text-l font-semibold" style="color: ${defaultMeaningColor}">${meaning}</h4>
-            </div>
-          `;
-          break;
-        case 'word':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold text-xl mb-2 bib-lit-text greek-size">${word.word}</p>
-              <p class="text-amber-500 bib-lit-text">${word.root ? "root: " + word.root : ''}</p>
-              <p class="text-blue-400">${word.partOfSpeech ? "Part of Speech: " + word.partOfSpeech : ''}</p>
-            </div>
-          `;
-          break;
-      }
+        details = `<p class="text-xs text-muted-foreground">${word.root ? `Root: ${word.root}` : ''} ${word.partOfSpeech ? `(${word.partOfSpeech})` : ''}</p>`;
+        displayWord = `<p class="font-bold text-xl mb-1 bib-lit-text greek-size text-primary">${word.word}</p>`;
     } else if (currentLanguage === 'hebrew') {
-      switch (type) {
-        case 'all':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold text-xl mb-2 bib-lit-text hebrew hebrew-size">${word.word}</p>
-              <p class="text-amber-500">${word.transliteration ? "(" + word.transliteration + ")" : ''}</p>
-              <p class="p-2 rounded-md font-bold text-white" style="background-color: ${color}">${meaning}</p>
-              <p class="text-blue-400">${word.partOfSpeech || ''}</p>
-            </div>
-          `;
-          break;
-        case 'meaning':
-          content = `
-            <div class="flashcard-animation show">
-              <h4 class="text-l font-semibold" style="color: ${defaultMeaningColor}">${meaning}</h4>
-            </div>
-          `;
-          break;
-        case 'word':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold mb-2 bib-lit-text hebrew hebrew-size">${word.word}</p>
-              <p class="text-amber-500">${word.transliteration ? "(" + word.transliteration + ")" : ''}</p>
-              <p class="text-blue-400">${word.partOfSpeech ? "Part of Speech: " + word.partOfSpeech : ''}</p>
-            </div>
-          `;
-          break;
-      }
+        details = `<p class="text-xs text-muted-foreground">${word.transliteration ? `(${word.transliteration})` : ''} ${word.partOfSpeech ? `(${word.partOfSpeech})` : ''}</p>`;
+        displayWord = `<p class="font-bold text-xl mb-1 bib-lit-text hebrew hebrew-size text-primary">${word.word}</p>`;
     } else if (currentLanguage === 'latin') {
-      switch (type) {
-        case 'all':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold text-xl mb-2 bib-lit-text">${word.word} | ${word.inflection || ''}</p>
-              <p class="p-2 rounded-md font-bold text-white" style="background-color: ${color}">${meaning}</p>
-              <p class="text-blue-400">${word.partOfSpeech || ''}</p>
-              <p class="text-amber-500">${word.semanticGroup ? "Semantic Group: " + word.semanticGroup : ''}</p>
-            </div>
-          `;
-          break;
-        case 'meaning':
-          content = `
-            <div class="flashcard-animation show">
-              <h4 class="text-l font-semibold" style="color: ${defaultMeaningColor}">${meaning}</h4>
-            </div>
-          `;
-          break;
-        case 'word':
-          content = `
-            <div class="flashcard-animation show">
-              <p class="text-blue-400 font-bold text-xl mb-2 bib-lit-text">${word.word}</p>
-              <p class="text-amber-500">${word.inflection ? "Inflection: " + word.inflection : ''}</p>
-              <p class="text-blue-400">${word.partOfSpeech ? "Part of Speech: " + word.partOfSpeech : ''}</p>
-              <p class="text-amber-500">${word.semanticGroup ? "Semantic Group: " + word.semanticGroup : ''}</p>
-            </div>
-          `;
-          break;
-      }
-    }
-    
-    flashcardContainer.innerHTML = content;
-  };
-  
-  const clearFlashcard = () => {
-    const flashcardContainer = document.getElementById("flashcard-container");
-    if (flashcardContainer) {
-      flashcardContainer.innerHTML = `
-        <p>Select a word to match</p>
-      `;
-    }
-  };
-  
-  // Helper function to clear the animated flashcard (for demo mode)
-  const clearAnimatedFlashcard = () => {
-    clearFlashcard();
-  };
-  
-  const resetGame = () => {
-    generateMatchingGame(words);
-    
-    // Reset UI elements by removing all classes and styles from match items
-    const matchItems = document.querySelectorAll('.match-item');
-    matchItems.forEach(item => {
-      const element = item as HTMLElement;
-      element.classList.remove('selected', 'matched', 'unmatch-item');
-      element.style.backgroundColor = '';
-      element.style.borderColor = '';
-    });
-    
-    // Reset color map
-    setColorMap({});
-    
-    clearFlashcard();
-  };
-  
-  const shuffleGame = () => {
-    if (matchingList === 'snapshots' && currentSnapshot) {
-      setWords(getRandomWords(currentSnapshot.data, wordCount));
-    } else if(matchingList === 'word_groups' && selectedWordGroup && wordGroups[selectedWordGroup]) {
-      const groupWords = getRandomWords(wordGroups[selectedWordGroup], wordCount);
-      setWords(groupWords);
-    } else if(matchingList === 'difficult_words') {
-      const { difficultWordsDb } = localDatabases(currentLanguage);
-      const savedWords = difficultWordsDb.getAll();
-      if (savedWords) {
-        setWords(savedWords);
-      }
-    } else {
-      const shuffledWords = words.slice(0, wordCount);
+        details = `<p class="text-xs text-muted-foreground">${word.inflection ? `Inflection: ${word.inflection}` : ''} ${word.partOfSpeech ? `(${word.partOfSpeech})` : ''} ${word.semanticGroup ? `Group: ${word.semanticGroup}` : ''}</p>`;
+        displayWord = `<p class="font-bold text-xl mb-1 bib-lit-text text-primary">${word.word}</p>`;
     }
 
-    resetGame();
-  };
-  
-  // Enhanced demo play implementation
-  const playDemo = () => {
-    // If already playing, stop the demo
-    if (demoPlayerState.isPlaying) {
-      // Stop the demo
-      if (demoPlayerState.timer1) clearInterval(demoPlayerState.timer1);
-      if (demoPlayerState.timer2) clearTimeout(demoPlayerState.timer2);
-      
-      setDemoPlayerState({
-        ...demoPlayerState,
-        isPlaying: false
-      });
-      resetGame();
+    let content = '';
+    switch (type) {
+      case 'all':
+        content = `<div class="flashcard-animation show">${displayWord}<p class="p-2 rounded-md font-semibold text-white" style="background-color: ${color}">${meaningText}</p>${details}</div>`;
+        break;
+      case 'meaning':
+        content = `<div class="flashcard-animation show"><h4 class="text-lg font-semibold text-accent">${meaningText}</h4></div>`;
+        break;
+      case 'word':
+        content = `<div class="flashcard-animation show">${displayWord}${details}</div>`;
+        break;
+    }
+    flashcardContainer.innerHTML = content;
+  }, [currentLanguage]);
+
+  const selectMatch = useCallback((element: HTMLDivElement, itemData: MatchingItem) => {
+    if (element.classList.contains("matched")) return;
+
+    if (selectedPairElements.length === 1 && selectedPairElements[0] === element) {
+      element.classList.remove("selected");
+      setSelectedPairElements([]);
+      clearFlashcard();
       return;
     }
+
+    element.classList.add("selected");
+    const newSelectedPair = [...selectedPairElements, element];
+    setSelectedPairElements(newSelectedPair);
     
-    // Start the demo
-    const words = document.getElementsByClassName('lword');
-    const meanings = document.getElementsByClassName('lmeaning');
-    
-    // Create wordMeaningList and wordList
-    let wordMeaningList: Record<string, any> = {};
-    let wordList: any[] = [];
-    
-    Array.from(words).forEach((w) => {
-      const element = w as HTMLElement;
-      wordMeaningList[element.dataset.value!] = {
-        wordDiv: element,
-        word: element.dataset.value
-      };
-    });
-    
-    Array.from(meanings).forEach((m) => {
-      const element = m as HTMLElement;
-      const w = wordMeaningList[element.dataset.value!];
-      if (w) {
-        w.meaningDiv = element;
-        w.meaning = element.textContent;
-        wordList.push(w);
+    if (newSelectedPair.length === 1) {
+        setTempWordData(itemData); // Set for potential save
+        showFlashcard({ type: itemData.isMeaning ? 'meaning' : 'word', word: itemData.word, color: 'hsl(var(--accent))' });
+    }
+
+    if (newSelectedPair.length === 2) {
+      const [firstEl, secondEl] = newSelectedPair;
+      const firstData = pairs.find(p => p.id === firstEl.dataset.id);
+      const secondData = pairs.find(p => p.id === secondEl.dataset.id);
+
+      if (firstData && secondData && firstData.value === secondData.value) {
+        playSound('right');
+        const newMatchCount = matchCounts + 1;
+        setMatchCounts(newMatchCount);
+
+        let newColorMap = { ...colorMap };
+        let assignedColor = newColorMap[firstData.value!] || nextCardColorRef.current();
+        newColorMap[firstData.value!] = assignedColor;
+        setColorMap(newColorMap);
+
+        [firstEl, secondEl].forEach(el => {
+          el.classList.add("matched");
+          el.classList.remove("selected");
+          el.style.backgroundColor = assignedColor;
+          el.style.borderColor = assignedColor;
+          el.style.color = 'white'; // Ensure text is visible on colored background
+        });
+        
+        showFlashcard({ type: 'all', word: firstData.word, color: assignedColor });
+        setSelectedPairElements([]);
+
+        if (newMatchCount === Math.min(wordCount, gameWords.length)) {
+          playSound('end');
+          toast({ title: "Great job!", description: `You matched all ${newMatchCount} pairs!` });
+        }
+      } else {
+        playSound('wrong');
+        [firstEl, secondEl].forEach(el => el.classList.add("unmatch-item"));
+        setTimeout(() => {
+          [firstEl, secondEl].forEach(el => el.classList.remove("selected", "unmatch-item"));
+          setSelectedPairElements([]);
+          clearFlashcard();
+        }, 600);
       }
-    });
-    
-    // Shuffle the word list
-    fisherYateShuffle(wordList);
-    
-    // Helper function to reset rhythm
-    function resetRhythm(divElement: HTMLElement) {
-      divElement.classList.remove("matched");
-      divElement.classList.remove("selected");
-      divElement.style.backgroundColor = '';
-      divElement.style.borderColor = '';
     }
-    
-    // Helper function to reset demo
-    function resetDemo() {
-      wordList.forEach((w) => {
-        resetRhythm(w.wordDiv);
-        resetRhythm(w.meaningDiv);
-      });
-      clearAnimatedFlashcard();
-      setColorMap({});
+  }, [selectedPairElements, pairs, matchCounts, colorMap, wordCount, gameWords.length, showFlashcard, clearFlashcard, toast]);
+
+  const handleLanguageChange = (language: string) => {
+    setCurrentLanguage(language);
+    toast({ title: "Language Changed", description: `Switched to ${language}` });
+  };
+
+  const handleWordCountChange = (value: string) => {
+    setWordCount(Number(value));
+  };
+  
+  const handleDataSourceChange = async (sourceValue: string) => {
+    setSelectedDataSource(sourceValue);
+    await loadVocabData(currentLanguage, sourceValue);
+    const source = dataSources.find(ds => ds.value === sourceValue);
+    toast({ title: "Data Source Changed", description: `Loaded vocabulary from ${source?.key || sourceValue}` });
+  };
+
+  const handleWordGroupChange = (groupKey: string) => {
+    setSelectedWordGroup(groupKey);
+    if (wordGroups[groupKey]) {
+      // This will trigger the useEffect for activeListType
+      // resetGame(getRandomWords(wordGroups[groupKey], wordCount)); 
+      setActiveListType('groups');
+      toast({ title: "Word Group Selected", description: `Loaded "${groupKey}"` });
     }
+  };
+
+  const saveSnapshot = () => {
+    if (!snapshotName.trim()) {
+      toast({ variant: "destructive", title: "Error", description: "Please enter a snapshot name" });
+      return;
+    }
+    const { snapshotsDb } = getLocalDatabases(currentLanguage);
+    const newSnapshot = { name: snapshotName, data: [...gameWords] }; // Save current game words
+    const saved = snapshotsDb.add(newSnapshot) as {id: string, name: string, data: Word[]};
     
-    // Helper function to end demo
-    function endDemo(quit = false) {
+    setSnapshots(prev => [...prev, saved]);
+    setCurrentSnapshotId(saved.id);
+    setActiveListType('snapshots');
+    setSnapshotName('');
+    toast({ title: "Snapshot Saved", description: `Saved "${newSnapshot.name}"` });
+  };
+
+  const deleteCurrentSnapshot = () => {
+    if (!currentSnapshotId) return;
+    const { snapshotsDb } = getLocalDatabases(currentLanguage);
+    snapshotsDb.remove(currentSnapshotId);
+    const updatedSnapshots = snapshots.filter(s => s.id !== currentSnapshotId);
+    setSnapshots(updatedSnapshots);
+    const oldSnapshotName = snapshots.find(s => s.id === currentSnapshotId)?.name;
+    setCurrentSnapshotId(null);
+    setActiveListType('inview'); // Revert to a default list
+    toast({ title: "Snapshot Deleted", description: `Deleted "${oldSnapshotName}"` });
+  };
+
+  const handleStartGameMobile = () => {
+    if (isMobile) {
+      setIsGameModalOpen(true);
+    }
+    // For desktop, game is already visible. If needed, could trigger a reset here.
+    // resetGame(gameWords); // Or based on activeListType
+  };
+
+  const displayActiveListName = () => {
+    if (activeListType === 'inview') return "Demo Words";
+    if (activeListType === 'difficult_words') return "Your Saved Words";
+    if (activeListType === 'snapshots' && currentSnapshotId) {
+      return `Set: ${snapshots.find(s => s.id === currentSnapshotId)?.name || 'Unnamed Set'}`;
+    }
+    if (activeListType === 'groups' && selectedDataSource && selectedWordGroup) {
+      const sourceName = dataSources.find(ds => ds.value === selectedDataSource)?.key || 'Source';
+      return `${sourceName} - ${selectedWordGroup}`;
+    }
+    return "Select a list";
+  };
+
+  const playDemo = () => {
+    if (demoPlayerState.isPlaying) {
       if (demoPlayerState.timer1) clearInterval(demoPlayerState.timer1);
       if (demoPlayerState.timer2) clearTimeout(demoPlayerState.timer2);
-      resetDemo();
-      setMatchCounts(0);
-      setSelectedPair([]);
-      
-      if (quit) {
-        setDemoPlayerState((state) => ({
-          ...state,
-          isPlaying: false
-        }));
-      }
+      setDemoPlayerState(prev => ({ ...prev, isPlaying: false }));
+      resetGame(gameWords); // Reset with current game words
+      return;
     }
+
+    const wordElements = Array.from(document.querySelectorAll('.lword')) as HTMLElement[];
+    const meaningElements = Array.from(document.querySelectorAll('.lmeaning')) as HTMLElement[];
     
-    // Set demo as playing
-    setDemoPlayerState((state) => ({
-      ...state,
-      isPlaying: true
-    }));
-    
-    toast({
-      title: "Demo Mode",
-      description: "Watch how the matching game works!"
+    if (wordElements.length === 0 || meaningElements.length === 0) {
+        toast({title: "Demo Error", description: "No game elements found to demonstrate.", variant: "destructive"});
+        return;
+    }
+
+    let wordMeaningList: { wordDiv: HTMLElement, meaningDiv: HTMLElement, wordItem: MatchingItem }[] = [];
+
+    wordElements.forEach(wEl => {
+        const wordItem = pairs.find(p => p.id === wEl.dataset.id);
+        if (wordItem) {
+            const correspondingMeaningEl = meaningElements.find(mEl => {
+                const meaningItem = pairs.find(p => p.id === mEl.dataset.id);
+                return meaningItem && meaningItem.value === wordItem.value && meaningItem.isMeaning;
+            });
+            if (correspondingMeaningEl) {
+                wordMeaningList.push({ wordDiv: wEl, meaningDiv: correspondingMeaningEl, wordItem });
+            }
+        }
     });
     
-    // Demo player function
-    function demoPlayer(wordList: any[], repeat = 2) {
-      let i = 0;
-      let meaningChoosed = true;
-      
-      eventEmitter.once('countdown:start', () => {
-        meaningChoosed = false;
-      });
-      
-      eventEmitter.once('countdown:end', () => {
-        meaningChoosed = true;
-      });
-      
-      demoPlayerState.timer1 = setInterval(() => {
-        if (!meaningChoosed) {
-          return;
-        }
-        
-        if (i < wordList.length && repeat > 0) {
-          const item = wordList[i];
-          item.wordDiv.click();
-          meaningChoosed = false;
-          
-          demoPlayerState.timer2 = setTimeout(() => {
-            item.meaningDiv.click();
-            i += 1;
-            meaningChoosed = true;
-          }, demoPlayerState.speedInSec * 1000);
-        } else if (repeat > 0) {
-          i = 0;
-          repeat -= 1;
-          resetDemo();
-          
-          if (repeat > 0) {
-            eventEmitter.once('countdown:start', () => {
-              meaningChoosed = false;
-            });
-            eventEmitter.once('countdown:end', () => {
-              meaningChoosed = true;
-            });
-            startCountdown({
-              countDownTime: Math.floor(demoPlayerState.speedInSec) - 1,
-              displayText: `Ready for next ...`
-            });
-          } else {
-            endDemo(true);
-          }
-        } else {
-          endDemo(true);
-        }
-      }, demoPlayerState.speedInSec * 1000);
-      
-      startCountdown({
-        countDownTime: Math.floor(demoPlayerState.speedInSec) - 1,
-        displayText: `Demo in ...`
-      });
+    if (wordMeaningList.length === 0) {
+      toast({ title: "Demo Error", description: "Could not pair words and meanings for demo.", variant: "destructive" });
+      return;
     }
+
+    fisherYateShuffle(wordMeaningList);
+    resetGame(gameWords); // Reset to ensure clean state before demo starts
+
+    setDemoPlayerState(prev => ({ ...prev, isPlaying: true }));
+    toast({ title: "Demo Mode", description: "Watch how the game works!" });
+
+    let i = 0;
+    let repeatCount = demoPlayerState.repeat;
+
+    const performNextDemoStep = () => {
+        if (i < wordMeaningList.length) {
+            const item = wordMeaningList[i];
+            item.wordDiv.click(); // Simulate click
+
+            const timer2 = setTimeout(() => {
+                item.meaningDiv.click(); // Simulate click
+                i++;
+                if (demoPlayerState.isPlaying) { // Check if still playing before scheduling next
+                    performNextDemoStep(); // Schedule next step
+                }
+            }, demoPlayerState.speedInSec * 1000 / 2);
+            setDemoPlayerState(prev => ({ ...prev, timer2 }));
+
+        } else if (repeatCount > 1) {
+            i = 0;
+            repeatCount--;
+            resetGame(gameWords); // Reset for next round of demo
+            if (demoPlayerState.isPlaying) {
+                performNextDemoStep();
+            }
+        } else {
+            // Demo finished
+            if (demoPlayerState.timer1) clearInterval(demoPlayerState.timer1);
+            if (demoPlayerState.timer2) clearTimeout(demoPlayerState.timer2);
+            setDemoPlayerState(prev => ({ ...prev, isPlaying: false, timer1: undefined, timer2: undefined }));
+            resetGame(gameWords); // Final reset
+        }
+    };
     
-    demoPlayer(wordList, demoPlayerState.repeat);
+    // Start the first step of the demo after a brief delay to allow UI to settle
+    const timer1 = setTimeout(performNextDemoStep, demoPlayerState.speedInSec * 1000 / 2);
+    setDemoPlayerState(prev => ({ ...prev, timer1 }));
   };
 
 
+  const renderGameContent = (isMobileModal = false) => (
+    <div className={`flex ${isMobileModal ? 'flex-col h-full' : 'flex-col md:flex-row'} gap-4`}>
+        {/* Flashcard section */}
+        <Card className={isMobileModal ? 'mb-2' : 'w-full md:w-1/3'}>
+          <CardHeader className="p-3">
+            <div className="flex justify-between items-center">
+              <CardTitle className="text-base">Flashcard</CardTitle>
+              {gameWords.length > 0 && tempWordData?.word && (
+                 <SaveDifficultWord 
+                    currentLanguage={currentLanguage} 
+                    currentWord={tempWordData.word}
+                    onWordSavedOrRemoved={refreshSavedWordsStatus}
+                 />
+              )}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              Matched: {matchCounts} / {Math.min(wordCount, gameWords.length)}
+              {demoPlayerState.isPlaying && (
+                <Badge variant="secondary" className="ml-2">Demo</Badge>
+              )}
+            </div>
+          </CardHeader>
+          <CardContent id="flashcard-container" className="min-h-20 md:min-h-28 flex items-center justify-center text-center p-2 md:p-3">
+            <p className="text-muted-foreground">Select a word to match</p>
+          </CardContent>
+        </Card>
+
+        {/* Matching Game Area */}
+        <div className={isMobileModal ? 'flex-grow flex flex-col' : 'flex-1'}>
+          <div className={`grid gap-2 ${isMobile || isMobileModal ? 'grid-cols-2' : 'grid-cols-4'} ${isMobileModal ? 'flex-grow' : ''}`}>
+            {pairs.map((item) => (
+              <div 
+                key={item.id}
+                className={cn(
+                  "match-item p-2 border-2 rounded-md flex items-center justify-center text-center",
+                  "transition-all cursor-pointer hover:bg-muted/80 min-h-16 text-sm",
+                  item.isMeaning ? 'lmeaning' : 'lword',
+                  currentLanguage === 'greek' && !item.isMeaning && 'bib-lit-text',
+                  currentLanguage === 'hebrew' && !item.isMeaning && 'bib-lit-text hebrew',
+                  currentLanguage === 'latin' && !item.isMeaning && 'bib-lit-text'
+                )}
+                onClick={(e) => selectMatch(e.currentTarget as HTMLDivElement, item)}
+                data-value={item.value}
+                data-id={item.id}
+              >
+                {item.text}
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
+            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame(gameWords)}>
+              <RefreshCw className="h-4 w-4 mr-1" /> Restart
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame()}> {/* Shuffle implies fetching new words from source */}
+              <ForwardIcon className="h-4 w-4 mr-1" /> Next Set
+            </Button>
+            <Button 
+              variant={demoPlayerState.isPlaying ? "destructive" : "outline"}
+              size="sm"
+              onClick={playDemo}
+            >
+              <Play className="h-4 w-4 mr-1" />
+              {demoPlayerState.isPlaying ? "Stop Demo" : "Demo"}
+            </Button>
+          </div>
+        </div>
+      </div>
+  );
+
   return (
-    <div className="matching-game">
-      <Card className="mb-6">
+    <div className="space-y-6 p-1 md:p-4">
+      <Card>
         <CardHeader>
-          <div className="flex justify-between items-center">
-            <CardTitle className="text-xl">{currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)} Matching Game</CardTitle>
-            <div className="flex items-center space-x-2">
-              <Sheet open={isSettingsSheetOpen} onOpenChange={handleSettingsSheetOpenChange}>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="sm">
-                    <Settings className="h-4 w-4 mr-1" />
-                    Settings
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="overflow-y-auto max-h-screen">
-                  <SheetHeader>
-                    <SheetTitle>Game Settings</SheetTitle>
-                    <SheetDescription>
-                      Customize your matching game experience
-                    </SheetDescription>
-                  </SheetHeader>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <div className="flex-grow">
+                <CardTitle className="text-xl md:text-2xl">
+                {currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)} Matching Game
+                </CardTitle>
+                <CardDescription>
+                Match words with meanings. Active: <span className="font-semibold text-primary">{displayActiveListName()}</span>
+                </CardDescription>
+            </div>
+            <Sheet open={isSettingsSheetOpen} onOpenChange={setIsSettingsSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <Settings className="h-4 w-4 mr-1" /> Settings
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="overflow-y-auto max-h-screen w-full sm:max-w-sm">
+                <SheetHeader>
+                  <SheetTitle>Game Settings</SheetTitle>
+                  <SheetDescription>Customize your matching game.</SheetDescription>
+                </SheetHeader>
+                <div className="py-4 space-y-6">
+                  {/* Language Select */}
+                  <div className="space-y-2">
+                    <Label htmlFor="language-select">Language</Label>
+                    <Select onValueChange={handleLanguageChange} defaultValue={currentLanguage}>
+                      <SelectTrigger id="language-select"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="greek">Greek</SelectItem>
+                        <SelectItem value="hebrew">Hebrew</SelectItem>
+                        <SelectItem value="latin">Latin</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Word Count Select */}
+                  <div className="space-y-2">
+                    <Label htmlFor="word-count">Word Pairs ({isMobile ? "Mobile Max " + DEFAULT_WORD_COUNT_MOBILE : "Desktop Max " + DEFAULT_WORD_COUNT_DESKTOP})</Label>
+                    <Select onValueChange={handleWordCountChange} defaultValue={String(wordCount)}>
+                      <SelectTrigger id="word-count"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {[4,5,6,7,8,9,10,12,15,20].map(num => (
+                            <SelectItem key={num} value={String(num)} disabled={num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots'}>
+                                {num} pairs {num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots' ? "(Desktop Large Set)" : ""}
+                            </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Vocabulary Source Select */}
+                  <div className="space-y-2">
+                    <Label htmlFor="vocab-source">Vocabulary Source (for Groups)</Label>
+                    <Select onValueChange={handleDataSourceChange} value={selectedDataSource || ""} disabled={dataSources.length === 0 || isLoading}>
+                      <SelectTrigger id="vocab-source">
+                        <SelectValue placeholder={isLoading ? "Loading..." : "Select source"} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {dataSources.map(source => (
+                          <SelectItem key={source.value} value={source.value}>{source.key}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Word Group Select */}
+                  <div className="space-y-2">
+                    <Label htmlFor="word-group">Word Group</Label>
+                    <Select onValueChange={handleWordGroupChange} value={selectedWordGroup || ""} disabled={Object.keys(wordGroups).length === 0 || isLoading || !selectedDataSource}>
+                      <SelectTrigger id="word-group">
+                        <SelectValue placeholder={isLoading ? "Loading..." : "Select group"} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.keys(wordGroups).map(group => (
+                          <SelectItem key={group} value={group}>{group} ({wordGroups[group]?.length || 0} words)</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                   
-                  <div className="py-4 space-y-4">
+                  {/* Snapshot Management */}
+                  <Card className="p-4 space-y-3 bg-muted/50">
+                    <Label className="text-base font-semibold">Saved Word Sets (Snapshots)</Label>
                     <div className="space-y-2">
-                      <Label htmlFor="language-select">Language</Label>
-                      <Select onValueChange={handleLanguageChange} defaultValue={currentLanguage}>
-                        <SelectTrigger id="language-select">
-                          <SelectValue placeholder="Select a language" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="greek">Greek</SelectItem>
-                          <SelectItem value="hebrew">Hebrew</SelectItem>
-                          <SelectItem value="latin">Latin</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="word-count">Word Pairs</Label>
-                      <Select 
-                        onValueChange={(value) => setWordCount(Number(value))} 
-                        defaultValue={String(wordCount)}
-                      >
-                        <SelectTrigger id="word-count">
-                          <SelectValue placeholder="Select number of word pairs" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="4">4 pairs</SelectItem>
-                          <SelectItem value="5">5 pairs</SelectItem>
-                          <SelectItem value="6">6 pairs</SelectItem>
-                          <SelectItem value="7">7 pairs</SelectItem>
-                          <SelectItem value="8">8 pairs</SelectItem>
-                          <SelectItem value="9">9 pairs</SelectItem>
-                          <SelectItem value="10">10 pairs</SelectItem>
-                          <SelectItem value="12">12 pairs (challenging)</SelectItem>
-                          <SelectItem value="15">15 pairs (challenging)</SelectItem>
-                          <SelectItem value="12">20 pairs (challenging)</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="vocab-source">Vocabulary Source</Label>
-                      <Select 
-                        onValueChange={handleDataSourceChange} 
-                        value={selectedDataSource || undefined}
-                        disabled={dataSources.length === 0 || isLoading}
-                      >
-                        <SelectTrigger id="vocab-source">
-                          <SelectValue placeholder={isLoading ? "Loading..." : "Select vocabulary source"} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {dataSources.map(source => (
-                            <SelectItem key={source.value} value={source.value}>{source.key}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="word-group">Word Group</Label>
-                      <Select 
-                        onValueChange={handleWordGroupChange} 
-                        value={selectedWordGroup || undefined}
-                        disabled={Object.keys(wordGroups).length === 0 || isLoading}
-                      >
-                        <SelectTrigger id="word-group">
-                          <SelectValue placeholder={isLoading ? "Loading..." : "Select word group"} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {Object.keys(wordGroups).map(group => (
-                            <SelectItem key={group} value={group}>{group}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="snapshot-name">Save Current Set</Label>
+                      <Label htmlFor="snapshot-name">Save Current Game Words as Set</Label>
                       <div className="flex space-x-2">
-                        <Input 
-                          id="snapshot-name" 
-                          placeholder="Enter name for snapshot" 
-                          value={snapshotName} 
-                          onChange={(e) => setSnapshotName(e.target.value)} 
-                        />
-                        <Button onClick={saveSnapshot} disabled={!snapshotName}>
-                          <Save className="h-4 w-4 mr-2" />
-                          Save
-                        </Button>
+                        <Input id="snapshot-name" placeholder="Enter set name" value={snapshotName} onChange={(e) => setSnapshotName(e.target.value)} />
+                        <Button onClick={saveSnapshot} disabled={!snapshotName.trim() || gameWords.length === 0} size="icon"><Save className="h-4 w-4" /></Button>
                       </div>
                     </div>
-                    
                     <div className="space-y-2">
-                      <Label htmlFor="saved-snapshots">Saved Sets</Label>
-                      <Select 
+                      <Label htmlFor="saved-snapshots">Load a Saved Set</Label>
+                       <Select 
                         onValueChange={(id) => {
+                          setCurrentSnapshotId(id);
+                          setActiveListType('snapshots');
                           const snapshot = snapshots.find(s => s.id === id);
                           if (snapshot) {
-                            setCurrentSnapshot(snapshot);
-                            setIsSnapshot(true);
-                            setWords(snapshot.data);
-                            generateMatchingGame(snapshot.data);
+                            setWordCount(snapshot.data.length); // Adjust word count to snapshot size
                           }
-                        }}
-                        value={currentSnapshot?.id}
-                      >
-                        <SelectTrigger id="saved-snapshots">
-                          <SelectValue placeholder="Select a saved set" />
-                        </SelectTrigger>
+                        }} 
+                        value={currentSnapshotId || ""}
+                        disabled={snapshots.length === 0}
+                       >
+                        <SelectTrigger id="saved-snapshots"><SelectValue placeholder="Select a set" /></SelectTrigger>
                         <SelectContent>
-                          {snapshots.map(snapshot => (
-                            <SelectItem key={snapshot.id} value={snapshot.id || ''}>{snapshot.name} ({snapshot.data.length} words)</SelectItem>
-                          ))}
+                          {snapshots.map(s => <SelectItem key={s.id} value={s.id}>{s.name} ({s.data.length} words)</SelectItem>)}
                         </SelectContent>
                       </Select>
                     </div>
-                    
-                    {isSnapshot && currentSnapshot && (
-                      <Button variant="destructive" onClick={deleteSnapshot}>
-                        Delete Current Set
+                    {currentSnapshotId && (
+                      <Button variant="destructive" onClick={deleteCurrentSnapshot} className="w-full">
+                        <Trash2 className="mr-2 h-4 w-4" /> Delete Selected Set
                       </Button>
                     )}
-                    
-                    {loadError && (
-                      <Alert variant="destructive">
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertDescription>{loadError}</AlertDescription>
-                      </Alert>
-                    )}
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
+                  </Card>
+
+                  {loadError && (
+                    <Alert variant="destructive">
+                      <AlertTitle>Error</AlertTitle>
+                      <AlertDescription>{loadError}</AlertDescription>
+                    </Alert>
+                  )}
+                </div>
+                 <Button onClick={() => setIsSettingsSheetOpen(false)} className="w-full mt-4">Apply Settings & Close</Button>
+              </SheetContent>
+            </Sheet>
           </div>
-          <CardDescription>
-            Match each word with its correct meaning by clicking on pairs.
-          </CardDescription>
         </CardHeader>
         
         <CardContent>
-          <div className="flex flex-col md:flex-row gap-4">
-            {/* Flashcard */}
-            <div className="w-full md:w-1/3 p-4 border rounded-md bg-gray-50">
-              <div className="text-center mb-2 font-medium">Flashcard</div>
-              <div id="flashcard-container" className="min-h-28 flex items-center justify-center text-center p-4">
-                <p>Select a word to match</p>
-              </div>
-              <div className="text-xs text-gray-500 text-center mt-4">
-                Matched: {matchCounts} / {Math.min(wordCount, words.length)}
-              </div>
-
-              {/* Display active word list */}
-              <div className="text-xs text-gray-500 text-left">
-                <div>
-                  {( displayMatchingListName() )}
-                  {demoPlayerState.isPlaying && (
-                    <Badge variant="secondary">Demo Mode</Badge>
-                  )}
-                </div>
-                <div>
-                  {
-                    (tempWordData && tempWordData.word) ? (
-                      <SaveDifficultWord currentLanguage={currentLanguage} currentWord={tempWordData?.word}/>
-                    ) : (
-                      <div></div>
-                    )
-                  }
-                </div>
-              </div>
-            </div>
-
-            {/* Matching Game Area */}
-            <div className="flex-1">
-              <div className="flex justify-between mb-4">
-                <div>
-                <Badge
-                  variant={matchingList === 'difficult_words' ? 'default' : 'outline'}
-                  className={`mr-2 cursor-pointer ${matchingList === 'difficult_words' ? 'bg-blue-500 text-white' : ''}`}
-                  onClick={() => setMatchingList('difficult_words')}
-                >
-                  {"Inview"}
-                  <BookOpen className="h-3 w-3 ml-1" />
-                </Badge>
-                  {demoPlayerState.isPlaying && (
-                    <Badge variant="secondary">Demo Mode</Badge>
-                  )}
-                </div>
-                <div>
-                  <Badge variant={matchingList === 'snapshots' ? 'default' : 'outline'} className={`mr-2 cursor-pointer ${matchingList === 'snapshots' ? 'bg-blue-500 text-white' : ''}`} onClick = {() => setMatchingList('snapshots')}>
-                    {"Snapshots"}
-                    <Camera className="h-3 w-3 ml-1" />
-                  </Badge>
-                  {demoPlayerState.isPlaying && (
-                    <Badge variant="secondary">Demo Mode</Badge>
-                  )}
-                </div>
-                <div>
-                  <Badge variant={matchingList === 'word_groups' ? 'default' : 'outline'} className={`mr-2 cursor-pointer ${matchingList === 'word_groups' ? 'bg-blue-500 text-white' : ''}`} onClick = {() => setMatchingList('word_groups')}>
-                    {"Groups"}
-                    <GroupIcon className="h-3 w-3 ml-1" />
-                  </Badge>
-                  {demoPlayerState.isPlaying && (
-                    <Badge variant="secondary">Demo Mode</Badge>
-                  )}
-                </div>
-              </div>
-              
-              {/* Game grid */}
-              <div className={`grid gap-2 ${isMobile ? 'grid-cols-2' : 'grid-cols-4'}`}>
-                {pairs.map((item, index) => (
-                  <div 
-                    key={index}
-                    className={`match-item p-2 border-2 rounded-md flex items-center justify-center text-center 
-                      transition-all cursor-pointer hover:bg-gray-50 min-h-16
-                      ${item.isMeaning ? 'lmeaning' : 'lword'} ${currentLanguage === 'greek' && !item.isMeaning ? 'bib-lit-text' : ''} ${currentLanguage === 'hebrew' && !item.isMeaning? 'bib-lit-text hebrew' : ''} ${currentLanguage === 'latin' && !item.isMeaning? 'bib-lit-text' : ''}`}
-                    onClick={(e) => selectMatch(e.currentTarget, item)}
-                    data-value={item.value}
-                  >
-                    {item.text}
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex justify-between mb-4 mt-2">
-                <div className="space-x-1">
-                  <Button 
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      if(!demoPlayerState.isPlaying) resetGame()
-                    }}
-                  >
-                    <RefreshCw className="h-3 w-3" />
-                    Restart
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      if(!demoPlayerState.isPlaying) shuffleGame()
-                    }}
-                  >
-                    <ForwardIcon className="h-3 w-3 " />
-                    Next
-                  </Button>
-                  <Button 
-                    variant={demoPlayerState.isPlaying ? "destructive" : "outline"}
-                    size="sm"
-                    onClick={playDemo}
-                  >
-                    <Play className="h-3 w-3" />
-                    {demoPlayerState.isPlaying ? "Stop Demo" : "Demo"}
-                  </Button>
-                </div>
-              </div>
-            </div>
+          {/* List Type Selection Badges */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <Badge variant={activeListType === 'inview' ? 'default' : 'outline'} onClick={() => setActiveListType('inview')} className="cursor-pointer py-1.5 px-3">
+              <BookOpen className="h-4 w-4 mr-1" /> Demo Words
+            </Badge>
+            <Badge variant={activeListType === 'difficult_words' ? 'default' : 'outline'} onClick={() => setActiveListType('difficult_words')} className="cursor-pointer py-1.5 px-3">
+              <SaveIcon className="h-4 w-4 mr-1" /> Saved Words
+            </Badge>
+            <Badge variant={activeListType === 'snapshots' ? 'default' : 'outline'} onClick={() => setActiveListType('snapshots')} className="cursor-pointer py-1.5 px-3">
+              <Camera className="h-4 w-4 mr-1" /> Word Sets
+            </Badge>
+             <Badge variant={activeListType === 'groups' ? 'default' : 'outline'} onClick={() => setActiveListType('groups')} className="cursor-pointer py-1.5 px-3">
+              <BookOpen className="h-4 w-4 mr-1" /> Word Groups
+            </Badge>
           </div>
+
+          {isLoading && <p className="text-muted-foreground">Loading vocabulary...</p>}
+          {!isLoading && pairs.length === 0 && activeListType !== 'inview' && (
+             <Alert>
+                <AlertTitle>No Words Loaded</AlertTitle>
+                <AlertDescription>
+                    Please select a list type with words or adjust settings. For 'Word Groups', ensure you've selected a source and group. For 'Word Sets', ensure a set is loaded. 'Saved Words' will be empty if you haven't saved any.
+                </AlertDescription>
+            </Alert>
+          )}
+
+          {isMobile ? (
+            <Button onClick={handleStartGameMobile} className="w-full mt-4" disabled={isLoading || pairs.length === 0}>
+              Start Matching Game
+            </Button>
+          ) : (
+             pairs.length > 0 && renderGameContent()
+          )}
         </CardContent>
       </Card>
       
-      {/* Countdown Modal */}
-      <Dialog open={showCountdown} onOpenChange={setShowCountdown}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-center">{countdownText}</DialogTitle>
-            <DialogDescription className="text-center text-5xl font-bold">{countdownValue}</DialogDescription>
+      {isMobile && (
+        <Dialog open={isGameModalOpen} onOpenChange={setIsGameModalOpen}>
+          <DialogContent className="w-full h-[95vh] max-w-none p-0 flex flex-col sm:rounded-lg">
+            <DialogHeader className="p-3 border-b flex flex-row justify-between items-center">
+              <DialogTitle className="text-lg">{currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)} Matching</DialogTitle>
+              <DialogClose asChild>
+                <Button variant="ghost" size="icon"><X className="h-5 w-5" /></Button>
+              </DialogClose>
+            </DialogHeader>
+            <div className="flex-grow overflow-y-auto p-3">
+              {renderGameContent(true)}
+            </div>
+            {/* Footer can be added if needed, e.g. for a close button, but DialogClose in header is common */}
+          </DialogContent>
+        </Dialog>
+      )}
+
+      <Dialog open={demoPlayerState.isPlaying && showCountdownModal} onOpenChange={(open) => !open && setShowCountdownModal(false) /* Allow manual close if needed */ }>
+        <DialogContent className="sm:max-w-xs">
+          <DialogHeader className="items-center">
+            <DialogTitle>{countdownText || "Starting Demo..."}</DialogTitle>
+            <DialogDescription className="text-6xl font-bold text-primary">{countdownValue}</DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>
     </div>
   );
 };
+
+// Helper: Countdown Modal related state and functions
+// These are outside the component as they are simple and don't need to be part of the main re-render loop
+// unless they are actively being shown.
+let countdownInterval: NodeJS.Timeout | undefined;
+let setShowCountdownModal: React.Dispatch<React.SetStateAction<boolean>> = () => {};
+let setCountdownValue: React.Dispatch<React.SetStateAction<number>> = () => {};
+let setCountdownText: React.Dispatch<React.SetStateAction<string>> = () => {};
+
+// Call this function from inside your component's useEffect to initialize setters
+export function initializeCountdownModalSetters(
+    _setShowCountdownModal: React.Dispatch<React.SetStateAction<boolean>>,
+    _setCountdownValue: React.Dispatch<React.SetStateAction<number>>,
+    _setCountdownText: React.Dispatch<React.SetStateAction<string>>
+) {
+    setShowCountdownModal = _setShowCountdownModal;
+    setCountdownValue = _setCountdownValue;
+    setCountdownText = _setCountdownText;
+}
+
+export function startCountdown(options: { countDownTime?: number, displayText?: string }) {
+    const { countDownTime = 3, displayText = "" } = options;
+    
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    setCountdownText(displayText);
+    setCountdownValue(countDownTime);
+    setShowCountdownModal(true);
+    
+    eventEmitter.emit('countdown:start');
+    
+    let timeLeft = countDownTime;
+    countdownInterval = setInterval(() => {
+      timeLeft--;
+      setCountdownValue(timeLeft);
+      
+      if (timeLeft < 0) {
+        if (countdownInterval) clearInterval(countdownInterval);
+        setShowCountdownModal(false);
+        eventEmitter.emit('countdown:end');
+      }
+    }, 1000);
+};
+
 
 export default MatchingGame;
