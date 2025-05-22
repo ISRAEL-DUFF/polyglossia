@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -9,6 +10,9 @@ import { Book, Search, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import './Lexicon.css'
 import OccurrenceViewer from "@/app/greek/OccurrenceViewer";
 
@@ -84,7 +88,7 @@ const LexicaTool: React.FC = () => {
   const [lexiconData, setLexiconData] = useState<{ [key: string]: LexiconEntry }>({});
   const [currentMorphData, setCurrentMorphData] = useState<MorphologyData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showLexicalModal, setShowLexicalModal] = useState(false);
   const [showLogeionModal, setShowLogeionModal] = useState(false);
   const [showOccurrenceModal, setShowOccurrenceModal] = useState(false);
   const [currentLemma, setCurrentLemma] = useState("");
@@ -157,9 +161,11 @@ const LexicaTool: React.FC = () => {
         const firstMorph = lexiconResponse.morphology[0];
         setCurrentMorphData(firstMorph);
         setCurrentLemma(firstMorph.lemma || word);
+      } else {
+        setCurrentLemma(word); // Fallback if no morphology, use input word for lemma
       }
 
-      setShowModal(true);
+      setShowLexicalModal(true);
       
       toast({
         title: "Lexicon Data Loaded",
@@ -178,7 +184,7 @@ const LexicaTool: React.FC = () => {
   };
 
   const handleSaveWord = async () => {
-    if (!currentMorphData || !currentLemma) {
+    if (!currentLemma) { // Changed to check currentLemma as primary identifier
       toast({
         variant: "destructive",
         title: "Error",
@@ -188,8 +194,8 @@ const LexicaTool: React.FC = () => {
     }
 
     try {
-      const lexiconResponse = lexiconData[currentLemma];
-      const meanings = lexiconResponse?.senses.flatMap(sense => sense.glosses) || [];
+      const lexiconEntry = lexiconData[currentLemma];
+      const meanings = lexiconEntry?.senses.flatMap(sense => sense.glosses) || [];
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
@@ -198,12 +204,10 @@ const LexicaTool: React.FC = () => {
         },
         body: JSON.stringify({
           vocabKey: namespace,
-          word: word,
-          morphData: [currentMorphData],
-          lexiconData: {
-            ...lexiconResponse,
-            meanings: []
-          },
+          word: word, // The original input word
+          headWord: currentLemma, // The identified lemma
+          morphData: currentMorphData ? [currentMorphData] : [], // currentMorphData can be null
+          lexiconData: lexiconEntry ? { ...lexiconEntry, meanings: [] } : {},
           meanings: meanings,
           notes: notes
         })
@@ -244,14 +248,21 @@ const LexicaTool: React.FC = () => {
   };
 
   const openLogeionModal = () => {
+    if (!currentLemma && word) setCurrentLemma(word); // Ensure currentLemma is set
     setShowLogeionModal(true);
   };
+  
+  const openOccurrenceModal = () => {
+    if (!currentLemma && word) setCurrentLemma(word); // Ensure currentLemma is set
+    setShowOccurrenceModal(true);
+  };
+
 
   return (
     <div className="container mx-auto space-y-4 p-1">
-      <Card className="bg-gradient-to-r from-greek-blue-light/30 to-greek-blue/10 border-greek-blue/20">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-greek-blue">
+          <CardTitle className="text-2xl font-bold text-center text-primary">
             Ancient Greek Lexica Tool
           </CardTitle>
         </CardHeader>
@@ -264,7 +275,7 @@ const LexicaTool: React.FC = () => {
               onChange={(e) => setWord(e.target.value)}
               className="text-lg"
             />
-            <Button onClick={handleGetLexicalData} disabled={loading} className="bg-greek-blue hover:bg-greek-blue-dark">
+            <Button onClick={handleGetLexicalData} disabled={loading}>
               {loading ? "Loading..." : "Check Word"}
               <Search className="ml-2 h-4 w-4" />
             </Button>
@@ -297,10 +308,10 @@ const LexicaTool: React.FC = () => {
             </div>
           </div>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-2">
             <a
               href="./vocab"
-              className="text-greek-blue hover:text-greek-blue-dark"
+              className="text-primary hover:text-primary/80"
               rel="noopener noreferrer"
             >
               Browse Vocabulary
@@ -310,248 +321,229 @@ const LexicaTool: React.FC = () => {
       </Card>
 
       {/* Modal for Lexical Data */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-1 overflow-y-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-            <div className="p-1 space-y-1">
-              <div className="flex justify-between items-center">
-                <h3 className="text-2xl font-bold">Lexical Data for "{word}"</h3>
-                <Button variant="ghost" size="icon" onClick={() => setShowModal(false)}>
-                  <X />
-                </Button>
-              </div>
+      <Dialog open={showLexicalModal} onOpenChange={setShowLexicalModal}>
+        <DialogContent className="max-w-4xl max-h-[95vh] flex flex-col p-0">
+          <DialogHeader className="p-6 pb-2">
+            <DialogTitle>Lexical Data for "{word}" (Lemma: {currentLemma || 'N/A'})</DialogTitle>
+          </DialogHeader>
+          
+          <div className="flex gap-2 mb-4 px-6">
+            <Button 
+              variant="outline"
+              onClick={openLogeionModal}
+            >
+              <Book className="mr-2 h-4 w-4" />
+              Open in Logeion
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={openOccurrenceModal}
+            >
+              <Book className="mr-2 h-4 w-4" />
+              View Occurrences
+            </Button>
+          </div>
 
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 order-2 md:order-1">
-                  <Button 
-                    variant="outline"
-                    className="mb-4 text-greek-blue hover:bg-greek-blue/10"
-                    onClick={openLogeionModal}
-                  >
-                    <Book className="mr-2 h-4 w-4" />
-                    Open in Logeion
-                  </Button>
+          <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-hidden px-6">
+            <TabsList className="mb-2 shrink-0">
+              <TabsTrigger value="morphology">Morphology</TabsTrigger>
+              <TabsTrigger value="lexicon">Lexicon Entries</TabsTrigger>
+              <TabsTrigger value="dodson">Dodson Entry</TabsTrigger>
+            </TabsList>
 
-                  <Button 
-                    variant="outline"
-                    className="mb-4 text-greek-blue hover:bg-greek-blue/10"
-                    onClick={() => setShowOccurrenceModal(true)}
-                  >
-                    <Book className="mr-2 h-4 w-4" />
-                    View Occurrences
-                  </Button>
-                  
-
-                  {/* Dodson Entry */}
-                  {currentLemma && lexiconData[currentLemma]?.dodson && (
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold mb-2">Dodson Entry</h4>
-                      <Card>
-                        <CardContent className="p-4">
-                          <Table>
-                            <TableBody>
-                              {Object.entries(lexiconData[currentLemma].dodson || {}).map(
-                                ([key, value]) => (
-                                  <TableRow key={key}>
-                                    <TableCell className="font-medium">{key}</TableCell>
-                                    <TableCell>{value}</TableCell>
-                                  </TableRow>
-                                )
-                              )}
-                            </TableBody>
-                          </Table>
-                        </CardContent>
-                      </Card>
+            <TabsContent value="morphology" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+              {morphologyData.length > 0 && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold mb-2">Morphological Forms</h4>
+                  <ScrollArea className="max-h-40">
+                    <div className="flex gap-2 pb-2">
+                      {morphologyData.map((morph, index) => (
+                        <div
+                          key={index}
+                          onClick={() => handleMorphologyClick(morph)}
+                          className={`p-3 rounded-md cursor-pointer flex-shrink-0 transition-colors text-sm ${
+                            currentMorphData === morph
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-muted hover:bg-muted/80"
+                          }`}
+                        >
+                          <div className="font-semibold">Form {index + 1}</div>
+                          {morph.lemma && (
+                            <div>
+                              <span className="text-muted-foreground">Lemma:</span>{" "}
+                              {morph.lemma}
+                            </div>
+                          )}
+                          {morph.partOfSpeech && (
+                            <div>
+                              <span className="text-muted-foreground">POS:</span>{" "}
+                              {morph.partOfSpeech}
+                            </div>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  )}
-                  
-                  {/* Morphology Data */}
-                  {morphologyData.length > 0 && (
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold mb-2">Morphological Forms</h4>
-                      <div className="flex gap-2 overflow-x-auto pb-2">
-                        {morphologyData.map((morph, index) => (
-                          <div
-                            key={index}
-                            onClick={() => handleMorphologyClick(morph)}
-                            className={`p-4 rounded-md cursor-pointer flex-shrink-0 transition-colors ${
-                              currentMorphData === morph
-                                ? "bg-greek-blue text-white"
-                                : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600"
-                            }`}
-                          >
-                            <div className="font-semibold">Form {index + 1}</div>
-                            {morph.lemma && (
-                              <div>
-                                <span className="text-gray-500 dark:text-gray-300">Lemma:</span>{" "}
-                                {morph.lemma}
-                              </div>
-                            )}
-                            {morph.partOfSpeech && (
-                              <div>
-                                <span className="text-gray-500 dark:text-gray-300">Part of Speech:</span>{" "}
-                                {morph.partOfSpeech}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  
-                  {/* Selected Morphology Details */}
-                  {currentMorphData && (
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold mb-2">Detailed Morphology</h4>
+                  </ScrollArea>
+                </div>
+              )}
+              
+              {currentMorphData && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold mb-2">Detailed Morphology</h4>
+                  <Card>
+                    <CardContent className="p-0">
                       <Table>
                         <TableBody>
                           {Object.entries(currentMorphData)
-                            .filter(([_, value]) => value !== null)
+                            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
                             .map(([key, value]) => (
                               <TableRow key={key}>
-                                <TableCell className="font-medium capitalize">{key}</TableCell>
-                                <TableCell>{value}</TableCell>
+                                <TableCell className="font-medium capitalize py-2">{key}</TableCell>
+                                <TableCell className="py-2">{String(value)}</TableCell>
                               </TableRow>
                             ))}
                         </TableBody>
                       </Table>
-                    </div>
-                  )}
-
-                  {/* Notes and Save */}
-                  <div className="mt-6">
-                    <Collapsible open={showNotesInput} onOpenChange={setShowNotesInput}>
-                      <CollapsibleTrigger asChild>
-                        <Button variant="outline" className="mb-2">
-                          {showNotesInput ? "Hide Notes" : "Add Notes"}
-                        </Button>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent>
-                        <textarea
-                          className="w-full h-24 p-2 mb-4 border rounded-md bg-background"
-                          placeholder="Add your notes here..."
-                          value={notes}
-                          onChange={(e) => setNotes(e.target.value)}
-                        />
-                      </CollapsibleContent>
-                    </Collapsible>
-                    
-                    <Button
-                      className="bg-greek-blue hover:bg-greek-blue-dark"
-                      onClick={handleSaveWord}
-                    >
-                      Save Word
-                    </Button>
-                  </div>
+                    </CardContent>
+                  </Card>
                 </div>
+              )}
+              {!currentMorphData && morphologyData.length === 0 && <p className="text-muted-foreground">No morphological data available.</p>}
+            </TabsContent>
 
-                {/* Lexicon Entries in scrollable container */}
-                <div className="flex-1 order-1 md:order-2">
-                  <h4 className="text-lg font-semibold mb-2">Lexicon Entries</h4>
-                  {currentLemma && lexiconData[currentLemma] && (
-                    <div className="space-y-4 max-h-[50vh] overflow-y-auto p-2">
-                      {lexiconData[currentLemma].senses.map((sense, index) => (
-                        <Card key={index} className="p-4">
-                          <div className="text-sm text-gray-500 mb-2">
-                            Entry {index + 1} of {lexiconData[currentLemma].senses.length}
-                          </div>
-                          
-                          {/* Using dangerouslySetInnerHTML for the HTML content */}
-                          <div 
-                            className="prose dark:prose-invert max-w-full"
-                            dangerouslySetInnerHTML={{ __html: sense.htmlText }}
-                          />
-                          
-                          {sense.quotes.length > 0 && (
-                            <div className="mt-4">
-                              <h5 className="font-semibold text-sm">Quotes:</h5>
-                              <ul className="pl-5 space-y-2 mt-2">
-                                {sense.quotes.map((quote, i) => {
-                                  if (!quote.quote) return null;
-                                  const biblText = quote.bibl
-                                    ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
-                                        .filter(Boolean)
-                                        .join(" ")
-                                    : "";
-                                  return (
-                                    <li key={i} className="border-l-2 border-gray-300 pl-3">
-                                      <div className="text-amber-600 dark:text-amber-400">{quote.quote}</div>
-                                      {biblText && (
-                                        <div className="text-xs text-gray-500">– {biblText}</div>
-                                      )}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          )}
-                        </Card>
-                      ))}
-                    </div>
-                  )}
+            <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+              {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].senses.length > 0 ? (
+                <div className="space-y-4">
+                  {lexiconData[currentLemma].senses.map((sense, index) => (
+                    <Card key={index} className="p-4">
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Entry {index + 1} of {lexiconData[currentLemma].senses.length}
+                      </div>
+                      <div 
+                        className="prose dark:prose-invert max-w-full lexicon-html-content" // Added lexicon-html-content class
+                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                      />
+                      {sense.quotes.length > 0 && (
+                        <div className="mt-4">
+                          <h5 className="font-semibold text-sm">Quotes:</h5>
+                          <ul className="pl-5 space-y-2 mt-2">
+                            {sense.quotes.map((quote, i) => {
+                              if (!quote.quote) return null;
+                              const biblText = quote.bibl
+                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
+                                    .filter(Boolean)
+                                    .join(" ")
+                                : "";
+                              return (
+                                <li key={i} className="border-l-2 border-border pl-3">
+                                  <div className="text-accent">{quote.quote}</div>
+                                  {biblText && (
+                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </Card>
+                  ))}
                 </div>
-              </div>
-            </div>
+              ) : (
+                <p className="text-muted-foreground">No lexicon entries available for "{currentLemma || word}".</p>
+              )}
+            </TabsContent>
+
+            <TabsContent value="dodson" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+              {currentLemma && lexiconData[currentLemma]?.dodson ? (
+                <Card>
+                  <CardContent className="p-0">
+                    <Table>
+                      <TableBody>
+                        {Object.entries(lexiconData[currentLemma].dodson || {}).map(
+                          ([key, value]) => (
+                            <TableRow key={key}>
+                              <TableCell className="font-medium py-2">{key}</TableCell>
+                              <TableCell className="py-2">{String(value)}</TableCell>
+                            </TableRow>
+                          )
+                        )}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              ) : (
+                <p className="text-muted-foreground">No Dodson entry available for "{currentLemma || word}".</p>
+              )}
+            </TabsContent>
+          </Tabs>
+          
+          <div className="mt-auto pt-4 border-t px-6 pb-6">
+            <Collapsible open={showNotesInput} onOpenChange={setShowNotesInput}>
+              <CollapsibleTrigger asChild>
+                <Button variant="outline" className="mb-2 w-full sm:w-auto">
+                  {showNotesInput ? "Hide Notes" : "Add Notes"}
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <textarea
+                  className="w-full h-24 p-2 mb-4 border rounded-md bg-background"
+                  placeholder="Add your notes here..."
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                />
+              </CollapsibleContent>
+            </Collapsible>
+            
+            <Button
+              onClick={handleSaveWord}
+              disabled={!currentLemma}
+              className="w-full sm:w-auto"
+            >
+              Save Word
+            </Button>
           </div>
-        </div>
-      )}
+        </DialogContent>
+      </Dialog>
 
       {/* Logeion Modal */}
-      {showLogeionModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 w-full h-full md:w-11/12 md:h-5/6 md:rounded-lg overflow-hidden">
-            <div className="flex justify-between items-center p-2 bg-gray-100 dark:bg-gray-700">
-              <h3 className="font-semibold">
-                Logeion: {currentLemma || word}
-              </h3>
-              <Button variant="ghost" size="sm" onClick={() => setShowLogeionModal(false)}>
-                <X size={18} />
-              </Button>
+      <Dialog open={showLogeionModal} onOpenChange={setShowLogeionModal}>
+        <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0">
+            <DialogHeader className="p-4 pb-2 border-b bg-muted shrink-0">
+              <DialogTitle>Logeion: {currentLemma || word}</DialogTitle>
+            </DialogHeader>
+            <div className="flex-grow overflow-hidden">
+              <iframe
+                ref={iframeRef}
+                src={`https://logeion.uchicago.edu/${encodeURIComponent(currentLemma || word)}`}
+                className="w-full h-full border-0"
+                title="Logeion"
+              />
             </div>
-            <iframe
-              ref={iframeRef}
-              src={`https://logeion.uchicago.edu/${encodeURIComponent(currentLemma || word)}`}
-              className="w-full h-[calc(100%-44px)]"
-              title="Logeion"
-            />
-          </div>
-        </div>
-      )}
+            <DialogFooter className="p-4 border-t bg-muted shrink-0">
+                <Button variant="outline" onClick={() => setShowLogeionModal(false)}>Close</Button>
+            </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Occurrence Modal */}
-      {showOccurrenceModal && (
-        // <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        //   <div className="bg-white dark:bg-gray-800 w-full h-full md:w-11/12 md:h-5/6 md:rounded-lg overflow-hidden">
-        //     <div className="flex justify-between items-center p-2 bg-gray-100 dark:bg-gray-700">
-        //       <h3 className="font-semibold">
-        //         {currentLemma || word}
-        //       </h3>
-        //       <Button variant="ghost" size="sm" onClick={() => setShowOccurrenceModal(false)}>
-        //         <X size={18} />
-        //       </Button>
-        //     </div>
-
-        //     <OccurrenceViewer word={currentLemma || word} />
-            
-        //   </div>
-        // </div>
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 w-full h-full overflow-y-auto">
-            <div className="flex justify-between items-center p-2 bg-gray-100 dark:bg-gray-700 sticky top-0 z-10">
-              <h3 className="font-semibold">
-                {currentLemma || word}
-              </h3>
-              <Button variant="ghost" size="sm" onClick={() => setShowOccurrenceModal(false)}>
-                <X size={18} />
-              </Button>
-            </div>
-
+      <Dialog open={showOccurrenceModal} onOpenChange={setShowOccurrenceModal}>
+        <DialogContent className="max-w-5xl w-full h-[95vh] flex flex-col p-0">
+           <DialogHeader className="p-4 pb-2 border-b bg-muted shrink-0">
+            <DialogTitle>Occurrences of: {currentLemma || word}</DialogTitle>
+          </DialogHeader>
+          <div className="flex-grow overflow-y-auto">
             <OccurrenceViewer word={currentLemma || word} />
           </div>
-        </div>
-      )}
+          <DialogFooter className="p-4 border-t bg-muted shrink-0">
+            <Button variant="outline" onClick={() => setShowOccurrenceModal(false)}>Close</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
 export default LexicaTool;
+
+    

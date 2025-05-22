@@ -1,37 +1,39 @@
+
 .gloss {
     font-size: 1rem;
     margin-bottom: 1rem;
-    /* color: #80ffd0; */
+    /* color: hsl(var(--foreground)); Fallback, should be handled by prose */
     text-wrap: balance;
   }
 
   .gloss-tag {
-    color: #045e6a;
+    color: hsl(var(--accent)); /* Use accent color for tags */
     font-weight: bold;
     font-style: italic;
   }
   .gloss-sense {
-    color: #045e6a;
+    color: hsl(var(--accent)); /* Use accent color */
     font-weight: bold;
     font-style: italic;
     margin-right: 5px;
   }
   .gloss-context {
     margin-right: 5px;
+    /* color: hsl(var(--muted-foreground)); */
   }
   .foreign-text {
-    color: #694186;
+    color: hsl(var(--primary)); /* Use primary color for foreign text */
     margin-right: 5px;
     font-size: 0.9em;
   }
   .inline-citation {
-    color: #c2a261;
+    color: hsl(var(--secondary-foreground)); /* A less prominent color */
     margin-right: 5px;
     font-size: 0.9em;
   }
 
   .inline-bibl {
-    color: #905f90;
+    color: hsl(var(--muted-foreground));
     font-size: 0.7em;
   }
 
@@ -44,18 +46,40 @@
   .quotes li {
     margin-bottom: 1rem;
     padding-left: 0.5rem;
-    border-left: 2px solid #444;
+    border-left: 2px solid hsl(var(--border)); /* Use border color */
     text-wrap: balance;
     text-align: left;
   }
 
   .quote {
     font-size: 1rem;
-    color: #ffd580;
+    color: hsl(var(--accent-foreground)); /* Example: use accent foreground if on accent bg, or just foreground */
+    /* background-color: hsl(var(--accent)); Optional: if you want a background */
+    /* padding: 0.25rem; */
   }
 
   .bibl {
     font-size: 0.9rem;
-    color: #aaa;
+    color: hsl(var(--muted-foreground));
     margin-top: 0.2rem;
   }
+
+  /* Ensure prose styles apply correctly within the lexicon HTML content */
+  .lexicon-html-content {
+    /* Add any specific overrides for the lexicon HTML if prose isn't enough */
+  }
+
+  .lexicon-html-content p,
+  .lexicon-html-content div {
+    color: hsl(var(--foreground)); /* Ensure default text color */
+  }
+
+  .lexicon-html-content strong {
+    color: hsl(var(--primary)); /* Example: make strong text use primary color */
+  }
+
+  .lexicon-html-content em {
+    color: hsl(var(--accent)); /* Example: make emphasized text use accent color */
+  }
+
+    
