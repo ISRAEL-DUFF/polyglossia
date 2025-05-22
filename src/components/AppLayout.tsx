@@ -11,10 +11,12 @@ import {
   SidebarMenu,
   SidebarInset,
   SidebarFooter,
+  useSidebar, // Import useSidebar
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
 import { Home, Microscope, Languages, Volume2, NotebookTextIcon } from 'lucide-react';
+import { SheetTitle } from '@/components/ui/sheet';
 
 const navItems = [
   { href: '/', label: 'Text Viewer', icon: NotebookTextIcon },
@@ -28,13 +30,32 @@ const navItems = [
   { href: '/parser-game', label: 'Greek word parsing game', icon: Volume2 },
 ];
 
+// New internal component to conditionally render SheetTitle
+const MobileAwareSidebarHeaderElements = () => {
+  const { isMobile } = useSidebar(); // Consumes context from SidebarProvider
+
+  return (
+    <>
+      {isMobile ? (
+        <SheetTitle asChild>
+          <AppLogo />
+        </SheetTitle>
+      ) : (
+        // On desktop, AppLogo serves as the visual title without needing SheetTitle context
+        <AppLogo />
+      )}
+      {/* SidebarTrigger is often md:hidden, so it primarily shows on mobile */}
+      <SidebarTrigger className="md:hidden" />
+    </>
+  );
+};
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider defaultOpen>
       <Sidebar collapsible="icon" className="border-r border-sidebar-border">
         <SidebarHeader className="p-4 items-center flex justify-between">
-          <AppLogo />
-          <SidebarTrigger className="md:hidden" />
+          <MobileAwareSidebarHeaderElements />
         </SidebarHeader>
         <SidebarContent>
           <SidebarMenu>
@@ -49,7 +70,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </Sidebar>
       <SidebarInset className="flex flex-col min-h-screen">
         <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 py-4 md:hidden">
-          {/* Mobile header might include a trigger if sidebar starts closed on mobile */}
           <SidebarTrigger /> 
           <AppLogo />
         </header>
