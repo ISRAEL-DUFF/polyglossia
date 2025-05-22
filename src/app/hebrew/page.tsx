@@ -7,11 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react'; // Added X for close button
 import './hebrew.css'; // For Hebrew font support
 import { Skeleton } from '@/components/ui/skeleton';
 import HebrewOccurrenceDisplay from '@/app/hebrew/HebrewOccurrenceViewer';
-import { Dialog, DialogTitle, DialogContent, DialogHeader } from '@/components/ui/dialog';
+import { Dialog, DialogTitle, DialogContent, DialogHeader, DialogClose } from '@/components/ui/dialog'; // Added DialogClose
+
 
 interface MorphologyData {
   word: string;
@@ -50,15 +51,13 @@ interface HebrewLexiconResponse {
   structured: Record<string, any>
 }
 
-// const BASE_URL = 'http://localhost:3000'; // Update this to your server URL
-// const BASE_URL = 'http://68.168.222.218:3000'; // vps3057233	
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew'; // 
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew'; 
 
 const HebrewLexiconTool = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<MorphologyData[]>([]);
-  const [structuredSummary, setStructuredSummary] = useState<Record<string, any>>({});
+  const [structuredSummary, setStructuredSummary] = useState<Record<string, any> | null>(null);
   const [lexicalEntries, setLexicalEntries] = useState<LexicalEntries | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
   const { toast } = useToast();
@@ -79,14 +78,10 @@ const HebrewLexiconTool = () => {
 
     setIsLoading(true);
     setHasSearched(true);
+    setLexicalEntries(null); // Clear previous results
+    setStructuredSummary(null); // Clear previous summary
 
     try {
-      // const response = await fetch(`${BASE_URL}/search-2`, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ word: searchTerm.trim() })
-      // });
-
       const response = await fetch(`${BASE_URL}/search/?word=${encodeURIComponent(searchTerm.trim())}`, {
         headers: { 'Content-Type': 'application/json' },
       });
@@ -97,22 +92,21 @@ const HebrewLexiconTool = () => {
 
       const data: HebrewLexiconResponse = await response.json();
       
-      if (!data.lexicalEntries) {
+      if (!data.lexicalEntries || data.totalOccurrences === 0) {
         setResults([]);
         setLexicalEntries(null);
+        setStructuredSummary(null);
         toast({
-          variant: "destructive",
+          variant: "default", // Changed to default as it's not an error, just no results
           title: "No results found",
-          description: "Try a different search term"
+          description: "Try a different search term or check your spelling."
         });
       } else {
-        // setResults(data.refs || []);
-        console.log(data)
+        // setResults(data.refs || []); // Assuming refs might be used later or can be removed if not
         setStructuredSummary(data.structured);
         setLexicalEntries(data.lexicalEntries);
         toast({
           title: "Results found",
-          // description: `Found ${data.refs.length} occurrences`
           description: `Found ${data.totalOccurrences} occurrences`
         });
       }
@@ -121,9 +115,8 @@ const HebrewLexiconTool = () => {
       toast({
         variant: "destructive",
         title: "Search failed",
-        description: `Connection to lexicon server failed. Make sure the server is running at ${BASE_URL}`
+        description: `Connection to lexicon server failed or an error occurred. Please try again.`
       });
-      // setResults([]);
       setStructuredSummary(null);
       setLexicalEntries(null);
     } finally {
@@ -132,11 +125,11 @@ const HebrewLexiconTool = () => {
   };
 
   return (
-    <div>
+    <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl flex items-center gap-2">
-            <Search className="h-6 w-6 text-slate-600" />
+          <CardTitle className="text-2xl flex items-center gap-2 text-primary">
+            <Search className="h-6 w-6" />
             Hebrew Lexicon Lookup
           </CardTitle>
           <CardDescription>
@@ -158,107 +151,118 @@ const HebrewLexiconTool = () => {
           
           {isLoading && (
             <div className="space-y-4">
-              <Skeleton className="h-36 w-full" />
-              <Skeleton className="h-24 w-full" />
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-48 w-full" />
+              <Skeleton className="h-32 w-full" />
             </div>
           )}
 
-          {!isLoading && lexicalEntries && structuredSummary && (
-            <>
-              {/* <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-medium mb-3">Morphology</h3>
-                <div className="space-y-2">
-                  <p><strong>Word:</strong> <span className="hebrew hebrew-size">{results[0].word}</span></p>
-                  <p><strong>Strong's Number:</strong> {results[0].strongNumber}</p>
-                  <p><strong>Morphology:</strong> {results[0].morphology.morph}</p>
-                  <p><strong>Reference:</strong> {results[0].book} {results[0].chapter}:{results[0].verse}</p>
-                </div>
-              </div> */}
-
-              <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-medium mb-3">Strong's Lexical Entry</h3>
-                <div className="space-y-2">
+          {!isLoading && lexicalEntries && (
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Strong's Lexical Entry</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-1 text-sm">
                   <p><strong>Strong's Number:</strong> {lexicalEntries.strongsEntry.strong_number}</p>
                   <p><strong>Lemma:</strong> <span className="hebrew hebrew-size">{lexicalEntries.strongsEntry.entry.lemma}</span></p>
                   <p><strong>Transliteration:</strong> {lexicalEntries.strongsEntry.entry.xlit}</p>
                   <p><strong>Pronunciation:</strong> {lexicalEntries.strongsEntry.entry.pron}</p>
-                  <p><strong>Derivation:</strong> {lexicalEntries.strongsEntry.entry.derivation}</p>
+                  <p><strong>Derivation:</strong> <span dangerouslySetInnerHTML={{ __html: lexicalEntries.strongsEntry.entry.derivation || '' }}/></p>
                   <p><strong>Strong's Definition:</strong> {lexicalEntries.strongsEntry.entry.strongs_def}</p>
                   <p><strong>KJV Definition:</strong> {lexicalEntries.strongsEntry.entry.kjv_def}</p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">BDB Lexical Entry</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="prose dark:prose-invert max-w-none text-sm" dangerouslySetInnerHTML={{ __html: lexicalEntries.bdbEntry.xml_entry }} />
+                </CardContent>
+              </Card>
+
+              {structuredSummary && Object.keys(structuredSummary).length > 0 && (
+                <div className="mt-6">
+                  <Button onClick={() => setIsModalOpen(true)} variant="default" className="w-full sm:w-auto">
+                    View All Occurrences
+                  </Button>
                 </div>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-medium mb-3">BDB Lexical Entry</h3>
-                <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: lexicalEntries.bdbEntry.xml_entry }} />
-              </div>
-
-              <h3 className="text-lg font-medium mt-8 mb-3">Occurrences</h3>
-
-              {/* <HebrewOccurrenceDisplay data={structuredData}/> */}
-
-              <div>
-                {/* Trigger Button */}
-                <Button onClick={() => setIsModalOpen(true)} variant="default">
-                  View Occurrences
-                </Button>
-
-                {/* Full-Page Modal */}
-                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-                  <DialogContent className="w-full h-full p-0">
-                    <DialogHeader className="sticky top-0 bg-white z-10 p-4 border-b">
-                      <DialogTitle className="text-lg font-semibold">Occurrences</DialogTitle>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => setIsModalOpen(false)}
-                        className="absolute top-4 right-4"
-                      >
-                        Close
-                      </Button>
-                    </DialogHeader>
-                    <div className="h-full">
-                      <HebrewOccurrenceDisplay data={{
-                        structured: structuredSummary
-                      }} />
+              )}
+              
+              {/* Results table - consider if this is still needed if all occurrences are in the modal */}
+              {/* 
+              {results.length > 0 && (
+                <Card className="mt-6">
+                  <CardHeader>
+                    <CardTitle className="text-xl">Sample Occurrences</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="border rounded-lg overflow-hidden">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-center">Word</TableHead>
+                            <TableHead className="text-center">Strong's Number</TableHead>
+                            <TableHead className="text-center">Morphology</TableHead>
+                            <TableHead className="text-center">Reference</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {results.slice(0, 5).map((row, index) => ( // Display first 5 as sample
+                            <TableRow key={index}>
+                              <TableCell className="text-center hebrew hebrew-size">{row.word}</TableCell>
+                              <TableCell className="text-center">{row.strongNumber}</TableCell>
+                              <TableCell className="text-center">{row.morphology.morph}</TableCell>
+                              <TableCell className="text-center">{row.book} {row.chapter}:{row.verse}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
                     </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-              <div className="border rounded-lg overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="text-center">Word</TableHead>
-                      <TableHead className="text-center">Strong's Number</TableHead>
-                      <TableHead className="text-center">Morphology</TableHead>
-                      <TableHead className="text-center">Reference</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {results.map((row, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="text-center hebrew hebrew-size">{row.word}</TableCell>
-                        <TableCell className="text-center">{row.strongNumber}</TableCell>
-                        <TableCell className="text-center">{row.morphology.morph}</TableCell>
-                        <TableCell className="text-center">{row.book} {row.chapter}:{row.verse}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </>
+                  </CardContent>
+                </Card>
+              )}
+              */}
+            </div>
           )}
 
-          {!isLoading && hasSearched && (!lexicalEntries || !structuredSummary) && (
-            <div className="text-center py-12 text-gray-500">
-              <p>No results found. Try a different search term.</p>
+          {!isLoading && hasSearched && !lexicalEntries && (
+            <div className="text-center py-12 text-muted-foreground">
+              <p className="text-lg">No results found for "{searchTerm}".</p>
+              <p>Please try a different search term or check your spelling.</p>
             </div>
           )}
         </CardContent>
       </Card>
+
+      {/* Full-Page Modal for Occurrences */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="w-full h-full max-w-none sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex flex-col p-0">
+          <DialogHeader className="sticky top-0 bg-background z-10 p-4 border-b flex-row justify-between items-center">
+            <DialogTitle className="text-lg font-semibold">
+              Occurrences of <span className="hebrew hebrew-size">{lexicalEntries?.strongsEntry.entry.lemma}</span> ({lexicalEntries?.strongsEntry.entry.xlit})
+            </DialogTitle>
+            <DialogClose asChild>
+              <Button variant="ghost" size="icon">
+                <X className="h-5 w-5" />
+                <span className="sr-only">Close</span>
+              </Button>
+            </DialogClose>
+          </DialogHeader>
+          <div className="flex-grow overflow-hidden"> {/* This div ensures HebrewOccurrenceDisplay can be h-full */}
+            {structuredSummary && (
+              <HebrewOccurrenceDisplay data={{
+                structured: structuredSummary
+              }} />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
 export default HebrewLexiconTool;
+
