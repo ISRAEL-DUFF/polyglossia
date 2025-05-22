@@ -30,7 +30,8 @@ import { loadDataSources, loadVocabularyData, type WordGroups } from "@/lib/util
 import { localDatabase } from '@/lib/utils/storageUtil';
 import { colorGenerator, getRandomWords, eventEmitter, fisherYateShuffle } from '@/lib/utils/gameUtils';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
-import './MatchingGame.css'
+import './MatchingGame.css';
+import { cn } from '@/lib/utils';
 
 // Types
 interface Word {
@@ -183,7 +184,7 @@ const MatchingGame = () => {
   const [snapshotName, setSnapshotName] = useState('');
   const [currentSnapshotId, setCurrentSnapshotId] = useState<string | null>(null);
 
-  const [activeListType, setActiveListType] = useState<'inview' | 'snapshots' | 'groups'>('inview');
+  const [activeListType, setActiveListType] = useState<'inview' | 'snapshots' | 'groups' | 'difficult_words'>('inview');
   
   const [currentLanguage, setCurrentLanguage] = useState<string>("greek");
   const [wordGroups, setWordGroups] = useState<WordGroups>({});
@@ -199,6 +200,12 @@ const MatchingGame = () => {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [isSettingsSheetOpen, setIsSettingsSheetOpen] = useState(false);
   const [isGameModalOpen, setIsGameModalOpen] = useState(false);
+
+  // State variables for the countdown modal
+  const [showCountdownModalState, setShowCountdownModalState] = useState(false);
+  const [countdownValueState, setCountdownValueState] = useState(3);
+  const [countdownTextState, setCountdownTextState] = useState("");
+
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const availableColors = ["#45B39D", "#227bc4", "#8d0b96", "#f48fb1", "#ffab91", "#b39ddb", "#64b5f6", "#ff8a65", "#ba68c8", "#d1058d", "#4db6ac"];
@@ -297,6 +304,7 @@ const MatchingGame = () => {
 
   useEffect(() => {
     audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+    initializeCountdownModalSetters(setShowCountdownModalState, setCountdownValueState, setCountdownTextState);
     loadSnapshots();
     loadVocabDataSources(currentLanguage);
     resetGame(demoWords[currentLanguage]); // Initial game with demo words
@@ -906,11 +914,11 @@ const MatchingGame = () => {
         </Dialog>
       )}
 
-      <Dialog open={demoPlayerState.isPlaying && showCountdownModal} onOpenChange={(open) => !open && setShowCountdownModal(false) /* Allow manual close if needed */ }>
+      <Dialog open={demoPlayerState.isPlaying && showCountdownModalState} onOpenChange={(open) => !open && setShowCountdownModalState(false)}>
         <DialogContent className="sm:max-w-xs">
           <DialogHeader className="items-center">
-            <DialogTitle>{countdownText || "Starting Demo..."}</DialogTitle>
-            <DialogDescription className="text-6xl font-bold text-primary">{countdownValue}</DialogDescription>
+            <DialogTitle>{countdownTextState || "Starting Demo..."}</DialogTitle>
+            <DialogDescription className="text-6xl font-bold text-primary">{countdownValueState}</DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>
@@ -922,19 +930,19 @@ const MatchingGame = () => {
 // These are outside the component as they are simple and don't need to be part of the main re-render loop
 // unless they are actively being shown.
 let countdownInterval: NodeJS.Timeout | undefined;
-let setShowCountdownModal: React.Dispatch<React.SetStateAction<boolean>> = () => {};
-let setCountdownValue: React.Dispatch<React.SetStateAction<number>> = () => {};
-let setCountdownText: React.Dispatch<React.SetStateAction<string>> = () => {};
+let _setShowCountdownModalGlob: React.Dispatch<React.SetStateAction<boolean>> = () => {};
+let _setCountdownValueGlob: React.Dispatch<React.SetStateAction<number>> = () => {};
+let _setCountdownTextGlob: React.Dispatch<React.SetStateAction<string>> = () => {};
 
 // Call this function from inside your component's useEffect to initialize setters
 export function initializeCountdownModalSetters(
-    _setShowCountdownModal: React.Dispatch<React.SetStateAction<boolean>>,
-    _setCountdownValue: React.Dispatch<React.SetStateAction<number>>,
-    _setCountdownText: React.Dispatch<React.SetStateAction<string>>
+    setShowModalSetter: React.Dispatch<React.SetStateAction<boolean>>,
+    setCountdownValueSetter: React.Dispatch<React.SetStateAction<number>>,
+    setCountdownTextSetter: React.Dispatch<React.SetStateAction<string>>
 ) {
-    setShowCountdownModal = _setShowCountdownModal;
-    setCountdownValue = _setCountdownValue;
-    setCountdownText = _setCountdownText;
+    _setShowCountdownModalGlob = setShowModalSetter;
+    _setCountdownValueGlob = setCountdownValueSetter;
+    _setCountdownTextGlob = setCountdownTextSetter;
 }
 
 export function startCountdown(options: { countDownTime?: number, displayText?: string }) {
@@ -942,20 +950,20 @@ export function startCountdown(options: { countDownTime?: number, displayText?: 
     
     if (countdownInterval) clearInterval(countdownInterval);
 
-    setCountdownText(displayText);
-    setCountdownValue(countDownTime);
-    setShowCountdownModal(true);
+    _setCountdownTextGlob(displayText);
+    _setCountdownValueGlob(countDownTime);
+    _setShowCountdownModalGlob(true);
     
     eventEmitter.emit('countdown:start');
     
     let timeLeft = countDownTime;
     countdownInterval = setInterval(() => {
       timeLeft--;
-      setCountdownValue(timeLeft);
+      _setCountdownValueGlob(timeLeft);
       
       if (timeLeft < 0) {
         if (countdownInterval) clearInterval(countdownInterval);
-        setShowCountdownModal(false);
+        _setShowCountdownModalGlob(false);
         eventEmitter.emit('countdown:end');
       }
     }, 1000);
@@ -963,3 +971,5 @@ export function startCountdown(options: { countDownTime?: number, displayText?: 
 
 
 export default MatchingGame;
+
+    
