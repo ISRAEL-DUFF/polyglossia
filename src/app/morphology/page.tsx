@@ -11,15 +11,17 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Textarea } from '@/components/ui/textarea';
 import LanguageSelect from '@/components/LanguageSelect';
 import type { Language } from '@/types';
-import { analyzeMorphology, type MorphologicalAnalysisInput, type MorphologicalAnalysisOutput } from '@/ai/flows/morphological-analysis';
+import { analyzeMorphology, type MorphologicalAnalysisInput, type MorphologicalAnalysisOutput, type WordAnalysis } from '@/ai/flows/morphological-analysis';
 import { Loader2 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
 
 const formSchema = z.object({
   language: z.custom<Language>((val) => ['Ancient Greek', 'Hebrew', 'Latin'].includes(val as string), {
     message: "Please select a language.",
   }),
-  text: z.string().min(1, "Text cannot be empty."),
+  text: z.string().min(1, "Text or word(s) cannot be empty."),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -45,18 +47,58 @@ export default function MorphologyPage() {
       const result = await analyzeMorphology(data as MorphologicalAnalysisInput);
       setAnalysisResult(result);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "An unknown error occurred.");
+      setError(err instanceof Error ? err.message : "An unknown error occurred during analysis.");
     } finally {
       setIsLoading(false);
     }
   };
+
+  const renderWordAnalysis = (wordAnalysis: WordAnalysis) => (
+    <Card key={wordAnalysis.word + Math.random()} className="shadow-md mb-4">
+      <CardHeader>
+        <CardTitle className="text-2xl font-serif text-primary">{wordAnalysis.word}</CardTitle>
+        <CardDescription>Lemma: <span className="font-semibold">{wordAnalysis.lemma}</span> | Part of Speech: <Badge variant="secondary">{wordAnalysis.partOfSpeech}</Badge></CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-3">
+          <div>
+            <h4 className="font-semibold text-muted-foreground mb-1">Morphological Details:</h4>
+            {wordAnalysis.morphology.length > 0 ? (
+              <ul className="list-disc list-inside pl-2 space-y-1 text-sm">
+                {wordAnalysis.morphology.map((detail, index) => (
+                  <li key={index}>
+                    <span className="font-medium">{detail.feature}:</span> {detail.value}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-muted-foreground">No detailed morphology provided.</p>
+            )}
+          </div>
+          <Separator />
+          <div>
+            <h4 className="font-semibold text-muted-foreground mb-1">Definitions:</h4>
+            {wordAnalysis.definitions.length > 0 ? (
+               <ul className="list-decimal list-inside pl-2 space-y-1 text-sm">
+                {wordAnalysis.definitions.map((def, index) => (
+                  <li key={index}>{def}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-muted-foreground">No definitions provided.</p>
+            )}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
 
   return (
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold tracking-tight">Morphological Analyzer</h1>
         <p className="text-muted-foreground">
-          Get detailed part-of-speech tagging and parsing for ancient texts.
+          Enter a word or short text to get its lexical entries and detailed morphological data.
         </p>
       </header>
 
@@ -65,7 +107,7 @@ export default function MorphologyPage() {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardHeader>
               <CardTitle>Analyze Text</CardTitle>
-              <CardDescription>Select the language and enter the text you want to analyze.</CardDescription>
+              <CardDescription>Select the language and enter the word(s) you want to analyze.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <FormField
@@ -91,10 +133,10 @@ export default function MorphologyPage() {
                     <FormLabel>Text to Analyze</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Enter text here..."
+                        placeholder="Enter word(s) here (e.g., λόγος, amo, בְּרֵאשִׁית)"
                         {...field}
-                        rows={8}
-                        className="min-h-[150px] font-serif"
+                        rows={3}
+                        className="min-h-[100px] font-serif text-lg"
                         disabled={isLoading}
                       />
                     </FormControl>
@@ -124,18 +166,26 @@ export default function MorphologyPage() {
         </Card>
       )}
 
-      {analysisResult && (
+      {analysisResult && analysisResult.analyzedWords && (
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle>Analysis Result</CardTitle>
+            <CardTitle>Analysis Results</CardTitle>
+            <CardDescription>
+              Found {analysisResult.analyzedWords.length} word(s) analyzed.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="h-[300px] w-full rounded-md border p-4">
-              <pre className="whitespace-pre-wrap text-sm font-mono">{analysisResult.analysis}</pre>
-            </ScrollArea>
+            {analysisResult.analyzedWords.length > 0 ? (
+              <ScrollArea className="h-[calc(100vh-450px)] w-full pr-4"> {/* Adjusted height */}
+                {analysisResult.analyzedWords.map(renderWordAnalysis)}
+              </ScrollArea>
+            ) : (
+              <p className="text-muted-foreground">No analysis data found for the provided text.</p>
+            )}
           </CardContent>
         </Card>
       )}
     </div>
   );
 }
+
