@@ -130,7 +130,8 @@ const SaveDifficultWord: React.FC<SaveWordProps> = ({ currentWord, currentLangua
         difficultWordsDb.remove(currentWord.savedId!);
         toast({ title: 'Word Removed', description: `"${currentWord.word}" removed from your saved words.` });
       } else {
-        const newSavedId = difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); // Let DB generate ID
+        // const newSavedId = difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); // Let DB generate ID
+        difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); 
         toast({ title: 'Word Saved', description: `"${currentWord.word}" saved successfully.` });
       }
       onWordSavedOrRemoved(); // Notify parent to refresh state
@@ -224,11 +225,11 @@ const MatchingGame = () => {
     setTempWordData(null);
   }, []);
 
-  const getWordMeaning = (entry: Word) => {
+  const getWordMeaning = useCallback((entry: Word) => {
     const maxLength = isMobile ? 20 : 35;
     const meaning = (entry.meanings && entry.meanings.length > 0) ? entry.meanings[0] : entry.meaning || '';
     return meaning.length > maxLength ? meaning.slice(0, maxLength) + "..." : meaning;
-  };
+  },[isMobile]);
 
   const generatePairs = useCallback((wordListToPair: Word[]) => {
     if (!wordListToPair || wordListToPair.length === 0) {
@@ -243,7 +244,7 @@ const MatchingGame = () => {
     });
     fisherYateShuffle(newPairs);
     setPairs(newPairs);
-  }, [isMobile, getWordMeaning]);
+  }, [getWordMeaning]);
 
 
   const resetGame = useCallback((wordsToUse?: Word[]) => {
@@ -256,7 +257,7 @@ const MatchingGame = () => {
     const currentWords = wordsToUse || gameWords;
     if (currentWords.length > 0) {
         const wordsForGame = getRandomWords(currentWords, wordCount);
-        setGameWords(wordsForGame); // Keep a copy of the words actually in the game
+        setGameWords(wordsForGame); 
         generatePairs(wordsForGame);
     } else {
         setGameWords([]);
@@ -328,30 +329,45 @@ const MatchingGame = () => {
       if (demoPlayerState.timer1) clearInterval(demoPlayerState.timer1);
       if (demoPlayerState.timer2) clearTimeout(demoPlayerState.timer2);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Initial setup
 
   useEffect(() => { // Language change
     loadVocabDataSources(currentLanguage);
     loadSnapshots();
-    setWordGroups({}); setSelectedWordGroup(null); setSelectedDataSource(null);
+    setWordGroups({}); 
+    setSelectedWordGroup(null); 
+    setSelectedDataSource(null);
     setCurrentSnapshotId(null);
     setActiveListType('inview'); // Reset to default list type
     resetGame(demoWords[currentLanguage]);
-  }, [currentLanguage, resetGame, loadSnapshots, loadVocabDataSources]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLanguage]);
 
   useEffect(() => { // Word count or active list type change
+    let wordsToUse: Word[] | undefined;
+
     if (activeListType === 'inview') {
-        resetGame(demoWords[currentLanguage]);
+        wordsToUse = demoWords[currentLanguage];
     } else if (activeListType === 'snapshots' && currentSnapshotId) {
         const snapshot = snapshots.find(s => s.id === currentSnapshotId);
-        if (snapshot) resetGame(snapshot.data);
+        if (snapshot) wordsToUse = snapshot.data;
     } else if (activeListType === 'groups' && selectedWordGroup && wordGroups[selectedWordGroup]) {
-        resetGame(wordGroups[selectedWordGroup]);
+        wordsToUse = wordGroups[selectedWordGroup];
     } else if (activeListType === 'difficult_words') {
         const { difficultWordsDb } = getLocalDatabases(currentLanguage);
-        resetGame(difficultWordsDb.getAll());
+        wordsToUse = difficultWordsDb.getAll();
     }
-  }, [wordCount, activeListType, currentSnapshotId, selectedWordGroup, snapshots, wordGroups, resetGame, currentLanguage]);
+
+    if (wordsToUse) {
+      resetGame(wordsToUse);
+    } else if (activeListType === 'inview') { // Fallback for inview
+      resetGame(demoWords[currentLanguage] || []);
+    } else { // If a list type is selected but no words are found
+      resetGame([]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wordCount, activeListType, currentSnapshotId, selectedWordGroup, snapshots, wordGroups, currentLanguage]);
 
 
   useEffect(() => { // Screen size change
@@ -522,7 +538,6 @@ const MatchingGame = () => {
     setSelectedWordGroup(groupKey);
     if (wordGroups[groupKey]) {
       // This will trigger the useEffect for activeListType
-      // resetGame(getRandomWords(wordGroups[groupKey], wordCount)); 
       setActiveListType('groups');
       toast({ title: "Word Group Selected", description: `Loaded "${groupKey}"` });
     }
@@ -561,7 +576,6 @@ const MatchingGame = () => {
       setIsGameModalOpen(true);
     }
     // For desktop, game is already visible. If needed, could trigger a reset here.
-    // resetGame(gameWords); // Or based on activeListType
   };
 
   const displayActiveListName = () => {
@@ -653,7 +667,6 @@ const MatchingGame = () => {
         }
     };
     
-    // Start the first step of the demo after a brief delay to allow UI to settle
     const timer1 = setTimeout(performNextDemoStep, demoPlayerState.speedInSec * 1000 / 2);
     setDemoPlayerState(prev => ({ ...prev, timer1 }));
   };
@@ -713,7 +726,7 @@ const MatchingGame = () => {
             <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame(gameWords)}>
               <RefreshCw className="h-4 w-4 mr-1" /> Restart
             </Button>
-            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame()}> {/* Shuffle implies fetching new words from source */}
+            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame()}> 
               <ForwardIcon className="h-4 w-4 mr-1" /> Next Set
             </Button>
             <Button 
@@ -830,7 +843,7 @@ const MatchingGame = () => {
                           setActiveListType('snapshots');
                           const snapshot = snapshots.find(s => s.id === id);
                           if (snapshot) {
-                            setWordCount(snapshot.data.length); // Adjust word count to snapshot size
+                            setWordCount(snapshot.data.length); 
                           }
                         }} 
                         value={currentSnapshotId || ""}
@@ -911,7 +924,6 @@ const MatchingGame = () => {
             <div className="flex-grow overflow-y-auto p-3">
               {renderGameContent(true)}
             </div>
-            {/* Footer can be added if needed, e.g. for a close button, but DialogClose in header is common */}
           </DialogContent>
         </Dialog>
       )}
@@ -929,14 +941,11 @@ const MatchingGame = () => {
 };
 
 // Helper: Countdown Modal related state and functions
-// These are outside the component as they are simple and don't need to be part of the main re-render loop
-// unless they are actively being shown.
 let countdownInterval: NodeJS.Timeout | undefined;
 let _setShowCountdownModalGlob: React.Dispatch<React.SetStateAction<boolean>> = () => {};
 let _setCountdownValueGlob: React.Dispatch<React.SetStateAction<number>> = () => {};
 let _setCountdownTextGlob: React.Dispatch<React.SetStateAction<string>> = () => {};
 
-// Call this function from inside your component's useEffect to initialize setters
 export function initializeCountdownModalSetters(
     setShowModalSetter: React.Dispatch<React.SetStateAction<boolean>>,
     setCountdownValueSetter: React.Dispatch<React.SetStateAction<number>>,
