@@ -1,7 +1,8 @@
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent as ShadCNCardContent } from "@/components/ui/card"; // Aliased CardContent
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { RefreshCw, Settings } from 'lucide-react';
@@ -44,26 +45,26 @@ const Flashcard: React.FC<FlashcardProps> = ({ word, currentLanguage }) => {
       case 'hebrew':
         return (
           <div className="text-center">
-            <h2 className="text-lg sm:text-xl font-bold mb-1">{word.word}</h2>
-            <p className="text-gray-500 text-sm sm:text-base">{word.transliteration}</p>
-            <p className="text-xs sm:text-sm text-gray-400">{word.partOfSpeech}</p>
+            <h2 className="text-lg sm:text-xl font-bold mb-1 text-primary">{word.word}</h2>
+            <p className="text-muted-foreground text-sm sm:text-base">{word.transliteration}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground/80">{word.partOfSpeech}</p>
           </div>
         );
       case 'latin':
         return (
           <div className="text-center">
-            <h2 className="text-lg sm:text-xl font-bold mb-1">{word.word}</h2>
-            <p className="text-gray-500 text-sm sm:text-base">{word.inflection}</p>
-            <p className="text-xs sm:text-sm text-gray-400">{word.partOfSpeech}</p>
+            <h2 className="text-lg sm:text-xl font-bold mb-1 text-primary">{word.word}</h2>
+            <p className="text-muted-foreground text-sm sm:text-base">{word.inflection}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground/80">{word.partOfSpeech}</p>
           </div>
         );
       case 'greek':
       default:
         return (
           <div className="text-center">
-            <h2 className="text-lg sm:text-xl font-bold mb-1">{word.word}</h2>
-            <p className="text-gray-500 text-sm sm:text-base">{word.root}</p>
-            <p className="text-xs sm:text-sm text-gray-400">{word.partOfSpeech}</p>
+            <h2 className="text-lg sm:text-xl font-bold mb-1 text-primary">{word.word}</h2>
+            <p className="text-muted-foreground text-sm sm:text-base">{word.root}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground/80">{word.partOfSpeech}</p>
           </div>
         );
     }
@@ -84,20 +85,20 @@ const Flashcard: React.FC<FlashcardProps> = ({ word, currentLanguage }) => {
       className={`cursor-pointer perspective-1000 w-full max-w-xs sm:max-w-md h-48 sm:h-64 my-4 sm:my-6 mx-auto ${isFlipped ? 'flashcard-flipped' : ''}`}
       onClick={handleClick}
     >
-      <Card className="flashcard-inner relative w-full h-full transition-transform duration-500">
+      <div className="flashcard-inner relative w-full h-full transition-transform duration-500">
         {/* Front Side */}
-        <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-center items-center flashcard-front bg-white rounded-lg border border-gray-200 shadow-md">
+        <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-center items-center flashcard-front bg-card rounded-lg border border-border shadow-md">
           {getWordDisplay()}
         </div>
         {/* Back Side */}
-        <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-center items-center flashcard-back bg-gray-100 rounded-lg border border-gray-200 shadow-md [transform:rotateY(180deg)]">
+        <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-center items-center flashcard-back bg-muted rounded-lg border border-border shadow-md [transform:rotateY(180deg)]">
           <div className="text-center">
             <h3 className="text-base sm:text-lg font-semibold mb-2">Meaning:</h3>
-            <p className="text-sm sm:text-base">{getMeaning()}</p>
-            <p className="mt-2 text-xs sm:text-sm text-gray-500">Click to flip back</p>
+            <p className="text-sm sm:text-base text-foreground">{getMeaning()}</p>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Click to flip back</p>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };
@@ -114,11 +115,9 @@ const FlashcardGame = () => {
   const [selectedWordGroup, setSelectedWordGroup] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [wordLimit, setWordLimit] = useState<number>(10); // New state for word limit
+  const [wordLimit, setWordLimit] = useState<number>(10);
 
-  
   useEffect(() => {
-    // Load data sources for the current language
     loadVocabDataSources(currentLanguage);
   }, [currentLanguage]);
   
@@ -130,13 +129,34 @@ const FlashcardGame = () => {
   
   useEffect(() => {
     if (selectedWordGroup && wordGroups[selectedWordGroup]) {
-      setWords(wordGroups[selectedWordGroup]);
+      const sourceWords = wordGroups[selectedWordGroup];
+      const limitedWords = [...sourceWords].slice(0, wordLimit);
+      setWords(limitedWords);
+      setCurrentWordIndex(0);
+    } else {
+      setWords([]); // Clear words if no group selected or group is empty
       setCurrentWordIndex(0);
     }
-  }, [wordLimit, selectedWordGroup, wordGroups]);
+  }, [wordLimit, selectedWordGroup, wordGroups, currentLanguage]);
 
   const shuffleWords = () => {
-    const shuffled = [...words].sort(() => Math.random() - 0.5);
+    let wordsToShuffle: Word[] = [];
+    if (selectedWordGroup && wordGroups[selectedWordGroup]) {
+      wordsToShuffle = [...wordGroups[selectedWordGroup]];
+    } else if (words.length > 0) { // Fallback to current words if no specific group (e.g. initial demo/placeholder)
+      wordsToShuffle = [...words]; // This might need adjustment based on how initial words are populated
+    }
+
+    if (wordsToShuffle.length === 0) {
+      toast({
+        title: "No Words to Shuffle",
+        description: "Please select a word group.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const shuffled = wordsToShuffle.sort(() => Math.random() - 0.5);
     setWords(shuffled.slice(0, wordLimit));
     setCurrentWordIndex(0);
     toast({
@@ -148,13 +168,17 @@ const FlashcardGame = () => {
   const loadVocabDataSources = async (language: string) => {
     setIsLoading(true);
     setLoadError(null);
+    setSelectedDataSource(null); // Reset selections when language changes
+    setSelectedWordGroup(null);
+    setWordGroups({});
     
     try {
       const sources = await loadDataSources(language);
       setDataSources(sources);
       
       if (sources.length > 0) {
-        setSelectedDataSource(sources[0].value);
+        // Optionally auto-select first data source, or wait for user
+        // setSelectedDataSource(sources[0].value); 
       } else {
         setLoadError(`No vocabulary files found for ${language}`);
       }
@@ -169,14 +193,17 @@ const FlashcardGame = () => {
   const loadVocabData = async (language: string, filename: string) => {
     setIsLoading(true);
     setLoadError(null);
-    
+    setSelectedWordGroup(null); // Reset word group when data source changes
+    setWordGroups({});
+
     try {
       const data = await loadVocabularyData(language, filename);
       setWordGroups(data);
       
       const groupKeys = Object.keys(data);
       if (groupKeys.length > 0) {
-        setSelectedWordGroup(groupKeys[0]);
+        // Optionally auto-select first group, or wait for user
+        // setSelectedWordGroup(groupKeys[0]);
       } else {
         setLoadError(`No word groups found in the selected vocabulary file`);
       }
@@ -190,12 +217,7 @@ const FlashcardGame = () => {
   
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
-    setSelectedDataSource(null);
-    setSelectedWordGroup(null);
-    setWordGroups({});
-    setWords([]);
-    setCurrentWordIndex(0);
-    
+    // Data sources will be reloaded by useEffect dependency on currentLanguage
     toast({
       title: "Language Changed",
       description: `Switched to ${language.charAt(0).toUpperCase() + language.slice(1)} vocabulary`,
@@ -204,7 +226,7 @@ const FlashcardGame = () => {
   
   const handleDataSourceChange = (source: string) => {
     setSelectedDataSource(source);
-    
+    // Vocab data will be reloaded by useEffect dependency on selectedDataSource
     toast({
       title: "Data Source Changed",
       description: `Loaded vocabulary from ${dataSources.find(ds => ds.value === source)?.key || source}`,
@@ -213,7 +235,7 @@ const FlashcardGame = () => {
   
   const handleWordGroupChange = (group: string) => {
     setSelectedWordGroup(group);
-    
+    // Words will be set by useEffect dependency on selectedWordGroup
     toast({
       title: "Word Group Selected",
       description: `Loaded "${group}" word group`,
@@ -228,160 +250,162 @@ const FlashcardGame = () => {
     setCurrentWordIndex((prevIndex) => Math.min(words.length - 1, prevIndex + 1));
   };
 
+  const maxPossibleWords = selectedWordGroup && wordGroups[selectedWordGroup] 
+    ? wordGroups[selectedWordGroup].length 
+    : (words.length > 0 ? words.length : 100); // Fallback if no group selected yet
+
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-4">
+      <h1 className="text-2xl font-bold text-center mb-6 text-primary">
         {currentLanguage === 'greek' && "Greek"}
         {currentLanguage === 'hebrew' && "Hebrew"}
         {currentLanguage === 'latin' && "Latin"}
         {" "}Flashcard Game
       </h1>
       
-      {/* Language and Data Source Selectors */}
-      <div className="flex flex-col sm:flex-row justify-center mt-4 space-y-2 sm:space-y-0 sm:space-x-2 px-2">
-        <Select 
-          value={currentLanguage}
-          onValueChange={(value) => handleLanguageChange(value)}
-        >
-          <SelectTrigger className="w-full sm:w-[180px]">
-            <SelectValue>
-              {currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)}
-            </SelectValue>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="greek">Greek</SelectItem>
-            <SelectItem value="hebrew">Hebrew</SelectItem>
-            <SelectItem value="latin">Latin</SelectItem>
-          </SelectContent>
-        </Select>
-        
-        {/* Settings Button - Added Sheet component from shadcn/ui */}
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" className="flex items-center justify-center">
-              <Settings className="h-4 w-4 mr-2" />
-              Settings
-            </Button>
-          </SheetTrigger>
-          <SheetContent className="bg-white overflow-y-auto" side="right">
-            <SheetHeader>
-              <SheetTitle>Game Settings</SheetTitle>
-              <SheetDescription>
-                Customize your flashcard game
-              </SheetDescription>
-            </SheetHeader>
-
-            <div className="space-y-6 py-4">
-              {/* Word Limit Input */}
-              <div className="space-y-2">
-                <Label>Word Limit</Label>
-                <Input
-                  type="number"
-                  value={wordLimit}
-                  onChange={(e) => setWordLimit(Math.max(1, Math.min(Number(e.target.value), words.length)))}
-                  className="w-full"
-                  placeholder="Enter number of words"
-                />
-              </div>
-
-              {/* Shuffle Button */}
-              <Button onClick={shuffleWords} className="w-full">
-                Shuffle Words
-              </Button>
-            </div>
+      <Card className="mb-6">
+        <ShadCNCardContent className="pt-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
+            <Select 
+              value={currentLanguage}
+              onValueChange={(value) => handleLanguageChange(value)}
+            >
+              <SelectTrigger className="w-full sm:w-[180px]">
+                <SelectValue>
+                  {currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="greek">Greek</SelectItem>
+                <SelectItem value="hebrew">Hebrew</SelectItem>
+                <SelectItem value="latin">Latin</SelectItem>
+              </SelectContent>
+            </Select>
             
-            <div className="space-y-6 py-4">
-              {/* Data Source Selector */}
-              {dataSources.length > 0 && (
-                <div className="space-y-2">
-                  <Label>Data Source</Label>
-                  <Select 
-                    value={selectedDataSource || ""}
-                    onValueChange={handleDataSourceChange}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select datasource" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {dataSources.map((source) => (
-                        <SelectItem key={source.key} value={source.value}>
-                          {source.key}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" className="flex items-center justify-center w-full sm:w-auto">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Settings
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="bg-background overflow-y-auto p-6" side="right">
+                <SheetHeader>
+                  <SheetTitle>Game Settings</SheetTitle>
+                  <SheetDescription>
+                    Customize your flashcard game
+                  </SheetDescription>
+                </SheetHeader>
+
+                <div className="space-y-6 py-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="word-limit">Word Limit</Label>
+                    <Input
+                      id="word-limit"
+                      type="number"
+                      value={wordLimit}
+                      onChange={(e) => setWordLimit(Math.max(1, Math.min(Number(e.target.value), maxPossibleWords)))}
+                      className="w-full"
+                      placeholder="Enter number of words"
+                      min="1"
+                      max={maxPossibleWords > 0 ? maxPossibleWords : undefined}
+                    />
+                  </div>
+
+                  <Button onClick={shuffleWords} className="w-full" variant="outline">
+                    <RefreshCw className="mr-2 h-4 w-4" /> Shuffle Words
+                  </Button>
+            
+                  {dataSources.length > 0 && (
+                    <div className="space-y-2">
+                      <Label htmlFor="data-source">Data Source</Label>
+                      <Select 
+                        value={selectedDataSource || ""}
+                        onValueChange={handleDataSourceChange}
+                      >
+                        <SelectTrigger id="data-source" className="w-full">
+                          <SelectValue placeholder="Select datasource" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {dataSources.map((source) => (
+                            <SelectItem key={source.key} value={source.value}>
+                              {source.key}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  )}
+                  
+                  {selectedDataSource && Object.keys(wordGroups).length > 0 && (
+                    <div className="space-y-2">
+                      <Label htmlFor="word-group">Word Group</Label>
+                      <Select 
+                        value={selectedWordGroup || ""}
+                        onValueChange={handleWordGroupChange}
+                      >
+                        <SelectTrigger id="word-group" className="w-full">
+                          <SelectValue placeholder="Select word group" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.keys(wordGroups).map(group => (
+                            <SelectItem key={group} value={group}>
+                              {group} ({wordGroups[group]?.length || 0} words)
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  )}
                 </div>
-              )}
-              
-              {/* Word Group Selector */}
-              {selectedDataSource && Object.keys(wordGroups).length > 0 && (
-                <div className="space-y-2">
-                  <Label>Word Group</Label>
-                  <Select 
-                    value={selectedWordGroup || ""}
-                    onValueChange={handleWordGroupChange}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select word group" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.keys(wordGroups).map(group => (
-                        <SelectItem key={group} value={group}>
-                          {group}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </ShadCNCardContent>
+      </Card>
       
-      {/* Loading State or Error */}
       {isLoading && (
         <div className="flex justify-center items-center py-4">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-          <span className="ml-2">Loading vocabulary...</span>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          <span className="ml-2 text-muted-foreground">Loading vocabulary...</span>
         </div>
       )}
       
-      {loadError && (
-        <Alert variant="destructive" className="mx-2">
+      {loadError && !isLoading && (
+        <Alert variant="destructive" className="mx-auto max-w-md">
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>{loadError}</AlertDescription>
         </Alert>
       )}
       
-      {words.length > 0 ? (
+      {words.length > 0 && !isLoading ? (
         <>
           <Flashcard word={words[currentWordIndex]} currentLanguage={currentLanguage} />
-          <div className="flex justify-between">
-            <Button onClick={goToPreviousWord} disabled={currentWordIndex === 0}>
+          <div className="flex justify-between items-center mt-6">
+            <Button onClick={goToPreviousWord} disabled={currentWordIndex === 0} variant="outline">
               Previous
             </Button>
-            {/* Shuffle Button */}
-            <Button onClick={shuffleWords}>
-              Shuffle Words
+            <Button onClick={shuffleWords} variant="outline">
+              <RefreshCw className="mr-2 h-4 w-4" /> Shuffle
             </Button>
-
-            <Button onClick={goToNextWord} disabled={currentWordIndex === words.length - 1}>
+            <Button onClick={goToNextWord} disabled={currentWordIndex === words.length - 1} variant="outline">
               Next
             </Button>
           </div>
         </>
       ) : (
-        <div className="text-center mt-4">
-          {selectedWordGroup ? (
-            <p>No words available in this group.</p>
-          ) : (
-            <p>Select a language and data source to start.</p>
-          )}
-        </div>
+        !isLoading && !loadError && (
+          <div className="text-center mt-8 py-10 border border-dashed rounded-lg">
+            <p className="text-muted-foreground">
+              {selectedDataSource && selectedWordGroup ? "No words available in this group." : "Select a language, data source, and word group to start."}
+            </p>
+            {!selectedDataSource && <p className="text-sm text-muted-foreground mt-2">Use the Settings panel to configure your game.</p>}
+          </div>
+        )
       )}
     </div>
   );
 };
 
 export default FlashcardGame;
+

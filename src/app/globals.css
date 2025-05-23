@@ -107,3 +107,23 @@ body {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
+
+/* Flashcard animation styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.flashcard-inner {
+  transform-style: preserve-3d;
+  /* Tailwind handles transition and duration: transition-transform duration-500 */
+}
+.flashcard-front,
+.flashcard-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+  /* Tailwind handles position, display, etc. */
+}
+/* .flashcard-flipped class is applied to the perspective-1000 div to trigger flip on its .flashcard-inner child */
+/* We can apply the rotation directly or ensure the .flashcard-flipped triggers it */
+.flashcard-flipped > .flashcard-inner {
+  transform: rotateY(180deg);
+}
