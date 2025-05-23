@@ -26,12 +26,12 @@ import MatchingGame from '@/app/matching-game/page';
 import ParserGame from '@/app/parser-game/page';
 
 const navItems = [
-  { href: '/', label: 'Study Tool', icon: NotebookTextIcon },
+  { href: '/', label: 'Study Tools', icon: NotebookTextIcon },
   { href: '/greek', label: 'Greek Lexicon tools', icon: Microscope },
   { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Microscope },
   { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: NotebookTextIcon },
-  { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
-  { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
+  // { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
+  // { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
 ];
 
 const MobileAwareSidebarHeaderElements = () => {

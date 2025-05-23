@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon } from 'lucide-react';
 
 interface FeatureCardProps {
   title: string;
@@ -74,6 +74,13 @@ export default function DashboardPage() {
       description: "Practice your Greek morphology by parsing various word forms.",
       href: "/parser-game",
       icon: Gamepad2Icon,
+      buttonText: "Play Game",
+    },
+    {
+      title: "Flashcard Game",
+      description: "Review your vocabulary with flashcards.",
+      href: "/flashcard-game",
+      icon: IdCardIcon,
       buttonText: "Play Game",
     },
   ];
