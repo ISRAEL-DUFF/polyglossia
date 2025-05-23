@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Card,
   CardContent,
@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from '@/components/ui/skeleton';
-import { Wand2, Search } from 'lucide-react';
+import { Wand2, Search, PlusCircle, Trash2 } from 'lucide-react';
 
 interface MorphSearchResult {
   book: string;
@@ -38,9 +38,13 @@ interface MorphSearchResult {
   morph: string;
   morphology: {
     morph: string;
-    // Add other morphology details if available from API
   };
-  strongNumber?: string; // Lemma or Strong's number
+  strongNumber?: string;
+}
+
+interface Prefix {
+  id: string;
+  type: string; // e.g., 'C' for Conjunction, 'S' for Preposition
 }
 
 const morphMap = {
@@ -63,18 +67,25 @@ const morphMap = {
     },
     aspect: {
       perfect: "p", "sequential-perfect": "q", imperfect: "i", "sequential-imperfect": "w",
-      imperative: "v", // Note: HTML prototype had 'm' for imperative, common morph systems use 'v'
+      imperative: "v", 
       cohortative: "h", jussive: "j",
       "infinitive-construct": "c", "infinitive-absolute": "a",
       "participle-active": "r", "participle-passive": "s",
-      // Adding a generic participle if needed
-      participle: "r", // Defaulting to active participle if just 'participle' is selected in UI
+      participle: "r", 
     },
     person: { "1": "1", "2": "2", "3": "3" },
-    gender: { masculine: "m", feminine: "f", common: "c", both: "b" }, // Added 'common'
+    gender: { masculine: "m", feminine: "f", common: "c", both: "b" },
     number: { singular: "s", plural: "p" },
   },
 };
+
+const prefixOptionsList = [
+  { value: 'C', label: 'Conjunction' },
+  { value: 'S', label: 'Preposition' },
+  { value: 'D', label: 'Article' },
+  { value: 'R', label: 'Relative' },
+  { value: 'T', label: 'Direct Object Marker' },
+];
 
 const HEBREW_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew';
 
@@ -82,6 +93,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
   const { toast } = useToast();
 
   const [partOfSpeech, setPartOfSpeech] = useState<"noun" | "verb">("noun");
+  const [selectedPrefixes, setSelectedPrefixes] = useState<Prefix[]>([]);
 
   // Noun fields
   const [nounType, setNounType] = useState<string>("common");
@@ -100,12 +112,13 @@ const HebrewMorphBuilderPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<MorphSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleGenerateCode = () => {
-    let codeParts: string[] = [];
-    const langPrefix = "HS"; // MorphHB uses HS or HTd, using HS as a common one
+  const handleGenerateCode = useCallback(() => {
+    let mainWordCodeParts: string[] = [];
+    const mainWordLangPrefix = "HS"; // For the main word segment
 
     if (partOfSpeech === "noun") {
-      codeParts = [
+      mainWordCodeParts = [
+        mainWordLangPrefix,
         morphMap.noun.partOfSpeech[partOfSpeech],
         morphMap.noun.nounType[nounType as keyof typeof morphMap.noun.nounType],
         morphMap.noun.gender[nounGender as keyof typeof morphMap.noun.gender],
@@ -113,7 +126,8 @@ const HebrewMorphBuilderPage: React.FC = () => {
         morphMap.noun.state[nounState as keyof typeof morphMap.noun.state],
       ];
     } else { // verb
-      codeParts = [
+      mainWordCodeParts = [
+        mainWordLangPrefix,
         morphMap.verb.partOfSpeech[partOfSpeech],
         morphMap.verb.stem[verbStem as keyof typeof morphMap.verb.stem],
         morphMap.verb.aspect[verbAspect as keyof typeof morphMap.verb.aspect],
@@ -122,13 +136,23 @@ const HebrewMorphBuilderPage: React.FC = () => {
         morphMap.verb.number[verbNumber as keyof typeof morphMap.verb.number],
       ];
     }
-    const finalCode = `${langPrefix}${codeParts.filter(Boolean).join("")}`;
+    const mainWordCode = mainWordCodeParts.filter(Boolean).join("");
+
+    const prefixCodes = selectedPrefixes.map(p => `H${p.type}`); // Prefixes always use 'H' for language
+    
+    let finalCode = "";
+    if (prefixCodes.length > 0) {
+      finalCode = prefixCodes.join('/') + '/' + mainWordCode;
+    } else {
+      finalCode = mainWordCode;
+    }
+    
     setGeneratedCode(finalCode);
     return finalCode;
-  };
+  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes]);
 
   const handleSearchMorph = async () => {
-    const codeToSearch = generatedCode || handleGenerateCode(); // Ensure code is generated if not already
+    const codeToSearch = generatedCode || handleGenerateCode(); 
     if (!codeToSearch) {
       toast({
         variant: "destructive",
@@ -154,9 +178,13 @@ const HebrewMorphBuilderPage: React.FC = () => {
             title: "No Results",
             description: `No occurrences found for MorphHB code: ${codeToSearch}`,
           });
+        } else {
+          toast({
+            title: "Search Successful",
+            description: `Found ${data.results.length} occurrences for ${codeToSearch}`,
+          });
         }
       } else {
-        console.error("Unexpected API response structure:", data);
         setSearchResults([]);
          toast({
             title: "No Results",
@@ -164,7 +192,6 @@ const HebrewMorphBuilderPage: React.FC = () => {
           });
       }
     } catch (error: any) {
-      console.error("Error searching morph:", error);
       toast({
         variant: "destructive",
         title: "Search Failed",
@@ -176,13 +203,20 @@ const HebrewMorphBuilderPage: React.FC = () => {
   };
   
   useEffect(() => {
-    // Automatically generate code when relevant fields change
-    if (partOfSpeech) {
-        handleGenerateCode();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber]);
+    handleGenerateCode();
+  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, handleGenerateCode]);
 
+  const handleAddPrefix = () => {
+    setSelectedPrefixes(prev => [...prev, { id: `prefix-${Date.now()}`, type: prefixOptionsList[0].value }]);
+  };
+
+  const handleRemovePrefix = (idToRemove: string) => {
+    setSelectedPrefixes(prev => prev.filter(p => p.id !== idToRemove));
+  };
+
+  const handlePrefixTypeChange = (idToUpdate: string, newType: string) => {
+    setSelectedPrefixes(prev => prev.map(p => p.id === idToUpdate ? { ...p, type: newType } : p));
+  };
 
   return (
     <div className="space-y-6">
@@ -193,126 +227,164 @@ const HebrewMorphBuilderPage: React.FC = () => {
             Hebrew Morphology Code Builder
           </CardTitle>
           <CardDescription>
-            Construct a MorphHB code by selecting features, then search for occurrences.
+            Construct a MorphHB code by selecting prefixes and main word features, then search for occurrences.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div>
-            <Label htmlFor="partOfSpeechSelect">Part of Speech</Label>
-            <Select value={partOfSpeech} onValueChange={(value) => setPartOfSpeech(value as "noun" | "verb")}>
-              <SelectTrigger id="partOfSpeechSelect">
-                <SelectValue placeholder="Select Part of Speech" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="noun">Noun</SelectItem>
-                <SelectItem value="verb">Verb</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
 
-          {partOfSpeech === "noun" && (
-            <Card className="p-4 bg-muted/30 border-dashed">
-              <CardHeader className="p-2 pt-0"><CardTitle className="text-lg text-accent">Noun Options</CardTitle></CardHeader>
-              <CardContent className="space-y-4 p-2">
-                <div>
-                  <Label htmlFor="nounTypeSelect">Noun Type</Label>
-                  <Select value={nounType} onValueChange={setNounType}>
-                    <SelectTrigger id="nounTypeSelect"><SelectValue /></SelectTrigger>
+          {/* Prefix Section */}
+          <Card className="p-4 bg-muted/20 border-dashed">
+            <CardHeader className="p-2 pt-0">
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-lg text-accent">Prefix Morphemes</CardTitle>
+                <Button onClick={handleAddPrefix} size="sm" variant="outline">
+                  <PlusCircle className="mr-2 h-4 w-4" /> Add Prefix
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-3 p-2">
+              {selectedPrefixes.length === 0 && <p className="text-sm text-muted-foreground">No prefixes added.</p>}
+              {selectedPrefixes.map((prefix, index) => (
+                <div key={prefix.id} className="flex items-center gap-2 p-2 border rounded-md bg-background">
+                  <Badge variant="secondary" className="shrink-0">H (Hebrew)</Badge>
+                  <Select 
+                    value={prefix.type} 
+                    onValueChange={(value) => handlePrefixTypeChange(prefix.id, value)}
+                  >
+                    <SelectTrigger className="flex-grow">
+                      <SelectValue placeholder="Select prefix type" />
+                    </SelectTrigger>
                     <SelectContent>
-                      {Object.entries(morphMap.noun.nounType).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      {prefixOptionsList.map(opt => <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>)}
                     </SelectContent>
                   </Select>
+                  <Button onClick={() => handleRemovePrefix(prefix.id)} variant="ghost" size="icon">
+                    <Trash2 className="h-4 w-4 text-destructive" />
+                  </Button>
                 </div>
-                <div>
-                  <Label htmlFor="nounGenderSelect">Gender</Label>
-                  <Select value={nounGender} onValueChange={setNounGender}>
-                    <SelectTrigger id="nounGenderSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.noun.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="nounNumberSelect">Number</Label>
-                  <Select value={nounNumber} onValueChange={setNounNumber}>
-                    <SelectTrigger id="nounNumberSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                     {Object.entries(morphMap.noun.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="nounStateSelect">State</Label>
-                  <Select value={nounState} onValueChange={setNounState}>
-                    <SelectTrigger id="nounStateSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.noun.state).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+              ))}
+            </CardContent>
+          </Card>
 
-          {partOfSpeech === "verb" && (
-            <Card className="p-4 bg-muted/30 border-dashed">
-              <CardHeader className="p-2 pt-0"><CardTitle className="text-lg text-accent">Verb Options</CardTitle></CardHeader>
-              <CardContent className="space-y-4 p-2">
-                <div>
-                  <Label htmlFor="verbStemSelect">Stem</Label>
-                  <Select value={verbStem} onValueChange={setVerbStem}>
-                    <SelectTrigger id="verbStemSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.verb.stem).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
+          {/* Main Word Section */}
+          <Card className="p-4 bg-muted/20 border-dashed">
+            <CardHeader className="p-2 pt-0"><CardTitle className="text-lg text-accent">Main Word Features</CardTitle></CardHeader>
+            <CardContent className="space-y-4 p-2">
+              <div>
+                <Label htmlFor="partOfSpeechSelect">Part of Speech</Label>
+                <Select value={partOfSpeech} onValueChange={(value) => setPartOfSpeech(value as "noun" | "verb")}>
+                  <SelectTrigger id="partOfSpeechSelect">
+                    <SelectValue placeholder="Select Part of Speech" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="noun">Noun</SelectItem>
+                    <SelectItem value="verb">Verb</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {partOfSpeech === "noun" && (
+                <div className="space-y-3 p-3 border rounded-md bg-background">
+                  <Label className="text-md font-semibold">Noun Options</Label>
+                  <div>
+                    <Label htmlFor="nounTypeSelect">Noun Type</Label>
+                    <Select value={nounType} onValueChange={setNounType}>
+                      <SelectTrigger id="nounTypeSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.noun.nounType).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="nounGenderSelect">Gender</Label>
+                    <Select value={nounGender} onValueChange={setNounGender}>
+                      <SelectTrigger id="nounGenderSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.noun.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="nounNumberSelect">Number</Label>
+                    <Select value={nounNumber} onValueChange={setNounNumber}>
+                      <SelectTrigger id="nounNumberSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                       {Object.entries(morphMap.noun.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="nounStateSelect">State</Label>
+                    <Select value={nounState} onValueChange={setNounState}>
+                      <SelectTrigger id="nounStateSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.noun.state).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-                <div>
-                  <Label htmlFor="verbAspectSelect">Aspect</Label>
-                  <Select value={verbAspect} onValueChange={setVerbAspect}>
-                    <SelectTrigger id="verbAspectSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.verb.aspect).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
+              )}
+
+              {partOfSpeech === "verb" && (
+                <div className="space-y-3 p-3 border rounded-md bg-background">
+                  <Label className="text-md font-semibold">Verb Options</Label>
+                  <div>
+                    <Label htmlFor="verbStemSelect">Stem</Label>
+                    <Select value={verbStem} onValueChange={setVerbStem}>
+                      <SelectTrigger id="verbStemSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.verb.stem).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="verbAspectSelect">Aspect</Label>
+                    <Select value={verbAspect} onValueChange={setVerbAspect}>
+                      <SelectTrigger id="verbAspectSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.verb.aspect).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="verbPersonSelect">Person</Label>
+                    <Select value={verbPerson} onValueChange={setVerbPerson}>
+                      <SelectTrigger id="verbPersonSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                       {Object.entries(morphMap.verb.person).map(([key, val]) => <SelectItem key={key} value={key}>{key}{key === "1" ? "st" : key === "2" ? "nd" : "rd"}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="verbGenderSelect">Gender</Label>
+                    <Select value={verbGender} onValueChange={setVerbGender}>
+                      <SelectTrigger id="verbGenderSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.verb.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="verbNumberSelect">Number</Label>
+                    <Select value={verbNumber} onValueChange={setVerbNumber}>
+                      <SelectTrigger id="verbNumberSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.verb.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-                <div>
-                  <Label htmlFor="verbPersonSelect">Person</Label>
-                  <Select value={verbPerson} onValueChange={setVerbPerson}>
-                    <SelectTrigger id="verbPersonSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                     {Object.entries(morphMap.verb.person).map(([key, val]) => <SelectItem key={key} value={key}>{key}{key === "1" ? "st" : key === "2" ? "nd" : "rd"}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="verbGenderSelect">Gender</Label>
-                  <Select value={verbGender} onValueChange={setVerbGender}>
-                    <SelectTrigger id="verbGenderSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.verb.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="verbNumberSelect">Number</Label>
-                  <Select value={verbNumber} onValueChange={setVerbNumber}>
-                    <SelectTrigger id="verbNumberSelect"><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(morphMap.verb.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+              )}
+            </CardContent>
+          </Card>
+          
 
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Button onClick={handleGenerateCode} variant="outline" className="w-full sm:w-auto">
-              <Wand2 className="mr-2 h-4 w-4" /> Generate Code
+              <Wand2 className="mr-2 h-4 w-4" /> Refresh Code
             </Button>
             {generatedCode && (
-              <Card className="p-3 bg-primary text-primary-foreground font-mono text-lg flex-grow text-center sm:text-left">
+              <Card className="p-3 bg-primary text-primary-foreground font-mono text-lg flex-grow text-center sm:text-left break-all">
                 {generatedCode}
               </Card>
             )}
@@ -328,7 +400,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle>Search Results</CardTitle>
-            {searchResults.length > 0 && <CardDescription>Found {searchResults.length} occurrences.</CardDescription>}
+            {searchResults.length > 0 && <CardDescription>Found {searchResults.length} occurrences for "{generatedCode}".</CardDescription>}
           </CardHeader>
           <CardContent>
             {isLoading ? (
