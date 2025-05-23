@@ -15,17 +15,23 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages, Volume2, NotebookTextIcon } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton'; // Import PWAInstallButton
 
+import LexicaTool from '@/app/greek/page';
+import HebrewLexiconTool from '@/app/hebrew/page';
+import VocabularyBrowser from '@/app/vocabulary-browser/page';
+import MatchingGame from '@/app/matching-game/page';
+import ParserGame from '@/app/parser-game/page';
+
 const navItems = [
-  { href: '/', label: 'Text Viewer', icon: NotebookTextIcon },
-  { href: '/greek', label: 'Greek Lexicon tools', icon: Volume2 },
-  { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Volume2 },
-  { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: Volume2 },
-  { href: '/matching-game', label: 'Vocabulary matching game', icon: Volume2 },
-  { href: '/parser-game', label: 'Greek word parsing game', icon: Volume2 },
+  { href: '/', label: 'Study Tool', icon: NotebookTextIcon },
+  { href: '/greek', label: 'Greek Lexicon tools', icon: Microscope },
+  { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Microscope },
+  { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: NotebookTextIcon },
+  { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
+  { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
 ];
 
 const MobileAwareSidebarHeaderElements = () => {

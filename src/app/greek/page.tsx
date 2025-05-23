@@ -100,8 +100,8 @@ interface LexiconResponse {
   };
 }
 
-// const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
+// const BASE_URL = 'http://localhost:3001'
 
 const LexicaTool: React.FC = () => {
   const [word, setWord] = useState("");
