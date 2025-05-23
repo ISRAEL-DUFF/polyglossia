@@ -1,0 +1,45 @@
+
+.greek-prepositions-module .animation-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greek-prepositions-module .correct-answer {
+  background-color: hsl(var(--success-bg, 145 63% 40%)) !important; /* Darker green */
+  color: hsl(var(--success-fg, 0 0% 100%)) !important;
+  border-color: hsl(var(--success-border, 145 63% 30%));
+  animation: bounce 0.4s ease-out;
+}
+
+.greek-prepositions-module .wrong-answer {
+  background-color: hsl(var(--destructive)) !important;
+  color: hsl(var(--destructive-foreground)) !important;
+  border-color: hsl(var(--destructive)) !important;
+  animation: shake 0.4s ease-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+    

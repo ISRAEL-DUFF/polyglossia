@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,6 +44,11 @@ body {
     --sidebar-accent-foreground: 213 20% 95%;
     --sidebar-border: 0 0% 85%;
     --sidebar-ring: 213 39% 39%;
+
+    /* Success colors for quiz feedback */
+    --success-bg: 145 58% 35%; /* A pleasant green */
+    --success-fg: 0 0% 100%;
+    --success-border: 145 58% 25%;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -79,6 +85,11 @@ body {
     --sidebar-accent-foreground: 213 20% 95%;
     --sidebar-border: 240 3.7% 20%;
     --sidebar-ring: 213 39% 45%;
+
+    /* Success colors for dark mode */
+    --success-bg: 145 63% 40%; 
+    --success-fg: 0 0% 95%;
+    --success-border: 145 63% 30%;
   }
 }
 
@@ -127,3 +138,20 @@ body {
 .flashcard-flipped > .flashcard-inner {
   transform: rotateY(180deg);
 }
+
+/* General animation for content loading */
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    

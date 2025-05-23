@@ -15,17 +15,16 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon, Wand2 } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon, Wand2, BookCopy } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
-import PWAInstallButton from './PWAInstallButton'; // Import PWAInstallButton
-
-// Removed direct page imports as they are not used here
+import PWAInstallButton from './PWAInstallButton';
 
 const navItems = [
   { href: '/', label: 'Study Tools', icon: NotebookTextIcon },
   { href: '/greek', label: 'Greek Lexicon tools', icon: Microscope },
   { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Microscope },
   { href: '/hebrew-morph-builder', label: 'Hebrew Morph Builder', icon: Wand2 },
+  { href: '/greek-prepositions', label: 'Greek Prepositions', icon: BookCopy },
   { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: NotebookTextIcon },
   // { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
   // { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
@@ -63,7 +62,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter className="p-4 text-xs text-sidebar-foreground/70 space-y-2">
-          <PWAInstallButton /> {/* Added PWA Install Button */}
+          <PWAInstallButton />
           <div>Polyglossia Praxis &copy; {new Date().getFullYear()}</div>
         </SidebarFooter>
       </Sidebar>
@@ -79,5 +78,4 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
-
     
