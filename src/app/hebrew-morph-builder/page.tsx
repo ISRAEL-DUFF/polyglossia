@@ -41,10 +41,10 @@ import {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationLink,
-  PaginationPrevious,
-  PaginationNext,
-  PaginationEllipsis,
+  // PaginationLink, // Not used directly for simple prev/next
+  // PaginationPrevious, // Replaced with Button
+  // PaginationNext, // Replaced with Button
+  // PaginationEllipsis, // Not used for simple prev/next
 } from "@/components/ui/pagination";
 
 interface MorphSearchResult {
@@ -275,7 +275,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
   useEffect(() => {
     handleGenerateCode();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, suffixType, suffixPerson, suffixGender, suffixNumber, suffixed, handleGenerateCode]);
+  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, suffixType, suffixPerson, suffixGender, suffixNumber, suffixed]);
 
   const handleAddPrefix = () => {
     setSelectedPrefixes(prev => [...prev, { id: `prefix-${Date.now()}`, type: prefixOptionsList[0].value }]);
@@ -326,9 +326,9 @@ const HebrewMorphBuilderPage: React.FC = () => {
           {/* Prefix Section */}
           <Card className="p-4 bg-muted/20 border-dashed">
             <CardHeader className="p-2 pt-0">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <CardTitle className="text-lg text-accent">Prefix Morphemes</CardTitle>
-                <Button onClick={handleAddPrefix} size="sm" variant="outline">
+                <Button onClick={handleAddPrefix} size="sm" variant="outline" className="w-full sm:w-auto">
                   <PlusCircle className="mr-2 h-4 w-4" /> Add Prefix
                 </Button>
               </div>
@@ -360,9 +360,9 @@ const HebrewMorphBuilderPage: React.FC = () => {
           {/* Suffix Section */}
           <Card className="p-4 bg-muted/20 border-dashed">
             <CardHeader className="p-2 pt-0">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <CardTitle className="text-lg text-accent">Suffix Morphemes</CardTitle>
-                <Button onClick={handleAddSuffix} size="sm" variant="outline">
+                <Button onClick={handleAddSuffix} size="sm" variant="outline" className="w-full sm:w-auto">
                   { suffixed === 'none' ? <PlusCircle className="mr-2 h-4 w-4" /> : <Trash2 className="mr-2 h-4 w-4 text-destructive" />}
                   {suffixed === 'none' ? 'Add Suffix' : 'Remove Suffix'}
                 </Button>
@@ -371,8 +371,8 @@ const HebrewMorphBuilderPage: React.FC = () => {
             <CardContent className="space-y-3 p-2">
               {suffixed === 'none' && <p className="text-sm text-muted-foreground">No suffix added.</p>}
               {suffixed === 'suffix' && (
-                <div className="space-y-3 p-3 border rounded-md bg-background">
-                    <Label className="text-md font-semibold">Suffix Options</Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 p-3 border rounded-md bg-background">
+                    <Label className="text-md font-semibold sm:col-span-2">Suffix Options</Label>
                     <div>
                         <Label htmlFor="suffixTypeSelect">Suffix Type</Label>
                         <Select value={suffixType} onValueChange={setSuffixType}>
@@ -433,8 +433,8 @@ const HebrewMorphBuilderPage: React.FC = () => {
               </div>
 
               {partOfSpeech === "noun" && (
-                <div className="space-y-3 p-3 border rounded-md bg-background">
-                  <Label className="text-md font-semibold">Noun Options</Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 p-3 border rounded-md bg-background">
+                  <Label className="text-md font-semibold sm:col-span-2">Noun Options</Label>
                   <div>
                     <Label htmlFor="nounTypeSelect">Noun Type</Label>
                     <Select value={nounType} onValueChange={setNounType}>
@@ -475,8 +475,8 @@ const HebrewMorphBuilderPage: React.FC = () => {
               )}
 
               {partOfSpeech === "verb" && (
-                <div className="space-y-3 p-3 border rounded-md bg-background">
-                  <Label className="text-md font-semibold">Verb Options</Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 p-3 border rounded-md bg-background">
+                  <Label className="text-md font-semibold sm:col-span-2">Verb Options</Label>
                   <div>
                     <Label htmlFor="verbStemSelect">Stem</Label>
                     <Select value={verbStem} onValueChange={setVerbStem}>
@@ -533,7 +533,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
               <Wand2 className="mr-2 h-4 w-4" /> Refresh Code
             </Button>
             {generatedCode && (
-              <Card className="p-3 bg-primary text-primary-foreground font-mono text-lg flex-grow text-center sm:text-left break-all">
+              <Card className="p-3 bg-primary text-primary-foreground font-mono text-base sm:text-lg flex-grow text-center sm:text-left break-all">
                 {generatedCode}
               </Card>
             )}
@@ -596,21 +596,21 @@ const HebrewMorphBuilderPage: React.FC = () => {
           {totalPages > 1 && (
             <div className="p-4 border-t bg-background sticky bottom-0 z-10">
               <Pagination>
-                <PaginationContent>
+                <PaginationContent className="justify-center">
                   <PaginationItem>
                     <Button 
                       variant="outline" 
                       size="sm"
                       onClick={() => handlePageChange(currentPage - 1)} 
                       disabled={currentPage === 1}
+                      className="w-full sm:w-auto"
                     >
                       Previous
                     </Button>
                   </PaginationItem>
                   
-                  {/* Simple page indicator, can be expanded */}
                   <PaginationItem>
-                    <span className="px-4 text-sm text-muted-foreground">
+                    <span className="px-2 sm:px-4 text-sm text-muted-foreground">
                       Page {currentPage} of {totalPages}
                     </span>
                   </PaginationItem>
@@ -621,6 +621,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
                       size="sm"
                       onClick={() => handlePageChange(currentPage + 1)} 
                       disabled={currentPage === totalPages}
+                      className="w-full sm:w-auto"
                     >
                       Next
                     </Button>
