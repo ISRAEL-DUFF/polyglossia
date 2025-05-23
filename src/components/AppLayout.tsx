@@ -15,20 +15,17 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon, Wand2 } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton'; // Import PWAInstallButton
 
-import LexicaTool from '@/app/greek/page';
-import HebrewLexiconTool from '@/app/hebrew/page';
-import VocabularyBrowser from '@/app/vocabulary-browser/page';
-import MatchingGame from '@/app/matching-game/page';
-import ParserGame from '@/app/parser-game/page';
+// Removed direct page imports as they are not used here
 
 const navItems = [
   { href: '/', label: 'Study Tools', icon: NotebookTextIcon },
   { href: '/greek', label: 'Greek Lexicon tools', icon: Microscope },
   { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Microscope },
+  { href: '/hebrew-morph-builder', label: 'Hebrew Morph Builder', icon: Wand2 },
   { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: NotebookTextIcon },
   // { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
   // { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
@@ -82,3 +79,5 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
+
+    
