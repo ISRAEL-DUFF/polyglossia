@@ -29,6 +29,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from '@/components/ui/skeleton';
 import { Wand2, Search, PlusCircle, Trash2 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge'; // Added Badge import
 
 interface MorphSearchResult {
   book: string;
@@ -204,6 +205,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
   
   useEffect(() => {
     handleGenerateCode();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, handleGenerateCode]);
 
   const handleAddPrefix = () => {
@@ -446,4 +448,3 @@ const HebrewMorphBuilderPage: React.FC = () => {
 
 export default HebrewMorphBuilderPage;
 
-    
