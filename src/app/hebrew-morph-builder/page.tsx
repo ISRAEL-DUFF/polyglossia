@@ -28,8 +28,24 @@ import {
 } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from '@/components/ui/skeleton';
-import { Wand2, Search, PlusCircle, Trash2 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge'; // Added Badge import
+import { Wand2, Search, PlusCircle, Trash2, X } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 
 interface MorphSearchResult {
   book: string;
@@ -45,7 +61,7 @@ interface MorphSearchResult {
 
 interface Prefix {
   id: string;
-  type: string; // e.g., 'C' for Conjunction, 'S' for Preposition
+  type: string; 
 }
 
 const morphMap = {
@@ -57,11 +73,11 @@ const morphMap = {
     state: { none: "--", absolute: "a", construct: "c", determined: "d" },
   },
   suffix: {
-    partOfSpeech: { noun: "S" },
+    partOfSpeech: { noun: "S" }, // Note: 'S' typically denotes a suffix in MorphHB, not a noun.
     suffixType: { none: "--", "directional he": "d", "paragogic he": "h", "paragogic nun": "n", "pronominal": "p" },
     gender: { none: "--", masculine: "m", feminine: "f", common: "c", both: "b" },
     number: { none: "--", singular: "s", plural: "p", dual: "d" },
-    state: { none: "--", absolute: "a", construct: "c", determined: "d" },
+    state: { none: "--", absolute: "a", construct: "c", determined: "d" }, // State is less common for pronominal suffixes
   },
   verb: {
     partOfSpeech: { verb: "V" },
@@ -73,18 +89,20 @@ const morphMap = {
       pilel: "i", hothpal: "u", tiphil: "c", hishtaphel: "v", nithpalel: "w",
       nithpoel: "y", hithpoel: "z",
     },
-    aspect: {
+    aspect: { // Aspect is often used for verbs, 'type' might be more appropriate for some categories
       perfect: "p", "sequential-perfect": "q", imperfect: "i", "sequential-imperfect": "w",
       imperative: "v", 
       cohortative: "h", jussive: "j",
       "infinitive-construct": "c", "infinitive-absolute": "a",
       "participle-active": "r", "participle-passive": "s",
-      participle: "r", 
+      participle: "r", // General participle if active/passive distinction isn't made
     },
-    person: { "1": "1", "2": "2", "3": "3" },
-    gender: { masculine: "m", feminine: "f", common: "c", both: "b" },
-    number: { singular: "s", plural: "p" },
+    person: { "1": "1", "2": "2", "3": "3", none: "--" }, // Added 'none'
+    gender: { none: "--", masculine: "m", feminine: "f", common: "c", both: "b" },
+    number: { none: "--", singular: "s", plural: "p" }, // Dual might be relevant for some verbs, but often just singular/plural
   },
+  // Added a general 'none' option for fields that might not apply
+  generalNone: { none: "--" }
 };
 
 const prefixOptionsList = [
@@ -92,57 +110,13 @@ const prefixOptionsList = [
   { value: 'S', label: 'Preposition' },
   { value: 'D', label: 'Article' },
   { value: 'R', label: 'Relative' },
-  { value: 'T', label: 'Direct Object Marker' },
+  // { value: 'T', label: 'Direct Object Marker' }, // Assuming 'T' for direct object might be an oversimplification for MorphHB construction
 ];
 
-type HebrewPartOfSpeech = "noun" | "pronoun" | "preposition" | "adjective" | "adverb" | "conjunction" | "particle" | "verb" | "suffix"
-type HebrewPOSProp = "norminal-type" | "verb-type" | "gender" | "number" | "person" | "state" | "verb-stem"
-type PartOfPeechStructure = Record<HebrewPartOfSpeech, {
-  code: string;
-  structure: HebrewPOSProp[];
-}>
+type HebrewPartOfSpeech = "noun" | "verb" | "adjective" | "conjunction" | "adverb" | "pronoun" | "preposition" | "particle" | "suffix";
 
-const POS_STRUCTURE_MAP: PartOfPeechStructure = {
-  adjective: {
-    code: "A",
-    structure: ["norminal-type"]
-  },
-  conjunction: {
-    code: "C",
-    structure: []
-  },
-  adverb: {
-    code: "D",
-    structure: []
-  },
-  noun: {
-    code: "N",
-    structure: ["norminal-type", "gender", "number", "state"]
-  },
-  pronoun: {
-    code: "P",
-    structure: ["norminal-type", "person", "gender", "number"]
-  },
-  preposition: {
-    code: "R",
-    structure: ["norminal-type"]
-  },
-  suffix: {
-    code: "S",
-    structure: ["norminal-type", "person", "gender", "number"]
-  },
-  particle: {
-    code: "T",
-    structure: ["norminal-type"]
-  },
-  verb: {
-    code: "V",
-    structure: ["verb-stem", "verb-type", "person", "gender", "number", "state"]
-  }
-}
 
 const HEBREW_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew';
-// const HEBREW_API_BASE_URL = 'http://localhost:3000';
 
 const HebrewMorphBuilderPage: React.FC = () => {
   const { toast } = useToast();
@@ -153,7 +127,6 @@ const HebrewMorphBuilderPage: React.FC = () => {
 
 
   // Noun fields
-  // const [nounType, setNounType] = useState<string>("common");
   const [nounType, setNounType] = useState<string>("none");
   const [nounGender, setNounGender] = useState<string>("none");
   const [nounNumber, setNounNumber] = useState<string>("none");
@@ -161,9 +134,10 @@ const HebrewMorphBuilderPage: React.FC = () => {
 
   // Suffix fields
   const [suffixType, setSuffixType] = useState<string>("none");
+  const [suffixPerson, setSuffixPerson] = useState<string>("none");
   const [suffixGender, setSuffixGender] = useState<string>("none");
   const [suffixNumber, setSuffixNumber] = useState<string>("none");
-  const [suffixState, setSuffixState] = useState<string>("none");
+  const [suffixState, setSuffixState] = useState<string>("none"); // Usually not applicable for suffixes in MorphHB
 
   // Verb fields
   const [verbStem, setVerbStem] = useState<string>("qal");
@@ -176,75 +150,79 @@ const HebrewMorphBuilderPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<MorphSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const [isResultsModalOpen, setIsResultsModalOpen] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+
+
   const handleGenerateCode = useCallback(() => {
     let mainWordCodeParts: string[] = [];
     let suffixWordCodeParts: string[] = [];
-    const mainWordLangPrefix = "H"; // For the main word segment
+    const mainWordLangPrefix = "H"; 
 
     if (partOfSpeech === "noun") {
       mainWordCodeParts = [
-        // mainWordLangPrefix,
-        morphMap.noun.partOfSpeech[partOfSpeech],
-        morphMap.noun.nounType[nounType as keyof typeof morphMap.noun.nounType],
-        morphMap.noun.gender[nounGender as keyof typeof morphMap.noun.gender],
-        morphMap.noun.number[nounNumber as keyof typeof morphMap.noun.number],
-        morphMap.noun.state[nounState as keyof typeof morphMap.noun.state],
+        morphMap.noun.partOfSpeech[partOfSpeech as keyof typeof morphMap.noun.partOfSpeech] || morphMap.generalNone.none,
+        morphMap.noun.nounType[nounType as keyof typeof morphMap.noun.nounType] || morphMap.generalNone.none,
+        morphMap.noun.gender[nounGender as keyof typeof morphMap.noun.gender] || morphMap.generalNone.none,
+        morphMap.noun.number[nounNumber as keyof typeof morphMap.noun.number] || morphMap.generalNone.none,
+        morphMap.noun.state[nounState as keyof typeof morphMap.noun.state] || morphMap.generalNone.none,
       ];
-    } else { // verb
+    } else if (partOfSpeech === "verb") { 
       mainWordCodeParts = [
-        // mainWordLangPrefix,
-        morphMap.verb.partOfSpeech[partOfSpeech as keyof typeof morphMap.verb.partOfSpeech],
-        morphMap.verb.stem[verbStem as keyof typeof morphMap.verb.stem],
-        morphMap.verb.aspect[verbAspect as keyof typeof morphMap.verb.aspect],
-        morphMap.verb.person[verbPerson as keyof typeof morphMap.verb.person],
-        morphMap.verb.gender[verbGender as keyof typeof morphMap.verb.gender],
-        morphMap.verb.number[verbNumber as keyof typeof morphMap.verb.number],
+        morphMap.verb.partOfSpeech[partOfSpeech as keyof typeof morphMap.verb.partOfSpeech] || morphMap.generalNone.none,
+        morphMap.verb.stem[verbStem as keyof typeof morphMap.verb.stem] || morphMap.generalNone.none,
+        morphMap.verb.aspect[verbAspect as keyof typeof morphMap.verb.aspect] || morphMap.generalNone.none,
+        morphMap.verb.person[verbPerson as keyof typeof morphMap.verb.person] || morphMap.generalNone.none,
+        morphMap.verb.gender[verbGender as keyof typeof morphMap.verb.gender] || morphMap.generalNone.none,
+        morphMap.verb.number[verbNumber as keyof typeof morphMap.verb.number] || morphMap.generalNone.none,
       ];
     }
+    // Add more POS conditions here if needed
 
     if (suffixed === "suffix") {
       suffixWordCodeParts = [
-        morphMap.suffix.suffixType[suffixType as keyof typeof morphMap.suffix.suffixType],
-        morphMap.suffix.gender[suffixGender as keyof typeof morphMap.suffix.gender],
-        morphMap.suffix.number[suffixNumber as keyof typeof morphMap.suffix.number],
-        morphMap.suffix.state[suffixState as keyof typeof morphMap.suffix.state],
+        morphMap.suffix.suffixType[suffixType as keyof typeof morphMap.suffix.suffixType] || morphMap.generalNone.none,
+        morphMap.verb.person[suffixPerson as keyof typeof morphMap.verb.person] || morphMap.generalNone.none, // Suffix person often aligns with verb persons
+        morphMap.suffix.gender[suffixGender as keyof typeof morphMap.suffix.gender] || morphMap.generalNone.none,
+        morphMap.suffix.number[suffixNumber as keyof typeof morphMap.suffix.number] || morphMap.generalNone.none,
+        // morphMap.suffix.state[suffixState as keyof typeof morphMap.suffix.state] || morphMap.generalNone.none, // State is usually not for suffixes
       ];
-    } else {
-      suffixWordCodeParts = [];
     }
 
     const mainWordCode = mainWordCodeParts.filter((v) => v !== '--').join("");
-    // const suffixWordCode = suffixWordCodeParts.filter(Boolean).join("")
-    const suffixWordCode = suffixWordCodeParts.filter((v) => v !== '--').join("")
-
-    // const prefixCodes = selectedPrefixes.map(p => `H${p.type}`); // Prefixes always use 'H' for language
-    const prefixCodes = selectedPrefixes[0] ? [`H${selectedPrefixes[0].type}`] : []; // Prefixes always use 'H' for language
+    const suffixWordCode = suffixWordCodeParts.filter((v) => v !== '--').join("");
+    
+    const prefixCodes = selectedPrefixes.map(p => `H${p.type}`); 
     
     let finalCode = "";
     if (prefixCodes.length > 0) {
-      finalCode = prefixCodes.join('/') + '/' + mainWordCode;
+      finalCode = prefixCodes.join('/') + '/' + mainWordLangPrefix + mainWordCode;
     } else {
-      finalCode = `H${mainWordCode}`;
+      finalCode = mainWordLangPrefix + mainWordCode;
     }
 
     if(suffixWordCode) {
-      finalCode = `${finalCode}/S${suffixWordCode}`
+      // Suffixes in MorphHB are typically prefixed with 'S' (for suffix)
+      finalCode = `${finalCode}/S${suffixWordCode}`;
     }
     
     setGeneratedCode(finalCode);
     return finalCode;
   }, [
-    partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes,
-    suffixType, suffixGender, suffixNumber, suffixState, suffixed
+    partOfSpeech, nounType, nounGender, nounNumber, nounState, 
+    verbStem, verbAspect, verbPerson, verbGender, verbNumber, 
+    selectedPrefixes,
+    suffixType, suffixPerson, suffixGender, suffixNumber, /*suffixState,*/ suffixed
   ]);
 
   const handleSearchMorph = async () => {
     const codeToSearch = generatedCode || handleGenerateCode(); 
-    if (!codeToSearch) {
+    if (!codeToSearch || codeToSearch === "H" || codeToSearch.endsWith("H--")) { // Avoid empty/minimal codes
       toast({
         variant: "destructive",
-        title: "No Code Generated",
-        description: "Please generate a MorphHB code first.",
+        title: "Incomplete Code",
+        description: "Please select more features to generate a valid MorphHB code.",
       });
       return;
     }
@@ -265,14 +243,18 @@ const HebrewMorphBuilderPage: React.FC = () => {
             title: "No Results",
             description: `No occurrences found for MorphHB code: ${codeToSearch}`,
           });
+          setIsResultsModalOpen(false);
         } else {
           toast({
             title: "Search Successful",
             description: `Found ${data.results.length} occurrences for ${codeToSearch}`,
           });
+          setCurrentPage(1);
+          setIsResultsModalOpen(true);
         }
       } else {
         setSearchResults([]);
+        setIsResultsModalOpen(false);
          toast({
             title: "No Results",
             description: `No occurrences found or unexpected data for MorphHB code: ${codeToSearch}`,
@@ -284,6 +266,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
         title: "Search Failed",
         description: error.message || "An error occurred while searching.",
       });
+      setIsResultsModalOpen(false);
     } finally {
       setIsLoading(false);
     }
@@ -292,7 +275,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
   useEffect(() => {
     handleGenerateCode();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, handleGenerateCode]);
+  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes, suffixType, suffixPerson, suffixGender, suffixNumber, suffixed, handleGenerateCode]);
 
   const handleAddPrefix = () => {
     setSelectedPrefixes(prev => [...prev, { id: `prefix-${Date.now()}`, type: prefixOptionsList[0].value }]);
@@ -310,6 +293,20 @@ const HebrewMorphBuilderPage: React.FC = () => {
 
   const handlePrefixTypeChange = (idToUpdate: string, newType: string) => {
     setSelectedPrefixes(prev => prev.map(p => p.id === idToUpdate ? { ...p, type: newType } : p));
+  };
+
+  // Pagination logic
+  const totalResults = searchResults.length;
+  const totalPages = Math.ceil(totalResults / itemsPerPage);
+  const paginatedResults = searchResults.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   return (
@@ -338,7 +335,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
             </CardHeader>
             <CardContent className="space-y-3 p-2">
               {selectedPrefixes.length === 0 && <p className="text-sm text-muted-foreground">No prefixes added.</p>}
-              {selectedPrefixes.map((prefix, index) => (
+              {selectedPrefixes.map((prefix) => (
                 <div key={prefix.id} className="flex items-center gap-2 p-2 border rounded-md bg-background">
                   <Badge variant="secondary" className="shrink-0">H (Hebrew)</Badge>
                   <Select 
@@ -366,57 +363,54 @@ const HebrewMorphBuilderPage: React.FC = () => {
               <div className="flex justify-between items-center">
                 <CardTitle className="text-lg text-accent">Suffix Morphemes</CardTitle>
                 <Button onClick={handleAddSuffix} size="sm" variant="outline">
-                  {
-                    suffixed === 'none' && (<PlusCircle className="mr-2 h-4 w-4">  Add Suffix </PlusCircle>)
-                  }
-
-                  {
-                    suffixed === 'suffix' && (<Trash2 className="h-4 w-4 text-destructive">  Remove Suffix </Trash2>)
-                  }
+                  { suffixed === 'none' ? <PlusCircle className="mr-2 h-4 w-4" /> : <Trash2 className="mr-2 h-4 w-4 text-destructive" />}
+                  {suffixed === 'none' ? 'Add Suffix' : 'Remove Suffix'}
                 </Button>
               </div>
             </CardHeader>
             <CardContent className="space-y-3 p-2">
               {suffixed === 'none' && <p className="text-sm text-muted-foreground">No suffix added.</p>}
-              {suffixed === 'suffix' && (<div className="space-y-3 p-3 border rounded-md bg-background">
-                  <Label className="text-md font-semibold">Suffix Options</Label>
-                  <div>
-                    <Label htmlFor="nounTypeSelect">Suffix Type</Label>
-                    <Select value={suffixType} onValueChange={setSuffixType}>
-                      <SelectTrigger id="suffixTypeSelect"><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        {Object.entries(morphMap.suffix.suffixType).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="suffixGenderSelect">Suffix Gender</Label>
-                    <Select value={suffixGender} onValueChange={setSuffixGender}>
-                      <SelectTrigger id="suffixGenderSelect"><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        {Object.entries(morphMap.suffix.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="suffixNumberSelect">Suffix Number</Label>
-                    <Select value={nounNumber} onValueChange={setSuffixNumber}>
-                      <SelectTrigger id="suffixNumberSelect"><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                       {Object.entries(morphMap.suffix.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="nounStateSelect">Suffix State</Label>
-                    <Select value={nounState} onValueChange={setSuffixState}>
-                      <SelectTrigger id="suffixStateSelect"><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        {Object.entries(morphMap.suffix.state).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </div>
-              </div>)}
+              {suffixed === 'suffix' && (
+                <div className="space-y-3 p-3 border rounded-md bg-background">
+                    <Label className="text-md font-semibold">Suffix Options</Label>
+                    <div>
+                        <Label htmlFor="suffixTypeSelect">Suffix Type</Label>
+                        <Select value={suffixType} onValueChange={setSuffixType}>
+                        <SelectTrigger id="suffixTypeSelect"><SelectValue placeholder="Select Suffix Type"/></SelectTrigger>
+                        <SelectContent>
+                            {Object.entries(morphMap.suffix.suffixType).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                        </SelectContent>
+                        </Select>
+                    </div>
+                    <div>
+                        <Label htmlFor="suffixPersonSelect">Person</Label>
+                        <Select value={suffixPerson} onValueChange={setSuffixPerson}>
+                        <SelectTrigger id="suffixPersonSelect"><SelectValue placeholder="Select Person"/></SelectTrigger>
+                        <SelectContent>
+                            {Object.entries(morphMap.verb.person).map(([key, val]) => <SelectItem key={key} value={key}>{key === "none" ? "None" : (key + (key === "1" ? "st" : key === "2" ? "nd" : key === "3" ? "rd" : ""))}</SelectItem>)}
+                        </SelectContent>
+                        </Select>
+                    </div>
+                    <div>
+                        <Label htmlFor="suffixGenderSelect">Gender</Label>
+                        <Select value={suffixGender} onValueChange={setSuffixGender}>
+                        <SelectTrigger id="suffixGenderSelect"><SelectValue placeholder="Select Gender"/></SelectTrigger>
+                        <SelectContent>
+                            {Object.entries(morphMap.suffix.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                        </SelectContent>
+                        </Select>
+                    </div>
+                    <div>
+                        <Label htmlFor="suffixNumberSelect">Number</Label>
+                        <Select value={suffixNumber} onValueChange={setSuffixNumber}>
+                        <SelectTrigger id="suffixNumberSelect"><SelectValue placeholder="Select Number"/></SelectTrigger>
+                        <SelectContent>
+                        {Object.entries(morphMap.suffix.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                        </SelectContent>
+                        </Select>
+                    </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -433,13 +427,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
                   <SelectContent>
                     <SelectItem value="noun">Noun</SelectItem>
                     <SelectItem value="verb">Verb</SelectItem>
-                    <SelectItem value="adjective">Adjective</SelectItem>
-                    <SelectItem value="conjunction">Conjunction</SelectItem>
-                    <SelectItem value="adverb">Adverb</SelectItem>
-                    <SelectItem value="pronoun">Pronoun</SelectItem>
-                    <SelectItem value="preposition">Preposition</SelectItem>
-                    <SelectItem value="particle">Particle</SelectItem>
-                    <SelectItem value="suffix">Suffix</SelectItem>
+                    {/* Add other POS options here if needed */}
                   </SelectContent>
                 </Select>
               </div>
@@ -512,7 +500,7 @@ const HebrewMorphBuilderPage: React.FC = () => {
                     <Select value={verbPerson} onValueChange={setVerbPerson}>
                       <SelectTrigger id="verbPersonSelect"><SelectValue /></SelectTrigger>
                       <SelectContent>
-                       {Object.entries(morphMap.verb.person).map(([key, val]) => <SelectItem key={key} value={key}>{key}{key === "1" ? "st" : key === "2" ? "nd" : "rd"}</SelectItem>)}
+                       {Object.entries(morphMap.verb.person).map(([key, val]) => <SelectItem key={key} value={key}>{key === "none" ? "None" : (key + (key === "1" ? "st" : key === "2" ? "nd" : key === "3" ? "rd" : ""))}</SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
@@ -557,18 +545,23 @@ const HebrewMorphBuilderPage: React.FC = () => {
         </CardContent>
       </Card>
 
-      {(isLoading || searchResults.length > 0) && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Search Results</CardTitle>
-            {searchResults.length > 0 && <CardDescription>Found {searchResults.length} occurrences for "{generatedCode}".</CardDescription>}
-          </CardHeader>
-          <CardContent>
+      <Dialog open={isResultsModalOpen} onOpenChange={setIsResultsModalOpen}>
+        <DialogContent className="w-full h-full max-w-none sm:max-w-4xl md:max-w-5xl lg:max-w-6xl flex flex-col p-0">
+          <DialogHeader className="sticky top-0 bg-background z-10 p-4 border-b flex flex-row justify-between items-center">
+            <DialogTitle className="text-lg font-semibold truncate">
+              Results for "{generatedCode}" ({totalResults} occurrences)
+            </DialogTitle>
+            <DialogClose asChild>
+              <Button variant="ghost" size="icon"><X className="h-5 w-5" /> <span className="sr-only">Close</span></Button>
+            </DialogClose>
+          </DialogHeader>
+          
+          <div className="flex-grow overflow-y-auto p-4">
             {isLoading ? (
               <div className="space-y-2">
-                {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
+                {[...Array(itemsPerPage)].map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
               </div>
-            ) : searchResults.length > 0 ? (
+            ) : paginatedResults.length > 0 ? (
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -578,12 +571,12 @@ const HebrewMorphBuilderPage: React.FC = () => {
                       <TableHead>Word</TableHead>
                       <TableHead>MorphHB</TableHead>
                       <TableHead>Parsed</TableHead>
-                      <TableHead>Lemma</TableHead>
+                      <TableHead>Lemma (Strongs)</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {searchResults.map((row, index) => (
-                      <TableRow key={index}>
+                    {paginatedResults.map((row, index) => (
+                      <TableRow key={`${row.book}-${row.chapter}-${row.verse}-${index}`}>
                         <TableCell>{row.book}</TableCell>
                         <TableCell>{row.chapter}:{row.verse}</TableCell>
                         <TableCell className="hebrew hebrew-size">{row.word}</TableCell>
@@ -596,11 +589,48 @@ const HebrewMorphBuilderPage: React.FC = () => {
                 </Table>
               </div>
             ) : (
-              !isLoading && <p className="text-muted-foreground">No results to display.</p>
+               <p className="text-muted-foreground text-center py-10">No results to display for the current page or filter.</p>
             )}
-          </CardContent>
-        </Card>
-      )}
+          </div>
+
+          {totalPages > 1 && (
+            <div className="p-4 border-t bg-background sticky bottom-0 z-10">
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => handlePageChange(currentPage - 1)} 
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </Button>
+                  </PaginationItem>
+                  
+                  {/* Simple page indicator, can be expanded */}
+                  <PaginationItem>
+                    <span className="px-4 text-sm text-muted-foreground">
+                      Page {currentPage} of {totalPages}
+                    </span>
+                  </PaginationItem>
+
+                  <PaginationItem>
+                     <Button 
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handlePageChange(currentPage + 1)} 
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                    </Button>
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
