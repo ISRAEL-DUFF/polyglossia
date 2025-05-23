@@ -51,10 +51,17 @@ interface Prefix {
 const morphMap = {
   noun: {
     partOfSpeech: { noun: "N" },
-    nounType: { common: "c", proper: "p", gentilic: "g" },
-    gender: { masculine: "m", feminine: "f", common: "c", both: "b" },
-    number: { singular: "s", plural: "p", dual: "d" },
-    state: { absolute: "a", construct: "c", determined: "d" },
+    nounType: { none: "--", common: "c", proper: "p", gentilic: "g" },
+    gender: { none: "--", masculine: "m", feminine: "f", common: "c", both: "b" },
+    number: { none: "--", singular: "s", plural: "p", dual: "d" },
+    state: { none: "--", absolute: "a", construct: "c", determined: "d" },
+  },
+  suffix: {
+    partOfSpeech: { noun: "S" },
+    suffixType: { none: "--", "directional he": "d", "paragogic he": "h", "paragogic nun": "n", "pronominal": "p" },
+    gender: { none: "--", masculine: "m", feminine: "f", common: "c", both: "b" },
+    number: { none: "--", singular: "s", plural: "p", dual: "d" },
+    state: { none: "--", absolute: "a", construct: "c", determined: "d" },
   },
   verb: {
     partOfSpeech: { verb: "V" },
@@ -88,20 +95,75 @@ const prefixOptionsList = [
   { value: 'T', label: 'Direct Object Marker' },
 ];
 
+type HebrewPartOfSpeech = "noun" | "pronoun" | "preposition" | "adjective" | "adverb" | "conjunction" | "particle" | "verb" | "suffix"
+type HebrewPOSProp = "norminal-type" | "verb-type" | "gender" | "number" | "person" | "state" | "verb-stem"
+type PartOfPeechStructure = Record<HebrewPartOfSpeech, {
+  code: string;
+  structure: HebrewPOSProp[];
+}>
+
+const POS_STRUCTURE_MAP: PartOfPeechStructure = {
+  adjective: {
+    code: "A",
+    structure: ["norminal-type"]
+  },
+  conjunction: {
+    code: "C",
+    structure: []
+  },
+  adverb: {
+    code: "D",
+    structure: []
+  },
+  noun: {
+    code: "N",
+    structure: ["norminal-type", "gender", "number", "state"]
+  },
+  pronoun: {
+    code: "P",
+    structure: ["norminal-type", "person", "gender", "number"]
+  },
+  preposition: {
+    code: "R",
+    structure: ["norminal-type"]
+  },
+  suffix: {
+    code: "S",
+    structure: ["norminal-type", "person", "gender", "number"]
+  },
+  particle: {
+    code: "T",
+    structure: ["norminal-type"]
+  },
+  verb: {
+    code: "V",
+    structure: ["verb-stem", "verb-type", "person", "gender", "number", "state"]
+  }
+}
+
 const HEBREW_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew';
 // const HEBREW_API_BASE_URL = 'http://localhost:3000';
 
 const HebrewMorphBuilderPage: React.FC = () => {
   const { toast } = useToast();
 
-  const [partOfSpeech, setPartOfSpeech] = useState<"noun" | "verb">("noun");
+  const [partOfSpeech, setPartOfSpeech] = useState<HebrewPartOfSpeech>("noun");
   const [selectedPrefixes, setSelectedPrefixes] = useState<Prefix[]>([]);
+  const [suffixed, setSuffixed] = useState<string>("none");
+
 
   // Noun fields
-  const [nounType, setNounType] = useState<string>("common");
-  const [nounGender, setNounGender] = useState<string>("masculine");
-  const [nounNumber, setNounNumber] = useState<string>("singular");
-  const [nounState, setNounState] = useState<string>("absolute");
+  // const [nounType, setNounType] = useState<string>("common");
+  const [nounType, setNounType] = useState<string>("none");
+  const [nounGender, setNounGender] = useState<string>("none");
+  const [nounNumber, setNounNumber] = useState<string>("none");
+  const [nounState, setNounState] = useState<string>("none");
+
+  // Suffix fields
+  const [suffixType, setSuffixType] = useState<string>("none");
+  const [suffixGender, setSuffixGender] = useState<string>("none");
+  const [suffixNumber, setSuffixNumber] = useState<string>("none");
+  const [suffixState, setSuffixState] = useState<string>("none");
 
   // Verb fields
   const [verbStem, setVerbStem] = useState<string>("qal");
@@ -116,11 +178,12 @@ const HebrewMorphBuilderPage: React.FC = () => {
 
   const handleGenerateCode = useCallback(() => {
     let mainWordCodeParts: string[] = [];
-    const mainWordLangPrefix = "HS"; // For the main word segment
+    let suffixWordCodeParts: string[] = [];
+    const mainWordLangPrefix = "H"; // For the main word segment
 
     if (partOfSpeech === "noun") {
       mainWordCodeParts = [
-        mainWordLangPrefix,
+        // mainWordLangPrefix,
         morphMap.noun.partOfSpeech[partOfSpeech],
         morphMap.noun.nounType[nounType as keyof typeof morphMap.noun.nounType],
         morphMap.noun.gender[nounGender as keyof typeof morphMap.noun.gender],
@@ -129,8 +192,8 @@ const HebrewMorphBuilderPage: React.FC = () => {
       ];
     } else { // verb
       mainWordCodeParts = [
-        mainWordLangPrefix,
-        morphMap.verb.partOfSpeech[partOfSpeech],
+        // mainWordLangPrefix,
+        morphMap.verb.partOfSpeech[partOfSpeech as keyof typeof morphMap.verb.partOfSpeech],
         morphMap.verb.stem[verbStem as keyof typeof morphMap.verb.stem],
         morphMap.verb.aspect[verbAspect as keyof typeof morphMap.verb.aspect],
         morphMap.verb.person[verbPerson as keyof typeof morphMap.verb.person],
@@ -138,20 +201,42 @@ const HebrewMorphBuilderPage: React.FC = () => {
         morphMap.verb.number[verbNumber as keyof typeof morphMap.verb.number],
       ];
     }
-    const mainWordCode = mainWordCodeParts.filter(Boolean).join("");
 
-    const prefixCodes = selectedPrefixes.map(p => `H${p.type}`); // Prefixes always use 'H' for language
+    if (suffixed === "suffix") {
+      suffixWordCodeParts = [
+        morphMap.suffix.suffixType[suffixType as keyof typeof morphMap.suffix.suffixType],
+        morphMap.suffix.gender[suffixGender as keyof typeof morphMap.suffix.gender],
+        morphMap.suffix.number[suffixNumber as keyof typeof morphMap.suffix.number],
+        morphMap.suffix.state[suffixState as keyof typeof morphMap.suffix.state],
+      ];
+    } else {
+      suffixWordCodeParts = [];
+    }
+
+    const mainWordCode = mainWordCodeParts.filter((v) => v !== '--').join("");
+    // const suffixWordCode = suffixWordCodeParts.filter(Boolean).join("")
+    const suffixWordCode = suffixWordCodeParts.filter((v) => v !== '--').join("")
+
+    // const prefixCodes = selectedPrefixes.map(p => `H${p.type}`); // Prefixes always use 'H' for language
+    const prefixCodes = selectedPrefixes[0] ? [`H${selectedPrefixes[0].type}`] : []; // Prefixes always use 'H' for language
     
     let finalCode = "";
     if (prefixCodes.length > 0) {
       finalCode = prefixCodes.join('/') + '/' + mainWordCode;
     } else {
-      finalCode = mainWordCode;
+      finalCode = `H${mainWordCode}`;
+    }
+
+    if(suffixWordCode) {
+      finalCode = `${finalCode}/S${suffixWordCode}`
     }
     
     setGeneratedCode(finalCode);
     return finalCode;
-  }, [partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes]);
+  }, [
+    partOfSpeech, nounType, nounGender, nounNumber, nounState, verbStem, verbAspect, verbPerson, verbGender, verbNumber, selectedPrefixes,
+    suffixType, suffixGender, suffixNumber, suffixState, suffixed
+  ]);
 
   const handleSearchMorph = async () => {
     const codeToSearch = generatedCode || handleGenerateCode(); 
@@ -213,6 +298,12 @@ const HebrewMorphBuilderPage: React.FC = () => {
     setSelectedPrefixes(prev => [...prev, { id: `prefix-${Date.now()}`, type: prefixOptionsList[0].value }]);
   };
 
+  const handleAddSuffix = () => {
+    if(suffixed === 'none')
+      setSuffixed('suffix')
+    else setSuffixed('none')
+  };
+
   const handleRemovePrefix = (idToRemove: string) => {
     setSelectedPrefixes(prev => prev.filter(p => p.id !== idToRemove));
   };
@@ -269,19 +360,86 @@ const HebrewMorphBuilderPage: React.FC = () => {
             </CardContent>
           </Card>
 
+          {/* Suffix Section */}
+          <Card className="p-4 bg-muted/20 border-dashed">
+            <CardHeader className="p-2 pt-0">
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-lg text-accent">Suffix Morphemes</CardTitle>
+                <Button onClick={handleAddSuffix} size="sm" variant="outline">
+                  {
+                    suffixed === 'none' && (<PlusCircle className="mr-2 h-4 w-4">  Add Suffix </PlusCircle>)
+                  }
+
+                  {
+                    suffixed === 'suffix' && (<Trash2 className="h-4 w-4 text-destructive">  Remove Suffix </Trash2>)
+                  }
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-3 p-2">
+              {suffixed === 'none' && <p className="text-sm text-muted-foreground">No suffix added.</p>}
+              {suffixed === 'suffix' && (<div className="space-y-3 p-3 border rounded-md bg-background">
+                  <Label className="text-md font-semibold">Suffix Options</Label>
+                  <div>
+                    <Label htmlFor="nounTypeSelect">Suffix Type</Label>
+                    <Select value={suffixType} onValueChange={setSuffixType}>
+                      <SelectTrigger id="suffixTypeSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.suffix.suffixType).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="suffixGenderSelect">Suffix Gender</Label>
+                    <Select value={suffixGender} onValueChange={setSuffixGender}>
+                      <SelectTrigger id="suffixGenderSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.suffix.gender).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="suffixNumberSelect">Suffix Number</Label>
+                    <Select value={nounNumber} onValueChange={setSuffixNumber}>
+                      <SelectTrigger id="suffixNumberSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                       {Object.entries(morphMap.suffix.number).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="nounStateSelect">Suffix State</Label>
+                    <Select value={nounState} onValueChange={setSuffixState}>
+                      <SelectTrigger id="suffixStateSelect"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(morphMap.suffix.state).map(([key, val]) => <SelectItem key={key} value={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+              </div>)}
+            </CardContent>
+          </Card>
+
           {/* Main Word Section */}
           <Card className="p-4 bg-muted/20 border-dashed">
             <CardHeader className="p-2 pt-0"><CardTitle className="text-lg text-accent">Main Word Features</CardTitle></CardHeader>
             <CardContent className="space-y-4 p-2">
               <div>
                 <Label htmlFor="partOfSpeechSelect">Part of Speech</Label>
-                <Select value={partOfSpeech} onValueChange={(value) => setPartOfSpeech(value as "noun" | "verb")}>
+                <Select value={partOfSpeech} onValueChange={(value) => setPartOfSpeech(value as HebrewPartOfSpeech)}>
                   <SelectTrigger id="partOfSpeechSelect">
                     <SelectValue placeholder="Select Part of Speech" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="noun">Noun</SelectItem>
                     <SelectItem value="verb">Verb</SelectItem>
+                    <SelectItem value="adjective">Adjective</SelectItem>
+                    <SelectItem value="conjunction">Conjunction</SelectItem>
+                    <SelectItem value="adverb">Adverb</SelectItem>
+                    <SelectItem value="pronoun">Pronoun</SelectItem>
+                    <SelectItem value="preposition">Preposition</SelectItem>
+                    <SelectItem value="particle">Particle</SelectItem>
+                    <SelectItem value="suffix">Suffix</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
