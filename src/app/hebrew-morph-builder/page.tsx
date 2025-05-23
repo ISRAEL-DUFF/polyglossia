@@ -89,6 +89,7 @@ const prefixOptionsList = [
 ];
 
 const HEBREW_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/hebrew';
+// const HEBREW_API_BASE_URL = 'http://localhost:3000';
 
 const HebrewMorphBuilderPage: React.FC = () => {
   const { toast } = useToast();
