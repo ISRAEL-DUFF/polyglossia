@@ -5,6 +5,14 @@ const CACHE_NAME = 'polyglossia-praxis-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html', // Often the root for exported sites
+  '/greek.html',
+  '/greek-prepositions.html',
+  '/vocabulary-browser.html',
+  '/hebrew.html',
+  '/hebrew-morph-builder.html',
+  '/matching-game.html',
+  '/parser-game.html',
+  '/flashcard-game.html',
   // Add other critical pages/routes if they are static HTML files after export
   // e.g., '/greek/', '/hebrew/' - these would become /greek/index.html etc.
   '/manifest.json',
@@ -74,6 +82,10 @@ self.addEventListener('fetch', (event) => {
           //   const responseToCache = networkResponse.clone();
           //   caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
           // }
+          if (networkResponse && networkResponse.status === 200 && event.request.url.includes('/_next/static/')) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
+          }
           return networkResponse;
         }).catch(error => {
           console.error('[Service Worker] Fetch failed; returning offline page if available, or error:', error);
