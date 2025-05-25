@@ -110,7 +110,7 @@ function getLocalDatabases(currentLanguage: string) {
 }
 
 const DEFAULT_WORD_COUNT_DESKTOP = 10;
-const DEFAULT_WORD_COUNT_MOBILE = 6;
+const DEFAULT_WORD_COUNT_MOBILE = 5;
 
 const SaveDifficultWord: React.FC<SaveWordProps> = ({ currentWord, currentLanguage, onWordSavedOrRemoved }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -301,6 +301,7 @@ const MatchingGame = () => {
         setSelectedWordGroup(null);
       }
       // Do not auto-select group here, let user or other logic handle it.
+      setSelectedWordGroup(groupKeys[0]) // TODO: remove --- do not set if you wish
     } catch (error) {
       setLoadError(`Failed to load vocabulary data from ${filename}.`);
     } finally { setIsLoading(false); }
@@ -525,7 +526,7 @@ const MatchingGame = () => {
     setSelectedDataSource(sourceValue);
     setSelectedWordGroup(null); // Reset word group when source changes
     if (sourceValue) {
-      await loadVocabData(currentLanguage, sourceValue);
+      await loadVocabData(currentLanguage, sourceValue); 
     } else {
       setWordGroups({}); // Clear groups if no source is selected
     }
@@ -680,7 +681,7 @@ const MatchingGame = () => {
     setDemoPlayerState(prev => ({ ...prev, timer1 }));
   };
 
-  const handleNextSet = () => {
+  const shuffleWordsInSettings = () => {
     let currentFullList: Word[] = [];
     let newIndex;
 
@@ -727,7 +728,7 @@ const MatchingGame = () => {
     resetGame(currentFullList);
   };
 
-  const shuffleWordsInSettings = () => {
+  const handleNextSet = () => {
     let sourceList: Word[] = [];
     switch (activeListType) {
         case 'snapshots':
@@ -814,13 +815,8 @@ const MatchingGame = () => {
             <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && handleNextSet()}> 
               <ForwardIcon className="h-4 w-4 mr-1" /> Next Set
             </Button>
-            <Button 
-              variant={demoPlayerState.isPlaying ? "destructive" : "outline"}
-              size="sm"
-              onClick={playDemo}
-            >
-              <Play className="h-4 w-4 mr-1" />
-              {demoPlayerState.isPlaying ? "Stop Demo" : "Demo"}
+            <Button onClick={shuffleWordsInSettings} className="w-full" variant="outline">
+              <ForwardIcon className="mr-2 h-4 w-4" /> Next Word Group
             </Button>
           </div>
         </div>
@@ -972,6 +968,15 @@ const MatchingGame = () => {
              <Badge variant={activeListType === 'groups' ? 'default' : 'outline'} onClick={() => setActiveListType('groups')} className="cursor-pointer py-1.5 px-3">
               <BookOpen className="h-4 w-4 mr-1" /> Word Groups
             </Badge>
+
+            <Button 
+              variant={demoPlayerState.isPlaying ? "destructive" : "outline"}
+              size="sm"
+              onClick={playDemo}
+            >
+              <Play className="h-4 w-4 mr-1" />
+              {demoPlayerState.isPlaying ? "Stop Demo" : "Demo"}
+            </Button>
           </div>
 
           {isLoading && <p className="text-muted-foreground">Loading vocabulary...</p>}
@@ -999,9 +1004,9 @@ const MatchingGame = () => {
           <DialogContent className="w-full h-[95vh] max-w-none p-0 flex flex-col sm:rounded-lg">
             <DialogHeader className="p-3 border-b flex flex-row justify-between items-center">
               <DialogTitle className="text-lg">{currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1)} Matching</DialogTitle>
-              <DialogClose asChild>
+              {/* <DialogClose asChild>
                 <Button variant="ghost" size="icon"><X className="h-5 w-5" /></Button>
-              </DialogClose>
+              </DialogClose> */}
             </DialogHeader>
             <div className="flex-grow overflow-y-auto p-3">
               {renderGameContent(true)}
