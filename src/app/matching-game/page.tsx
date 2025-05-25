@@ -130,11 +130,10 @@ const SaveDifficultWord: React.FC<SaveWordProps> = ({ currentWord, currentLangua
         difficultWordsDb.remove(currentWord.savedId!);
         toast({ title: 'Word Removed', description: `"${currentWord.word}" removed from your saved words.` });
       } else {
-        // const newSavedId = difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); // Let DB generate ID
         difficultWordsDb.add({ ...currentWord, id: undefined, savedId: undefined }); 
         toast({ title: 'Word Saved', description: `"${currentWord.word}" saved successfully.` });
       }
-      onWordSavedOrRemoved(); // Notify parent to refresh state
+      onWordSavedOrRemoved(); 
       setIsModalOpen(false);
     } catch (error: any) {
       toast({ title: 'Error', description: error.message || 'Operation failed.', variant: 'destructive' });
@@ -246,14 +245,13 @@ const MatchingGame = () => {
   }, [getWordMeaning]);
 
 
-  const resetGame = useCallback((wordsToUse?: Word[]) => {
+  const resetGame = useCallback((wordsToProcess: Word[]) => {
     setSelectedPairElements([]);
     setMatchCounts(0);
     setColorMap({});
     clearFlashcard();
     nextCardColorRef.current = colorGenerator(availableColors);
 
-    // Reset styles of previously matched items
     const matchedElements = document.querySelectorAll('.match-item.matched');
     matchedElements.forEach(el => {
       const htmlEl = el as HTMLElement;
@@ -263,10 +261,9 @@ const MatchingGame = () => {
       htmlEl.classList.remove('matched');
       htmlEl.classList.remove('selected'); 
     });
-
-    const currentWords = wordsToUse || gameWords;
-    if (currentWords && currentWords.length > 0) {
-        const wordsForGame = getRandomWords(currentWords, wordCount);
+    
+    if (wordsToProcess && wordsToProcess.length > 0) {
+        const wordsForGame = getRandomWords(wordsToProcess, wordCount);
         setGameWords(wordsForGame); 
         generatePairs(wordsForGame);
     } else {
@@ -274,7 +271,7 @@ const MatchingGame = () => {
         setPairs([]);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wordCount, generatePairs, clearFlashcard, gameWords]);
+  }, [wordCount, generatePairs, clearFlashcard]);
 
 
   const loadVocabDataSources = useCallback(async (language: string) => {
@@ -283,10 +280,10 @@ const MatchingGame = () => {
       const sources = await loadDataSources(language);
       setDataSources(sources);
       if (sources.length > 0) {
-        setSelectedDataSource(sources[0].value);
+        // Don't auto-select, let user choose or useEffect handle based on selections
       } else {
         setLoadError(`No vocabulary files found for ${language}.`);
-        setWordGroups({}); setSelectedWordGroup(null);
+        setWordGroups({}); setSelectedWordGroup(null); setSelectedDataSource(null);
       }
     } catch (error) {
       setLoadError(`Failed to load vocabulary data sources for ${language}.`);
@@ -299,11 +296,11 @@ const MatchingGame = () => {
       const data = await loadVocabularyData(language, filename);
       setWordGroups(data);
       const groupKeys = Object.keys(data);
-      if (groupKeys.length > 0) {
-        setSelectedWordGroup(groupKeys[0]);
-      } else {
+      if (groupKeys.length === 0) {
         setLoadError(`No word groups found in ${filename}.`);
+        setSelectedWordGroup(null);
       }
+      // Do not auto-select group here, let user or other logic handle it.
     } catch (error) {
       setLoadError(`Failed to load vocabulary data from ${filename}.`);
     } finally { setIsLoading(false); }
@@ -313,10 +310,6 @@ const MatchingGame = () => {
     const { snapshotsDb } = getLocalDatabases(currentLanguage);
     const savedSnapshots = snapshotsDb.getAll() as {id: string, name: string, data: Word[]}[];
     setSnapshots(savedSnapshots || []);
-    if (savedSnapshots.length > 0 && !currentSnapshotId) {
-      // Don't auto-select
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage]);
 
   useEffect(() => {
@@ -346,34 +339,29 @@ const MatchingGame = () => {
     setSelectedDataSource(null);
     setCurrentSnapshotId(null);
     setActiveListType('inview'); 
-    resetGame(demoWords[currentLanguage]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Initial game load happens in the next useEffect
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage]);
 
-  useEffect(() => { 
-    let wordsToUseForNewGame: Word[] | undefined;
+
+  useEffect(() => {
+    let listToUseForGame: Word[] = [];
 
     if (activeListType === 'inview') {
-        wordsToUseForNewGame = demoWords[currentLanguage];
+        listToUseForGame = demoWords[currentLanguage] || [];
     } else if (activeListType === 'snapshots' && currentSnapshotId) {
         const snapshot = snapshots.find(s => s.id === currentSnapshotId);
-        if (snapshot) wordsToUseForNewGame = snapshot.data;
+        if (snapshot) listToUseForGame = snapshot.data;
     } else if (activeListType === 'groups' && selectedWordGroup && wordGroups[selectedWordGroup]) {
-        wordsToUseForNewGame = wordGroups[selectedWordGroup];
+        listToUseForGame = wordGroups[selectedWordGroup];
     } else if (activeListType === 'difficult_words') {
         const { difficultWordsDb } = getLocalDatabases(currentLanguage);
-        wordsToUseForNewGame = difficultWordsDb.getAll();
+        listToUseForGame = difficultWordsDb.getAll();
     }
-
-    if (wordsToUseForNewGame) {
-      resetGame(wordsToUseForNewGame);
-    } else if (activeListType === 'inview') { 
-      resetGame(demoWords[currentLanguage] || []);
-    } else { 
-      resetGame([]);
-    }
+    
+    resetGame(listToUseForGame);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wordCount, activeListType, currentSnapshotId, selectedWordGroup, snapshots, wordGroups]);
+  }, [wordCount, activeListType, currentSnapshotId, selectedWordGroup, snapshots, wordGroups, currentLanguage]);
 
 
   useEffect(() => { 
@@ -535,16 +523,24 @@ const MatchingGame = () => {
   
   const handleDataSourceChange = async (sourceValue: string) => {
     setSelectedDataSource(sourceValue);
-    await loadVocabData(currentLanguage, sourceValue);
+    setSelectedWordGroup(null); // Reset word group when source changes
+    if (sourceValue) {
+      await loadVocabData(currentLanguage, sourceValue);
+    } else {
+      setWordGroups({}); // Clear groups if no source is selected
+    }
     const source = dataSources.find(ds => ds.value === sourceValue);
     toast({ title: "Data Source Changed", description: `Loaded vocabulary from ${source?.key || sourceValue}` });
   };
 
   const handleWordGroupChange = (groupKey: string) => {
     setSelectedWordGroup(groupKey);
-    if (wordGroups[groupKey]) {
+    if (groupKey && wordGroups[groupKey]) {
       setActiveListType('groups');
       toast({ title: "Word Group Selected", description: `Loaded "${groupKey}"` });
+    } else if (!groupKey) {
+        // If "Select group" is chosen, potentially revert to demo or clear words
+        setActiveListType('inview'); // Or another default
     }
   };
 
@@ -554,7 +550,17 @@ const MatchingGame = () => {
       return;
     }
     const { snapshotsDb } = getLocalDatabases(currentLanguage);
-    const newSnapshot = { name: snapshotName, data: [...gameWords] }; 
+    // Filter out demo words if they are currently in gameWords and we are in 'inview' mode
+    const wordsToSave = activeListType === 'inview' 
+        ? gameWords.filter(gw => !demoWords[currentLanguage]?.some(dw => dw.id === gw.id)) 
+        : [...gameWords];
+
+    if (wordsToSave.length === 0) {
+        toast({ variant: "destructive", title: "Error", description: "No custom words to save in this set." });
+        return;
+    }
+
+    const newSnapshot = { name: snapshotName, data: wordsToSave }; 
     const saved = snapshotsDb.add(newSnapshot) as {id: string, name: string, data: Word[]};
     
     setSnapshots(prev => [...prev, saved]);
@@ -567,10 +573,10 @@ const MatchingGame = () => {
   const deleteCurrentSnapshot = () => {
     if (!currentSnapshotId) return;
     const { snapshotsDb } = getLocalDatabases(currentLanguage);
+    const oldSnapshotName = snapshots.find(s => s.id === currentSnapshotId)?.name;
     snapshotsDb.remove(currentSnapshotId);
     const updatedSnapshots = snapshots.filter(s => s.id !== currentSnapshotId);
     setSnapshots(updatedSnapshots);
-    const oldSnapshotName = snapshots.find(s => s.id === currentSnapshotId)?.name;
     setCurrentSnapshotId(null);
     setActiveListType('inview'); 
     toast({ title: "Snapshot Deleted", description: `Deleted "${oldSnapshotName}"` });
@@ -674,6 +680,84 @@ const MatchingGame = () => {
     setDemoPlayerState(prev => ({ ...prev, timer1 }));
   };
 
+  const handleNextSet = () => {
+    let currentFullList: Word[] = [];
+    let newIndex;
+
+    switch (activeListType) {
+        case 'snapshots':
+            if (snapshots.length === 0) {
+                toast({ title: "No Sets", description: "No saved sets available.", variant: "default" });
+                return;
+            }
+            const currentIndexSnap = snapshots.findIndex(s => s.id === currentSnapshotId);
+            newIndex = (currentIndexSnap + 1) % snapshots.length;
+            setCurrentSnapshotId(snapshots[newIndex].id);
+            toast({ title: "Next Set Loaded", description: `Loaded set: ${snapshots[newIndex].name}`});
+            // The main useEffect will handle resetGame
+            return; 
+
+        case 'groups':
+            const groupKeys = Object.keys(wordGroups);
+            if (groupKeys.length === 0 || !selectedWordGroup) {
+                 toast({ title: "No Groups", description: "No word groups available or selected.", variant: "default" });
+                return;
+            }
+            const currentIndexGroup = groupKeys.indexOf(selectedWordGroup);
+            newIndex = (currentIndexGroup + 1) % groupKeys.length;
+            setSelectedWordGroup(groupKeys[newIndex]);
+            toast({ title: "Next Group Loaded", description: `Loaded group: ${groupKeys[newIndex]}`});
+            // The main useEffect will handle resetGame
+            return;
+
+        case 'difficult_words':
+            const { difficultWordsDb } = getLocalDatabases(currentLanguage);
+            currentFullList = difficultWordsDb.getAll();
+            if (currentFullList.length <= wordCount) {
+                toast({ title: "Not Enough Words", description: "Not enough saved words for a new distinct set.", variant: "default"});
+                // Still shuffle what's there
+            }
+            break;
+            
+        case 'inview':
+        default:
+            currentFullList = demoWords[currentLanguage] || [];
+            break;
+    }
+    resetGame(currentFullList);
+  };
+
+  const shuffleWordsInSettings = () => {
+    let sourceList: Word[] = [];
+    switch (activeListType) {
+        case 'snapshots':
+            if (currentSnapshotId) {
+                const snapshot = snapshots.find(s => s.id === currentSnapshotId);
+                sourceList = snapshot ? snapshot.data : [];
+            }
+            break;
+        case 'groups':
+            if (selectedWordGroup && wordGroups[selectedWordGroup]) {
+                sourceList = wordGroups[selectedWordGroup];
+            }
+            break;
+        case 'difficult_words':
+            const { difficultWordsDb } = getLocalDatabases(currentLanguage);
+            sourceList = difficultWordsDb.getAll();
+            break;
+        case 'inview':
+        default:
+            sourceList = demoWords[currentLanguage] || [];
+            break;
+    }
+    if (sourceList.length === 0) {
+        toast({ title: "No Words", description: "No words in the current list to shuffle.", variant: "destructive"});
+        return;
+    }
+    resetGame(sourceList);
+    toast({ title: "Words Shuffled", description: "A new set of words has been selected."});
+  };
+
 
   const renderGameContent = (isMobileModal = false) => (
     <div className={`flex ${isMobileModal ? 'flex-col h-full' : 'flex-col md:flex-row'} gap-4`}>
@@ -727,7 +811,7 @@ const MatchingGame = () => {
             <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame(gameWords)}>
               <RefreshCw className="h-4 w-4 mr-1" /> Restart
             </Button>
-            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && resetGame()}> 
+            <Button variant="outline" size="sm" onClick={() => !demoPlayerState.isPlaying && handleNextSet()}> 
               <ForwardIcon className="h-4 w-4 mr-1" /> Next Set
             </Button>
             <Button 
@@ -786,13 +870,16 @@ const MatchingGame = () => {
                       <SelectTrigger id="word-count"><SelectValue /></SelectTrigger>
                       <SelectContent>
                         {[4,5,6,7,8,9,10,12,15,20].map(num => (
-                            <SelectItem key={num} value={String(num)} disabled={num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots'}>
-                                {num} pairs {num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots' ? "(Desktop Large Set)" : ""}
+                            <SelectItem key={num} value={String(num)} disabled={num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots' && gameWords.length < num}>
+                                {num} pairs {num > (isMobile ? DEFAULT_WORD_COUNT_MOBILE : DEFAULT_WORD_COUNT_DESKTOP) && activeListType !== 'snapshots' && gameWords.length < num ? "(Desktop Large Set)" : ""}
                             </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
+                   <Button onClick={shuffleWordsInSettings} className="w-full" variant="outline">
+                        <RefreshCw className="mr-2 h-4 w-4" /> Shuffle & Get New Words
+                    </Button>
 
                   <div className="space-y-2">
                     <Label htmlFor="vocab-source">Vocabulary Source (for Groups)</Label>
@@ -977,3 +1064,4 @@ export function startCountdown(options: { countDownTime?: number, displayText?: 
 
 export default MatchingGame;
 
+    
