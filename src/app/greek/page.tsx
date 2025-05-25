@@ -100,8 +100,8 @@ interface LexiconResponse {
   };
 }
 
-// const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
+// const BASE_URL = 'http://localhost:3001'
 
 const LexicaTool: React.FC = () => {
   const [word, setWord] = useState("");
@@ -394,7 +394,7 @@ const LexicaTool: React.FC = () => {
               {morphologyData.length > 0 && (
                 <div className="mb-6">
                   <h4 className="text-lg font-semi bold mb-2">Morphological Forms</h4>
-                  
+
                   <div className="max-h-40 w-full overflow-x-auto">
                     <div className="flex flex-row gap-2 pb-2 min-w-max">
                         {morphologyData.map((morph, index) => (
