@@ -300,9 +300,9 @@ export const greekSyntaxData: SyntaxData = {
           type: "Common Expressions",
           examples: [
             {
-              greek: "οὐ...οὐδέ", 
+              greek: "οὐ...οὐδέ",
               translation: "not...nor",
-              example: "οὐ λέγει οὐδὲ γράφει." 
+              example: "οὐ λέγει οὐδὲ γράφει."
             },
             {
               greek: "μήτε...μήτε",
@@ -815,8 +815,284 @@ export const greekSyntaxData: SyntaxData = {
           ]
         }
       ]
+    },
+    {
+      section: "Uses of the Genitive Case",
+      description: "The genitive case in Greek has a wide range of uses, generally indicating relationships such as possession, origin, separation, or cause. It often answers the question 'of whom?' or 'of what?'.",
+      types: [
+        {
+          type: "Possessive Genitive",
+          description: "Indicates ownership or belonging.",
+          examples: [
+            { greek: "ἡ οἰκία τοῦ πατρός.", translation: "The house of the father (the father's house)." },
+            { greek: "τὸ βιβλίον τῆς μαθήτριας.", translation: "The book of the student (female)." },
+            { greek: "οἱ νόμοι τῆς πόλεως.", translation: "The laws of the city." },
+            { greek: "τὰ τοῦ Καίσαρος Καίσαρι.", translation: "Caesar's things to Caesar." },
+            { greek: "ἡ ἀρετὴ τῶν ἀνδρῶν.", translation: "The virtue of the men." },
+            { greek: "τὸ ὄνομα τοῦ θεοῦ.", translation: "The name of the god." }
+          ]
+        },
+        {
+          type: "Partitive Genitive (Genitive of the Whole)",
+          description: "Indicates the whole of which a part is taken or mentioned.",
+          examples: [
+            { greek: "πολλοὶ τῶν στρατιωτῶν.", translation: "Many of the soldiers." },
+            { greek: "οὐδεὶς τῶν παρόντων.", translation: "No one of those present." },
+            { greek: "μέρος τῆς ἡμέρας.", translation: "Part of the day." },
+            { greek: "τίς τῶν θεῶν;", translation: "Which of the gods?" },
+            { greek: "ἔδωκέ μοι τοῦ οἴνου.", translation: "He gave me some of the wine." },
+            { greek: "οἱ σοφώτατοι τῶν Ἑλλήνων.", translation: "The wisest of the Greeks." }
+          ]
+        },
+        {
+          type: "Subjective Genitive",
+          description: "The noun in the genitive produces the action or feeling implied by the noun it modifies (acting like a subject).",
+          examples: [
+            { greek: "ὁ φόβος τῶν πολεμίων.", translation: "The fear of the enemy (i.e., the fear that the enemy feel/cause)." },
+            { greek: "ἡ ἀγάπη τοῦ θεοῦ.", translation: "The love of God (God's love for us/others)." },
+            { greek: "ἡ εὔνοια τῶν πολιτῶν.", translation: "The goodwill of the citizens (the citizens' goodwill)." },
+            { greek: "τὸ μῖσος τῶν τυράννων.", translation: "The hatred of the tyrants (the tyrants' hatred)." },
+            { greek: "ἡ ἐλπὶς τῆς νίκης.", translation: "The hope of victory (hope for victory)." },
+            { greek: "ἡ τῶν γονέων ἐπιμέλεια.", translation: "The care of the parents (the parents' care)." }
+          ]
+        },
+        {
+          type: "Objective Genitive",
+          description: "The noun in the genitive receives the action or feeling implied by the noun it modifies (acting like an object).",
+          examples: [
+            { greek: "ὁ πόθος τῆς πατρίδος.", translation: "The longing for the fatherland (one longs for the fatherland)." },
+            { greek: "ἡ ἐπιθυμία χρημάτων.", translation: "The desire for money." },
+            { greek: "ὁ φόβος τοῦ θανάτου.", translation: "The fear of death (one fears death)." },
+            { greek: "ἡ γνῶσις τοῦ ἀγαθοῦ.", translation: "The knowledge of the good." },
+            { greek: "μελέτη τοῦ πολέμου.", translation: "Practice for war / study of war." },
+            { greek: "ἀγάπη τοῦ πλησίον.", translation: "Love for one's neighbor." }
+          ]
+        },
+        {
+          type: "Genitive of Description/Quality",
+          description: "Describes a quality or characteristic of the noun it modifies, often with an adjective.",
+          examples: [
+            { greek: "ἀνὴρ μεγάλης ἀρετῆς.", translation: "A man of great virtue." },
+            { greek: "γυνὴ πολλῶν λόγων.", translation: "A woman of many words." },
+            { greek: "πρᾶγμα μικροῦ ἀξίας.", translation: "A matter of little worth." },
+            { greek: "λίθος μεγάλης τιμῆς.", translation: "A stone of great value." },
+            { greek: "νεανίας καλῆς μορφῆς.", translation: "A youth of fine form." },
+            { greek: "οἶνος παλαιοῦ ἔτους.", translation: "Wine of an old year." }
+          ]
+        },
+        {
+          type: "Genitive of Comparison",
+          description: "Used after comparative adjectives or adverbs to indicate the standard of comparison.",
+          examples: [
+            { greek: "Σωκράτης σοφώτερος τῶν ἄλλων.", translation: "Socrates is wiser than the others." },
+            { greek: "οὐδὲν γλυκύτερον τῆς πατρίδος.", translation: "Nothing is sweeter than one's fatherland." },
+            { greek: "μᾶλλον τοῦ πλούτου τὴν ἀρετὴν τιμῶμεν.", translation: "We honor virtue more than wealth." },
+            { greek: "οὗτος ἐμοῦ πρεσβύτερός ἐστιν.", translation: "This man is older than I." },
+            { greek: "θᾶττον τοῦ λόγου ἔργον ἐπετέλεσε.", translation: "He accomplished the deed faster than speech." },
+            { greek: "κρεῖττον σιγᾶν ἤ λαλεῖν κακῶς.", translation: "It is better to be silent than to speak badly (here comparison with ἤ)." }
+          ]
+        },
+        {
+          type: "Genitive with Verbs",
+          description: "Many verbs govern the genitive case, often expressing ideas of ruling, remembering, forgetting, caring for, desiring, touching, beginning, etc.",
+          examples: [
+            { greek: "ἄρχει τῶν πολιτῶν.", translation: "He rules the citizens." },
+            { greek: "μέμνησο τῆς ἀρετῆς.", translation: "Remember virtue." },
+            { greek: "ἐπιλανθάνεται τῶν φίλων.", translation: "He forgets his friends." },
+            { greek: "ἐπιμελεῖται τῶν παίδων.", translation: "He cares for the children." },
+            { greek: "ἐπιθυμεῖ δόξης.", translation: "He desires glory." },
+            { greek: "ἥψατο τῆς χειρός μου.", translation: "He touched my hand." },
+            { greek: "ἤρξατο τοῦ λόγου.", translation: "He began the speech." }
+          ]
+        },
+        {
+          type: "Genitive of Time Within Which",
+          description: "Indicates the time during which an action occurs (less common than dative of time or accusative of extent of time).",
+          examples: [
+            { greek: "νυκτὸς ἐπορεύοντο.", translation: "They traveled by night (during the night)." },
+            { greek: "ἡμέρας οὐδὲν ἔπραξαν.", translation: "During the day they did nothing." },
+            { greek: "τοῦ αὐτοῦ θέρους.", translation: "During the same summer." },
+            { greek: "πολλάκις τῆς νυκτὸς ἐγρηγόρει.", translation: "He often stayed awake during the night." },
+            { greek: "χειμῶνος οἱ ποταμοὶ παγίωνται.", translation: "In winter the rivers freeze." },
+            { greek: "τῆς αὐτῆς ἡμέρας ἀπέθανεν.", translation: "He died on the same day." }
+          ]
+        }
+      ]
+    },
+    {
+      section: "Uses of the Dative Case",
+      description: "The dative case in Greek often indicates the person or thing indirectly affected by the action, or relationships involving interest, possession, means, manner, or agent.",
+      types: [
+        {
+          type: "Indirect Object",
+          description: "Indicates to whom or for whom an action is performed.",
+          examples: [
+            { greek: "δίδωμι τὸ βιβλίον τῷ φίλῳ.", translation: "I give the book to the friend." },
+            { greek: "λέγει λόγον τῇ γυναικί.", translation: "He tells a story to the woman." },
+            { greek: "ἔπεμψεν ἐπιστολὴν τῷ βασιλεῖ.", translation: "He sent a letter to the king." },
+            { greek: "εὔχοντο τοῖς θεοῖς.", translation: "They prayed to the gods." },
+            { greek: "παρέδωκαν τὴν πόλιν τοῖς πολεμίοις.", translation: "They handed over the city to the enemy." },
+            { greek: "χάριν ἔχω σοι.", translation: "I have gratitude to you (I thank you)." }
+          ]
+        },
+        {
+          type: "Dative of Interest (Advantage/Disadvantage)",
+          description: "Shows the person or thing for whose benefit or detriment an action is done.",
+          examples: [
+            { greek: "πονεῖ τῇ πατρίδι.", translation: "He toils for his country (advantage)." },
+            { greek: "πᾶς ἀνὴρ αὑτῷ πονεῖ.", translation: "Every man toils for himself." },
+            { greek: "τοῖς φίλοις ἀμύνουσιν.", translation: "They defend their friends (for their friends' benefit)." },
+            { greek: "οὐχ ἑαυτῷ ζῇ, ἀλλὰ τῇ πόλει.", translation: "He lives not for himself, but for the city." },
+            { greek: "τί μοι τοῦτο λέγεις;", translation: "Why do you say this to me (affecting me)?" },
+            { greek: "κακὰ τῇ πόλει ἐποίησαν.", translation: "They did evil things to the city (disadvantage)." }
+          ]
+        },
+        {
+          type: "Dative of Possession (with εἰμί or γίγνομαι)",
+          description: "Indicates possession, often translated with 'have'.",
+          examples: [
+            { greek: "ἔστι μοι οἰκία.", translation: "I have a house (lit. 'There is a house to me')." },
+            { greek: "πολλοὶ φίλοι αὐτῷ ἦσαν.", translation: "He had many friends." },
+            { greek: "οὐκ ἔστιν ἡμῖν ἀργύριον.", translation: "We do not have money." },
+            { greek: "ἐγένετο αὐτοῖς μεγάλη χαρά.", translation: "Great joy came to them (They had great joy)." },
+            { greek: "τῷ βασιλεῖ ἦν θυγάτηρ καλή.", translation: "The king had a beautiful daughter." },
+            { greek: "οὐδὲν ἡμῖν ἐλπίδος ἐστί.", translation: "There is no hope for us (We have no hope)." }
+          ]
+        },
+        {
+          type: "Dative of Means or Instrument",
+          description: "Indicates the means or instrument by which an action is performed.",
+          examples: [
+            { greek: "ἔτυπτε τὸν δοῦλον τῇ ῥάβδῳ.", translation: "He was striking the slave with the stick." },
+            { greek: "λίθοις ἔβαλλον αὐτόν.", translation: "They were throwing stones at him (lit. 'they were throwing with stones')." },
+            { greek: "νικῶμεν τῇ ἀρετῇ.", translation: "We conquer by means of virtue." },
+            { greek: "ὁρᾷ τοῖς ὀφθαλμοῖς.", translation: "He sees with his eyes." },
+            { greek: "ταῖς χερσὶν ἐργάζονται.", translation: "They work with their hands." },
+            { greek: "λόγοις ἔπειθεν, οὐ βίᾳ.", translation: "He persuaded by words, not by force." }
+          ]
+        },
+        {
+          type: "Dative of Manner",
+          description: "Indicates the way or manner in which an action is performed, often with an abstract noun.",
+          examples: [
+            { greek: "σιγῇ ἐπορεύοντο.", translation: "They proceeded in silence." },
+            { greek: "μετὰ σπουδῆς πάντα ἐποίει.", translation: "He did everything with haste (or 'hastily')." },
+            { greek: "δίκῃ καὶ νόμῳ ζῶσιν.", translation: "They live by justice and law." },
+            { greek: "παντὶ τρόπῳ ἐβοήθουν.", translation: "They helped in every way." },
+            { greek: "βίᾳ εἰσῆλθον.", translation: "They entered by force." },
+            { greek: "ταύτῃ τῇ γνώμῃ ἐνίκησαν.", translation: "With this plan/opinion, they conquered." }
+          ]
+        },
+        {
+          type: "Dative of Agent (with Perfect/Pluperfect Passive and Verbal Adjectives in -τέος)",
+          description: "Indicates the personal agent by whom the action is performed, especially with perfect and pluperfect passive verbs, and verbal adjectives in -τέος.",
+          examples: [
+            { greek: "τοῦτο μοι πέπρακται.", translation: "This has been done by me." },
+            { greek: "ἡ πόλις τοῖς πολίταις ἐσέσωστο.", translation: "The city had been saved by the citizens." },
+            { greek: "τὰ τείχη τοῖς πολεμίοις κατελέλυτο.", translation: "The walls had been destroyed by the enemy." },
+            { greek: "ποιητέον ἐστί σοι ταῦτα.", translation: "These things must be done by you." },
+            { greek: "ὠφελητέα σοι ἡ πόλις ἐστίν.", translation: "The city must be benefited by you." },
+            { greek: "πάντα ἡμῖν εἴρηται.", translation: "Everything has been said by us." }
+          ]
+        },
+        {
+          type: "Dative with Certain Verbs and Adjectives",
+          description: "Many verbs (e.g., those meaning follow, obey, serve, trust, help, threaten, be angry with) and adjectives (e.g., friendly to, hostile to, similar to) take a dative object.",
+          examples: [
+            { greek: "ἕπεται τῷ στρατηγῷ.", translation: "He follows the general." },
+            { greek: "πείθονται τοῖς νόμοις.", translation: "They obey the laws." },
+            { greek: "πιστεύω σοι.", translation: "I trust you." },
+            { greek: "βοηθοῦσι τοῖς φίλοις.", translation: "They help their friends." },
+            { greek: "ὀργίζομαι τῷ ἀδίκῳ.", translation: "I am angry with the unjust man." },
+            { greek: "φίλος τοῖς ἀγαθοῖς.", translation: "Friendly to the good." },
+            { greek: "ἐχθρὸς τοῖς κακοῖς.", translation: "Hostile to the evil." },
+            { greek: "ὅμοιος τῷ πατρί.", translation: "Similar to his father." }
+          ]
+        }
+      ]
+    },
+    {
+      section: "Uses of the Accusative Case",
+      description: "The accusative case primarily marks the direct object of a transitive verb, but it also has other functions, including indicating extent, respect, and the subject of an infinitive in indirect discourse.",
+      types: [
+        {
+          type: "Direct Object",
+          description: "Indicates the person or thing directly affected by the action of a transitive verb.",
+          examples: [
+            { greek: "ὁ παῖς γράφει τὴν ἐπιστολήν.", translation: "The boy writes the letter." },
+            { greek: "ὁρῶ τὸν ἥλιον.", translation: "I see the sun." },
+            { greek: "ἐφίλει τὴν πατρίδα.", translation: "He loved his country." },
+            { greek: "οἱ στρατιῶται τὴν πόλιν κατέλαβον.", translation: "The soldiers captured the city." },
+            { greek: "διδάσκει τοὺς μαθητὰς τὴν σοφίαν.", translation: "He teaches the students wisdom (double accusative)." },
+            { greek: "οἱ θεοὶ τοὺς ἀνθρώπους ἐλεοῦσιν.", translation: "The gods pity humans." }
+          ]
+        },
+        {
+          type: "Double Accusative",
+          description: "Some verbs take two accusatives: one of the person and one of the thing (e.g., verbs of teaching, asking, reminding, clothing, depriving) or one of the object and one of the predicate accusative (verbs of making, calling, considering).",
+          examples: [
+            { greek: "διδάσκω τοὺς παῖδας τὴν γραμματικήν.", translation: "I teach the children grammar." },
+            { greek: "ᾔτουν τὸν βασιλέα χρήματα.", translation: "They were asking the king for money." },
+            { greek: "ἀναμιμνῄσκω σε τὴν ὑπόσχεσιν.", translation: "I remind you of the promise." },
+            { greek: "ἐνέδυσαν τὸν ἄνδρα χιτῶνα.", translation: "They clothed the man in a tunic." },
+            { greek: "Σωκράτη σοφὸν ἐνόμιζον.", translation: "They considered Socrates wise (Socrates = object, wise = predicate accusative)." },
+            { greek: "ἐποίησαν αὐτὸν στρατηγόν.", translation: "They made him general." },
+            { greek: "ὠνόμασαν τὴν πόλιν Ἀθήνας.", translation: "They named the city Athens." }
+          ]
+        },
+        {
+          type: "Cognate Accusative (Accusative of Kindred Meaning)",
+          description: "An accusative noun that is etymologically related to or has a similar meaning to the verb, specifying the nature of the action.",
+          examples: [
+            { greek: "πόλεμον πολεμεῖν.", translation: "To wage war." },
+            { greek: "νόσον νοσεῖν.", translation: "To suffer an illness." },
+            { greek: "βίον ζῆν.", translation: "To live a life." },
+            { greek: "μάχην μάχεσθαι.", translation: "To fight a battle." },
+            { greek: "ὕπνον ὑπνοῦν.", translation: "To sleep a sleep." },
+            { greek: "χαίρειν χαράν μεγάλην.", translation: "To rejoice with great joy." },
+            { greek: "πολλὰς πληγὰς ἔτυπτεν.", translation: "He struck many blows." }
+          ]
+        },
+        {
+          type: "Accusative of Respect or Specification",
+          description: "Specifies the part, respect, or aspect in which the verb's action or an adjective's quality applies. Often translated 'with respect to,' 'as to,' 'in.'",
+          examples: [
+            { greek: "τυφλὸς τοὺς ὀφθαλμούς.", translation: "Blind with respect to his eyes." },
+            { greek: "ἀλγῶ τὴν κεφαλήν.", translation: "I have a pain in my head (lit. 'I ache as to the head')." },
+            { greek: "θαυμαστὸς τὸ εἶδος.", translation: "Wonderful in appearance." },
+            { greek: "Κῦρος ἦν βασιλεὺς τὸ γένος.", translation: "Cyrus was a king by birth." },
+            { greek: "δεινὸς μάχην.", translation: "Skilled in battle." },
+            { greek: "τὸ σῶμα καλός, τὴν ψυχὴν δὲ αἰσχρός.", translation: "Beautiful in body, but ugly in soul." },
+            { greek: "πάντα σοφός ἐστιν.", translation: "He is wise in all things." }
+          ]
+        },
+        {
+          type: "Accusative of Extent of Time or Space",
+          description: "Indicates how long an action lasts (time) or how far it extends (space).",
+          examples: [
+            { greek: "ἔμεινεν ἐν τῇ πόλει τρεῖς ἡμέρας.", translation: "He remained in the city for three days." },
+            { greek: "ἐπορεύθησαν δέκα σταδίους.", translation: "They traveled ten stades." },
+            { greek: "πολὺν χρόνον ἐπολέμουν.", translation: "They fought for a long time." },
+            { greek: "ἡ νῆσος ἀπέχει πεντήκοντα στάδια.", translation: "The island is fifty stades distant." },
+            { greek: "πᾶσαν τὴν νύκτα ἔκλαιεν.", translation: "She wept the whole night." },
+            { greek: "τὸ τεῖχος ἦν εὖρος εἴκοσι πόδας.", translation: "The wall was twenty feet in width." },
+            { greek: "δύο ἔτη ἐβασίλευσεν.", translation: "He reigned for two years." }
+          ]
+        },
+        {
+          type: "Accusative as Subject of the Infinitive",
+          description: "In indirect statements and other constructions, the logical subject of an infinitive verb appears in the accusative case.",
+          examples: [
+            { greek: "νομίζω σε σοφὸν εἶναι.", translation: "I believe you to be wise (or 'that you are wise')." },
+            { greek: "ἔφη τὸν στρατηγὸν ἀποθανεῖν.", translation: "He said that the general had died." },
+            { greek: "ἐκέλευσε τοὺς στρατιώτας μάχεσθαι.", translation: "He ordered the soldiers to fight." },
+            { greek: "οὐκ οἶμαι τοῦτον ἀληθῆ λέγειν.", translation: "I do not think that this man speaks the truth." },
+            { greek: "δεῖ ἡμᾶς ἀγαθοὺς εἶναι.", translation: "It is necessary for us to be good." },
+            { greek: "λέγεται τὸν Ὅμηρον τυφλὸν γενέσθαι.", translation: "It is said that Homer became blind." }
+          ]
+        }
+      ]
     }
   ]
 };
-
     
