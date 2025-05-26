@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon, Wand2, BookCopy } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, Volume2, NotebookTextIcon, Wand2, BookCopy, BookOpenText } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton';
 
@@ -25,6 +25,7 @@ const navItems = [
   { href: '/hebrew', label: 'Hebrew Lexicon tools', icon: Microscope },
   { href: '/hebrew-morph-builder', label: 'Hebrew Morph Builder', icon: Wand2 },
   { href: '/greek-prepositions', label: 'Greek Prepositions', icon: BookCopy },
+  { href: '/greek-syntax-guide', label: 'Greek Syntax Guide', icon: BookOpenText },
   { href: '/vocabulary-browser', label: 'Vocabulary browser', icon: NotebookTextIcon },
   // { href: '/matching-game', label: 'Vocabulary matching game', icon: Gamepad },
   // { href: '/parser-game', label: 'Greek word parsing game', icon: Gamepad2Icon },
@@ -78,4 +79,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
+    
+
     
