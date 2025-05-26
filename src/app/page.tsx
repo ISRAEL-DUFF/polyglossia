@@ -29,7 +29,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, href, ico
         {/* Additional content can go here if needed */}
       </CardContent>
       <CardFooter>
-        <Link href={href} passHref className="w-full">
+        <Link href={href} passHref className="w-full" prefetch={true}>
           <Button variant="outline" className="w-full">
             {buttonText}
           </Button>

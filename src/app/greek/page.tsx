@@ -222,6 +222,16 @@ const LexicaTool: React.FC = () => {
       const lexiconEntry = lexiconData[currentLemma];
     //   const meanings = lexiconEntry?.senses.flatMap(sense => sense.glosses) || [];
       const meanings = lexiconEntry?.lsj[0]?.senses.flatMap(sense => sense.glosses) || [];
+
+      console.log({
+          vocabKey: namespace,
+          word: word, // The original input word
+          headWord: currentLemma, // The identified lemma
+          morphData: currentMorphData ? [currentMorphData] : [], // currentMorphData can be null
+          lexiconData: lexiconEntry ? { ...lexiconEntry, meanings: [] } : {},
+          meanings: meanings,
+          notes: notes
+        })
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
@@ -348,25 +358,27 @@ const LexicaTool: React.FC = () => {
 
       {/* Modal for Lexical Data */}
       <Dialog open={showLexicalModal} onOpenChange={setShowLexicalModal}>
-        <DialogContent className="max-w-4xl max-h-[95vh] flex flex-col p-0">
+        <DialogContent className="max-w-4xl max-h-[96vh] flex flex-col p-0">
           <DialogHeader className="p-6 pb-2">
             <DialogTitle>Lexical Data for "{word}" (Lemma: {currentLemma || 'N/A'})</DialogTitle>
           </DialogHeader>
-          
-          <div className="flex gap-2 mb-4 px-6">
-            <Button 
-              variant="outline"
-              onClick={openLogeionModal}
+
+          <div className="flex flex-col gap-2 mb-4 px-2 sm:flex-row sm:px-6">
+            <Button
+                variant="outline"
+                onClick={openLogeionModal}
+                className="w-full sm:w-auto"
             >
-              <Book className="mr-2 h-4 w-4" />
-              Open in Logeion
+                <Book className="mr-1 h-4 w-2" />
+                Open in Logeion
             </Button>
-            <Button 
-              variant="outline"
-              onClick={openOccurrenceModal}
+            <Button
+                variant="outline"
+                onClick={openOccurrenceModal}
+                className="w-full sm:w-auto"
             >
-              <Book className="mr-2 h-4 w-4" />
-              View Occurrences
+                <Book className="mr-1 h-4 w-2" />
+                View Occurrences
             </Button>
           </div>
 
@@ -378,39 +390,38 @@ const LexicaTool: React.FC = () => {
               <TabsTrigger value="strongs">Strongs</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="morphology" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+            <TabsContent value="morphology" className="flex-grow overflow-y-auto -mx-2 px-2 pt-2 sm:-mx-6 sm:px-6">
               {morphologyData.length > 0 && (
                 <div className="mb-6">
                   <h4 className="text-lg font-semi bold mb-2">Morphological Forms</h4>
-                  <ScrollArea className="max-h-40">
-                    <div className="flex gap-2 pb-2">
-                      {morphologyData.map((morph, index) => (
+
+                  <div className="max-h-40 w-full overflow-x-auto">
+                    <div className="flex flex-row gap-2 pb-2 min-w-max">
+                        {morphologyData.map((morph, index) => (
                         <div
-                          key={index}
-                          onClick={() => handleMorphologyClick(morph)}
-                          className={`p-3 rounded-md cursor-pointer flex-shrink-0 transition-colors text-sm ${
+                            key={index}
+                            onClick={() => handleMorphologyClick(morph)}
+                            className={`p-3 rounded-md cursor-pointer flex-shrink-0 transition-colors text-sm min-w-[170px] ${
                             currentMorphData === morph
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted hover:bg-muted/80"
-                          }`}
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-muted hover:bg-muted/80"
+                            }`}
                         >
-                          <div className="font-semibold">Form {index + 1}</div>
-                          {morph.lemma && (
+                            <div className="font-semibold">Form {index + 1}</div>
+                                {morph.lemma && (
                             <div>
-                              <span className="text-muted-foreground">Lemma:</span>{" "}
-                              {morph.lemma}
+                                <span className="text-muted-foreground">Lemma:</span> {morph.lemma}
                             </div>
-                          )}
-                          {morph.partOfSpeech && (
+                            )}
+                                {morph.partOfSpeech && (
                             <div>
-                              <span className="text-muted-foreground">POS:</span>{" "}
-                              {morph.partOfSpeech}
+                                <span className="text-muted-foreground">POS:</span> {morph.partOfSpeech}
                             </div>
-                          )}
+                            )}
+                            </div>
+                        ))}
                         </div>
-                      ))}
                     </div>
-                  </ScrollArea>
                 </div>
               )}
               
