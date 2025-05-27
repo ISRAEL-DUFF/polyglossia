@@ -110,6 +110,8 @@ const LexicaTool: React.FC = () => {
   const [notes, setNotes] = useState("");
   const [showNotesInput, setShowNotesInput] = useState(false);
   const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
+  const [historyNamespace, setHistoryNamespace] = useState<string>('');
+
   
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { toast } = useToast();
@@ -187,15 +189,15 @@ const LexicaTool: React.FC = () => {
       }
       
       // Log to history
-      if (identifiedLemma && namespace) {
+      if (identifiedLemma && historyNamespace) {
         const logResult = await logHistoryEntry({
           word: lookupWord.trim(),
           lemma: identifiedLemma,
-          namespace: namespace,
+          namespace: historyNamespace,
           language: 'greek'
         });
         if (logResult.success) {
-          toast({ title: "Logged", description: `"${lookupWord.trim()}" added to history for "${namespace}".` });
+          toast({ title: "Logged", description: `"${lookupWord.trim()}" added to history for "${historyNamespace}".` });
           setHistoryRefreshTrigger(prev => prev + 1); // Trigger refresh in LookupHistoryViewer
         } else {
           toast({ variant: "destructive", title: "History Log Failed", description: logResult.message });
@@ -612,9 +614,10 @@ const LexicaTool: React.FC = () => {
         </DialogContent>
       </Dialog>
       
-      <LookupHistoryViewer 
-        language="greek" 
+      <LookupHistoryViewer
+        language="greek"
         onWordSelect={handleHistoryWordSelect}
+        onNamespaceSelect={(ns) => setHistoryNamespace(ns)}
         refreshTrigger={historyRefreshTrigger} 
       />
     </div>

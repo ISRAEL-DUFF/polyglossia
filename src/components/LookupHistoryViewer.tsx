@@ -7,53 +7,65 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
-import { RefreshCw, History } from 'lucide-react';
+import { RefreshCw, History, PlusIcon } from 'lucide-react';
 import { Skeleton } from './ui/skeleton';
 import { Label } from "@/components/ui/label"; // Ensured Label is imported
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
-type HistoryLanguage = 'greek' | 'hebrew';
+type HistoryLanguage = 'greek' | 'hebrew' | 'latin';
+
+interface NamespaceEntry {
+  namespace: string;
+  count: string;
+}
 
 interface HistoryEntry {
   id: number;
-  created_at: string;
+  createdAt: string;
   language: string;
   namespace: string;
   word: string;
   lemma: string;
   frequency: number;
-  updated_at: string;
+  updatedAt: string;
 }
 
 interface LookupHistoryViewerProps {
   language: HistoryLanguage;
   onWordSelect: (word: string, lemma?: string) => void;
+  onNamespaceSelect: (namespace: string) => void;
   // This prop can be used to trigger a refresh if the parent logs a new entry to the currently viewed namespace
   refreshTrigger?: number; 
 }
 
-const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
+// const BASE_URL = 'http://localhost:3001';
 
-const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, refreshTrigger }) => {
-  const [namespacesList, setNamespacesList] = useState<string[]>([]);
+const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger }) => {
+  const [namespacesList, setNamespacesList] = useState<NamespaceEntry[]>([]);
   const [selectedHistoryNamespace, setSelectedHistoryNamespace] = useState<string | null>(null);
   const [historyEntries, setHistoryEntries] = useState<HistoryEntry[]>([]);
   const [isLoadingNamespaces, setIsLoadingNamespaces] = useState<boolean>(false);
   const [isLoadingHistory, setIsLoadingHistory] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newNamespace, setNewNamespace] = useState("");
+  const [isAdding, setIsAdding] = useState(false);
 
   const fetchNamespaces = useCallback(async () => {
     setIsLoadingNamespaces(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE_URL}/${language}/history/namespaces`);
+      const response = await fetch(`${BASE_URL}/lookup-history/namespaces?language=${language}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch namespaces. Status: ${response.status}`);
       }
-      const data: string[] = await response.json();
+      const data: NamespaceEntry[] = await response.json();
       setNamespacesList(data);
       if (data.length > 0 && !selectedHistoryNamespace) {
-        setSelectedHistoryNamespace(data[0]); // Auto-select first namespace
+        setSelectedHistoryNamespace(data[0].namespace); // Auto-select first namespace
       } else if (data.length === 0) {
         setSelectedHistoryNamespace(null);
         setHistoryEntries([]);
@@ -76,13 +88,13 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE_URL}/${language}/history/entries/${encodeURIComponent(namespaceToFetch)}`);
+      const response = await fetch(`${BASE_URL}/lookup-history/entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch history for namespace "${namespaceToFetch}". Status: ${response.status}`);
       }
       const data: HistoryEntry[] = await response.json();
       // Sort by created_at descending (most recent first)
-      data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       setHistoryEntries(data);
     } catch (err) {
       const message = err instanceof Error ? err.message : `An unknown error occurred while fetching history for ${namespaceToFetch}.`;
@@ -101,6 +113,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
   useEffect(() => {
     if (selectedHistoryNamespace) {
       fetchHistoryEntries(selectedHistoryNamespace);
+      onNamespaceSelect(selectedHistoryNamespace)
     }
   }, [selectedHistoryNamespace, fetchHistoryEntries, refreshTrigger]); // refreshTrigger can be used by parent
 
@@ -113,6 +126,35 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
        toast({ title: "Namespaces Refreshed", description: "List of available history namespaces has been reloaded."})
     }
   };
+
+  const handleAddNamespace = async () => {
+    if (!newNamespace.trim()) {
+      toast({ variant: "destructive", title: "Error", description: "Namespace cannot be empty." });
+      return;
+    }
+    setIsAdding(true);
+    try {
+      // const response = await fetch(`${API_BASE_URL}/lookup-history/namespaces`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ language, namespace: newNamespace.trim() }),
+      // });
+      // if (!response.ok) throw new Error("Failed to add namespace.");
+      setSelectedHistoryNamespace(newNamespace)
+      toast({ title: "Success", description: "The New Namespace will be added when you lookup!" });
+      setShowAddModal(false);
+      setNewNamespace("");
+      fetchNamespaces();
+    } catch (err) {
+      toast({ variant: "destructive", title: "Error", description: err instanceof Error ? err.message : "Unknown error." });
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
+  const handleSelectedNamespace = (value: string) => {
+    setSelectedHistoryNamespace(value);
+  }
 
   return (
     <Card className="mt-6">
@@ -137,21 +179,25 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           ) : (
             <Select
               value={selectedHistoryNamespace || ""}
-              onValueChange={(value) => setSelectedHistoryNamespace(value)}
+              onValueChange={(value) => handleSelectedNamespace(value)}
               disabled={namespacesList.length === 0}
             >
               <SelectTrigger id="history-namespace-select">
                 <SelectValue placeholder={namespacesList.length > 0 ? "Select a namespace" : "No namespaces available"} />
               </SelectTrigger>
               <SelectContent>
-                {namespacesList.map((ns) => (
-                  <SelectItem key={ns} value={ns}>
-                    {ns}
+                {namespacesList.map((nsE) => (
+                  <SelectItem key={nsE.namespace} value={nsE.namespace}>
+                    {nsE.namespace} ({nsE.count} words)
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           )}
+
+          <Button onClick={() => setShowAddModal(true)} variant="secondary" size="icon">
+            <PlusIcon />
+          </Button>
         </div>
 
         {error && <p className="text-destructive text-sm mb-2">{error}</p>}
@@ -174,7 +220,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                       <span className={`font-medium ${language === 'hebrew' ? 'hebrew hebrew-size' : 'text-base'}`}>{entry.word}</span>
                       <span className="text-xs text-muted-foreground">Lemma: {entry.lemma} (Freq: {entry.frequency})</span>
                       <span className="text-xs text-muted-foreground/70">
-                        Looked up: {new Date(entry.created_at).toLocaleDateString()}
+                        Looked up: {new Date(entry.createdAt).toLocaleDateString()}
                       </span>
                     </div>
                   </Button>
@@ -188,6 +234,29 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           )}
         </ScrollArea>
       </CardContent>
+
+      {/* Add Namespace Modal */}
+      <Dialog open={showAddModal} onOpenChange={setShowAddModal}>
+        <DialogContent className="mx-8 space-y-4 p-8 max-w-4xl">
+          <DialogHeader>
+            <DialogTitle>Add New Namespace</DialogTitle>
+          </DialogHeader>
+          <Input
+            placeholder="Enter new namespace"
+            value={newNamespace}
+            onChange={e => setNewNamespace(e.target.value)}
+            disabled={isAdding}
+          />
+          <DialogFooter>
+            <Button
+              onClick={handleAddNamespace}
+              disabled={isAdding}
+            >
+              {isAdding ? "Adding..." : "Submit"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };
