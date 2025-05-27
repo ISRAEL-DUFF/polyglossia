@@ -9,7 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
 import { RefreshCw, History } from 'lucide-react';
 import { Skeleton } from './ui/skeleton';
-import { Label } from "@/components/ui/label"; // Added import
+import { Label } from "@/components/ui/label"; // Ensured Label is imported
 
 type HistoryLanguage = 'greek' | 'hebrew';
 
