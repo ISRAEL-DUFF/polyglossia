@@ -265,4 +265,3 @@ const HebrewLexiconTool = () => {
 };
 
 export default HebrewLexiconTool;
-

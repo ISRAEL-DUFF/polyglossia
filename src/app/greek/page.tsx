@@ -15,6 +15,8 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import './Lexicon.css'
 import OccurrenceViewer from "@/app/greek/OccurrenceViewer";
+import { logHistoryEntry } from "@/lib/utils/historyLogger";
+import LookupHistoryViewer from "@/components/LookupHistoryViewer";
 
 interface Gloss {
   tag: string;
@@ -38,16 +40,6 @@ interface Sense {
   quotes: Quote[];
   htmlText: string;
 }
-
-// interface DodsonEntry {
-//   "Strong's"?: string;
-//   "Goodrick-Kohlenberger"?: string;
-//   "English Definition (brief)"?: string;
-//   "English Definition (longer)"?: string;
-//   "greekWord"?: string;
-//   "Beta Code"?: string;
-//   [key: string]: string | undefined;
-// }
 
 interface DodsonEntry {
   strong_number?: string;
@@ -103,6 +95,122 @@ interface LexiconResponse {
 const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
 // const BASE_URL = 'http://localhost:3001'
 
+
+interface LSJViewerProps {
+    lexiconData: { [key: string]: LexiconEntry };
+    currentLemma: string;
+    word: string;
+}
+
+const LSJEntryViewer: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
+    return (
+        <>
+        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj.length > 0 ? (
+            <Tabs defaultValue="0" className="w-full">
+            <TabsList className="mb-4 flex flex-wrap gap-2">
+                {lexiconData[currentLemma].lsj.map((entry, idx) => (
+                <TabsTrigger key={idx} value={String(idx)}>
+                    Entry - {(entry as any).word}
+                </TabsTrigger>
+                ))}
+            </TabsList>
+            {lexiconData[currentLemma].lsj.map((lsjEntry, idx) => (
+                <TabsContent key={idx} value={String(idx)} className="space-y-4">
+                {lsjEntry.senses.length > 0 ? (lsjEntry.senses.map((sense, index) => (
+                    <Card key={index} className="p-4">
+                    <div className="text-sm text-muted-foreground mb-2">
+                        Sense {index + 1} of {lsjEntry.senses.length}
+                    </div>
+                    <div
+                        className="prose dark:prose-invert max-w-full lexicon-html-content"
+                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                    />
+                    {sense.quotes.length > 0 && (
+                        <div className="mt-4">
+                        <h5 className="font-semibold text-sm">Quotes:</h5>
+                        <ul className="pl-5 space-y-2 mt-2">
+                            {sense.quotes.map((quote, i) => {
+                            if (!quote.quote) return null;
+                            const biblText = quote.bibl
+                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
+                                    .filter(Boolean)
+                                    .join(" ")
+                                : "";
+                            return (
+                                <li key={i} className="border-l-2 border-border pl-3">
+                                <div className="text-accent">{quote.quote}</div>
+                                {biblText && (
+                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
+                                )}
+                                </li>
+                            );
+                            })}
+                        </ul>
+                        </div>
+                    )}
+                    </Card>
+                ))) : (
+                    <p className="text-muted-foreground">
+                    No entry available for "{(lsjEntry as any).word}".
+                    </p>
+                ) }
+                </TabsContent>
+            ))}
+            </Tabs>
+        ) : (
+            <p className="text-muted-foreground">
+            No LSJ lexicon entries available for "{currentLemma || word}".
+            </p>
+        )}
+        </>
+    )
+}
+
+const LSJEntryViewerOld: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
+    return (<>
+        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0]?.senses.length > 0 ? (
+        <div className="space-y-4">
+            {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
+            <Card key={index} className="p-4">
+                <div className="text-sm text-muted-foreground mb-2">
+                Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
+                </div>
+                <div 
+                className="prose dark:prose-invert max-w-full lexicon-html-content"
+                dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                />
+                {sense.quotes.length > 0 && (
+                <div className="mt-4">
+                    <h5 className="font-semibold text-sm">Quotes:</h5>
+                    <ul className="pl-5 space-y-2 mt-2">
+                    {sense.quotes.map((quote, i) => {
+                        if (!quote.quote) return null;
+                        const biblText = quote.bibl
+                        ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
+                            .filter(Boolean)
+                            .join(" ")
+                        : "";
+                        return (
+                        <li key={i} className="border-l-2 border-border pl-3">
+                            <div className="text-accent">{quote.quote}</div>
+                            {biblText && (
+                            <div className="text-xs text-muted-foreground">– {biblText}</div>
+                            )}
+                        </li>
+                        );
+                    })}
+                    </ul>
+                </div>
+                )}
+            </Card>
+            ))}
+        </div>
+        ) : (
+        <p className="text-muted-foreground">No LSJ lexicon entries available for "{currentLemma || word}" {JSON.stringify(lexiconData[currentLemma])}.</p>
+        )}
+    </>)
+}
+
 const LexicaTool: React.FC = () => {
   const [word, setWord] = useState("");
   const [morphologyData, setMorphologyData] = useState<MorphologyData[]>([]);
@@ -117,6 +225,9 @@ const LexicaTool: React.FC = () => {
   const [namespaceList, setNamespaceList] = useState<{ name: string; count: number }[]>([]);
   const [notes, setNotes] = useState("");
   const [showNotesInput, setShowNotesInput] = useState(false);
+  const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
+  const [historyNamespace, setHistoryNamespace] = useState<string>('');
+
   
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { toast } = useToast();
@@ -128,6 +239,10 @@ const LexicaTool: React.FC = () => {
     }
     fetchListNames();
   }, []);
+
+  function normalizeLemma(lemma: string) {
+    return lemma.replace(/\d+$/, '');
+  }
 
   const fetchListNames = async () => {
     try {
@@ -153,8 +268,8 @@ const LexicaTool: React.FC = () => {
     localStorage.setItem("namespace", value);
   };
 
-  const handleGetLexicalData = async () => {
-    if (!word.trim()) {
+  const handleGetLexicalData = async (lookupWord = word) => {
+    if (!lookupWord.trim()) {
       toast({
         variant: "destructive",
         title: "Error",
@@ -166,7 +281,7 @@ const LexicaTool: React.FC = () => {
     setLoading(true);
     try {
       const lexiconUrl = `${BASE_URL}/lexica/${encodeURIComponent(
-        word
+        lookupWord.trim()
       )}`;
       const lexiconRes = await fetch(lexiconUrl);
 
@@ -182,19 +297,40 @@ const LexicaTool: React.FC = () => {
       setMorphologyData(lexiconResponse.morphology);
       setLexiconData(lexiconResponse.lexica);
 
+      let identifiedLemma = lookupWord.trim();
       if (lexiconResponse.morphology.length > 0) {
         const firstMorph = lexiconResponse.morphology[0];
         setCurrentMorphData(firstMorph);
-        setCurrentLemma(firstMorph.lemma || word);
+        identifiedLemma = normalizeLemma(firstMorph.lemma || lookupWord.trim());
+        setCurrentLemma(identifiedLemma);
+        console.log('current Lemma:', currentLemma, identifiedLemma, lexiconData)
       } else {
-        setCurrentLemma(word); // Fallback if no morphology, use input word for lemma
+        setCurrentMorphData(null);
+        setCurrentLemma(lookupWord.trim()); // Fallback if no morphology
       }
+      
+      // Log to history
+      if (identifiedLemma && historyNamespace) {
+        const logResult = await logHistoryEntry({
+          word: lookupWord.trim(),
+          lemma: identifiedLemma,
+          namespace: historyNamespace,
+          language: 'greek'
+        });
+        if (logResult.success) {
+          toast({ title: "Logged", description: `"${lookupWord.trim()}" added to history for "${historyNamespace}".` });
+          setHistoryRefreshTrigger(prev => prev + 1); // Trigger refresh in LookupHistoryViewer
+        } else {
+          toast({ variant: "destructive", title: "History Log Failed", description: logResult.message });
+        }
+      }
+
 
       setShowLexicalModal(true);
       
       toast({
         title: "Lexicon Data Loaded",
-        description: `Found data for "${word}"`
+        description: `Found data for "${lookupWord.trim()}"`
       });
     } catch (error) {
       console.error("Error fetching lexical data:", error);
@@ -209,7 +345,7 @@ const LexicaTool: React.FC = () => {
   };
 
   const handleSaveWord = async () => {
-    if (!currentLemma) { // Changed to check currentLemma as primary identifier
+    if (!currentLemma) { 
       toast({
         variant: "destructive",
         title: "Error",
@@ -220,18 +356,7 @@ const LexicaTool: React.FC = () => {
 
     try {
       const lexiconEntry = lexiconData[currentLemma];
-    //   const meanings = lexiconEntry?.senses.flatMap(sense => sense.glosses) || [];
       const meanings = lexiconEntry?.lsj[0]?.senses.flatMap(sense => sense.glosses) || [];
-
-      console.log({
-          vocabKey: namespace,
-          word: word, // The original input word
-          headWord: currentLemma, // The identified lemma
-          morphData: currentMorphData ? [currentMorphData] : [], // currentMorphData can be null
-          lexiconData: lexiconEntry ? { ...lexiconEntry, meanings: [] } : {},
-          meanings: meanings,
-          notes: notes
-        })
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
@@ -240,9 +365,9 @@ const LexicaTool: React.FC = () => {
         },
         body: JSON.stringify({
           vocabKey: namespace,
-          word: word, // The original input word
-          headWord: currentLemma, // The identified lemma
-          morphData: currentMorphData ? [currentMorphData] : [], // currentMorphData can be null
+          word: word, 
+          headWord: currentLemma, 
+          morphData: currentMorphData ? [currentMorphData] : [], 
           lexiconData: lexiconEntry ? { ...lexiconEntry, meanings: [] } : {},
           meanings: meanings,
           notes: notes
@@ -279,18 +404,27 @@ const LexicaTool: React.FC = () => {
   };
 
   const handleMorphologyClick = (morph: MorphologyData) => {
+    const lemma = normalizeLemma(morph.lemma || word)
     setCurrentMorphData(morph);
-    setCurrentLemma(morph.lemma || word);
+    setCurrentLemma(lemma);
   };
 
   const openLogeionModal = () => {
-    if (!currentLemma && word) setCurrentLemma(word); // Ensure currentLemma is set
+    if (!currentLemma && word) setCurrentLemma(word);
     setShowLogeionModal(true);
   };
   
   const openOccurrenceModal = () => {
-    if (!currentLemma && word) setCurrentLemma(word); // Ensure currentLemma is set
+    if (!currentLemma && word) setCurrentLemma(word);
     setShowOccurrenceModal(true);
+  };
+
+  const handleHistoryWordSelect = (selectedWord: string, selectedLemma?: string) => {
+    setWord(selectedWord); // Update the input field
+    handleGetLexicalData(selectedWord); // Trigger a new lookup
+    if (selectedLemma) {
+        setCurrentLemma(selectedLemma); // Pre-set lemma if available
+    }
   };
 
 
@@ -310,8 +444,9 @@ const LexicaTool: React.FC = () => {
               value={word}
               onChange={(e) => setWord(e.target.value)}
               className="text-lg"
+              onKeyDown={(e) => e.key === 'Enter' && handleGetLexicalData()}
             />
-            <Button onClick={handleGetLexicalData} disabled={loading}>
+            <Button onClick={() => handleGetLexicalData()} disabled={loading}>
               {loading ? "Loading..." : "Check Word"}
               <Search className="ml-2 h-4 w-4" />
             </Button>
@@ -319,7 +454,7 @@ const LexicaTool: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-2 mt-4">
             <div className="space-y-2 flex-1">
-              <Label htmlFor="namespaceInput">Your Namespace</Label>
+              <Label htmlFor="namespaceInput">Vocabulary Namespace (for saving)</Label>
               <Input
                 id="namespaceInput"
                 placeholder="Your namespace"
@@ -356,7 +491,7 @@ const LexicaTool: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Modal for Lexical Data */}
+      {/* Lexical Data Modal */}
       <Dialog open={showLexicalModal} onOpenChange={setShowLexicalModal}>
         <DialogContent className="max-w-4xl max-h-[96vh] flex flex-col p-0">
           <DialogHeader className="p-6 pb-2">
@@ -369,7 +504,7 @@ const LexicaTool: React.FC = () => {
                 onClick={openLogeionModal}
                 className="w-full sm:w-auto"
             >
-                <Book className="mr-1 h-4 w-2" />
+                <Book className="mr-1 h-4 w-4" />
                 Open in Logeion
             </Button>
             <Button
@@ -377,7 +512,7 @@ const LexicaTool: React.FC = () => {
                 onClick={openOccurrenceModal}
                 className="w-full sm:w-auto"
             >
-                <Book className="mr-1 h-4 w-2" />
+                <Book className="mr-1 h-4 w-4" />
                 View Occurrences
             </Button>
           </div>
@@ -394,7 +529,6 @@ const LexicaTool: React.FC = () => {
               {morphologyData.length > 0 && (
                 <div className="mb-6">
                   <h4 className="text-lg font-semi bold mb-2">Morphological Forms</h4>
-
                   <div className="max-h-40 w-full overflow-x-auto">
                     <div className="flex flex-row gap-2 pb-2 min-w-max">
                         {morphologyData.map((morph, index) => (
@@ -410,12 +544,12 @@ const LexicaTool: React.FC = () => {
                             <div className="font-semibold">Form {index + 1}</div>
                                 {morph.lemma && (
                             <div>
-                                <span className="text-muted-foreground">Lemma:</span> {morph.lemma}
+                                <span className="text-xs text-muted-foreground/80">Lemma:</span> {morph.lemma}
                             </div>
                             )}
                                 {morph.partOfSpeech && (
                             <div>
-                                <span className="text-muted-foreground">POS:</span> {morph.partOfSpeech}
+                                <span className="text-xs text-muted-foreground/80">POS:</span> {morph.partOfSpeech}
                             </div>
                             )}
                             </div>
@@ -436,8 +570,8 @@ const LexicaTool: React.FC = () => {
                             .filter(([_, value]) => value !== null && value !== undefined && value !== '')
                             .map(([key, value]) => (
                               <TableRow key={key}>
-                                <TableCell className="font-medium capitalize py-2">{key}</TableCell>
-                                <TableCell className="py-2">{String(value)}</TableCell>
+                                <TableCell className="font-medium capitalize py-2 text-sm">{key}</TableCell>
+                                <TableCell className="py-2 text-sm">{String(value)}</TableCell>
                               </TableRow>
                             ))}
                         </TableBody>
@@ -450,46 +584,7 @@ const LexicaTool: React.FC = () => {
             </TabsContent>
 
             <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
-              {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0].senses.length > 0 ? (
-                <div className="space-y-4">
-                  {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
-                    <Card key={index} className="p-4">
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
-                      </div>
-                      <div 
-                        className="prose dark:prose-invert max-w-full lexicon-html-content" // Added lexicon-html-content class
-                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
-                      />
-                      {sense.quotes.length > 0 && (
-                        <div className="mt-4">
-                          <h5 className="font-semibold text-sm">Quotes:</h5>
-                          <ul className="pl-5 space-y-2 mt-2">
-                            {sense.quotes.map((quote, i) => {
-                              if (!quote.quote) return null;
-                              const biblText = quote.bibl
-                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
-                                    .filter(Boolean)
-                                    .join(" ")
-                                : "";
-                              return (
-                                <li key={i} className="border-l-2 border-border pl-3">
-                                  <div className="text-accent">{quote.quote}</div>
-                                  {biblText && (
-                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
-                                  )}
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )}
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-muted-foreground">No lexicon entries available for "{currentLemma || word}".</p>
-              )}
+              <LSJEntryViewer lexiconData={lexiconData} currentLemma={currentLemma} word={word}></LSJEntryViewer>
             </TabsContent>
 
             <TabsContent value="dodson" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
@@ -501,8 +596,8 @@ const LexicaTool: React.FC = () => {
                         {Object.entries(lexiconData[currentLemma].dodson || {}).map(
                           ([key, value]) => (
                             <TableRow key={key}>
-                              <TableCell className="font-medium py-2">{key.replace('_', '')}</TableCell>
-                              <TableCell className="py-2">{String(value)}</TableCell>
+                              <TableCell className="font-medium py-2 text-sm">{key.replace('_', ' ')}</TableCell>
+                              <TableCell className="py-2 text-sm">{String(value)}</TableCell>
                             </TableRow>
                           )
                         )}
@@ -524,8 +619,8 @@ const LexicaTool: React.FC = () => {
                         {Object.entries(lexiconData[currentLemma].strongs || {}).map(
                           ([key, value]) => (
                             <TableRow key={key}>
-                              <TableCell className="font-medium py-2">{key}</TableCell>
-                              <TableCell className="py-2">{String(value)}</TableCell>
+                              <TableCell className="font-medium py-2 text-sm">{key.replace('_', ' ')}</TableCell>
+                              <TableCell className="py-2 text-sm">{String(value)}</TableCell>
                             </TableRow>
                           )
                         )}
@@ -601,10 +696,15 @@ const LexicaTool: React.FC = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      
+      <LookupHistoryViewer
+        language="greek"
+        onWordSelect={handleHistoryWordSelect}
+        onNamespaceSelect={(ns) => setHistoryNamespace(ns)}
+        refreshTrigger={historyRefreshTrigger} 
+      />
     </div>
   );
 };
 
 export default LexicaTool;
-
-    
