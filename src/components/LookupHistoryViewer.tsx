@@ -108,6 +108,11 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
   useEffect(() => {
     fetchNamespaces();
+
+    const savedNamespace = localStorage.getItem(`${language}_history-namespace`) ?? "default";
+    if (savedNamespace) {
+      setSelectedHistoryNamespace(savedNamespace);
+    }
   }, [fetchNamespaces, language]);
 
   useEffect(() => {
@@ -154,6 +159,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
   const handleSelectedNamespace = (value: string) => {
     setSelectedHistoryNamespace(value);
+    localStorage.setItem(`${language}_history-namespace`, value);
   }
 
   return (

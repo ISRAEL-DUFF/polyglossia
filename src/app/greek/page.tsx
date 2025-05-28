@@ -95,6 +95,122 @@ interface LexiconResponse {
 const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
 // const BASE_URL = 'http://localhost:3001'
 
+
+interface LSJViewerProps {
+    lexiconData: { [key: string]: LexiconEntry };
+    currentLemma: string;
+    word: string;
+}
+
+const LSJEntryViewer: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
+    return (
+        <>
+        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj.length > 0 ? (
+            <Tabs defaultValue="0" className="w-full">
+            <TabsList className="mb-4 flex flex-wrap gap-2">
+                {lexiconData[currentLemma].lsj.map((entry, idx) => (
+                <TabsTrigger key={idx} value={String(idx)}>
+                    Entry - {(entry as any).word}
+                </TabsTrigger>
+                ))}
+            </TabsList>
+            {lexiconData[currentLemma].lsj.map((lsjEntry, idx) => (
+                <TabsContent key={idx} value={String(idx)} className="space-y-4">
+                {lsjEntry.senses.length > 0 ? (lsjEntry.senses.map((sense, index) => (
+                    <Card key={index} className="p-4">
+                    <div className="text-sm text-muted-foreground mb-2">
+                        Sense {index + 1} of {lsjEntry.senses.length}
+                    </div>
+                    <div
+                        className="prose dark:prose-invert max-w-full lexicon-html-content"
+                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                    />
+                    {sense.quotes.length > 0 && (
+                        <div className="mt-4">
+                        <h5 className="font-semibold text-sm">Quotes:</h5>
+                        <ul className="pl-5 space-y-2 mt-2">
+                            {sense.quotes.map((quote, i) => {
+                            if (!quote.quote) return null;
+                            const biblText = quote.bibl
+                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
+                                    .filter(Boolean)
+                                    .join(" ")
+                                : "";
+                            return (
+                                <li key={i} className="border-l-2 border-border pl-3">
+                                <div className="text-accent">{quote.quote}</div>
+                                {biblText && (
+                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
+                                )}
+                                </li>
+                            );
+                            })}
+                        </ul>
+                        </div>
+                    )}
+                    </Card>
+                ))) : (
+                    <p className="text-muted-foreground">
+                    No entry available for "{(lsjEntry as any).word}".
+                    </p>
+                ) }
+                </TabsContent>
+            ))}
+            </Tabs>
+        ) : (
+            <p className="text-muted-foreground">
+            No LSJ lexicon entries available for "{currentLemma || word}".
+            </p>
+        )}
+        </>
+    )
+}
+
+const LSJEntryViewerOld: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
+    return (<>
+        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0]?.senses.length > 0 ? (
+        <div className="space-y-4">
+            {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
+            <Card key={index} className="p-4">
+                <div className="text-sm text-muted-foreground mb-2">
+                Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
+                </div>
+                <div 
+                className="prose dark:prose-invert max-w-full lexicon-html-content"
+                dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                />
+                {sense.quotes.length > 0 && (
+                <div className="mt-4">
+                    <h5 className="font-semibold text-sm">Quotes:</h5>
+                    <ul className="pl-5 space-y-2 mt-2">
+                    {sense.quotes.map((quote, i) => {
+                        if (!quote.quote) return null;
+                        const biblText = quote.bibl
+                        ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
+                            .filter(Boolean)
+                            .join(" ")
+                        : "";
+                        return (
+                        <li key={i} className="border-l-2 border-border pl-3">
+                            <div className="text-accent">{quote.quote}</div>
+                            {biblText && (
+                            <div className="text-xs text-muted-foreground">– {biblText}</div>
+                            )}
+                        </li>
+                        );
+                    })}
+                    </ul>
+                </div>
+                )}
+            </Card>
+            ))}
+        </div>
+        ) : (
+        <p className="text-muted-foreground">No LSJ lexicon entries available for "{currentLemma || word}" {JSON.stringify(lexiconData[currentLemma])}.</p>
+        )}
+    </>)
+}
+
 const LexicaTool: React.FC = () => {
   const [word, setWord] = useState("");
   const [morphologyData, setMorphologyData] = useState<MorphologyData[]>([]);
@@ -123,6 +239,10 @@ const LexicaTool: React.FC = () => {
     }
     fetchListNames();
   }, []);
+
+  function normalizeLemma(lemma: string) {
+    return lemma.replace(/\d+$/, '');
+  }
 
   const fetchListNames = async () => {
     try {
@@ -181,8 +301,9 @@ const LexicaTool: React.FC = () => {
       if (lexiconResponse.morphology.length > 0) {
         const firstMorph = lexiconResponse.morphology[0];
         setCurrentMorphData(firstMorph);
-        identifiedLemma = firstMorph.lemma || lookupWord.trim();
+        identifiedLemma = normalizeLemma(firstMorph.lemma || lookupWord.trim());
         setCurrentLemma(identifiedLemma);
+        console.log('current Lemma:', currentLemma, identifiedLemma, lexiconData)
       } else {
         setCurrentMorphData(null);
         setCurrentLemma(lookupWord.trim()); // Fallback if no morphology
@@ -283,8 +404,9 @@ const LexicaTool: React.FC = () => {
   };
 
   const handleMorphologyClick = (morph: MorphologyData) => {
+    const lemma = normalizeLemma(morph.lemma || word)
     setCurrentMorphData(morph);
-    setCurrentLemma(morph.lemma || word);
+    setCurrentLemma(lemma);
   };
 
   const openLogeionModal = () => {
@@ -462,46 +584,7 @@ const LexicaTool: React.FC = () => {
             </TabsContent>
 
             <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
-              {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0]?.senses.length > 0 ? (
-                <div className="space-y-4">
-                  {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
-                    <Card key={index} className="p-4">
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
-                      </div>
-                      <div 
-                        className="prose dark:prose-invert max-w-full lexicon-html-content"
-                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
-                      />
-                      {sense.quotes.length > 0 && (
-                        <div className="mt-4">
-                          <h5 className="font-semibold text-sm">Quotes:</h5>
-                          <ul className="pl-5 space-y-2 mt-2">
-                            {sense.quotes.map((quote, i) => {
-                              if (!quote.quote) return null;
-                              const biblText = quote.bibl
-                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
-                                    .filter(Boolean)
-                                    .join(" ")
-                                : "";
-                              return (
-                                <li key={i} className="border-l-2 border-border pl-3">
-                                  <div className="text-accent">{quote.quote}</div>
-                                  {biblText && (
-                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
-                                  )}
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )}
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-muted-foreground">No LSJ lexicon entries available for "{currentLemma || word}".</p>
-              )}
+              <LSJEntryViewer lexiconData={lexiconData} currentLemma={currentLemma} word={word}></LSJEntryViewer>
             </TabsContent>
 
             <TabsContent value="dodson" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">

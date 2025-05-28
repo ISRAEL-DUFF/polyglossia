@@ -6,8 +6,8 @@ import type { Language as AppLanguage } from '@/types'; // Assuming Language typ
 // Define a more specific type for the language prop if needed, or use string
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin' | AppLanguage;
 
-// const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
-const API_BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+// const API_BASE_URL = 'http://localhost:3001';
 
 interface LogEntryPayload {
   word: string;
@@ -24,7 +24,7 @@ interface LogHistoryResponse {
 
 export async function logHistoryEntry(payload: LogEntryPayload): Promise<LogHistoryResponse> {
   try {
-    const response = await fetch(`${API_BASE_URL}/lookup-history/log`, {
+    const response = await fetch(`${BASE_URL}/lookup-history/log`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
