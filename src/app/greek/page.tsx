@@ -17,6 +17,7 @@ import './Lexicon.css'
 import OccurrenceViewer from "@/app/greek/OccurrenceViewer";
 import { logHistoryEntry } from "@/lib/utils/historyLogger";
 import LookupHistoryViewer from "@/components/LookupHistoryViewer";
+import { GreekInput } from "@/components/GreekInput";
 
 interface Gloss {
   tag: string;
@@ -438,11 +439,14 @@ const LexicaTool: React.FC = () => {
         </CardHeader>
         <CardContent className="space-y-2">
           <div className="flex flex-col sm:flex-row gap-2">
-            <Input
+            <GreekInput
               id="greekInput"
               placeholder="Enter Greek word (e.g. λόγος)"
               value={word}
-              onChange={(e) => setWord(e.target.value)}
+              onChange={(e) => {
+                console.log('Key change:', e)
+                setWord(e.target.value)
+              }}
               className="text-lg"
               onKeyDown={(e) => e.key === 'Enter' && handleGetLexicalData()}
             />

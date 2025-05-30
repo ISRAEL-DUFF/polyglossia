@@ -42,6 +42,12 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Polyglossia Praxis" />
         {/* You would typically have different sized apple-touch-icons linked here if available */}
         {/* <link rel="apple-touch-icon" href="/icons/apple-icon-180x180.png" sizes="180x180" /> */}
+
+        {/* Keyman Web scripts */}
+        {/* <script src="/keyman/keyman-engine-18.0.237-keymanweb.js"></script>
+        <script src="/keyman-wuitoggle-engine-18.0.237-kmwuitoggle.js"></script> */}
+        <script src="https://s.keyman.com/kmw/engine/18.0.237/keymanweb.js"></script>
+        <script src="https://s.keyman.com/kmw/engine/18.0.237/kmwuitoggle.js"></script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AppLayout>{children}</AppLayout>

@@ -117,6 +117,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
   useEffect(() => {
     if (selectedHistoryNamespace) {
+      console.log("Namespace select:", selectedHistoryNamespace)
       fetchHistoryEntries(selectedHistoryNamespace);
       onNamespaceSelect(selectedHistoryNamespace)
     }
@@ -146,6 +147,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
       // });
       // if (!response.ok) throw new Error("Failed to add namespace.");
       setSelectedHistoryNamespace(newNamespace)
+      localStorage.setItem(`${language}_history-namespace`, newNamespace);
       toast({ title: "Success", description: "The New Namespace will be added when you lookup!" });
       setShowAddModal(false);
       setNewNamespace("");
