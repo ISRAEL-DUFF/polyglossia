@@ -100,7 +100,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
+      const response = await fetch(`${BASE_URL}/lookup-history/indexed-entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || `Failed to fetch history for namespace "${namespaceToFetch}". Status: ${response.status}`);
