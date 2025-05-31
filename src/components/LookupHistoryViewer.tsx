@@ -12,22 +12,22 @@ import { Skeleton } from './ui/skeleton';
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge"; // Added for index characters
+import { Badge } from "@/components/ui/badge";
 
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin';
 
 interface NamespaceEntry {
   namespace: string;
-  count: string; // Assuming count is still a string based on previous structure
+  count: string; 
 }
 
 interface HistoryEntry {
-  id: string; // Changed from number to string based on new data
+  id: string; 
   createdAt: string;
   language: string;
   namespace: string;
   word: string;
-  lemma?: string; // Lemma might be associated during onWordSelect, not directly in this list
+  lemma?: string; 
   frequency: number;
   updatedAt: string;
 }
@@ -45,7 +45,6 @@ interface LookupHistoryViewerProps {
 }
 
 const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
-// const BASE_URL = 'http://localhost:3001';
 
 const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger }) => {
   const [namespacesList, setNamespacesList] = useState<NamespaceEntry[]>([]);
@@ -109,7 +108,6 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
       const data: IndexedHistoryResponse = await response.json();
       setIndexedHistoryData(data);
       if (data.index && data.index.length > 0) {
-        // Sort Greek letters if applicable, otherwise simple sort
         const sortedIndex = language === 'greek'
           ? [...data.index].sort((a, b) => a.localeCompare(b, 'el'))
           : [...data.index].sort();
@@ -130,7 +128,6 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
   useEffect(() => {
     fetchNamespaces();
-    // Initial namespace selection is handled within fetchNamespaces
   }, [fetchNamespaces, language]);
 
   useEffect(() => {
@@ -138,7 +135,6 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
       fetchHistoryEntries(selectedHistoryNamespace);
       onNamespaceSelect(selectedHistoryNamespace);
     } else {
-      // Clear history if no namespace is selected
       setIndexedHistoryData(null);
       setSelectedIndexChar(null);
     }
@@ -206,8 +202,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         <CardDescription>View words you've previously looked up, organized by initial character.</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 flex items-end gap-2">
-          <div className="flex-grow">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-2">
+          <div className="flex-grow space-y-1">
             <Label htmlFor="history-namespace-select">Select Namespace</Label>
             {isLoadingNamespaces ? (
               <Skeleton className="h-10 w-full" />
@@ -217,7 +213,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                 onValueChange={handleSelectedNamespace}
                 disabled={namespacesList.length === 0 && !selectedHistoryNamespace}
               >
-                <SelectTrigger id="history-namespace-select">
+                <SelectTrigger id="history-namespace-select" className="w-full">
                   <SelectValue placeholder={namespacesList.length > 0 || selectedHistoryNamespace ? "Select a namespace" : "No namespaces available"} />
                 </SelectTrigger>
                 <SelectContent>
@@ -235,8 +231,14 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
               </Select>
             )}
           </div>
-          <Button onClick={() => setShowAddModal(true)} variant="outline" size="icon" aria-label="Add new namespace">
+          <Button 
+            onClick={() => setShowAddModal(true)} 
+            variant="outline" 
+            className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center"
+            aria-label="Add new namespace"
+          >
             <PlusIcon className="h-4 w-4" />
+            <span className="ml-2 sm:hidden">Add Namespace</span>
           </Button>
         </div>
 
@@ -251,7 +253,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         
         {indexedHistoryData && indexedHistoryData.index && indexedHistoryData.index.length > 0 && (
           <div className="mb-3">
-            <Label className="text-xs text-muted-foreground">Index:</Label>
+            <Label className="text-sm font-medium mb-1 block">Index:</Label>
             <ScrollArea className="w-full whitespace-nowrap">
               <div className="flex gap-1.5 p-1">
                 {(language === 'greek' ? [...indexedHistoryData.index].sort((a,b) => a.localeCompare(b, 'el')) : [...indexedHistoryData.index].sort()).map((char) => (
