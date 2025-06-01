@@ -57,12 +57,18 @@ interface StrongsEntry {
     "kjv_def":string
 }
 
+interface ThayersEntry {
+    strongNumber:string,
+    htmlText:string
+}
+
 interface LexiconEntry {
   lsj: {
     senses: Sense[];
   }[],
   dodson?: DodsonEntry;
   strongs?: StrongsEntry;
+  thayer?: ThayersEntry
 }
 
 interface MorphologyData {
@@ -267,9 +273,6 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
 //   };
 
   const handleGetLexicalData = async (lookupWord = word) => {
-    console.log('GREEK-LEXICON-VIEWER', {
-        word
-    })
     if (!lookupWord.trim()) {
       toast({
         variant: "destructive",
@@ -463,10 +466,11 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
             </Button>
           </div>
 
-          <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-hidden px-6">
-            <TabsList className="mb-2 shrink-0">
+          <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-x-hidden px-4">
+            <TabsList className="mb-2 shrink-0 overflow-x-auto whitespace-nowrap flex gap-1 pl-24 sm:pl-0">
               <TabsTrigger value="morphology">Morphology</TabsTrigger>
               <TabsTrigger value="lexicon">LSJ</TabsTrigger>
+              <TabsTrigger value="thayer">Thayer</TabsTrigger>
               <TabsTrigger value="dodson">Dodson</TabsTrigger>
               <TabsTrigger value="strongs">Strongs</TabsTrigger>
             </TabsList>
@@ -531,6 +535,21 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
 
             <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
               <LSJEntryViewer lexiconData={lexiconData} currentLemma={currentLemma} word={word}></LSJEntryViewer>
+            </TabsContent>
+
+            <TabsContent value="thayer" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
+              {currentLemma && lexiconData[currentLemma]?.thayer ? (
+                <Card>
+                  <CardContent className="p-0">
+                    <div
+                        className="prose dark:prose-invert max-w-full lexicon-html-content"
+                        dangerouslySetInnerHTML={{ __html:  lexiconData[currentLemma].thayer.htmlText }}
+                    />
+                  </CardContent>
+                </Card>
+              ) : (
+                <p className="text-muted-foreground">No Thayer's entry available for "{currentLemma || word}".</p>
+              )}
             </TabsContent>
 
             <TabsContent value="dodson" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
