@@ -62,9 +62,21 @@ interface ThayersEntry {
     htmlText:string
 }
 
+// interface LexiconEntry {
+//   lsj: {
+//     senses: Sense[];
+//   }[],
+//   dodson?: DodsonEntry;
+//   strongs?: StrongsEntry;
+//   thayer?: ThayersEntry
+// }
+
 interface LexiconEntry {
   lsj: {
-    senses: Sense[];
+    entry: {
+        headerHtml: string;
+        senses: Sense[];
+    }
   }[],
   dodson?: DodsonEntry;
   strongs?: StrongsEntry;
@@ -120,10 +132,16 @@ const LSJEntryViewer: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, w
             </TabsList>
             {lexiconData[currentLemma].lsj.map((lsjEntry, idx) => (
                 <TabsContent key={idx} value={String(idx)} className="space-y-4">
-                {lsjEntry.senses.length > 0 ? (lsjEntry.senses.map((sense, index) => (
+                <div>
+                    <div
+                        className="prose dark:prose-invert max-w-full lexicon-html-content"
+                        dangerouslySetInnerHTML={{ __html:  lsjEntry.entry.headerHtml}}
+                    />
+                </div>
+                {lsjEntry.entry.senses.length > 0 ? (lsjEntry.entry.senses.map((sense, index) => (
                     <Card key={index} className="p-4">
                     <div className="text-sm text-muted-foreground mb-2">
-                        Sense {index + 1} of {lsjEntry.senses.length}
+                        Sense {index + 1} of {lsjEntry.entry.senses.length}
                     </div>
                     <div
                         className="prose dark:prose-invert max-w-full lexicon-html-content"
@@ -375,7 +393,7 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
 
     try {
       const lexiconEntry = lexiconData[currentLemma];
-      const meanings = lexiconEntry?.lsj[0]?.senses.flatMap(sense => sense.glosses) || [];
+      const meanings = lexiconEntry?.lsj[0]?.entry.senses.flatMap(sense => sense.glosses) || [];
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
