@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, DraftingCompass } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked } from 'lucide-react';
 
 interface FeatureCardProps {
   title: string;
@@ -56,6 +56,13 @@ export default function DashboardPage() {
       buttonText: "Open Hebrew Tools",
     },
     {
+      title: "Latin Lexicon",
+      description: "Look up Latin words and their definitions.",
+      href: "/latin",
+      icon: BookMarked, // Using BookMarked icon for Latin
+      buttonText: "Open Latin Tools",
+    },
+    {
       title: "Hebrew Morph Builder",
       description: "Construct MorphHB codes and search for Hebrew word forms.",
       href: "/hebrew-morph-builder",
@@ -73,7 +80,7 @@ export default function DashboardPage() {
       title: "Greek Syntax Guide",
       description: "Learn about Ancient Greek syntax rules and examples.",
       href: "/greek-syntax-guide",
-      icon: BookOpenText, // Changed icon for distinction
+      icon: BookOpenText, 
       buttonText: "Study Syntax",
     },
     {
@@ -186,6 +193,4 @@ export default function DashboardPage() {
     </div>
   );
 }
-    
-
     
