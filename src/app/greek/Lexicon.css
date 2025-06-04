@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'SBL BibLit';
+    src: url('/fonts/SBL_BibLit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .gloss {
     font-size: 1rem;
@@ -62,6 +68,38 @@
     font-size: 0.9rem;
     color: hsl(var(--muted-foreground));
     margin-top: 0.2rem;
+  }
+
+  .thayer-word-reference {
+    font-family: 'SBL BibLit', serif;
+    color: #825b01;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .thayer-scripture-reference {
+    color: #008ae6;
+    font-style: italic;
+    margin-right: 5px;
+  }
+
+  .sense-section {
+    font: 1em Arial, sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    line-height: 1.7em;
+    /* text-align: justify; */
+    text-wrap: balance;
+  }
+
+  .thayer-gloss-sense {
+    color: #9f4000;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5px;
   }
 
   /* Ensure prose styles apply correctly within the lexicon HTML content */
