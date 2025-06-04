@@ -12,14 +12,10 @@ import { Skeleton } from './ui/skeleton';
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge"; // Added for index characters
+import { NamespaceEntry } from '@/types';
 
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin';
-
-interface NamespaceEntry {
-  namespace: string;
-  count: string; 
-}
 
 interface HistoryEntry {
   id: string; 
@@ -40,7 +36,7 @@ interface IndexedHistoryResponse {
 interface LookupHistoryViewerProps {
   language: HistoryLanguage;
   onWordSelect: (word: string, lemma?: string) => void;
-  onNamespaceSelect: (namespace: string) => void;
+  onNamespaceSelect: (namespace: string, entry: NamespaceEntry) => void;
   refreshTrigger?: number;
 }
 
@@ -68,6 +64,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         throw new Error(`Failed to fetch namespaces. Status: ${response.status}`);
       }
       const data: NamespaceEntry[] = await response.json();
+      console.log("NamespaceList", data)
       setNamespacesList(data);
       if (data.length > 0 && !selectedHistoryNamespace) {
          const savedNs = localStorage.getItem(`${language}_history-namespace`);
@@ -133,7 +130,14 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
   useEffect(() => {
     if (selectedHistoryNamespace) {
       fetchHistoryEntries(selectedHistoryNamespace);
-      onNamespaceSelect(selectedHistoryNamespace);
+
+      // search for the namespace
+      for(const ns of namespacesList) {
+        if(ns.namespace === selectedHistoryNamespace) {
+          onNamespaceSelect(selectedHistoryNamespace, ns);
+          break;
+        }
+      }
     } else {
       setIndexedHistoryData(null);
       setSelectedIndexChar(null);
@@ -179,7 +183,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
   const handleSelectedNamespace = (value: string) => {
     setSelectedHistoryNamespace(value);
     localStorage.setItem(`${language}_history-namespace`, value);
-    setSelectedIndexChar(null); 
+    setSelectedIndexChar(null);
   };
 
   const currentEntriesToList = (indexedHistoryData && selectedIndexChar && indexedHistoryData.indexList[selectedIndexChar])
@@ -253,9 +257,11 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         
         {indexedHistoryData && indexedHistoryData.index && indexedHistoryData.index.length > 0 && (
           <div className="mb-3">
-            <Label className="text-sm font-medium mb-1 block">Index:</Label>
-            <ScrollArea className="w-full whitespace-nowrap">
-              <div className="flex gap-1.5 p-1">
+            <Label className="text-xs text-muted-foreground">Index:</Label>
+
+            {/** Custom Horizontal scroll: ScrollArea isn't doing that */}
+            <div className="max-w-full">
+              <div className="flex flex-wrap gap-1.5 p-1">
                 {(language === 'greek' ? [...indexedHistoryData.index].sort((a,b) => a.localeCompare(b, 'el')) : [...indexedHistoryData.index].sort()).map((char) => (
                   <Badge
                     key={char}
@@ -267,7 +273,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                   </Badge>
                 ))}
               </div>
-            </ScrollArea>
+            </div>
           </div>
         )}
 
