@@ -11,6 +11,7 @@ import { LatinInput } from "@/components/LatinInput"; // New LatinInput
 import LatinLexiconViewer from "./LatinLexiconViewer"; // New LatinLexiconViewer
 import type { NamespaceEntry } from "@/types";
 import './LatinLexicon.css';
+import { Input } from "@/components/ui/input";
 
 const LatinLexiconTool: React.FC = () => {
   const [word, setWord] = useState("");
@@ -86,6 +87,14 @@ const LatinLexiconTool: React.FC = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col sm:flex-row gap-2">
+            {/* <Input
+              id="latinInput"
+              placeholder="Enter Latin word (e.g., amor)"
+              value={word}
+              onChange={(e) => setWord(e.target.value)}
+              className="text-lg"
+              onKeyDown={(e) => e.key === 'Enter' && handleGetLexicalData()}
+            /> */}
             <LatinInput
               id="latinInput"
               placeholder="Enter Latin word (e.g., amor)"
@@ -129,12 +138,12 @@ const LatinLexiconTool: React.FC = () => {
         onResponse={handleLexiconViewerResponse}
       />
 
-      <LookupHistoryViewer
+      {/* <LookupHistoryViewer
         language="latin"
         onWordSelect={handleHistoryWordSelect}
         onNamespaceSelect={handleHistoryNamespaceChange}
         // refreshTrigger can be added if needed for external refreshes
-      />
+      /> */}
     </div>
   );
 };
