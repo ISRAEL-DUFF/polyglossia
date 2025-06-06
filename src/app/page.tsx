@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText } from 'lucide-react';
 
 interface FeatureCardProps {
   title: string;
@@ -59,8 +59,15 @@ export default function DashboardPage() {
       title: "Latin Lexicon",
       description: "Look up Latin words and their definitions.",
       href: "/latin",
-      icon: BookMarked, // Using BookMarked icon for Latin
+      icon: BookMarked, 
       buttonText: "Open Latin Tools",
+    },
+    {
+      title: "Latin Whitaker Tool",
+      description: "Analyze Latin words using Whitaker's Words.",
+      href: "/latin-whitaker",
+      icon: BookText, 
+      buttonText: "Use Whitaker Tool",
     },
     {
       title: "Hebrew Morph Builder",
