@@ -40,7 +40,7 @@ const LatinWhitakerTool: React.FC = () => {
     setResultsHtml([]); // Clear previous results
 
     try {
-      const response = await fetch(`${BASE_URL}/whitaker?word=${encodeURIComponent(searchTerm.trim())}`);
+      const response = await fetch(`${BASE_URL}/whitaker?words=${encodeURIComponent(searchTerm.trim())}`);
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ message: `Request failed with status ${response.status}` }));
         throw new Error(errorData.message || `Request failed with status ${response.status}`);
