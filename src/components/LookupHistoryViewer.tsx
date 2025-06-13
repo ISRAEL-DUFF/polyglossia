@@ -154,7 +154,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setError(null);
     try {
       // Assumed new endpoint for all language history
-      const response = await fetch(`${BASE_URL}/lookup-history/all-language-entries?language=${language}`);
+      const response = await fetch(`${BASE_URL}/lookup-history/all-indexed-entries?language=${language}`);
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || `Failed to fetch all history for ${language}. Status: ${response.status}`);
