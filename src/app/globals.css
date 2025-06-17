@@ -4,72 +4,72 @@
 @tailwind utilities;
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; Removed Georgia */
 }
 
 @layer base {
   :root {
-    --background: 60 33% 97%; /* #F8F8F2 Off-white */
-    --foreground: 0 0% 3.9%; /* Default dark for text */
-    --card: 60 33% 97%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 60 33% 97%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 45 65% 52%; /* #D4AF37 Soft gold */
-    --primary-foreground: 45 20% 20%; /* Darker text for gold bg */
-    --secondary: 60 25% 90%; /* Lighter gray */
-    --secondary-foreground: 0 0% 9%;
-    --muted: 60 25% 90%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 213 39% 39%; /* #3E5F8A Deep blue */
-    --accent-foreground: 213 20% 95%; /* Lighter text for blue bg */
+    --background: 270 60% 97%; /* Light lavender */
+    --foreground: 270 20% 25%; /* Dark purple for text */
+    --card: 270 60% 97%;
+    --card-foreground: 270 20% 25%;
+    --popover: 270 60% 97%;
+    --popover-foreground: 270 20% 25%;
+    --primary: 265 80% 65%; /* Vibrant purple */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 270 30% 90%; /* Lighter purple/gray */
+    --secondary-foreground: 270 15% 30%; /* Darker text for secondary */
+    --muted: 270 30% 92%; /* Slightly lighter muted */
+    --muted-foreground: 270 15% 45%;
+    --accent: 265 80% 65%; /* Using primary purple as accent */
+    --accent-foreground: 0 0% 100%; /* White */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 213 39% 39%; /* Use accent for ring */
+    --border: 270 40% 90%; /* Subtle light purple/gray border */
+    --input: 270 40% 90%;
+    --ring: 265 80% 65%; /* Primary purple for ring */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Increased roundedness */
 
     /* Sidebar specific theme */
-    --sidebar-background: 60 20% 92%; /* Slightly darker off-white */
-    --sidebar-foreground: 0 0% 3.9%;
-    --sidebar-primary: 45 65% 52%; /* Main primary */
-    --sidebar-primary-foreground: 45 20% 20%; /* Main primary-foreground */
-    --sidebar-accent: 213 39% 45%; /* Slightly lighter accent for hover */
-    --sidebar-accent-foreground: 213 20% 95%;
-    --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 213 39% 39%;
+    --sidebar-background: 270 50% 94%; /* Slightly darker lavender */
+    --sidebar-foreground: 270 20% 25%;
+    --sidebar-primary: 265 80% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 265 80% 75%; /* Lighter purple for hover/active */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 270 40% 88%;
+    --sidebar-ring: 265 80% 65%;
 
     /* Success colors for quiz feedback */
-    --success-bg: 145 58% 35%; /* A pleasant green */
+    --success-bg: 145 58% 35%; 
     --success-fg: 0 0% 100%;
     --success-border: 145 58% 25%;
   }
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 45 65% 52%; /* Soft gold */
-    --primary-foreground: 45 20% 15%; /* Darker text for gold */
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 213 39% 45%; /* Deep blue, slightly lighter for dark mode */
-    --accent-foreground: 213 20% 95%;
+    --background: 270 15% 15%; /* Dark purple */
+    --foreground: 270 20% 90%; /* Light lavender/white text */
+    --card: 270 15% 18%;
+    --card-foreground: 270 20% 90%;
+    --popover: 270 15% 18%;
+    --popover-foreground: 270 20% 90%;
+    --primary: 265 80% 70%; /* Brighter purple for dark mode */
+    --primary-foreground: 270 10% 10%; /* Dark text on primary */
+    --secondary: 270 10% 25%;
+    --secondary-foreground: 270 20% 90%;
+    --muted: 270 10% 22%;
+    --muted-foreground: 270 15% 65%;
+    --accent: 265 80% 75%; /* Brighter accent for dark mode */
+    --accent-foreground: 270 10% 10%; /* Dark text on accent */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 213 39% 45%;
+    --border: 270 10% 30%;
+    --input: 270 10% 30%;
+    --ring: 265 80% 70%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -77,14 +77,14 @@ body {
     --chart-5: 340 75% 55%;
 
     /* Sidebar specific theme for dark mode */
-    --sidebar-background: 240 5% 10%; 
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 45 65% 52%;
-    --sidebar-primary-foreground: 45 20% 15%;
-    --sidebar-accent: 213 39% 50%;
-    --sidebar-accent-foreground: 213 20% 95%;
-    --sidebar-border: 240 3.7% 20%;
-    --sidebar-ring: 213 39% 45%;
+    --sidebar-background: 270 15% 12%; 
+    --sidebar-foreground: 270 20% 90%;
+    --sidebar-primary: 265 80% 70%;
+    --sidebar-primary-foreground: 270 10% 10%;
+    --sidebar-accent: 265 80% 60%; 
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 270 10% 25%;
+    --sidebar-ring: 265 80% 70%;
 
     /* Success colors for dark mode */
     --success-bg: 145 63% 40%; 
@@ -99,21 +99,18 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* Ensure smooth font rendering */
+    font-family: var(--font-geist-sans); /* Ensure Geist Sans is used */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Add smooth transitions for theme properties */
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
 
-  /* Smooth transitions for common interactive elements */
   button, a, input, select, textarea, [role="button"], [role="link"], [role="checkbox"], [role="radio"] {
     @apply transition-all duration-200 ease-in-out;
   }
 
-  /* Consistent focus-visible style */
   *:focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
@@ -125,16 +122,12 @@ body {
 }
 .flashcard-inner {
   transform-style: preserve-3d;
-  /* Tailwind handles transition and duration: transition-transform duration-500 */
 }
 .flashcard-front,
 .flashcard-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* Safari */
-  /* Tailwind handles position, display, etc. */
 }
-/* .flashcard-flipped class is applied to the perspective-1000 div to trigger flip on its .flashcard-inner child */
-/* We can apply the rotation directly or ensure the .flashcard-flipped triggers it */
 .flashcard-flipped > .flashcard-inner {
   transform: rotateY(180deg);
 }
