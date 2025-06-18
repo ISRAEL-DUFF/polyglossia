@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFo
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import type { NamespaceEntry } from '@/types';
+import { WordInput } from './WordInput';
 
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin';
 
@@ -40,7 +41,22 @@ interface LookupHistoryViewerProps {
   refreshTrigger?: number;
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+const BASE_URL = 'https://www.eazilang.gleeze.com';
+// const BASE_URL = 'http://localhost:3001'; // For local development
+
+const greekNormalization = {
+  normalizeGreek: (lemma: string) =>{
+    return lemma
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\p{Script=Greek}]/gu, "")
+      .toLowerCase();
+  },
+
+  normalizeLemma(lemma: string) {
+    return lemma.replace(/\d+$/, '');
+  }
+}
 
 const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger }) => {
   const [namespacesList, setNamespacesList] = useState<NamespaceEntry[]>([]);
@@ -61,13 +77,25 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
   const [allHistorySearchTerm, setAllHistorySearchTerm] = useState("");
   const [allHistorySelectedIndexChar, setAllHistorySelectedIndexChar] = useState<string | null>(null);
   const [filteredAllLanguageHistoryData, setFilteredAllLanguageHistoryData] = useState<IndexedHistoryResponse | null>(null);
+  
+  const baseUrl = () => {
+    switch(language) {
+      case 'hebrew':
+        return `${BASE_URL}/api/hebrew`;
+      case 'latin':
+        return `${BASE_URL}/api/latin`;
+      case 'greek':
+      default:
+        return `${BASE_URL}/api/greek`;
+    }
+  }
 
 
   const fetchNamespaces = useCallback(async () => {
     setIsLoadingNamespaces(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/namespaces?language=${language}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/namespaces?language=${language}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch namespaces. Status: ${response.status}`);
       }
@@ -104,7 +132,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/indexed-entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/indexed-entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || `Failed to fetch history for namespace "${namespaceToFetch}". Status: ${response.status}`);
@@ -157,7 +185,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingAllHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/all-indexed-entries?language=${language}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/all-indexed-entries?language=${language}`);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
@@ -216,9 +244,20 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
     for (const char of allLanguageHistoryData.index) {
       const entries = allLanguageHistoryData.indexList[char] || [];
-      const filteredEntries = entries.filter(entry =>
-        entry.word.toLowerCase().includes(searchTermLower) ||
-        (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+      const filteredEntries = entries.filter(entry => {
+        switch(language) {
+          case 'hebrew':
+            return entry.word.toLowerCase().includes(searchTermLower) || (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+          case 'latin':
+            return entry.word.toLowerCase().includes(searchTermLower) || (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+          case 'greek':
+          default:
+            let greekWord = entry.word
+            let greekLemma = entry.lemma
+            let greekSearchTerm = greekNormalization.normalizeGreek(searchTermLower)
+            return greekNormalization.normalizeGreek(greekWord.toLowerCase()).includes(greekSearchTerm) || (greekLemma && greekNormalization.normalizeGreek(greekLemma.toLowerCase()).includes(greekSearchTerm))
+        }
+      }
       );
       if (filteredEntries.length > 0) {
         newFilteredIndexList[char] = filteredEntries;
@@ -316,6 +355,9 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                  <span className="text-xs text-muted-foreground/80">
                   (Freq: {entry.frequency}, Added: {new Date(entry.createdAt).toLocaleDateString()})
                 </span>
+                <span className="text-xs text-muted-foreground/80">
+                  Namespace: {entry.namespace}
+                </span>
               </div>
             </Button>
           </li>
@@ -405,8 +447,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           {indexedHistoryData && indexedHistoryData.index && indexedHistoryData.index.length > 0 && (
             <div className="mb-3">
               <Label className="text-sm font-medium text-muted-foreground mb-1 block">Index (Namespace: {selectedHistoryNamespace}):</Label>
-              <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex flex-nowrap gap-1.5 p-1">
+              <div className="max-w-full">
+                <div className="flex flex-wrap gap-1.5 p-1">
                   {indexedHistoryData.index.map((char) => (
                     <Badge
                       key={char}
@@ -418,7 +460,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                     </Badge>
                   ))}
                 </div>
-              </ScrollArea>
+              </div>
             </div>
           )}
 
@@ -486,7 +528,9 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           <div className="p-4 border-b">
             <div className="relative">
               <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
+              <WordInput
+                id="all-history-search"
+                language={language}
                 type="search"
                 placeholder="Search all history..."
                 value={allHistorySearchTerm}
@@ -509,8 +553,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                 {filteredAllLanguageHistoryData.index.length > 0 ? (
                   <div className="p-4 border-b shrink-0">
                     <Label className="text-sm font-medium text-muted-foreground mb-1 block">Index:</Label>
-                    <ScrollArea className="w-full whitespace-nowrap">
-                      <div className="flex flex-nowrap gap-1.5 p-1">
+                    <div className="max-w-full">
+                      <div className="flex flex-wrap gap-1.5 p-1">
                         {filteredAllLanguageHistoryData.index.map((char) => (
                           <Badge
                             key={char}
@@ -522,7 +566,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                           </Badge>
                         ))}
                       </div>
-                    </ScrollArea>
+                    </div>
                   </div>
                 ) : (
                   allHistorySearchTerm && <p className="p-4 text-center text-muted-foreground">No results found for "{allHistorySearchTerm}".</p>

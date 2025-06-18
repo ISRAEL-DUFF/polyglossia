@@ -2,15 +2,36 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef } from 'react';
 
-const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, onChange, ...props }, ref) => {
+// 1. Define your custom props interface
+interface WordInputProps extends React.ComponentProps<"input"> {
+  language?: string
+}
+
+const WordInput = React.forwardRef<HTMLInputElement, WordInputProps>(
+  ({ className, type, language, onChange, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    console.log('Word INPUT language:', language)
+
     if (typeof window !== 'undefined' && window.keyman) {
       window.keyman.init({ attachType: 'manual' }).then(() => {
-        window.keyman.addKeyboards('@en');
-        window.keyman.addKeyboards('sil_greek_polytonic@el');
+        switch(language) {
+          case 'hebrew':
+            window.keyman.addKeyboards('sil_hebrew@hbo');
+            window.keyman.addKeyboards('basic_kbdheb@he');
+
+            break;
+          case 'latin':
+            window.keyman.addKeyboards('@en');
+            window.keyman.addKeyboards('sil_latin@en');
+            break;
+          case 'greek':
+          default:
+            window.keyman.addKeyboards('@en');
+            window.keyman.addKeyboards('sil_greek_polytonic@el');
+            break;
+        }
 
         if(inputRef && inputRef.current) {
             window.keyman.attachToControl(inputRef.current)
@@ -18,6 +39,13 @@ const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"inpu
         }
       })
     }
+
+    return () => {
+      if(inputRef && inputRef.current) {
+        window.keyman.detachFromControl(inputRef.current)
+        // window.keyman.enableControl(inputRef.current)
+      }
+    };
   }, []);
 
 
@@ -54,6 +82,6 @@ const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"inpu
     )
   }
 )
-GreekInput.displayName = "GreekInput"
+WordInput.displayName = "WordInput"
 
-export { GreekInput }
+export { WordInput }

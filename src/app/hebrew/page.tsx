@@ -12,6 +12,7 @@ import './hebrew.css'; // For Hebrew font support
 import { Skeleton } from '@/components/ui/skeleton';
 import HebrewOccurrenceDisplay from '@/app/hebrew/HebrewOccurrenceViewer';
 import { Dialog, DialogTitle, DialogContent, DialogHeader, DialogClose } from '@/components/ui/dialog'; // Added DialogClose
+import { WordInput } from '@/components/WordInput';
 
 
 interface MorphologyData {
@@ -138,7 +139,14 @@ const HebrewLexiconTool = () => {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSearch} className="flex gap-2 mb-6">
-            <Input
+            {/* <Input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Hebrew Word or Strong's Number"
+              className="flex-grow"
+            /> */}
+            <WordInput
+              language = {'hebrew'}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Hebrew Word or Strong's Number"

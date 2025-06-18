@@ -9,16 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { RefreshCw, HelpCircle, Lightbulb } from 'lucide-react';
 import './GreekPrepositions.css'; // For custom animations
 import { cn } from '@/lib/utils';
-
-interface PrepositionCaseDetail {
-  [caseName: string]: string[];
-}
-
-interface PrepositionEntry {
-  preposition: string;
-  cases: PrepositionCaseDetail;
-  notes: string;
-}
+import { prepositionData } from '@/lib/data/prepositionsData';
 
 interface QuizQuestion {
   id: string;
@@ -30,26 +21,6 @@ interface QuizQuestion {
   caseName: string;
 }
 
-const prepositionData: PrepositionEntry[] = [
-  { preposition: "ἐν", cases: { dative: ["in", "on", "among"] }, notes: "" },
-  { preposition: "εἰς", cases: { accusative: ["into", "to", "toward"] }, notes: "" },
-  { preposition: "ἐκ / ἐξ", cases: { genitive: ["out of", "from"] }, notes: "ἐξ used before vowels" },
-  { preposition: "ἀπό", cases: { genitive: ["from", "away from"] }, notes: "" },
-  { preposition: "πρός", cases: { genitive: ["from"], dative: ["near", "at"], accusative: ["to", "toward", "against"] }, notes: "" },
-  { preposition: "διά", cases: { genitive: ["through"], accusative: ["because of", "on account of"] }, notes: "" },
-  { preposition: "μετά", cases: { genitive: ["with"], accusative: ["after"] }, notes: "" },
-  { preposition: "περί", cases: { genitive: ["concerning", "about"], accusative: ["around"] }, notes: "" },
-  { preposition: "ὑπέρ", cases: { genitive: ["for", "on behalf of"], accusative: ["above", "beyond"] }, notes: "" },
-  { preposition: "ὑπό", cases: { genitive: ["by (agent)"], accusative: ["under"] }, notes: "" },
-  { preposition: "ἐπί", cases: { genitive: ["on", "upon", "in the time of"], dative: ["on", "over", "for the purpose of"], accusative: ["onto", "toward", "against"] }, notes: "" },
-  { preposition: "παρά", cases: { genitive: ["from (beside)"], dative: ["beside", "at the house of"], accusative: ["to the side of", "along", "past"] }, notes: "" },
-  { preposition: "ἀντί", cases: { genitive: ["instead of", "in place of", "for"] }, notes: "" },
-  { preposition: "κατά", cases: { genitive: ["down from", "against"], accusative: ["according to", "throughout"] }, notes: "" },
-  { preposition: "σύν", cases: { dative: ["with", "together with"] }, notes: "" },
-  { preposition: "ἄνευ", cases: { genitive: ["without"] }, notes: "" },
-  { preposition: "ἐναντίον", cases: { genitive: ["before", "in the presence of", "against"] }, notes: "" },
-  { preposition: "ἕνεκα / ἕνεκεν", cases: { genitive: ["because of", "on account of"] }, notes: "postpositive (usually comes after the noun)" }
-];
 
 const shuffleArray = <T,>(array: T[]): T[] => {
   const newArray = [...array];
@@ -200,7 +171,7 @@ const GreekPrepositionsModule: React.FC = () => {
             </div>
           )}
 
-          {mode === 'quiz' && currentQuestion && (
+          {mode === 'quiz' && currentQuestion && ( 
             <Card className="p-6 bg-muted/30 border-dashed">
               <CardTitle className="text-lg mb-2 text-center">{currentQuestion.preposition} <span className="text-base text-muted-foreground">({currentQuestion.caseName})</span></CardTitle>
               <CardDescription className="text-center mb-6">{currentQuestion.questionText}</CardDescription>
