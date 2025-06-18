@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-  /* font-family: Georgia, 'Times New Roman', Times, serif; Removed Georgia */
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Re-added Georgia */
 }
 
 @layer base {
@@ -99,7 +99,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-sans); /* Ensure Geist Sans is used */
+    /* font-family: var(--font-geist-sans); Removed to ensure Georgia takes precedence */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
