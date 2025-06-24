@@ -37,23 +37,10 @@ const ReconstructHebrewOutputSchema = z.object({
     .describe(
       "A mandatory field. This must be the Hebrew consonantal root (shoresh) of the input word, with no vowels. For example, for 'שָׁלוֹם', this field should be 'שלמ'."
     ),
-  steps: z
-    .array(
-      z.object({
-        stage: z
-          .string()
-          .describe(
-            'The name of the historical linguistic stage or sound change, e.g., "Canaanite Shift".'
-          ),
-        explanation: z
-          .string()
-          .describe(
-            'A clear, concise explanation of the change that occurred at this stage.'
-          ),
-      })
-    )
+  explanation: z
+    .string()
     .describe(
-      'A step-by-step breakdown of the transformations from the reconstructed form to the original form.'
+      'A concise explanation of the transformations from the reconstructed form to the original form, covering the key sound changes.'
     ),
 });
 export type ReconstructHebrewOutput = z.infer<
@@ -70,12 +57,11 @@ export async function reconstructHebrewVowel(
 const AnalysisSchema = z.object({
   originalWord: z.string(),
   reconstructedForm: z.string(),
-  steps: z.array(
-    z.object({
-      stage: z.string(),
-      explanation: z.string(),
-    })
-  ),
+  explanation: z
+    .string()
+    .describe(
+      'A clear, single-paragraph explanation of the key historical sound changes (like the Canaanite Shift, vowel reduction, etc.) that transformed the reconstructed form into the Biblical Hebrew word.'
+    ),
 });
 
 const analysisPrompt = ai.definePrompt({
@@ -84,13 +70,13 @@ const analysisPrompt = ai.definePrompt({
   output: {schema: AnalysisSchema},
   prompt: `You are an expert historical linguist specializing in the diachronic development of Semitic languages, particularly the evolution from Proto-Semitic to Biblical Hebrew.
 
-Your task is to take a given Biblical Hebrew word and provide its reconstructed Proto-Semitic form, along with a step-by-step explanation of the sound changes that occurred.
+Your task is to take a given Biblical Hebrew word and provide a response that populates all fields in the output schema.
 
-Given the input word '{{{word}}}', you must generate a response that populates all fields in the output schema.
+Given the input word '{{{word}}}', you must generate:
 
-1.  **Proto-Semitic Form**: Reconstruct the most likely Proto-Semitic form of the word. Provide this as a scholarly transliteration in the 'reconstructedForm' field.
-2.  **Transformation Steps**: Detail the series of recognized sound changes that explain the evolution from your reconstructed Proto-Semitic form to the provided Biblical Hebrew form. Populate the 'steps' array with these transformations. Examples of stages include "Proto-Semitic Base", "Loss of final short vowels", "Canaanite Shift (ā > ō)", "Vowel Reduction", etc.
-3.  **Original Word**: Include the original word in the 'originalWord' field.
+1.  **originalWord**: The word as provided.
+2.  **reconstructedForm**: The most likely reconstructed Proto-Semitic form of the word, as a scholarly transliteration.
+3.  **explanation**: A clear, single-paragraph explanation of the key historical sound changes (like the Canaanite Shift, vowel reduction, etc.) that transformed the reconstructed form into the Biblical Hebrew word.
 
 Ensure your final output is a valid JSON object matching the required schema.`,
 });
@@ -98,7 +84,11 @@ Ensure your final output is a valid JSON object matching the required schema.`,
 const rootPrompt = ai.definePrompt({
   name: 'extractHebrewRootPrompt',
   input: {schema: ReconstructHebrewInputSchema},
-  output: {schema: z.object({root: z.string().describe('The Hebrew consonantal root (shoresh).')})},
+  output: {
+    schema: z.object({
+      root: z.string().describe('The Hebrew consonantal root (shoresh).'),
+    }),
+  },
   prompt: `You are an expert in Hebrew morphology. Given the word '{{{word}}}', provide its consonantal root (shoresh). Provide only the Hebrew letters of the root.`,
 });
 
@@ -121,7 +111,9 @@ const reconstructHebrewVowelFlow = ai.defineFlow(
 
     // Combine the results from both AI calls
     return {
-      ...analysis,
+      originalWord: analysis.originalWord,
+      reconstructedForm: analysis.reconstructedForm,
+      explanation: analysis.explanation,
       reconstructedInHebrew: rootExtraction.root,
     };
   }

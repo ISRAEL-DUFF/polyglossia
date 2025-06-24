@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useToast } from "@/hooks/use-toast";
 import { Languages, History, ArrowRight } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -90,7 +89,6 @@ const HebrewVowelReconstructionTool: React.FC = () => {
               <Skeleton className="h-16 w-full" />
               <Skeleton className="h-8 w-1/3" />
               <Skeleton className="h-24 w-full" />
-              <Skeleton className="h-24 w-full" />
             </div>
           )}
 
@@ -127,22 +125,13 @@ const HebrewVowelReconstructionTool: React.FC = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">Transformation Steps</CardTitle>
-                  <CardDescription>From Proto-Semitic to Biblical Hebrew</CardDescription>
+                  <CardTitle className="text-xl">Explanation</CardTitle>
+                  <CardDescription>How the word evolved from its Proto-Semitic root.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Accordion type="single" collapsible className="w-full">
-                    {results.steps.map((step, index) => (
-                      <AccordionItem key={index} value={`item-${index}`}>
-                        <AccordionTrigger className="text-md font-semibold text-accent hover:no-underline">
-                          {index + 1}. {step.stage}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-sm text-muted-foreground pl-2 border-l-2 border-border ml-2">
-                          {step.explanation}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
+                    <p className="text-sm text-muted-foreground whitespace-pre-wrap">
+                      {results.explanation}
+                    </p>
                 </CardContent>
               </Card>
             </div>
