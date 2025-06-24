@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -116,8 +115,12 @@ const HebrewVowelReconstructionTool: React.FC = () => {
                   <ArrowRight className="h-8 w-8 text-primary shrink-0" />
                    <div className="p-4 rounded-md">
                     <p className="text-sm text-muted-foreground">Proto-Semitic (Reconstructed)</p>
-                    <p className="text-2xl font-bold hebrew hebrew-size">{results.reconstructedInHebrew}</p>
-                    <p className="text-muted-foreground">({results.reconstructedForm})</p>
+                    {results.reconstructedInHebrew && (
+                      <p className="text-2xl font-bold hebrew hebrew-size">{results.reconstructedInHebrew}</p>
+                    )}
+                    {results.reconstructedForm && (
+                      <p className="text-muted-foreground">({results.reconstructedForm})</p>
+                    )}
                   </div>
                 </CardContent>
               </Card>

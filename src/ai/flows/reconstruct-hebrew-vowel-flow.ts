@@ -1,4 +1,3 @@
-
 'use server';
 /**
  * @fileOverview An AI agent for historical Hebrew vowel reconstruction.
@@ -41,8 +40,8 @@ Your task is to take a given Biblical Hebrew word and provide its reconstructed 
 
 Follow these instructions precisely:
 1.  **Analyze the Input**: Examine the provided Biblical Hebrew word: '{{{word}}}'.
-2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word. This should be a scholarly transliteration in the 'reconstructedForm' field.
-3.  **Provide Hebrew Script Representation**: Provide a hypothetical representation of the reconstructed form using only Hebrew consonants (no vowel points) in the 'reconstructedInHebrew' field. This should correspond to the consonantal root.
+2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word. This MUST be a scholarly transliteration in the 'reconstructedForm' field.
+3.  **Provide Hebrew Script Representation**: Generate a hypothetical representation of the reconstructed Proto-Semitic form using only Hebrew consonants (no vowel points) and populate it into the 'reconstructedInHebrew' field. This field MUST NOT be empty. This should correspond to the consonantal root of the word.
 4.  **Detail Transformation Steps**: Create a series of steps that explain the evolution from your reconstructed Proto-Semitic form to the provided Biblical Hebrew form. Each step should represent a major, recognized sound change. Examples of stages include:
     *   "Proto-Semitic Base"
     *   "Loss of final short vowels"
@@ -52,7 +51,7 @@ Follow these instructions precisely:
     *   "Compensatory Lengthening"
     *   "Development of shewa"
 
-For each step, provide a clear and concise explanation. The goal is to educate the user on how the word transformed over time. Ensure the final output is in the specified JSON format.`,
+For each step, provide a clear and concise explanation. The goal is to educate the user on how the word transformed over time. Ensure the final output is in the specified JSON format and that ALL fields are populated correctly.`,
 });
 
 const reconstructHebrewVowelFlow = ai.defineFlow(
