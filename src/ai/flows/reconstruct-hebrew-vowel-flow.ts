@@ -18,7 +18,7 @@ export type ReconstructHebrewInput = z.infer<typeof ReconstructHebrewInputSchema
 const ReconstructHebrewOutputSchema = z.object({
   originalWord: z.string().describe('The original Biblical Hebrew word that was provided, with vowels.'),
   reconstructedForm: z.string().describe('The reconstructed Proto-Semitic form of the word, in a scholarly transliteration.'),
-  reconstructedInHebrew: z.string().describe('A hypothetical representation of the reconstructed Proto-Semitic form using Hebrew consonantal script (unpointed).'),
+  reconstructedInHebrew: z.string().describe('A hypothetical representation of the reconstructed Proto-Semitic form using Hebrew consonantal script (unpointed). This field is mandatory and must not be empty.'),
   steps: z.array(z.object({
     stage: z.string().describe('The name of the historical linguistic stage or sound change, e.g., "Canaanite Shift".'),
     explanation: z.string().describe('A clear, concise explanation of the change that occurred at this stage.'),
@@ -41,7 +41,7 @@ Your task is to take a given Biblical Hebrew word and provide its reconstructed 
 Follow these instructions precisely:
 1.  **Analyze the Input**: Examine the provided Biblical Hebrew word: '{{{word}}}'.
 2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word. This MUST be a scholarly transliteration in the 'reconstructedForm' field.
-3.  **Provide Hebrew Script Representation**: Generate a hypothetical representation of the reconstructed Proto-Semitic form using only Hebrew consonants (no vowel points) and populate it into the 'reconstructedInHebrew' field. This field MUST NOT be empty. This should correspond to the consonantal root of the word.
+3.  **Provide Hebrew Script Representation**: THIS IS A CRITICAL STEP. You MUST generate a hypothetical representation of the reconstructed Proto-Semitic form using ONLY HEBREW CONSONANTS (no vowel points). Populate this value into the 'reconstructedInHebrew' field. This field MUST NOT be empty. For example, for the input 'שָׁלוֹם', the root is š-l-m, so the reconstructed Hebrew script would be 'שלמ'.
 4.  **Detail Transformation Steps**: Create a series of steps that explain the evolution from your reconstructed Proto-Semitic form to the provided Biblical Hebrew form. Each step should represent a major, recognized sound change. Examples of stages include:
     *   "Proto-Semitic Base"
     *   "Loss of final short vowels"
@@ -51,7 +51,7 @@ Follow these instructions precisely:
     *   "Compensatory Lengthening"
     *   "Development of shewa"
 
-For each step, provide a clear and concise explanation. The goal is to educate the user on how the word transformed over time. Ensure the final output is in the specified JSON format and that ALL fields are populated correctly.`,
+For each step, provide a clear and concise explanation. The goal is to educate the user on how the word transformed over time. Double-check your output to ensure ALL fields are populated correctly, especially the mandatory 'reconstructedInHebrew' field.`,
 });
 
 const reconstructHebrewVowelFlow = ai.defineFlow(
