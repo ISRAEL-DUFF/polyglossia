@@ -41,7 +41,7 @@ Your task is to take a given Biblical Hebrew word and provide its reconstructed 
 Follow these instructions precisely:
 1.  **Analyze the Input**: Examine the provided Biblical Hebrew word: '{{{word}}}'.
 2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word. This MUST be a scholarly transliteration in the 'reconstructedForm' field.
-3.  **Provide Hebrew Script Representation**: THIS IS A CRITICAL STEP. You MUST generate a hypothetical representation of the reconstructed Proto-Semitic form using ONLY HEBREW CONSONANTS (no vowel points). Populate this value into the 'reconstructedInHebrew' field. This field MUST NOT be empty. For example, for the input 'שָׁלוֹם', the root is š-l-m, so the reconstructed Hebrew script would be 'שלמ'.
+3.  **Identify Consonantal Root**: THIS IS A CRITICAL AND MANDATORY STEP. From the input word '{{{word}}}', identify its three-consonant (or sometimes two or four-consonant) root. You MUST provide this root using only Hebrew consonants (no vowels, no niqqud) in the 'reconstructedInHebrew' field. This field MUST NOT be empty. For example, if the input is 'שָׁלוֹם', the root is 'שלמ'. If the input is 'דָּבָר', the root is 'דבר'. This is a separate task from the full Proto-Semitic transliteration.
 4.  **Detail Transformation Steps**: Create a series of steps that explain the evolution from your reconstructed Proto-Semitic form to the provided Biblical Hebrew form. Each step should represent a major, recognized sound change. Examples of stages include:
     *   "Proto-Semitic Base"
     *   "Loss of final short vowels"
