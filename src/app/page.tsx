@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText, Languages } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FeatureCardProps {
@@ -86,6 +86,13 @@ export default function DashboardPage() {
       href: "/hebrew-morph-builder",
       icon: Wand2,
       buttonText: "Open Morph Builder",
+    },
+    {
+      title: "Vowel Reconstruction",
+      description: "Trace Biblical Hebrew words back to their Proto-Semitic roots.",
+      href: "/hebrew-vowel-reconstruction",
+      icon: Languages,
+      buttonText: "Reconstruct Word",
     },
   ];
 
