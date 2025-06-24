@@ -113,12 +113,7 @@ const HebrewVowelReconstructionTool: React.FC = () => {
                   <ArrowRight className="h-8 w-8 text-primary shrink-0" />
                    <div className="p-4 rounded-md">
                     <p className="text-sm text-muted-foreground">Proto-Semitic (Reconstructed)</p>
-                    {results.reconstructedInHebrew && (
-                      <p className="text-2xl font-bold hebrew hebrew-size">{results.reconstructedInHebrew}</p>
-                    )}
-                    {results.reconstructedForm && (
-                      <p className="text-muted-foreground">({results.reconstructedForm})</p>
-                    )}
+                    <p className="text-2xl font-bold">{results.reconstructedForm}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -129,6 +124,10 @@ const HebrewVowelReconstructionTool: React.FC = () => {
                   <CardDescription>How the word evolved from its Proto-Semitic root.</CardDescription>
                 </CardHeader>
                 <CardContent>
+                    <div className="mb-4">
+                        <span className="text-sm font-medium text-muted-foreground">Consonantal Root (Shoresh): </span>
+                        <span className="text-lg font-bold hebrew">{results.reconstructedInHebrew}</span>
+                    </div>
                     <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                       {results.explanation}
                     </p>
