@@ -74,7 +74,7 @@ Your task is to take a given Biblical Hebrew word and provide a response that po
 
 Given the input word '{{{word}}}', you must generate:
 
-1.  **originalWord**: The word as provided.
+1.  **originalWord**: The word exactly as it was provided, including all vowel points and diacritics.
 2.  **reconstructedForm**: The most likely reconstructed Proto-Semitic form of the word, as a scholarly transliteration.
 3.  **explanation**: A clear, single-paragraph explanation of the key historical sound changes (like the Canaanite Shift, vowel reduction, etc.) that transformed the reconstructed form into the Biblical Hebrew word.
 
