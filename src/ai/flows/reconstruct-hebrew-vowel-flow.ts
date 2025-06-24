@@ -17,9 +17,9 @@ const ReconstructHebrewInputSchema = z.object({
 export type ReconstructHebrewInput = z.infer<typeof ReconstructHebrewInputSchema>;
 
 const ReconstructHebrewOutputSchema = z.object({
-  originalWord: z.string().describe('The original Biblical Hebrew word that was provided.'),
-  reconstructedForm: z.string().describe('The reconstructed Proto-Semitic form of the word.'),
-  transliteration: z.string().describe('A simple Latin-based transliteration of the reconstructed form.'),
+  originalWord: z.string().describe('The original Biblical Hebrew word that was provided, with vowels.'),
+  reconstructedForm: z.string().describe('The reconstructed Proto-Semitic form of the word, in a scholarly transliteration.'),
+  reconstructedInHebrew: z.string().describe('A hypothetical representation of the reconstructed Proto-Semitic form using Hebrew consonantal script (unpointed).'),
   steps: z.array(z.object({
     stage: z.string().describe('The name of the historical linguistic stage or sound change, e.g., "Canaanite Shift".'),
     explanation: z.string().describe('A clear, concise explanation of the change that occurred at this stage.'),
@@ -41,8 +41,8 @@ Your task is to take a given Biblical Hebrew word and provide its reconstructed 
 
 Follow these instructions precisely:
 1.  **Analyze the Input**: Examine the provided Biblical Hebrew word: '{{{word}}}'.
-2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word.
-3.  **Provide Transliteration**: Give a simple transliteration for the reconstructed Proto-Semitic form.
+2.  **Determine Proto-Semitic Form**: Based on your linguistic knowledge, reconstruct the most likely Proto-Semitic form of the word. This should be a scholarly transliteration in the 'reconstructedForm' field.
+3.  **Provide Hebrew Script Representation**: Provide a hypothetical representation of the reconstructed form using only Hebrew consonants (no vowel points) in the 'reconstructedInHebrew' field. This should correspond to the consonantal root.
 4.  **Detail Transformation Steps**: Create a series of steps that explain the evolution from your reconstructed Proto-Semitic form to the provided Biblical Hebrew form. Each step should represent a major, recognized sound change. Examples of stages include:
     *   "Proto-Semitic Base"
     *   "Loss of final short vowels"
