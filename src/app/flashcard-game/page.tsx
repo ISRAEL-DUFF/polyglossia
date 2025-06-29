@@ -285,7 +285,7 @@ const FlashcardGame = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" className="flex items-center justify-center w-full sm:w-auto">
-                  <Settings className="h-4 w-4 mr-2" />
+                  <Settings className="mr-2 h-4 w-4" />
                   Settings
                 </Button>
               </SheetTrigger>
@@ -408,4 +408,3 @@ const FlashcardGame = () => {
 };
 
 export default FlashcardGame;
-

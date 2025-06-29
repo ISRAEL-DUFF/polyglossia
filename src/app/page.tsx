@@ -135,6 +135,13 @@ export default function DashboardPage() {
       icon: IdCardIcon,
       buttonText: "Play Game",
     },
+    {
+        title: "AI Story Creator",
+        description: "Generate unique stories from your vocabulary lists to practice in context.",
+        href: "/story-creator",
+        icon: Sparkles,
+        buttonText: "Create a Story",
+    }
   ];
 
   const renderSection = (title: string, items: FeatureCardProps[]) => (
