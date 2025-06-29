@@ -33,6 +33,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const currentScene = story.scenes[currentSceneIndex];
+    const currentSceneAssets = assets[currentSceneIndex] || {};
 
     const loadAllSceneAssets = useCallback(async () => {
         setLoadingStates(
@@ -40,8 +41,6 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
         );
 
         const assetPromises = story.scenes.map((scene, index) => {
-            // Check if assets are already provided (e.g., from a saved story)
-            // The generated story from the flow won't have these.
             const existingImageUrl = (scene as any).imageUrl;
             const existingAudioUrl = (scene as any).audioUrl;
 
@@ -52,7 +51,6 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                 });
             }
 
-            // Otherwise, generate new assets
             return Promise.allSettled([
                 generateImage({ prompt: scene.imagePrompt }),
                 textToSpeech({ text: scene.greekText, language: "Greek" })
@@ -88,12 +86,23 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
             loadAllSceneAssets();
         }
     }, [story, loadAllSceneAssets]);
-    
+
+    // This effect now correctly depends on the audioUrl itself.
+    // It will only run when the audioUrl for the current scene is available.
     useEffect(() => {
-        if (assets[currentSceneIndex]?.audioUrl && audioRef.current) {
-            audioRef.current.play().catch(e => console.log("Audio autoplay was prevented.", e));
+        if (audioRef.current && currentSceneAssets.audioUrl) {
+            audioRef.current.load(); // Ensure the new source is loaded
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented. This is normal browser behavior.
+                    // The user can still click the play button on the controls.
+                    console.error("Audio playback was prevented by the browser:", error);
+                });
+            }
         }
-    }, [assets, currentSceneIndex]);
+    }, [currentSceneAssets.audioUrl]);
+
 
     const goToNextScene = () => {
         if (currentSceneIndex < story.scenes.length - 1) {
@@ -103,7 +112,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
 
     const goToPrevScene = () => {
         if (currentSceneIndex > 0) {
-            setCurrentSceneIndex(prev => prev + 1);
+            setCurrentSceneIndex(prev => prev - 1);
         }
     };
 
@@ -114,8 +123,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
 
     const allAssetsLoaded = Object.values(loadingStates).every(isLoading => !isLoading);
     const currentSceneIsLoading = loadingStates[currentSceneIndex];
-    const currentSceneAssets = assets[currentSceneIndex] || {};
-
+    
     return (
         <Card className="mt-6 animate-fadeInUp w-full">
             <CardHeader>
@@ -162,6 +170,9 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                     {!currentSceneIsLoading && currentSceneAssets.audioUrl && (
                         <audio
                             ref={audioRef}
+                            // Using the URL itself as the key forces a complete re-mount of the component
+                            // when the src changes, which is a very robust way to handle this.
+                            key={currentSceneAssets.audioUrl}
                             controls
                             src={currentSceneAssets.audioUrl}
                             className="w-full"
