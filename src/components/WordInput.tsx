@@ -43,6 +43,7 @@ const WordInput = React.forwardRef<HTMLInputElement, WordInputProps>(
     return () => {
       if(inputRef && inputRef.current) {
         window.keyman.detachFromControl(inputRef.current)
+        window.keyman.removeKeyboards(['sil_greek_polytonic@el', 'sil_hebrew@hbo', 'basic_kbdheb@he', 'sil_latin@en']);
         // window.keyman.enableControl(inputRef.current)
       }
     };
