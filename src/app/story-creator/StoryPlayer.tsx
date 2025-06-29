@@ -30,6 +30,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
     const [assets, setAssets] = useState<Record<number, SceneAssets>>({});
     const [loadingStates, setLoadingStates] = useState<Record<number, boolean>>({});
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     const currentScene = story.scenes[currentSceneIndex];
 
@@ -87,6 +88,24 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
             loadAllSceneAssets();
         }
     }, [story, loadAllSceneAssets]);
+    
+    useEffect(() => {
+        // When the current scene changes, programmatically load and play the new audio
+        // This is more reliable than relying on the `autoPlay` attribute.
+        if (audioRef.current) {
+            audioRef.current.pause(); // Stop any currently playing audio
+            audioRef.current.load();  // Force the browser to load the new src
+            const playPromise = audioRef.current.play(); // Play the new audio
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Audio playback failed:", error);
+                    // This is expected if the browser blocks autoplay.
+                    // The user can still press play manually using the controls.
+                });
+            }
+        }
+    }, [currentSceneIndex]);
+
 
     const goToNextScene = () => {
         if (currentSceneIndex < story.scenes.length - 1) {
@@ -154,9 +173,9 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                     {currentSceneIsLoading && <Loader2 className="h-5 w-5 animate-spin" />}
                     {!currentSceneIsLoading && currentSceneAssets.audioUrl && (
                         <audio
-                            key={currentSceneAssets.audioUrl}
+                            ref={audioRef}
+                            key={currentSceneIndex}
                             controls
-                            autoPlay
                             src={currentSceneAssets.audioUrl}
                             className="w-full"
                         >
