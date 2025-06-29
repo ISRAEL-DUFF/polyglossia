@@ -89,9 +89,12 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
         }
     }, [story, loadAllSceneAssets]);
     
+    // Updated useEffect to reliably load and play audio
     useEffect(() => {
-        if (assets[currentSceneIndex]?.audioUrl && audioRef.current) {
-            audioRef.current.play().catch(e => console.log("Audio autoplay was prevented.", e));
+        if (audioRef.current && assets[currentSceneIndex]?.audioUrl) {
+            audioRef.current.src = assets[currentSceneIndex].audioUrl!;
+            audioRef.current.load();
+            audioRef.current.play().catch(e => console.log("Audio autoplay was prevented. Users may need to click play.", e));
         }
     }, [assets, currentSceneIndex]);
 
@@ -163,7 +166,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                         <audio
                             ref={audioRef}
                             controls
-                            src={currentSceneAssets.audioUrl}
+                            // src attribute removed to allow useEffect to control it
                             className="w-full"
                         >
                             Your browser does not support the audio element.
