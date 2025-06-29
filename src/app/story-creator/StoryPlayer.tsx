@@ -103,7 +103,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
 
     const goToPrevScene = () => {
         if (currentSceneIndex > 0) {
-            setCurrentSceneIndex(prev => prev + 1);
+            setCurrentSceneIndex(prev => prev - 1);
         }
     };
 
