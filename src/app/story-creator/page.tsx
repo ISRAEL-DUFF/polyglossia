@@ -15,6 +15,7 @@ import { Label } from '@/components/ui/label';
 import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import JSZip from 'jszip';
 
 type VocabWord = {
     word: string;
@@ -141,17 +142,59 @@ const StoryCreatorPage: React.FC = () => {
 
     const handleSaveStory = async (storyToSave: GenerateStoryOutput, assets: Record<number, SceneAssets>) => {
         setIsSavingStory(true);
+        const zip = new JSZip();
+
         try {
-            const response = await fetch(`${API_BASE_URL}/stories/save`, {
+            // 1. Prepare story JSON without asset data uris, as they will be in the zip
+            const storyJson = {
+                title: storyToSave.title,
+                scenes: storyToSave.scenes.map(scene => ({
+                    // Keep the core text data, remove the generated asset URLs from this JSON
+                    greekText: scene.greekText,
+                    englishTranslation: scene.englishTranslation,
+                    imagePrompt: scene.imagePrompt,
+                })),
+            };
+
+            // 2. Add image and audio assets to the zip file from their data URIs
+            for (const indexStr in assets) {
+                const index = parseInt(indexStr, 10);
+                const sceneAssets = assets[index];
+
+                if (sceneAssets.imageUrl) {
+                    const base64Data = sceneAssets.imageUrl.split(',')[1];
+                    zip.file(`image_${index}.png`, base64Data, { base64: true });
+                }
+                if (sceneAssets.audioUrl) {
+                    const base64Data = sceneAssets.audioUrl.split(',')[1];
+                    zip.file(`audio_${index}.wav`, base64Data, { base64: true });
+                }
+            }
+
+            // 3. Generate the zip file as a Blob
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+
+            // 4. Create FormData to send both JSON and zip file
+            const formData = new FormData();
+            formData.append('story', new Blob([JSON.stringify(storyJson, null, 2)], { type: 'application/json' }), 'story.json');
+            formData.append('assets', zipBlob, 'assets.zip');
+
+            // 5. Send the multipart/form-data request to a new endpoint
+            // The browser will automatically set the correct 'Content-Type' header with boundary
+            const response = await fetch(`${API_BASE_URL}/stories/save-with-assets`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ story: storyToSave, assets }),
+                body: formData,
             });
-            if (!response.ok) throw new Error('Failed to save the story.');
+
+            if (!response.ok) {
+                 const errorData = await response.json().catch(() => ({ message: `HTTP error ${response.status}` }));
+                 throw new Error(errorData.message || 'Failed to save the story with assets.');
+            }
             
-            const savedStory = await response.json();
-            setSavedStories(prev => [savedStory, ...prev]);
-            toast({ title: 'Success', description: 'Your story has been saved.' });
+            // Refresh the list of saved stories to include the new one
+            await fetchSavedStories();
+
+            toast({ title: 'Success', description: 'Your story and its assets have been saved.' });
         } catch (err) {
              toast({
                 variant: 'destructive',
