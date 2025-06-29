@@ -34,13 +34,13 @@ async function toWav(
   });
 }
 
-export const TextToSpeechInputSchema = z.object({
+const TextToSpeechInputSchema = z.object({
   text: z.string().describe('The text to convert to speech.'),
   language: z.string().describe('The language of the text, for accent hints (though voice is English).'),
 });
 export type TextToSpeechInput = z.infer<typeof TextToSpeechInputSchema>;
 
-export const TextToSpeechOutputSchema = z.object({
+const TextToSpeechOutputSchema = z.object({
   audioUrl: z.string().describe('The generated audio as a data URI.'),
 });
 export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;

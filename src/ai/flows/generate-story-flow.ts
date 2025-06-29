@@ -15,7 +15,7 @@ const VocabWordSchema = z.object({
   meaning: z.string().describe('The English meaning of the word.'),
 });
 
-export const GenerateStoryInputSchema = z.object({
+const GenerateStoryInputSchema = z.object({
   vocab: z.array(VocabWordSchema).describe('A list of vocabulary words to incorporate into the story.'),
   userPrompt: z.string().describe('A prompt from the user outlining the desired theme or plot of the story.'),
   language: z.string().describe('The language of the vocabulary (e.g., Greek, Hebrew, Latin).'),
@@ -27,7 +27,7 @@ const SceneSchema = z.object({
   imagePrompt: z.string().describe('A simple, descriptive prompt for an image that visually represents this paragraph. The prompt should be suitable for a text-to-image AI model. Example: "A scholar sitting under an olive tree reading a scroll."'),
 });
 
-export const GenerateStoryOutputSchema = z.object({
+const GenerateStoryOutputSchema = z.object({
   title: z.string().describe('A creative and fitting title for the story.'),
   scenes: z.array(SceneSchema).describe('An array of scenes that make up the story, between 3 to 5 scenes long.'),
 });
