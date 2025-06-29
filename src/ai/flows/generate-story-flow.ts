@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A flow for generating a short story from a vocabulary list.
@@ -12,7 +13,7 @@ import {z} from 'genkit';
 
 const VocabWordSchema = z.object({
   word: z.string().describe('The vocabulary word in its original language.'),
-  meaning: z.string().describe('The English meaning of the word.'),
+  meaning: z.string().describe('The English meaning of the word.').optional(),
 });
 
 const GenerateStoryInputSchema = z.object({
@@ -45,7 +46,7 @@ const storyPrompt = ai.definePrompt({
 
 The story must incorporate several of the following vocabulary words:
 {{#each vocab}}
-- {{word}}: {{meaning}}
+- {{word}}{{#if meaning}}: {{meaning}}{{/if}}
 {{/each}}
 
 The user has provided the following theme: "{{userPrompt}}"
