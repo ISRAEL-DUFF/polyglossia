@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles, Loader2, AlertCircle } from 'lucide-react';
-import LookupHistoryViewer from '@/components/LookupHistoryViewer';
-import type { NamespaceEntry } from '@/types';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import StoryPlayer from './StoryPlayer';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
 
 type VocabWord = {
     id: string;
@@ -20,22 +20,54 @@ type VocabWord = {
     meanings: string[];
 };
 
+type VocabList = {
+    name: string;
+    count: number;
+};
+
 const GREEK_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
-    const [historyNamespace, setHistoryNamespace] = useState<string>('');
+    const [selectedNamespace, setSelectedNamespace] = useState<string>('');
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
+    const [isFetchingLists, setIsFetchingLists] = useState(true);
+    const [vocabLists, setVocabLists] = useState<VocabList[]>([]);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [error, setError] = useState<string | null>(null);
 
+    useEffect(() => {
+        const fetchVocabLists = async () => {
+            setIsFetchingLists(true);
+            try {
+                const response = await fetch(`${GREEK_API_BASE_URL}/vocab/info`);
+                if (!response.ok) {
+                    throw new Error('Could not fetch vocabulary lists from the server.');
+                }
+                const data: VocabList[] = await response.json();
+                setVocabLists(data);
+            } catch (err) {
+                const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
+                toast({
+                    variant: 'destructive',
+                    title: 'Failed to load vocab lists',
+                    description: errorMessage,
+                });
+            } finally {
+                setIsFetchingLists(false);
+            }
+        };
+
+        fetchVocabLists();
+    }, [toast]);
+
     const handleGenerateStory = async () => {
-        if (!historyNamespace) {
+        if (!selectedNamespace) {
             toast({
                 variant: 'destructive',
-                title: 'No Namespace Selected',
-                description: 'Please select a vocabulary namespace to create a story from.',
+                title: 'No Vocabulary List Selected',
+                description: 'Please select one of your saved vocabulary lists to create a story from.',
             });
             return;
         }
@@ -46,12 +78,12 @@ const StoryCreatorPage: React.FC = () => {
 
         try {
             // NOTE: This feature currently only supports Greek namespaces as it uses the Greek API endpoint.
-            const vocabRes = await fetch(`${GREEK_API_BASE_URL}/vocab/list/${historyNamespace}`);
-            if (!vocabRes.ok) throw new Error('Failed to fetch vocabulary list. Please ensure it is a Greek namespace.');
+            const vocabRes = await fetch(`${GREEK_API_BASE_URL}/vocab/list/${selectedNamespace}`);
+            if (!vocabRes.ok) throw new Error('Failed to fetch vocabulary list. Please ensure the list exists and is accessible.');
             const vocabData: { words: VocabWord[] } = await vocabRes.json();
             
             if (!vocabData.words || vocabData.words.length === 0) {
-                throw new Error('The selected namespace is empty.');
+                throw new Error('The selected vocabulary list is empty.');
             }
 
             const vocabForAI = vocabData.words.map(w => ({
@@ -83,10 +115,6 @@ const StoryCreatorPage: React.FC = () => {
             setIsLoading(false);
         }
     };
-
-    const handleNamespaceSelect = (namespace: string, entry: NamespaceEntry) => {
-        setHistoryNamespace(namespace);
-    };
     
     const handleReset = () => {
         setStory(null);
@@ -107,10 +135,32 @@ const StoryCreatorPage: React.FC = () => {
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="vocab-list-select">Vocabulary List</Label>
+                        <Select
+                            value={selectedNamespace}
+                            onValueChange={setSelectedNamespace}
+                            disabled={isFetchingLists || vocabLists.length === 0}
+                        >
+                            <SelectTrigger id="vocab-list-select">
+                                <SelectValue placeholder={isFetchingLists ? "Loading lists..." : "Select a vocabulary list"} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {vocabLists.map((list) => (
+                                    <SelectItem key={list.name} value={list.name}>
+                                        {list.name} ({list.count} words)
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        {vocabLists.length === 0 && !isFetchingLists && (
+                            <p className="text-xs text-muted-foreground">No vocabulary lists found. Please create one in the <a href="/vocabulary-browser" className="underline">Vocabulary Browser</a>.</p>
+                        )}
+                    </div>
                     <div>
-                        <label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-2">
+                        <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
                             Story Prompt
-                        </label>
+                        </Label>
                         <Textarea
                             id="user-prompt"
                             placeholder="e.g., A funny story about animals in a marketplace..."
@@ -120,24 +170,18 @@ const StoryCreatorPage: React.FC = () => {
                             disabled={isLoading}
                         />
                     </div>
-                     <Button onClick={handleGenerateStory} disabled={isLoading || !historyNamespace} className="w-full">
+                     <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
                         {isLoading ? (
                             <>
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Generating Story...
                             </>
                         ) : (
-                            'Generate Story from Selected Namespace'
+                            'Generate Story from Selected List'
                         )}
                     </Button>
                 </CardContent>
             </Card>
-
-            <LookupHistoryViewer
-                language="greek"
-                onWordSelect={() => {}} // Not used here
-                onNamespaceSelect={handleNamespaceSelect}
-            />
 
             {isLoading && (
                  <Card className="mt-6">
