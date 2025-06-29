@@ -5,7 +5,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText, Languages } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface FeatureCardProps {
   title: string;
@@ -17,7 +18,7 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, href, icon: Icon, buttonText }) => {
   return (
-    <Card className="flex flex-col">
+    <Card className={cn("flex flex-col", "frosted-glass-card")}>
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg">{title}</CardTitle>
@@ -86,6 +87,13 @@ export default function DashboardPage() {
       icon: Wand2,
       buttonText: "Open Morph Builder",
     },
+    {
+      title: "Vowel Reconstruction",
+      description: "Trace Biblical Hebrew words back to their Proto-Semitic roots.",
+      href: "/hebrew-vowel-reconstruction",
+      icon: Languages,
+      buttonText: "Reconstruct Word",
+    },
   ];
 
   const latinTools: FeatureCardProps[] = [
@@ -127,6 +135,13 @@ export default function DashboardPage() {
       icon: IdCardIcon,
       buttonText: "Play Game",
     },
+    {
+        title: "AI Story Creator",
+        description: "Generate unique stories from your vocabulary lists to practice in context.",
+        href: "/story-creator",
+        icon: Sparkles,
+        buttonText: "Create a Story",
+    }
   ];
 
   const renderSection = (title: string, items: FeatureCardProps[]) => (
@@ -142,7 +157,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8 animate-fadeInUp">
-      <Card className="shadow-lg border-primary/20">
+      <Card className={cn("shadow-lg border-primary/20", "frosted-glass-card")}>
         <CardHeader>
           <div className="flex items-center gap-3">
             <BookOpenText className="h-10 w-10 text-primary" />
@@ -169,7 +184,7 @@ export default function DashboardPage() {
       <div className="mb-8">
         <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">Overview</h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <Card>
+          <Card className="frosted-glass-card">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Study Insights (Demo)</CardTitle>
@@ -193,7 +208,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="frosted-glass-card">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Word of the Day (Demo)</CardTitle>
