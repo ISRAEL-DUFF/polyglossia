@@ -90,8 +90,14 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset }) => {
 
     const goToPrevScene = () => {
         if (currentSceneIndex > 0) {
-            setCurrentSceneIndex(prev => prev + 1);
+            setCurrentSceneIndex(prev => prev - 1);
         }
+    };
+
+    const renderHighlightedText = (text: string) => {
+        // Replace **word** with <strong class="text-primary">word</strong>
+        const highlightedHtml = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>');
+        return { __html: highlightedHtml };
     };
     
     const currentSceneAssets = assets[currentSceneIndex] || {};
@@ -122,7 +128,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset }) => {
                 </div>
                 
                 <div className="prose dark:prose-invert max-w-none text-lg greek-size">
-                    <p>{currentScene.greekText}</p>
+                     <p dangerouslySetInnerHTML={renderHighlightedText(currentScene.greekText)} />
                 </div>
 
                 <Collapsible>

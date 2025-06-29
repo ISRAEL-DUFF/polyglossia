@@ -50,10 +50,12 @@ The story must incorporate several of the following {{language}} vocabulary word
 - {{word}}{{#if meaning}}: {{meaning}}{{/if}}
 {{/each}}
 
+When you use one of the vocabulary words from the list in the 'greekText', you MUST wrap it in double asterisks. For example, if 'λόγος' is a vocabulary word, it should appear as '**λόγος**' in the generated text.
+
 The user has provided the following theme: "{{userPrompt}}"
 
 Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a "scene". For each scene, you must provide:
-1.  'greekText': The paragraph of the story, written in simple but grammatically correct Ancient Greek.
+1.  'greekText': The paragraph of the story, written in simple but grammatically correct Ancient Greek. Remember to wrap the vocabulary words in double asterisks.
 2.  'englishTranslation': A clear and simple English translation of the Greek text.
 3.  'imagePrompt': A simple, descriptive prompt for a text-to-image AI model that illustrates the scene.
 
