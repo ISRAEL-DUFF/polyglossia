@@ -30,7 +30,6 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
     const [assets, setAssets] = useState<Record<number, SceneAssets>>({});
     const [loadingStates, setLoadingStates] = useState<Record<number, boolean>>({});
-    const audioRef = useRef<HTMLAudioElement>(null);
 
     const currentScene = story.scenes[currentSceneIndex];
 
@@ -88,15 +87,6 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
             loadAllSceneAssets();
         }
     }, [story, loadAllSceneAssets]);
-    
-    // Updated useEffect to reliably load and play audio
-    useEffect(() => {
-        if (audioRef.current && assets[currentSceneIndex]?.audioUrl) {
-            audioRef.current.src = assets[currentSceneIndex].audioUrl!;
-            audioRef.current.load();
-            audioRef.current.play().catch(e => console.log("Audio autoplay was prevented. Users may need to click play.", e));
-        }
-    }, [assets, currentSceneIndex]);
 
     const goToNextScene = () => {
         if (currentSceneIndex < story.scenes.length - 1) {
@@ -164,9 +154,10 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                     {currentSceneIsLoading && <Loader2 className="h-5 w-5 animate-spin" />}
                     {!currentSceneIsLoading && currentSceneAssets.audioUrl && (
                         <audio
-                            ref={audioRef}
+                            key={currentSceneAssets.audioUrl}
                             controls
-                            // src attribute removed to allow useEffect to control it
+                            autoPlay
+                            src={currentSceneAssets.audioUrl}
                             className="w-full"
                         >
                             Your browser does not support the audio element.
