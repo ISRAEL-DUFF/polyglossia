@@ -20,6 +20,8 @@ type VocabWord = {
     meanings: string[];
 };
 
+const GREEK_API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
     const [historyNamespace, setHistoryNamespace] = useState<string>('');
@@ -44,7 +46,7 @@ const StoryCreatorPage: React.FC = () => {
 
         try {
             // NOTE: This feature currently only supports Greek namespaces as it uses the Greek API endpoint.
-            const vocabRes = await fetch(`/api/greek/vocab/list/${historyNamespace}`);
+            const vocabRes = await fetch(`${GREEK_API_BASE_URL}/vocab/list/${historyNamespace}`);
             if (!vocabRes.ok) throw new Error('Failed to fetch vocabulary list. Please ensure it is a Greek namespace.');
             const vocabData: { words: VocabWord[] } = await vocabRes.json();
             
