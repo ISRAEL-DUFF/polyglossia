@@ -1,14 +1,17 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, ArrowRight, Loader2, RefreshCw, Speaker } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Loader2, RefreshCw, Speaker, ChevronsUpDown } from 'lucide-react';
 import type { GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { generateImage } from '@/ai/flows/generate-image-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
 import Image from 'next/image';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
 
 interface StoryPlayerProps {
     story: GenerateStoryOutput;
@@ -43,7 +46,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset }) => {
         try {
             const [imageResult, audioResult] = await Promise.allSettled([
                 generateImage({ prompt: scene.imagePrompt }),
-                textToSpeech({ text: scene.text, language: "Greek" })
+                textToSpeech({ text: scene.greekText, language: "Greek" })
             ]);
 
             if (imageResult.status === 'fulfilled') {
@@ -87,7 +90,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset }) => {
 
     const goToPrevScene = () => {
         if (currentSceneIndex > 0) {
-            setCurrentSceneIndex(prev => prev - 1);
+            setCurrentSceneIndex(prev => prev + 1);
         }
     };
     
@@ -118,9 +121,21 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset }) => {
                     )}
                 </div>
                 
-                <div className="prose dark:prose-invert max-w-none text-base">
-                    <p>{currentScene.text}</p>
+                <div className="prose dark:prose-invert max-w-none text-lg greek-size">
+                    <p>{currentScene.greekText}</p>
                 </div>
+
+                <Collapsible>
+                    <CollapsibleTrigger asChild>
+                        <Button variant="ghost" className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <ChevronsUpDown className="h-4 w-4" />
+                            Show/Hide English Translation
+                        </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-2 text-sm text-muted-foreground p-4 border rounded-md bg-muted/50">
+                        <p>{currentScene.englishTranslation}</p>
+                    </CollapsibleContent>
+                </Collapsible>
                 
                 <div className="flex items-center gap-2">
                     {isLoadingAssets && <Loader2 className="h-5 w-5 animate-spin" />}
