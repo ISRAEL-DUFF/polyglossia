@@ -10,14 +10,8 @@ import type { GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { generateImage } from '@/ai/flows/generate-image-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import CanvasScene from './CanvasScene';
+import CanvasScene, { type CharacterAsset } from './CanvasScene';
 
-interface CharacterAsset {
-    spriteUrl?: string;
-    position: { x: number; y: number };
-    scale: number;
-    name: string;
-}
 export interface SceneAssets {
     backgroundUrl?: string;
     characters: Record<string, { spriteUrl?: string }>;
@@ -45,14 +39,12 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     const currentSceneIsLoading = loadingStates[currentSceneIndex];
 
     useEffect(() => {
-        // This effect runs when the story/initialAssets change.
-        // It's responsible for kicking off the asset loading process for scenes that need it.
         const scenesToLoad = story.scenes
             .map((_, index) => index)
             .filter(index => !initialAssets?.[index]?.backgroundUrl && !assets[index]?.backgroundUrl);
 
         if (scenesToLoad.length === 0) {
-            setLoadingStates({}); // Ensure no loading spinners if all assets are provided
+            setLoadingStates({});
             return;
         }
 
@@ -136,11 +128,11 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     };
     
     const charactersForCanvas: CharacterAsset[] = currentScene.characters.map(char => ({
-        spriteUrl: currentSceneAssets.characters[char.name]?.spriteUrl || '',
+        spriteUrl: currentSceneAssets.characters[char.name]?.spriteUrl, // Pass undefined if not present
         position: char.position,
         scale: char.scale,
         name: char.name
-    })).filter(c => c.spriteUrl);
+    }));
 
 
     return (
@@ -153,17 +145,13 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                    {currentSceneIsLoading ? (
+                    {currentSceneIsLoading && !currentSceneAssets.backgroundUrl ? (
                         <Skeleton className="h-full w-full" />
-                    ) : currentSceneAssets.imageError ? (
-                        <div className="text-center text-destructive p-4">Scene assets failed to load.</div>
-                    ) : currentSceneAssets.backgroundUrl ? (
+                    ) : (
                          <CanvasScene 
                             backgroundUrl={currentSceneAssets.backgroundUrl}
                             characters={charactersForCanvas}
                          />
-                    ) : (
-                        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
                     )}
                 </div>
                 
