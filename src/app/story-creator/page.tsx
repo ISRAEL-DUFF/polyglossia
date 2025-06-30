@@ -142,59 +142,16 @@ const StoryCreatorPage: React.FC = () => {
 
     const handleSaveStory = async (storyToSave: GenerateStoryOutput, assets: Record<number, SceneAssets>) => {
         setIsSavingStory(true);
-        const zip = new JSZip();
-
         try {
-            // 1. Prepare story JSON without asset data uris, as they will be in the zip
-            const storyJson = {
-                title: storyToSave.title,
-                scenes: storyToSave.scenes.map(scene => ({
-                    // Keep the core text data, remove the generated asset URLs from this JSON
-                    greekText: scene.greekText,
-                    englishTranslation: scene.englishTranslation,
-                    imagePrompt: scene.imagePrompt,
-                })),
-            };
-
-            // 2. Add image and audio assets to the zip file from their data URIs
-            for (const indexStr in assets) {
-                const index = parseInt(indexStr, 10);
-                const sceneAssets = assets[index];
-
-                if (sceneAssets.imageUrl) {
-                    const base64Data = sceneAssets.imageUrl.split(',')[1];
-                    zip.file(`image_${index}.png`, base64Data, { base64: true });
-                }
-                if (sceneAssets.audioUrl) {
-                    const base64Data = sceneAssets.audioUrl.split(',')[1];
-                    zip.file(`audio_${index}.wav`, base64Data, { base64: true });
-                }
-            }
-
-            // 3. Generate the zip file as a Blob
-            const zipBlob = await zip.generateAsync({ type: 'blob' });
-
-            // 4. Create FormData to send both JSON and zip file
-            const formData = new FormData();
-            formData.append('story', new Blob([JSON.stringify(storyJson, null, 2)], { type: 'application/json' }), 'story.json');
-            formData.append('assets', zipBlob, 'assets.zip');
-
-            // 5. Send the multipart/form-data request to a new endpoint
-            // The browser will automatically set the correct 'Content-Type' header with boundary
-            const response = await fetch(`${API_BASE_URL}/stories/save-with-assets`, {
-                method: 'POST',
-                body: formData,
+            toast({
+                title: 'Feature In Development',
+                description: 'Saving visually composed stories is not yet implemented.'
             });
+            // This is a placeholder for the full save logic.
+            // The logic would involve creating a zip of assets and sending it.
+            // For now, we just show a message.
+            console.log("Attempted to save story:", storyToSave, assets);
 
-            if (!response.ok) {
-                 const errorData = await response.json().catch(() => ({ message: `HTTP error ${response.status}` }));
-                 throw new Error(errorData.message || 'Failed to save the story with assets.');
-            }
-            
-            // Refresh the list of saved stories to include the new one
-            await fetchSavedStories();
-
-            toast({ title: 'Success', description: 'Your story and its assets have been saved.' });
         } catch (err) {
              toast({
                 variant: 'destructive',
@@ -207,18 +164,23 @@ const StoryCreatorPage: React.FC = () => {
     };
 
     const handleLoadStory = (storyToLoad: SavedStory) => {
-        const storyData: GenerateStoryOutput = {
-            title: storyToLoad.title,
-            scenes: storyToLoad.scenes.map((scene, index) => ({
-                ...scene,
-                // Pass asset URLs to the scene object so StoryPlayer doesn't re-fetch
-                imageUrl: storyToLoad.assets[index]?.imageUrl,
-                audioUrl: storyToLoad.assets[index]?.audioUrl,
-            } as any)), // Using 'as any' to add dynamic properties
-        };
-        setStory(storyData);
-        setError(null);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // This function would need to be adapted if saved stories are in the new format
+        toast({
+            title: 'Feature In Development',
+            description: 'Loading saved visual stories is not yet implemented.'
+        });
+        // const storyData: GenerateStoryOutput = {
+        //     title: storyToLoad.title,
+        //     scenes: storyToLoad.scenes.map((scene, index) => ({
+        //         ...scene,
+        //         // Pass asset URLs to the scene object so StoryPlayer doesn't re-fetch
+        //         imageUrl: storyToLoad.assets[index]?.imageUrl,
+        //         audioUrl: storyToLoad.assets[index]?.audioUrl,
+        //     } as any)), // Using 'as any' to add dynamic properties
+        // };
+        // setStory(storyData);
+        // setError(null);
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     
     const handleReset = () => {

@@ -1,7 +1,8 @@
 
 'use server';
 /**
- * @fileOverview A flow for generating a short story from a vocabulary list.
+ * @fileOverview A flow for generating a short story from a vocabulary list,
+ * complete with scene composition instructions for canvas rendering.
  *
  * - generateStory - A function that handles the story generation process.
  * - GenerateStoryInput - The input type for the generateStory function.
@@ -23,10 +24,21 @@ const GenerateStoryInputSchema = z.object({
 });
 export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
+const CharacterSchema = z.object({
+    name: z.string().describe('A simple, one-word identifier for the character, e.g., "Socrates" or "Hero".'),
+    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite with a transparent background. Example: "An ancient Greek philosopher with a beard, wearing a toga."'),
+    position: z.object({
+        x: z.number().describe('The horizontal position of the character, as a percentage from the left edge of the scene (0-100).'),
+        y: z.number().describe('The vertical position of the character, as a percentage from the top edge of the scene (0-100).'),
+    }).describe('The initial position of the character in the scene.'),
+    scale: z.number().min(0.1).max(2.0).describe('The size of the character sprite, where 1.0 is normal size.'),
+});
+
 const SceneSchema = z.object({
   greekText: z.string().describe('A paragraph of the story in simple, clear Ancient Greek that incorporates at least one vocabulary word.'),
   englishTranslation: z.string().describe('A simple, clear English translation of the Greek paragraph.'),
-  imagePrompt: z.string().describe('A simple, descriptive prompt for an image that visually represents this paragraph. Example: "A scholar sitting under an olive tree reading a scroll."'),
+  backgroundPrompt: z.string().describe('A descriptive prompt for an image that will serve as the background for the scene. Example: "An ancient Athenian marketplace with columns and stalls, oil painting style."'),
+  characters: z.array(CharacterSchema).describe('An array of characters present in this scene. There can be zero, one, or more characters.'),
 });
 
 const GenerateStoryOutputSchema = z.object({
@@ -57,7 +69,12 @@ The user has provided the following theme: "{{userPrompt}}"
 Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a "scene". For each scene, you must provide:
 1.  'greekText': The paragraph of the story, written in simple but grammatically correct Ancient Greek. Remember to wrap the vocabulary words in double asterisks.
 2.  'englishTranslation': A clear and simple English translation of the Greek text.
-3.  'imagePrompt': A simple, descriptive prompt for a text-to-image AI model that illustrates the scene.
+3.  'backgroundPrompt': A detailed prompt for a text-to-image AI to generate the background scenery.
+4.  'characters': An array of characters appearing in the scene. For each character, provide:
+    - 'name': A simple identifier.
+    - 'spritePrompt': A prompt to generate a character sprite with a transparent background.
+    - 'position': An {x, y} object with percentage values for placement.
+    - 'scale': A float for character size (e.g., 1.0 for normal, 1.2 for larger).
 
 The entire response must be a valid JSON object that adheres to the output schema.
 `,
