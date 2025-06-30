@@ -61,6 +61,7 @@ const StoryCreatorPage: React.FC = () => {
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [isLoadingStories, setIsLoadingStories] = useState(true);
     const [isSavingStory, setIsSavingStory] = useState(false);
+    const [loadedAssets, setLoadedAssets] = useState<Record<number, SceneAssets> | null>(null);
 
     const fetchSavedStories = async () => {
         setIsLoadingStories(true);
@@ -97,6 +98,7 @@ const StoryCreatorPage: React.FC = () => {
         setIsLoading(true);
         setError(null);
         setStory(null);
+        setLoadedAssets(null); // Clear any previously loaded assets
 
         try {
             const vocabRes = await fetch(`${API_BASE_URL}/greek/lookup-history/indexed-entries?language=greek&namespace=${selectedNamespace}`);
@@ -143,15 +145,56 @@ const StoryCreatorPage: React.FC = () => {
     const handleSaveStory = async (storyToSave: GenerateStoryOutput, assets: Record<number, SceneAssets>) => {
         setIsSavingStory(true);
         try {
-            toast({
-                title: 'Feature In Development',
-                description: 'Saving visually composed stories is not yet implemented.'
-            });
-            // This is a placeholder for the full save logic.
-            // The logic would involve creating a zip of assets and sending it.
-            // For now, we just show a message.
-            console.log("Attempted to save story:", storyToSave, assets);
+            const zip = new JSZip();
 
+            // Add story metadata as story.json
+            zip.file("story.json", JSON.stringify(storyToSave));
+
+            const dataUriToBlob = async (uri: string) => {
+                const response = await fetch(uri);
+                return await response.blob();
+            };
+
+            const assetPromises = Object.entries(assets).flatMap(([sceneIndex, sceneAssets]) => {
+                const promises = [];
+                if (sceneAssets.backgroundUrl) {
+                    promises.push(dataUriToBlob(sceneAssets.backgroundUrl).then(blob => zip.file(`scene_${sceneIndex}_bg.png`, blob)));
+                }
+                if (sceneAssets.audioUrl) {
+                    promises.push(dataUriToBlob(sceneAssets.audioUrl).then(blob => zip.file(`scene_${sceneIndex}_audio.wav`, blob)));
+                }
+                Object.entries(sceneAssets.characters).forEach(([charName, charAsset]) => {
+                    if (charAsset.spriteUrl) {
+                        const safeCharName = charName.replace(/\s/g, '_');
+                        promises.push(dataUriToBlob(charAsset.spriteUrl).then(blob => zip.file(`scene_${sceneIndex}_char_${safeCharName}.png`, blob)));
+                    }
+                });
+                return promises;
+            });
+
+            await Promise.all(assetPromises);
+
+            const zipBlob = await zip.generateAsync({ type: "blob" });
+            const formData = new FormData();
+            formData.append("story", JSON.stringify(storyToSave));
+            formData.append("assets", zipBlob, `${storyToSave.title.replace(/\s/g, '_')}.zip`);
+            
+            // POST to the backend
+            const response = await fetch(`${API_BASE_URL}/stories/save`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Failed to save story: ${errorText || response.statusText}`);
+            }
+
+            toast({
+                title: 'Story Saved!',
+                description: `"${storyToSave.title}" has been successfully saved.`,
+            });
+            await fetchSavedStories(); // Refresh the list of saved stories
         } catch (err) {
              toast({
                 variant: 'destructive',
@@ -164,28 +207,20 @@ const StoryCreatorPage: React.FC = () => {
     };
 
     const handleLoadStory = (storyToLoad: SavedStory) => {
-        // This function would need to be adapted if saved stories are in the new format
-        toast({
-            title: 'Feature In Development',
-            description: 'Loading saved visual stories is not yet implemented.'
-        });
-        // const storyData: GenerateStoryOutput = {
-        //     title: storyToLoad.title,
-        //     scenes: storyToLoad.scenes.map((scene, index) => ({
-        //         ...scene,
-        //         // Pass asset URLs to the scene object so StoryPlayer doesn't re-fetch
-        //         imageUrl: storyToLoad.assets[index]?.imageUrl,
-        //         audioUrl: storyToLoad.assets[index]?.audioUrl,
-        //     } as any)), // Using 'as any' to add dynamic properties
-        // };
-        // setStory(storyData);
-        // setError(null);
-        // window.scrollTo({ top: 0, behavior: 'smooth' });
+        const storyData: GenerateStoryOutput = {
+            title: storyToLoad.title,
+            scenes: storyToLoad.scenes,
+        };
+        setLoadedAssets(storyToLoad.assets);
+        setStory(storyData);
+        setError(null);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     
     const handleReset = () => {
         setStory(null);
         setError(null);
+        setLoadedAssets(null);
     }
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
@@ -207,6 +242,7 @@ const StoryCreatorPage: React.FC = () => {
                     onReset={handleReset} 
                     onSave={handleSaveStory}
                     isSaving={isSavingStory}
+                    initialAssets={loadedAssets || undefined}
                 />
             ) : (
                 <Card>

@@ -31,11 +31,12 @@ interface StoryPlayerProps {
     onReset: () => void;
     onSave: (story: GenerateStoryOutput, assets: Record<number, SceneAssets>) => void;
     isSaving?: boolean;
+    initialAssets?: Record<number, SceneAssets>;
 }
 
-const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSaving }) => {
+const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSaving, initialAssets }) => {
     const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
-    const [assets, setAssets] = useState<Record<number, SceneAssets>>({});
+    const [assets, setAssets] = useState<Record<number, SceneAssets>>(initialAssets || {});
     const [loadingStates, setLoadingStates] = useState<Record<number, boolean>>({});
     const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -43,72 +44,78 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
     const currentSceneAssets = assets[currentSceneIndex] || { characters: {} };
     const currentSceneIsLoading = loadingStates[currentSceneIndex];
 
-    const loadAllSceneAssets = useCallback(async () => {
-        setLoadingStates(
-            story.scenes.reduce((acc, _, index) => ({ ...acc, [index]: true }), {})
-        );
-
-        for (let i = 0; i < story.scenes.length; i++) {
-            const scene = story.scenes[i];
-            const imagePrompts = [
-                { type: 'background', prompt: scene.backgroundPrompt, name: 'background' },
-                ...scene.characters.map(c => ({ type: 'character', prompt: c.spritePrompt, name: c.name }))
-            ];
-            
-            const assetPromises = {
-                audio: textToSpeech({ text: scene.greekText, language: "Greek" }),
-                images: Promise.all(imagePrompts.map(p => generateImage({ prompt: p.prompt })))
-            };
-
-            const [audioResult, imagesResult] = await Promise.allSettled([assetPromises.audio, assetPromises.images]);
-            
-            const newSceneAssets: SceneAssets = { characters: {} };
-
-            if (audioResult.status === 'fulfilled') {
-                newSceneAssets.audioUrl = audioResult.value.audioUrl;
-            } else {
-                newSceneAssets.audioError = true;
-                console.error(`Audio generation failed for scene ${i}:`, audioResult.reason);
-            }
-
-            if (imagesResult.status === 'fulfilled') {
-                const imageUrls = imagesResult.value;
-                imageUrls.forEach((urlResult, idx) => {
-                    const promptInfo = imagePrompts[idx];
-                    if (promptInfo.type === 'background') {
-                        newSceneAssets.backgroundUrl = urlResult.imageUrl;
-                    } else {
-                        newSceneAssets.characters[promptInfo.name] = { spriteUrl: urlResult.imageUrl };
-                    }
-                });
-            } else {
-                newSceneAssets.imageError = true;
-                console.error(`Image generation failed for scene ${i}:`, imagesResult.reason);
-            }
-            
-            setAssets(prev => ({...prev, [i]: newSceneAssets }));
-            setLoadingStates(prev => ({...prev, [i]: false }));
-        }
-    }, [story.scenes]);
-
     useEffect(() => {
-        if (story.scenes.length > 0) {
-            loadAllSceneAssets();
+        // This effect runs when the story/initialAssets change.
+        // It's responsible for kicking off the asset loading process for scenes that need it.
+        const scenesToLoad = story.scenes
+            .map((_, index) => index)
+            .filter(index => !initialAssets?.[index]?.backgroundUrl && !assets[index]?.backgroundUrl);
+
+        if (scenesToLoad.length === 0) {
+            setLoadingStates({}); // Ensure no loading spinners if all assets are provided
+            return;
         }
-    }, [story, loadAllSceneAssets]);
+
+        const initialLoadingStates = scenesToLoad.reduce((acc, index) => ({ ...acc, [index]: true }), {});
+        setLoadingStates(prev => ({...prev, ...initialLoadingStates}));
+
+        const fetchAssetsForScenes = async () => {
+            for (const i of scenesToLoad) {
+                const scene = story.scenes[i];
+                const imagePrompts = [
+                    { type: 'background', prompt: scene.backgroundPrompt, name: 'background' },
+                    ...scene.characters.map(c => ({ type: 'character', prompt: c.spritePrompt, name: c.name }))
+                ];
+                
+                const assetPromises = {
+                    audio: textToSpeech({ text: scene.greekText, language: "Greek" }),
+                    images: Promise.all(imagePrompts.map(p => generateImage({ prompt: p.prompt })))
+                };
     
-    useEffect(() => {
-        if (audioRef.current && currentSceneAssets.audioUrl) {
-            audioRef.current.src = currentSceneAssets.audioUrl;
-            audioRef.current.load();
-            const playPromise = audioRef.current.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error("Audio playback was prevented by the browser:", error);
-                });
+                const [audioResult, imagesResult] = await Promise.allSettled([assetPromises.audio, assetPromises.images]);
+                
+                const newSceneAssets: SceneAssets = { characters: {} };
+    
+                if (audioResult.status === 'fulfilled') {
+                    newSceneAssets.audioUrl = audioResult.value.audioUrl;
+                } else {
+                    newSceneAssets.audioError = true;
+                    console.error(`Audio generation failed for scene ${i}:`, audioResult.reason);
+                }
+    
+                if (imagesResult.status === 'fulfilled') {
+                    const imageUrls = imagesResult.value;
+                    imageUrls.forEach((urlResult, idx) => {
+                        const promptInfo = imagePrompts[idx];
+                        if (promptInfo.type === 'background') {
+                            newSceneAssets.backgroundUrl = urlResult.imageUrl;
+                        } else {
+                            newSceneAssets.characters[promptInfo.name] = { spriteUrl: urlResult.imageUrl };
+                        }
+                    });
+                } else {
+                    newSceneAssets.imageError = true;
+                    console.error(`Image generation failed for scene ${i}:`, imagesResult.reason);
+                }
+                
+                setAssets(prev => ({...prev, [i]: newSceneAssets }));
+                setLoadingStates(prev => ({...prev, [i]: false }));
             }
+        };
+        
+        fetchAssetsForScenes();
+    }, [story.scenes, initialAssets]);
+
+    useEffect(() => {
+        if (audioRef.current && assets[currentSceneIndex]?.audioUrl) {
+            const audio = audioRef.current;
+            audio.src = assets[currentSceneIndex].audioUrl!;
+            audio.load();
+            audio.play().catch(error => {
+                console.error("Audio playback error:", error);
+            });
         }
-    }, [currentSceneAssets.audioUrl, currentSceneIndex]);
+    }, [currentSceneIndex, assets]);
 
 
     const goToNextScene = () => {
