@@ -15,7 +15,6 @@ import { Label } from '@/components/ui/label';
 import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import JSZip from 'jszip';
 
 type VocabWord = {
     word: string;
@@ -145,44 +144,17 @@ const StoryCreatorPage: React.FC = () => {
     const handleSaveStory = async (storyToSave: GenerateStoryOutput, assets: Record<number, SceneAssets>) => {
         setIsSavingStory(true);
         try {
-            const zip = new JSZip();
-
-            // Add story metadata as story.json
-            zip.file("story.json", JSON.stringify(storyToSave));
-
-            const dataUriToBlob = async (uri: string) => {
-                const response = await fetch(uri);
-                return await response.blob();
+            const payload = {
+                ...storyToSave,
+                assets: assets,
             };
 
-            const assetPromises = Object.entries(assets).flatMap(([sceneIndex, sceneAssets]) => {
-                const promises = [];
-                if (sceneAssets.backgroundUrl) {
-                    promises.push(dataUriToBlob(sceneAssets.backgroundUrl).then(blob => zip.file(`scene_${sceneIndex}_bg.png`, blob)));
-                }
-                if (sceneAssets.audioUrl) {
-                    promises.push(dataUriToBlob(sceneAssets.audioUrl).then(blob => zip.file(`scene_${sceneIndex}_audio.wav`, blob)));
-                }
-                Object.entries(sceneAssets.characters).forEach(([charName, charAsset]) => {
-                    if (charAsset.spriteUrl) {
-                        const safeCharName = charName.replace(/\s/g, '_');
-                        promises.push(dataUriToBlob(charAsset.spriteUrl).then(blob => zip.file(`scene_${sceneIndex}_char_${safeCharName}.png`, blob)));
-                    }
-                });
-                return promises;
-            });
-
-            await Promise.all(assetPromises);
-
-            const zipBlob = await zip.generateAsync({ type: "blob" });
-            const formData = new FormData();
-            formData.append("story", JSON.stringify(storyToSave));
-            formData.append("assets", zipBlob, `${storyToSave.title.replace(/\s/g, '_')}.zip`);
-            
-            // POST to the backend
             const response = await fetch(`${API_BASE_URL}/stories/save`, {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
             });
 
             if (!response.ok) {
