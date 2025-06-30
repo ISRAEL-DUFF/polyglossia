@@ -26,7 +26,7 @@ export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
 const CharacterSchema = z.object({
     name: z.string().describe('A simple, one-word identifier for the character, e.g., "Socrates" or "Hero".'),
-    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite with a transparent background. Example: "An ancient Greek philosopher with a beard, wearing a toga."'),
+    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite in a simple cartoon or line-art style, with a transparent background. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, transparent background."'),
     position: z.object({
         x: z.number().describe('The horizontal position of the character, as a percentage from the left edge of the scene (0-100).'),
         y: z.number().describe('The vertical position of the character, as a percentage from the top edge of the scene (0-100).'),
@@ -37,7 +37,7 @@ const CharacterSchema = z.object({
 const SceneSchema = z.object({
   greekText: z.string().describe('A paragraph of the story in simple, clear Ancient Greek that incorporates at least one vocabulary word.'),
   englishTranslation: z.string().describe('A simple, clear English translation of the Greek paragraph.'),
-  backgroundPrompt: z.string().describe('A descriptive prompt for an image that will serve as the background for the scene. Example: "An ancient Athenian marketplace with columns and stalls, oil painting style."'),
+  backgroundPrompt: z.string().describe('A descriptive prompt for a realistic background image with a painterly, slightly ancient feel, like an oil painting or historical illustration. Example: "An ancient Athenian marketplace with columns and stalls, oil painting style."'),
   characters: z.array(CharacterSchema).describe('An array of characters present in this scene. There can be zero, one, or more characters.'),
 });
 

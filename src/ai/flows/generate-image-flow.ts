@@ -32,7 +32,7 @@ const generateImageFlow = ai.defineFlow(
   async ({prompt}) => {
     const {media} = await ai.generate({
       model: 'googleai/gemini-2.0-flash-preview-image-generation',
-      prompt: `Generate an image with a painterly, slightly ancient feel, like an oil painting or historical illustration. Prompt: ${prompt}`,
+      prompt: prompt, // Use the prompt directly to allow for varied styles
       config: {
         responseModalities: ['TEXT', 'IMAGE'],
       },
