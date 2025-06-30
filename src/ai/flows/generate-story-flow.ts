@@ -26,7 +26,7 @@ export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
 const CharacterSchema = z.object({
     name: z.string().describe('A simple, one-word identifier for the character, e.g., "Socrates" or "Hero".'),
-    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite in a simple cartoon or line-art style, with a transparent background. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, transparent background."'),
+    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite in a simple cartoon style. **Crucially, the prompt must specify a plain, solid white background.** This is because the sprite will be layered onto another image. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, on a plain white background."'),
     position: z.object({
         x: z.number().describe('The horizontal position of the character, as a percentage from the left edge of the scene (0-100).'),
         y: z.number().describe('The vertical position of the character, as a percentage from the top edge of the scene (0-100).'),
@@ -72,7 +72,7 @@ Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a
 3.  'backgroundPrompt': A detailed prompt for a text-to-image AI to generate the background scenery.
 4.  'characters': An array of characters appearing in the scene. For each character, provide:
     - 'name': A simple identifier.
-    - 'spritePrompt': A prompt to generate a character sprite with a transparent background.
+    - 'spritePrompt': A prompt for an AI to generate a full-body character sprite in a simple cartoon style. **Crucially, the prompt must specify a plain, solid white background.** This is because the sprite will be layered onto another image. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, on a plain white background."
     - 'position': An {x, y} object with percentage values for placement.
     - 'scale': A float for character size (e.g., 1.0 for normal, 1.2 for larger).
 
