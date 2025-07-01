@@ -69,7 +69,7 @@ const textToSpeechFlow = ai.defineFlow(
           voiceConfig: {
             prebuiltVoiceConfig: {voiceName: 'Algenib'}, // A clear, scholarly voice
           },
-          enableTimepointing: true, // Request word-level timings
+          enableTimepointing: ['WORD'], // Request word-level timings
         },
       },
       prompt: text,
