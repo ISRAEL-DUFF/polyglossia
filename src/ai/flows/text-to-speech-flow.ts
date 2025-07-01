@@ -75,8 +75,8 @@ const textToSpeechFlow = ai.defineFlow(
       },
     });
 
-    if (!media || !media.url || !media.timepoints) {
-      throw new Error('Text-to-speech conversion with timing data failed.');
+    if (!media || !media.url) {
+      throw new Error('Text-to-speech conversion failed.');
     }
 
     const audioBuffer = Buffer.from(
@@ -88,7 +88,7 @@ const textToSpeechFlow = ai.defineFlow(
 
     return {
       audioUrl: 'data:audio/wav;base64,' + wavBase64,
-      timings: media.timepoints,
+      timings: media.timepoints || [],
     };
   }
 );
