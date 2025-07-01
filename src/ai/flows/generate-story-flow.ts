@@ -1,4 +1,3 @@
-
 'use server';
 /**
  * @fileOverview A flow for generating a short story from a vocabulary list.
@@ -23,17 +22,14 @@ const GenerateStoryInputSchema = z.object({
 });
 export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
-const SceneSchema = z.object({
-  greekText: z.string().describe('A paragraph of the story in simple, clear Ancient Greek that incorporates at least one vocabulary word.'),
-  englishTranslation: z.string().describe('A simple, clear English translation of the Greek paragraph.'),
-  imagePrompt: z.string().describe('A simple, descriptive prompt for an image that visually represents this paragraph. Example: "A scholar sitting under an olive tree reading a scroll."'),
-});
 
 const GenerateStoryOutputSchema = z.object({
   title: z.string().describe('A creative and fitting title for the story in English.'),
-  scenes: z.array(SceneSchema).describe('An array of scenes that make up the story, between 3 to 5 scenes long.'),
+  greekText: z.string().describe('The full story, written in simple, clear Ancient Greek that incorporates at least one vocabulary word. Should be a few paragraphs long.'),
+  englishTranslation: z.string().describe('A simple, clear English translation of the full Greek story.'),
 });
 export type GenerateStoryOutput = z.infer<typeof GenerateStoryOutputSchema>;
+
 
 export async function generateStory(input: GenerateStoryInput): Promise<GenerateStoryOutput> {
   return generateStoryFlow(input);
@@ -54,10 +50,10 @@ When you use one of the vocabulary words from the list in the 'greekText', you M
 
 The user has provided the following theme: "{{userPrompt}}"
 
-Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a "scene". For each scene, you must provide:
-1.  'greekText': The paragraph of the story, written in simple but grammatically correct Ancient Greek. Remember to wrap the vocabulary words in double asterisks.
-2.  'englishTranslation': A clear and simple English translation of the Greek text.
-3.  'imagePrompt': A simple, descriptive prompt for a text-to-image AI model that illustrates the scene.
+Please generate:
+1.  'title': A creative title for the story in English.
+2.  'greekText': The full story as a single block of text (a few paragraphs long).
+3.  'englishTranslation': A clear and simple English translation of the entire story.
 
 The entire response must be a valid JSON object that adheres to the output schema.
 `,
