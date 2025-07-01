@@ -1,10 +1,11 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -13,6 +14,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
 import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 type VocabWord = {
     word: string;
@@ -218,12 +220,19 @@ const StoryCreatorPage: React.FC = () => {
                                 <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
                                 <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size" dangerouslySetInnerHTML={renderHighlightedText(story.greekText)} />
                             </div>
-                             <div>
-                                <h3 className="font-semibold text-lg mb-2">English Translation</h3>
-                                <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 text-sm">
-                                    <p>{story.englishTranslation}</p>
-                                </div>
-                            </div>
+                             <Collapsible>
+                                <CollapsibleTrigger asChild>
+                                    <Button variant="ghost" className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <ChevronsUpDown className="h-4 w-4" />
+                                        Show/Hide English Translation
+                                    </Button>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent className="mt-2">
+                                     <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 text-sm">
+                                        <p>{story.englishTranslation}</p>
+                                    </div>
+                                </CollapsibleContent>
+                             </Collapsible>
                         </div>
 
                         <CardFooter className="px-0 pt-4">
