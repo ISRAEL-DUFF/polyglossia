@@ -1,20 +1,18 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, Library, RefreshCw } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
+import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import StoryPlayer, { type SceneAssets } from './StoryPlayer';
 import { Label } from '@/components/ui/label';
 import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 type VocabWord = {
     word: string;
@@ -37,14 +35,6 @@ interface IndexedHistoryResponse {
   indexList: Record<string, HistoryEntry[]>;
 }
 
-// Full story object including assets, as stored in the backend
-interface SavedStory extends GenerateStoryOutput {
-    id: string;
-    assets: Record<number, SceneAssets>;
-    createdAt: string;
-}
-
-
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
 
 const StoryCreatorPage: React.FC = () => {
@@ -53,36 +43,9 @@ const StoryCreatorPage: React.FC = () => {
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
+    const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
-
-    // State for saved stories
-    const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
-    const [isLoadingStories, setIsLoadingStories] = useState(true);
-    const [isSavingStory, setIsSavingStory] = useState(false);
-    const [loadedAssets, setLoadedAssets] = useState<Record<number, SceneAssets> | null>(null);
-
-    const fetchSavedStories = async () => {
-        setIsLoadingStories(true);
-        try {
-            const response = await fetch(`${API_BASE_URL}/stories/list`); // Assuming this endpoint exists
-            if (!response.ok) throw new Error("Failed to fetch saved stories.");
-            const data = await response.json();
-            setSavedStories(data.stories || []);
-        } catch (err) {
-            toast({
-                variant: 'destructive',
-                title: 'Could not load stories',
-                description: err instanceof Error ? err.message : 'An unknown error occurred.'
-            });
-        } finally {
-            setIsLoadingStories(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchSavedStories();
-    }, []);
 
     const handleGenerateStory = async () => {
         if (!selectedNamespace) {
@@ -97,7 +60,7 @@ const StoryCreatorPage: React.FC = () => {
         setIsLoading(true);
         setError(null);
         setStory(null);
-        setLoadedAssets(null); // Clear any previously loaded assets
+        setAudioUrl(null);
 
         try {
             const vocabRes = await fetch(`${API_BASE_URL}/greek/lookup-history/indexed-entries?language=greek&namespace=${selectedNamespace}`);
@@ -116,13 +79,18 @@ const StoryCreatorPage: React.FC = () => {
             
             const uniqueVocab = Array.from(new Map(vocabForAI.map(item => [item['word'], item])).values());
 
+            toast({ title: 'Generating story text...', description: 'Please wait, this may take a moment.' });
             const generatedStory = await generateStory({
                 vocab: uniqueVocab,
                 userPrompt: userPrompt,
                 language: 'Greek',
             });
-
             setStory(generatedStory);
+
+            toast({ title: 'Story text ready!', description: 'Now generating audio...' });
+            const audioResult = await textToSpeech({ text: generatedStory.greekText, language: 'Greek' });
+            setAudioUrl(audioResult.audioUrl);
+
             toast({
                 title: 'Story Generated!',
                 description: `Your story "${generatedStory.title}" is ready.`,
@@ -140,59 +108,11 @@ const StoryCreatorPage: React.FC = () => {
             setIsLoading(false);
         }
     };
-
-    const handleSaveStory = async (storyToSave: GenerateStoryOutput, assets: Record<number, SceneAssets>) => {
-        setIsSavingStory(true);
-        try {
-            const payload = {
-                ...storyToSave,
-                assets: assets,
-            };
-
-            const response = await fetch(`${API_BASE_URL}/stories/save`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            });
-
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Failed to save story: ${errorText || response.statusText}`);
-            }
-
-            toast({
-                title: 'Story Saved!',
-                description: `"${storyToSave.title}" has been successfully saved.`,
-            });
-            await fetchSavedStories(); // Refresh the list of saved stories
-        } catch (err) {
-             toast({
-                variant: 'destructive',
-                title: 'Save Failed',
-                description: err instanceof Error ? err.message : 'An unknown error occurred.',
-            });
-        } finally {
-            setIsSavingStory(false);
-        }
-    };
-
-    const handleLoadStory = (storyToLoad: SavedStory) => {
-        const storyData: GenerateStoryOutput = {
-            title: storyToLoad.title,
-            scenes: storyToLoad.scenes,
-        };
-        setLoadedAssets(storyToLoad.assets);
-        setStory(storyData);
-        setError(null);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
     
     const handleReset = () => {
         setStory(null);
         setError(null);
-        setLoadedAssets(null);
+        setAudioUrl(null);
     }
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
@@ -206,74 +126,114 @@ const StoryCreatorPage: React.FC = () => {
         setSelectedNamespace(namespace);
     }
 
+    const renderHighlightedText = (text: string) => {
+        const highlightedHtml = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>');
+        return { __html: highlightedHtml };
+    };
+
     return (
         <div className="container mx-auto space-y-6 p-1">
-             {story && !isLoading ? (
-                <StoryPlayer 
-                    story={story} 
-                    onReset={handleReset} 
-                    onSave={handleSaveStory}
-                    isSaving={isSavingStory}
-                    initialAssets={loadedAssets || undefined}
-                />
-            ) : (
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-2xl font-bold text-center text-primary flex items-center justify-center gap-2">
-                            <Sparkles className="h-6 w-6" />
-                            AI Story Creator
-                        </CardTitle>
-                        <CardDescription className="text-center text-muted-foreground">
-                            Create a unique, narrated, and illustrated story using words from your lookup history.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        <div>
-                            <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
-                                Story Prompt
-                            </Label>
-                            <Textarea
-                                id="user-prompt"
-                                placeholder="e.g., A funny story about animals in a marketplace..."
-                                value={userPrompt}
-                                onChange={(e) => setUserPrompt(e.target.value)}
-                                rows={3}
-                                disabled={isLoading}
-                            />
+             <Card>
+                <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-center text-primary flex items-center justify-center gap-2">
+                        <Sparkles className="h-6 w-6" />
+                        AI Story Creator
+                    </CardTitle>
+                    <CardDescription className="text-center text-muted-foreground">
+                        Create a unique, narrated story using words from your lookup history.
+                    </CardDescription>
+                </CardHeader>
+
+                {!story && (
+                  <CardContent className="space-y-4">
+                      <div>
+                          <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
+                              Story Prompt
+                          </Label>
+                          <Textarea
+                              id="user-prompt"
+                              placeholder="e.g., A funny story about animals in a marketplace..."
+                              value={userPrompt}
+                              onChange={(e) => setUserPrompt(e.target.value)}
+                              rows={3}
+                              disabled={isLoading}
+                          />
+                      </div>
+                      <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
+                          {isLoading ? (
+                              <>
+                                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                  Generating...
+                              </>
+                          ) : (
+                              'Generate Story from Selected Namespace'
+                          )}
+                      </Button>
+                  </CardContent>
+                )}
+                
+                {isLoading && (
+                 <CardContent>
+                    <div className="space-y-4">
+                        <Skeleton className="h-8 w-3/4 mx-auto" />
+                        <Skeleton className="h-6 w-1/2 mx-auto" />
+                        <div className="space-y-2 pt-4">
+                          <Skeleton className="h-10 w-full" />
+                          <Skeleton className="h-24 w-full" />
+                          <Skeleton className="h-24 w-full" />
                         </div>
-                        <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
-                            {isLoading ? (
-                                <>
-                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Generating Story...
-                                </>
-                            ) : (
-                                'Generate Story from Selected Namespace'
-                            )}
-                        </Button>
-                    </CardContent>
-                </Card>
-            )}
+                    </div>
+                 </CardContent>
+                )}
 
-            {isLoading && (
-                 <Card className="mt-6">
-                    <CardHeader>
-                         <Skeleton className="h-8 w-3/4" />
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        <Skeleton className="h-48 w-full" />
-                        <Skeleton className="h-24 w-full" />
+                {error && !isLoading && (
+                     <CardContent>
+                        <Alert variant="destructive" className="mt-6">
+                            <AlertCircle className="h-4 w-4" />
+                            <AlertTitle>Error</AlertTitle>
+                            <AlertDescription>{error}</AlertDescription>
+                        </Alert>
                     </CardContent>
-                </Card>
-            )}
+                )}
 
-            {error && !isLoading && !story && (
-                 <Alert variant="destructive" className="mt-6">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>Error</AlertTitle>
-                    <AlertDescription>{error}</AlertDescription>
-                </Alert>
-            )}
+                {!isLoading && story && (
+                   <CardContent className="space-y-4 animate-fadeInUp">
+                        <div className="text-center">
+                            <h2 className="text-xl font-bold text-primary">{story.title}</h2>
+                        </div>
+                        
+                        {audioUrl ? (
+                            <audio controls src={audioUrl} className="w-full">
+                                Your browser does not support the audio element.
+                            </audio>
+                        ) : (
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                <span>Loading audio...</span>
+                            </div>
+                        )}
+                        
+                        <div className="space-y-4">
+                            <div>
+                                <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
+                                <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size" dangerouslySetInnerHTML={renderHighlightedText(story.greekText)} />
+                            </div>
+                             <div>
+                                <h3 className="font-semibold text-lg mb-2">English Translation</h3>
+                                <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 text-sm">
+                                    <p>{story.englishTranslation}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <CardFooter className="px-0 pt-4">
+                            <Button onClick={handleReset} variant="outline" className="w-full">
+                                Create a New Story
+                            </Button>
+                        </CardFooter>
+                   </CardContent>
+                )}
+            </Card>
 
             <LookupHistoryViewer
                 language="greek"
@@ -281,53 +241,6 @@ const StoryCreatorPage: React.FC = () => {
                 onNamespaceSelect={handleNamespaceSelect}
                 refreshTrigger={historyRefreshTrigger} 
             />
-            
-            <Card className="mt-6">
-                <CardHeader>
-                    <div className="flex justify-between items-center">
-                        <CardTitle className="text-lg flex items-center gap-2">
-                            <Library className="h-5 w-5 text-primary" />
-                            Saved Stories
-                        </CardTitle>
-                        <Button variant="outline" size="sm" onClick={fetchSavedStories} disabled={isLoadingStories}>
-                            <RefreshCw className={`mr-2 h-4 w-4 ${isLoadingStories ? 'animate-spin' : ''}`} />
-                            Refresh
-                        </Button>
-                    </div>
-                     <CardDescription>Load a previously generated story to review it.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <ScrollArea className="h-60 border rounded-md p-2 bg-muted/30">
-                        {isLoadingStories ? (
-                             <div className="space-y-2 p-2">
-                                {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
-                             </div>
-                        ) : savedStories.length > 0 ? (
-                            <ul className="space-y-1">
-                                {savedStories.map(s => (
-                                    <li key={s.id}>
-                                        <Button
-                                            variant="ghost"
-                                            className="w-full justify-start text-left h-auto py-2 px-3"
-                                            onClick={() => handleLoadStory(s)}
-                                        >
-                                            <div className="flex flex-col">
-                                                <span className="font-medium text-primary">{s.title}</span>
-                                                <span className="text-xs text-muted-foreground">
-                                                    Saved on: {new Date(s.createdAt).toLocaleDateString()}
-                                                </span>
-                                            </div>
-                                        </Button>
-                                    </li>
-                                ))}
-                            </ul>
-                        ) : (
-                            <p className="text-center text-muted-foreground p-4">No saved stories found.</p>
-                        )}
-                    </ScrollArea>
-                </CardContent>
-            </Card>
-
         </div>
     );
 };

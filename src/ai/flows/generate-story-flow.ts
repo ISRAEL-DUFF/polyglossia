@@ -1,8 +1,6 @@
-
 'use server';
 /**
- * @fileOverview A flow for generating a short story from a vocabulary list,
- * complete with scene composition instructions for canvas rendering.
+ * @fileOverview A flow for generating a short story from a vocabulary list.
  *
  * - generateStory - A function that handles the story generation process.
  * - GenerateStoryInput - The input type for the generateStory function.
@@ -24,29 +22,14 @@ const GenerateStoryInputSchema = z.object({
 });
 export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
-const CharacterSchema = z.object({
-    name: z.string().describe('A simple, one-word identifier for the character, e.g., "Socrates" or "Hero".'),
-    spritePrompt: z.string().describe('A descriptive prompt for a text-to-image AI to generate a full-body character sprite in a simple cartoon style. **Crucially, the prompt must specify a plain, solid white background.** This is because the sprite will be layered onto another image. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, on a plain white background."'),
-    position: z.object({
-        x: z.number().describe('The horizontal position of the character, as a percentage from the left edge of the scene (0-100).'),
-        y: z.number().describe('The vertical position of the character, as a percentage from the top edge of the scene (0-100).'),
-    }).describe('The initial position of the character in the scene.'),
-    scale: z.number().min(0.1).max(2.0).describe('The size of the character sprite, where 1.0 is normal size.'),
-    animation: z.enum(["idle", "enter_from_left", "enter_from_right", "exit_to_left", "exit_to_right"]).describe('Animation for the character. "idle" for bobbing, "enter_from_left/right" for entering, and "exit_to_left/right" for exiting the scene.').optional(),
-});
-
-const SceneSchema = z.object({
-  greekText: z.string().describe('A paragraph of the story in simple, clear Ancient Greek that incorporates at least one vocabulary word.'),
-  englishTranslation: z.string().describe('A simple, clear English translation of the Greek paragraph.'),
-  backgroundPrompt: z.string().describe('A descriptive prompt for a realistic background image with a painterly, slightly ancient feel, like an oil painting or historical illustration. Example: "An ancient Athenian marketplace with columns and stalls, oil painting style."'),
-  characters: z.array(CharacterSchema).describe('An array of characters present in this scene. There can be zero, one, or more characters.'),
-});
 
 const GenerateStoryOutputSchema = z.object({
   title: z.string().describe('A creative and fitting title for the story in English.'),
-  scenes: z.array(SceneSchema).describe('An array of scenes that make up the story, between 3 to 5 scenes long.'),
+  greekText: z.string().describe('The full story, written in simple, clear Ancient Greek that incorporates at least one vocabulary word. Should be a few paragraphs long.'),
+  englishTranslation: z.string().describe('A simple, clear English translation of the full Greek story.'),
 });
 export type GenerateStoryOutput = z.infer<typeof GenerateStoryOutputSchema>;
+
 
 export async function generateStory(input: GenerateStoryInput): Promise<GenerateStoryOutput> {
   return generateStoryFlow(input);
@@ -67,16 +50,10 @@ When you use one of the vocabulary words from the list in the 'greekText', you M
 
 The user has provided the following theme: "{{userPrompt}}"
 
-Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a "scene". For each scene, you must provide:
-1.  'greekText': The paragraph of the story, written in simple but grammatically correct Ancient Greek. Remember to wrap the vocabulary words in double asterisks.
-2.  'englishTranslation': A clear and simple English translation of the Greek text.
-3.  'backgroundPrompt': A detailed prompt for a text-to-image AI to generate the background scenery.
-4.  'characters': An array of characters appearing in the scene. For each character, provide:
-    - 'name': A simple identifier.
-    - 'spritePrompt': A prompt for an AI to generate a full-body character sprite in a simple cartoon style. **Crucially, the prompt must specify a plain, solid white background.** This is because the sprite will be layered onto another image. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, on a plain white background."
-    - 'position': An {x, y} object with percentage values for placement.
-    - 'scale': A float for character size (e.g., 1.0 for normal, 1.2 for larger).
-    - 'animation': A simple animation. Use "idle" if the character is present and talking. Use "enter_from_left" or "enter_from_right" if they are new to the scene. Use "exit_to_left" or "exit_to_right" if they are leaving.
+Please generate:
+1.  'title': A creative title for the story in English.
+2.  'greekText': The full story as a single block of text (a few paragraphs long).
+3.  'englishTranslation': A clear and simple English translation of the entire story.
 
 The entire response must be a valid JSON object that adheres to the output schema.
 `,
