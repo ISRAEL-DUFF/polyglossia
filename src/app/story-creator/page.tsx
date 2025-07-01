@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -43,7 +44,7 @@ interface WordTiming {
     endTime: number;
 }
 
-const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
+const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -75,7 +76,7 @@ const StoryCreatorPage: React.FC = () => {
         handleReset();
 
         try {
-            const vocabRes = await fetch(`${API_BASE_URL}/greek/lookup-history/indexed-entries?language=greek&namespace=${selectedNamespace}`);
+            const vocabRes = await fetch(`${API_BASE_URL}/lookup-history/indexed-entries?language=greek&namespace=${selectedNamespace}`);
             if (!vocabRes.ok) throw new Error('Failed to fetch words from the selected namespace.');
             
             const vocabData: IndexedHistoryResponse = await vocabRes.json();
@@ -90,10 +91,14 @@ const StoryCreatorPage: React.FC = () => {
             }));
             
             const uniqueVocab = Array.from(new Map(vocabForAI.map(item => [item['word'], item])).values());
+            
+            // Shuffle and limit the vocabulary to prevent an overly large prompt
+            const shuffledVocab = uniqueVocab.sort(() => 0.5 - Math.random());
+            const limitedVocab = shuffledVocab.slice(0, 20); // Limit to 20 words
 
             toast({ title: 'Generating story text...', description: 'Please wait, this may take a moment.' });
             const generatedStory = await generateStory({
-                vocab: uniqueVocab,
+                vocab: limitedVocab,
                 userPrompt: userPrompt,
                 language: 'Greek',
             });
