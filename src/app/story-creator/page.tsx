@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -236,7 +235,7 @@ const StoryCreatorPage: React.FC = () => {
                             <h2 className="text-xl font-bold text-primary">{story.title}</h2>
                         </div>
                         
-                        {(audioUrl && wordTimings.length > 0) ? (
+                        {(audioUrl) ? (
                             <audio 
                                 ref={audioRef}
                                 controls 
@@ -250,8 +249,18 @@ const StoryCreatorPage: React.FC = () => {
                         ) : (
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Loader2 className="h-4 w-4 animate-spin" />
-                                <span>Loading audio and timings...</span>
+                                <span>Loading audio...</span>
                             </div>
+                        )}
+
+                        {audioUrl && wordTimings.length === 0 && (
+                           <Alert variant="default" className="mt-2">
+                             <AlertCircle className="h-4 w-4" />
+                             <AlertTitle>Audio Only</AlertTitle>
+                             <AlertDescription>
+                               Word-by-word highlighting is currently unavailable, but you can listen to the story.
+                             </AlertDescription>
+                           </Alert>
                         )}
                         
                         <div className="space-y-4">
