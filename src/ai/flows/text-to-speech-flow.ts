@@ -63,6 +63,8 @@ const textToSpeechFlow = ai.defineFlow(
   async ({text}) => {
     const {media} = await ai.generate({
       model: googleAI.model('gemini-2.5-flash-preview-tts'),
+      prompt: text,
+      enableTimepointing: ['WORD'], // Request word-level timings
       config: {
         responseModalities: ['AUDIO'],
         speechConfig: {
@@ -70,9 +72,7 @@ const textToSpeechFlow = ai.defineFlow(
             prebuiltVoiceConfig: {voiceName: 'Algenib'}, // A clear, scholarly voice
           },
         },
-        enableTimepointing: ['WORD'], // Request word-level timings
       },
-      prompt: text,
     });
 
     if (!media || !media.url || !media.timepoints) {
