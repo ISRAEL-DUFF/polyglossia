@@ -32,6 +32,7 @@ const CharacterSchema = z.object({
         y: z.number().describe('The vertical position of the character, as a percentage from the top edge of the scene (0-100).'),
     }).describe('The initial position of the character in the scene.'),
     scale: z.number().min(0.1).max(2.0).describe('The size of the character sprite, where 1.0 is normal size.'),
+    animation: z.enum(["idle", "enter_from_left", "enter_from_right", "exit_to_left", "exit_to_right"]).describe('Animation for the character. "idle" for bobbing, "enter_from_left/right" for entering, and "exit_to_left/right" for exiting the scene.').optional(),
 });
 
 const SceneSchema = z.object({
@@ -75,6 +76,7 @@ Please generate a story that is 3 to 5 paragraphs long. Each paragraph will be a
     - 'spritePrompt': A prompt for an AI to generate a full-body character sprite in a simple cartoon style. **Crucially, the prompt must specify a plain, solid white background.** This is because the sprite will be layered onto another image. Example: "A cartoon ancient Greek philosopher with a beard, wearing a toga, full body, on a plain white background."
     - 'position': An {x, y} object with percentage values for placement.
     - 'scale': A float for character size (e.g., 1.0 for normal, 1.2 for larger).
+    - 'animation': A simple animation. Use "idle" if the character is present and talking. Use "enter_from_left" or "enter_from_right" if they are new to the scene. Use "exit_to_left" or "exit_to_right" if they are leaving.
 
 The entire response must be a valid JSON object that adheres to the output schema.
 `,
