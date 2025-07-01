@@ -46,7 +46,8 @@ interface SavedStory extends GenerateStoryOutput {
 }
 
 
-const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
+// const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
+const API_BASE_URL = 'http://localhost:3001';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -65,7 +66,7 @@ const StoryCreatorPage: React.FC = () => {
     const fetchSavedStories = async () => {
         setIsLoadingStories(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/stories/list`); // Assuming this endpoint exists
+            const response = await fetch(`${API_BASE_URL}/story/list`); // Assuming this endpoint exists
             if (!response.ok) throw new Error("Failed to fetch saved stories.");
             const data = await response.json();
             setSavedStories(data.stories || []);
@@ -181,7 +182,7 @@ const StoryCreatorPage: React.FC = () => {
 
             // 5. Send the multipart/form-data request to a new endpoint
             // The browser will automatically set the correct 'Content-Type' header with boundary
-            const response = await fetch(`${API_BASE_URL}/stories/save-with-assets`, {
+            const response = await fetch(`${API_BASE_URL}/story/save-with-assets`, {
                 method: 'POST',
                 body: formData,
             });
