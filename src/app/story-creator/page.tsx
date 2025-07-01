@@ -1,7 +1,6 @@
-
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -15,6 +14,7 @@ import { Label } from '@/components/ui/label';
 import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { cn } from '@/lib/utils';
 
 type VocabWord = {
     word: string;
@@ -37,6 +37,12 @@ interface IndexedHistoryResponse {
   indexList: Record<string, HistoryEntry[]>;
 }
 
+interface WordTiming {
+    word: string;
+    startTime: number;
+    endTime: number;
+}
+
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api';
 
 const StoryCreatorPage: React.FC = () => {
@@ -46,8 +52,14 @@ const StoryCreatorPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
+    const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
+
+    const [currentWordIndex, setCurrentWordIndex] = useState(-1);
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const boldedWordsRef = useRef<Set<string>>(new Set());
+
 
     const handleGenerateStory = async () => {
         if (!selectedNamespace) {
@@ -60,9 +72,7 @@ const StoryCreatorPage: React.FC = () => {
         }
 
         setIsLoading(true);
-        setError(null);
-        setStory(null);
-        setAudioUrl(null);
+        handleReset();
 
         try {
             const vocabRes = await fetch(`${API_BASE_URL}/greek/lookup-history/indexed-entries?language=greek&namespace=${selectedNamespace}`);
@@ -89,9 +99,16 @@ const StoryCreatorPage: React.FC = () => {
             });
             setStory(generatedStory);
 
-            toast({ title: 'Story text ready!', description: 'Now generating audio...' });
-            const audioResult = await textToSpeech({ text: generatedStory.greekText, language: 'Greek' });
+            // Extract bolded words before stripping markup
+            boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+
+            const cleanText = generatedStory.greekText.replace(/\*\*/g, '');
+
+            toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
+            const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
             setAudioUrl(audioResult.audioUrl);
+            setWordTimings(audioResult.timings);
+
 
             toast({
                 title: 'Story Generated!',
@@ -115,6 +132,8 @@ const StoryCreatorPage: React.FC = () => {
         setStory(null);
         setError(null);
         setAudioUrl(null);
+        setWordTimings([]);
+        setCurrentWordIndex(-1);
     }
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
@@ -128,9 +147,17 @@ const StoryCreatorPage: React.FC = () => {
         setSelectedNamespace(namespace);
     }
 
-    const renderHighlightedText = (text: string) => {
-        const highlightedHtml = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>');
-        return { __html: highlightedHtml };
+    const handleTimeUpdate = () => {
+        if (!audioRef.current || wordTimings.length === 0) return;
+        const currentTime = audioRef.current.currentTime;
+        const activeIndex = wordTimings.findIndex(timing => currentTime >= timing.startTime && currentTime < timing.endTime);
+        if (activeIndex !== -1 && activeIndex !== currentWordIndex) {
+            setCurrentWordIndex(activeIndex);
+        }
+    };
+
+    const handleAudioEnd = () => {
+        setCurrentWordIndex(-1); // Reset highlight when audio finishes
     };
 
     return (
@@ -142,7 +169,7 @@ const StoryCreatorPage: React.FC = () => {
                         AI Story Creator
                     </CardTitle>
                     <CardDescription className="text-center text-muted-foreground">
-                        Create a unique, narrated story using words from your lookup history.
+                        Create a unique, narrated story using words from your lookup history, with synchronized text highlighting.
                     </CardDescription>
                 </CardHeader>
 
@@ -204,21 +231,45 @@ const StoryCreatorPage: React.FC = () => {
                             <h2 className="text-xl font-bold text-primary">{story.title}</h2>
                         </div>
                         
-                        {audioUrl ? (
-                            <audio controls src={audioUrl} className="w-full">
+                        {(audioUrl && wordTimings.length > 0) ? (
+                            <audio 
+                                ref={audioRef}
+                                controls 
+                                src={audioUrl} 
+                                className="w-full"
+                                onTimeUpdate={handleTimeUpdate}
+                                onEnded={handleAudioEnd}
+                            >
                                 Your browser does not support the audio element.
                             </audio>
                         ) : (
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Loader2 className="h-4 w-4 animate-spin" />
-                                <span>Loading audio...</span>
+                                <span>Loading audio and timings...</span>
                             </div>
                         )}
                         
                         <div className="space-y-4">
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
-                                <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size" dangerouslySetInnerHTML={renderHighlightedText(story.greekText)} />
+                                 <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose">
+                                     {wordTimings.length > 0 ? (
+                                        wordTimings.map((timing, index) => (
+                                            <span
+                                                key={index}
+                                                className={cn(
+                                                    'transition-colors duration-150 p-1 rounded-md',
+                                                    boldedWordsRef.current.has(timing.word) && 'font-bold text-primary',
+                                                    currentWordIndex === index && 'bg-primary/20'
+                                                )}
+                                            >
+                                                {timing.word}{' '}
+                                            </span>
+                                        ))
+                                     ) : (
+                                        <p>{story.greekText.replace(/\*\*/g, '')}</p>
+                                     )}
+                                </div>
                             </div>
                              <Collapsible>
                                 <CollapsibleTrigger asChild>

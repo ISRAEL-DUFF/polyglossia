@@ -42,6 +42,11 @@ export type TextToSpeechInput = z.infer<typeof TextToSpeechInputSchema>;
 
 const TextToSpeechOutputSchema = z.object({
   audioUrl: z.string().describe('The generated audio as a data URI.'),
+  timings: z.array(z.object({
+    word: z.string(),
+    startTime: z.number().describe('Start time of the word in seconds.'),
+    endTime: z.number().describe('End time of the word in seconds.'),
+  })).describe('Word-level timing information for the generated audio.')
 });
 export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;
 
@@ -64,13 +69,14 @@ const textToSpeechFlow = ai.defineFlow(
           voiceConfig: {
             prebuiltVoiceConfig: {voiceName: 'Algenib'}, // A clear, scholarly voice
           },
+          enableTimepointing: true, // Request word-level timings
         },
       },
       prompt: text,
     });
 
-    if (!media || !media.url) {
-      throw new Error('Text-to-speech conversion failed.');
+    if (!media || !media.url || !media.timepoints) {
+      throw new Error('Text-to-speech conversion with timing data failed.');
     }
 
     const audioBuffer = Buffer.from(
@@ -82,6 +88,7 @@ const textToSpeechFlow = ai.defineFlow(
 
     return {
       audioUrl: 'data:audio/wav;base64,' + wavBase64,
+      timings: media.timepoints,
     };
   }
 );
