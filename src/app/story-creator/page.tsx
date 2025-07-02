@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -16,6 +16,7 @@ import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 type VocabWord = {
     word: string;
@@ -61,6 +62,11 @@ const StoryCreatorPage: React.FC = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(-1);
     const audioRef = useRef<HTMLAudioElement>(null);
     const boldedWordsRef = useRef<Set<string>>(new Set());
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [playbackRate, setPlaybackRate] = useState(1);
 
     const handleGenerateStory = async () => {
         if (!selectedNamespace) {
@@ -108,7 +114,7 @@ const StoryCreatorPage: React.FC = () => {
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
             const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
             setAudioUrl(audioResult.audioUrl);
-            setWordTimings(audioResult.timings);
+            setWordTimings(audioResult.timings || []);
 
             toast({
                 title: 'Story Generated!',
@@ -135,6 +141,9 @@ const StoryCreatorPage: React.FC = () => {
         setWordTimings([]);
         setCurrentWordIndex(-1);
         setIsSaving(false);
+        setCurrentTime(0);
+        setDuration(0);
+        setIsPlaying(false);
     }
     
     const handleSaveStory = async () => {
@@ -188,9 +197,12 @@ const StoryCreatorPage: React.FC = () => {
     }
 
     const handleTimeUpdate = () => {
-        if (!audioRef.current || wordTimings.length === 0) return;
-        const currentTime = audioRef.current.currentTime;
-        const activeIndex = wordTimings.findIndex(timing => currentTime >= timing.startTime && currentTime < timing.endTime);
+        if (!audioRef.current) return;
+        setCurrentTime(audioRef.current.currentTime);
+        if (wordTimings.length === 0) return;
+
+        const time = audioRef.current.currentTime;
+        const activeIndex = wordTimings.findIndex(timing => time >= timing.startTime && time < timing.endTime);
         if (activeIndex !== -1 && activeIndex !== currentWordIndex) {
             setCurrentWordIndex(activeIndex);
         }
@@ -198,6 +210,31 @@ const StoryCreatorPage: React.FC = () => {
 
     const handleAudioEnd = () => {
         setCurrentWordIndex(-1);
+        setIsPlaying(false);
+    };
+
+    const handleLoadedMetadata = () => {
+        if (audioRef.current) {
+            setDuration(audioRef.current.duration);
+        }
+    };
+    
+    const togglePlayPause = () => {
+        if (audioRef.current) {
+            if (audioRef.current.paused) {
+                audioRef.current.play();
+            } else {
+                audioRef.current.pause();
+            }
+        }
+    };
+
+    const handlePlaybackRateChange = (rate: string) => {
+        const newRate = parseFloat(rate);
+        setPlaybackRate(newRate);
+        if (audioRef.current) {
+            audioRef.current.playbackRate = newRate;
+        }
     };
     
     const renderHighlightedFallbackText = (text: string) => {
@@ -282,16 +319,45 @@ const StoryCreatorPage: React.FC = () => {
                         </div>
                         
                         {(audioUrl) ? (
-                            <audio 
-                                ref={audioRef}
-                                controls 
-                                src={audioUrl} 
-                                className="w-full"
-                                onTimeUpdate={handleTimeUpdate}
-                                onEnded={handleAudioEnd}
-                            >
-                                Your browser does not support the audio element.
-                            </audio>
+                            <>
+                                <audio 
+                                    ref={audioRef}
+                                    src={audioUrl} 
+                                    onLoadedMetadata={handleLoadedMetadata}
+                                    onTimeUpdate={handleTimeUpdate}
+                                    onEnded={handleAudioEnd}
+                                    onPlay={() => setIsPlaying(true)}
+                                    onPause={() => setIsPlaying(false)}
+                                    className="hidden" // The element is needed but not visible
+                                >
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                                <div className="flex items-center gap-4 p-2 border rounded-lg bg-muted/50">
+                                    <Button onClick={togglePlayPause} variant="outline" size="icon">
+                                        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                                    </Button>
+                                    <div className="font-mono text-sm text-muted-foreground w-28">
+                                        {currentTime.toFixed(2)}s / {duration.toFixed(2)}s
+                                    </div>
+                                    <div className="flex-grow" />
+                                    <div className="flex items-center gap-2">
+                                        <Label htmlFor="speed-select" className="text-sm">Speed:</Label>
+                                        <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
+                                            <SelectTrigger id="speed-select" className="w-[80px]">
+                                                <SelectValue placeholder="Speed" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="0.5">0.5x</SelectItem>
+                                                <SelectItem value="0.75">0.75x</SelectItem>
+                                                <SelectItem value="1">1x</SelectItem>
+                                                <SelectItem value="1.25">1.25x</SelectItem>
+                                                <SelectItem value="1.5">1.5x</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </div>
+                            </>
                         ) : (
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Loader2 className="h-4 w-4 animate-spin" />
