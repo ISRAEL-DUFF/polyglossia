@@ -328,6 +328,15 @@ const StoryCreatorPage: React.FC = () => {
         });
     };
 
+    const handleWordClick = (startTime: number) => {
+        if (audioRef.current) {
+            audioRef.current.currentTime = startTime;
+            if (audioRef.current.paused) {
+                audioRef.current.play().catch(e => console.error("Audio play error:", e));
+            }
+        }
+    };
+
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
             setPagination(prev => ({ ...prev, page: newPage }));
@@ -478,8 +487,9 @@ const StoryCreatorPage: React.FC = () => {
                                         wordTimings.map((timing, index) => (
                                             <span
                                                 key={index}
+                                                onClick={() => handleWordClick(timing.startTime)}
                                                 className={cn(
-                                                    'transition-colors duration-150 p-1 rounded-md',
+                                                    'transition-colors duration-150 p-1 rounded-md cursor-pointer hover:bg-primary/10',
                                                     boldedWordsRef.current.has(timing.word) && 'font-bold text-primary',
                                                     currentWordIndex === index && 'bg-primary/20'
                                                 )}
@@ -608,3 +618,5 @@ const StoryCreatorPage: React.FC = () => {
 };
 
 export default StoryCreatorPage;
+
+    
