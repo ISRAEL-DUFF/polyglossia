@@ -156,20 +156,27 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
                     </div>
 
                     <div ref={wordsContainerRef} className="flex-grow p-4 border rounded-lg overflow-y-auto">
-                        <div className="flex flex-wrap gap-x-2 gap-y-3">
+                        <div className="flex flex-wrap gap-x-4 gap-y-6">
                             {words.map((word, index) => (
-                                <button
-                                    key={index}
-                                    data-index={index}
-                                    onClick={() => jumpToWord(index)}
-                                    className={cn(
-                                        "p-2 rounded-md text-lg transition-all border-2 border-transparent greek-size",
-                                        currentIndex === index && "bg-primary/20 border-primary scale-110 shadow-lg",
-                                        timings[index].startTime > 0 && "bg-green-500/20 text-foreground"
+                                <div key={index} className="flex flex-col items-center text-center">
+                                    <button
+                                        data-index={index}
+                                        onClick={() => jumpToWord(index)}
+                                        className={cn(
+                                            "p-2 rounded-md text-lg transition-all border-2 border-transparent greek-size",
+                                            currentIndex === index && "bg-primary/20 border-primary scale-110 shadow-lg",
+                                            timings[index].startTime > 0 && "bg-green-500/20 text-foreground"
+                                        )}
+                                    >
+                                        {word}
+                                    </button>
+                                    {timings[index].startTime > 0 && (
+                                        <div className="text-xs text-muted-foreground mt-1 font-mono">
+                                            {timings[index].startTime.toFixed(2)}s
+                                            {timings[index].endTime > 0 && ` - ${timings[index].endTime.toFixed(2)}s`}
+                                        </div>
                                     )}
-                                >
-                                    {word}
-                                </button>
+                                </div>
                             ))}
                         </div>
                     </div>
