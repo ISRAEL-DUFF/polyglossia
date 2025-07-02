@@ -1,11 +1,11 @@
 
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -17,6 +17,7 @@ import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 type VocabWord = {
     word: string;
@@ -45,7 +46,31 @@ interface WordTiming {
     endTime: number;
 }
 
+interface SavedStory {
+    id: string;
+    title: string;
+    greekText: string;
+    englishTranslation: string;
+    audioDataUri: string;
+    timings: WordTiming[];
+    language: string;
+    namespace: string;
+    createdAt: string;
+}
+
+interface StoriesApiResponse {
+    stories: SavedStory[];
+    pagination: {
+        page: number;
+        pageSize: number;
+        total: number;
+        totalPages: number;
+    };
+}
+
+
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -67,6 +92,38 @@ const StoryCreatorPage: React.FC = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [playbackRate, setPlaybackRate] = useState(1);
+    
+    // State for saved stories
+    const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
+    const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
+    const [loadingSavedStories, setLoadingSavedStories] = useState(false);
+
+    const fetchSavedStories = useCallback(async (page = 1) => {
+        if (!selectedNamespace) {
+            setSavedStories([]);
+            return;
+        };
+        setLoadingSavedStories(true);
+        try {
+            const response = await fetch(`${STORIES_API_URL}/list?language=greek&namespace=${selectedNamespace}&page=${page}&pageSize=${pagination.pageSize}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch saved stories.');
+            }
+            const data: StoriesApiResponse = await response.json();
+            setSavedStories(data.stories || []);
+            setPagination(data.pagination || { page: 1, pageSize: 5, total: 0, totalPages: 1 });
+        } catch (err) {
+            const msg = err instanceof Error ? err.message : 'An unknown error occurred.';
+            toast({ variant: 'destructive', title: 'Error Fetching Stories', description: msg });
+        } finally {
+            setLoadingSavedStories(false);
+        }
+    }, [selectedNamespace, pagination.pageSize, toast]);
+    
+    useEffect(() => {
+        fetchSavedStories(pagination.page);
+    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]); // Re-fetch on namespace change or after saving
+
 
     const handleGenerateStory = async () => {
         if (!selectedNamespace) {
@@ -118,7 +175,7 @@ const StoryCreatorPage: React.FC = () => {
               setAudioUrl(audioResult.audioUrl);
               setWordTimings(audioResult.timings || []);
             } else {
-              throw new Error("Text-to-speech conversion with timing data failed.");
+              setWordTimings([]); // Fallback to no timings
             }
 
             toast({
@@ -169,7 +226,7 @@ const StoryCreatorPage: React.FC = () => {
                 namespace: selectedNamespace,
             };
 
-            const response = await fetch('https://www.eazilang.gleeze.com/api/stories/save', {
+            const response = await fetch(`${STORIES_API_URL}/save`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
@@ -191,6 +248,19 @@ const StoryCreatorPage: React.FC = () => {
         }
     };
 
+    const handleLoadSavedStory = (savedStory: SavedStory) => {
+        handleReset(); // Reset current player state
+        setStory({
+            title: savedStory.title,
+            greekText: savedStory.greekText,
+            englishTranslation: savedStory.englishTranslation
+        });
+        setAudioUrl(savedStory.audioDataUri);
+        setWordTimings(savedStory.timings || []);
+        boldedWordsRef.current = new Set([...(savedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
         toast({
             title: "Word Selected",
@@ -200,6 +270,7 @@ const StoryCreatorPage: React.FC = () => {
     
     const handleNamespaceSelect = (namespace: string, entry: NamespaceEntry) => {
         setSelectedNamespace(namespace);
+        setPagination(prev => ({...prev, page: 1})); // Reset page when namespace changes
     }
 
     const handleTimeUpdate = () => {
@@ -252,6 +323,13 @@ const StoryCreatorPage: React.FC = () => {
             return <React.Fragment key={index}>{part}</React.Fragment>;
         });
     };
+
+    const handlePageChange = (newPage: number) => {
+        if (newPage >= 1 && newPage <= pagination.totalPages) {
+            setPagination(prev => ({ ...prev, page: newPage }));
+        }
+    };
+
 
     return (
         <div className="container mx-auto space-y-6 p-1">
@@ -437,8 +515,77 @@ const StoryCreatorPage: React.FC = () => {
                 onNamespaceSelect={handleNamespaceSelect}
                 refreshTrigger={historyRefreshTrigger} 
             />
+
+            <Card className="mt-6">
+                <CardHeader>
+                    <CardTitle className="text-xl flex items-center gap-2">
+                        <Library className="h-5 w-5 text-primary"/>
+                        Saved Stories Library
+                    </CardTitle>
+                    <CardDescription>
+                        Review your previously generated stories for the namespace "{selectedNamespace || 'N/A'}".
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {loadingSavedStories && (
+                        <div className="space-y-2">
+                            {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
+                        </div>
+                    )}
+                    {!loadingSavedStories && savedStories.length === 0 && (
+                        <p className="text-center text-muted-foreground p-4">
+                            {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
+                        </p>
+                    )}
+                    {!loadingSavedStories && savedStories.length > 0 && (
+                        <ul className="space-y-2">
+                            {savedStories.map(story => (
+                                <li key={story.id}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-left h-auto py-2"
+                                        onClick={() => handleLoadSavedStory(story)}
+                                    >
+                                        <div>
+                                            <p className="font-medium">{story.title}</p>
+                                            <p className="text-xs text-muted-foreground">
+                                                Saved on {new Date(story.createdAt).toLocaleDateString()}
+                                            </p>
+                                        </div>
+                                    </Button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </CardContent>
+                {pagination.totalPages > 1 && !loadingSavedStories && (
+                    <CardFooter>
+                         <Pagination>
+                            <PaginationContent>
+                                <PaginationItem>
+                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page - 1)} disabled={pagination.page <= 1}>
+                                        Previous
+                                    </Button>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <span className="px-4 text-sm text-muted-foreground">
+                                        Page {pagination.page} of {pagination.totalPages}
+                                    </span>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page + 1)} disabled={pagination.page >= pagination.totalPages}>
+                                        Next
+                                    </Button>
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+                    </CardFooter>
+                )}
+            </Card>
         </div>
     );
 };
 
 export default StoryCreatorPage;
+
+    

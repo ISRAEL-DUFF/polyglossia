@@ -48,7 +48,6 @@ const gamesNav = [
   { href: '/parser-game', label: 'Parser Game', icon: Gamepad2Icon },
   { href: '/flashcard-game', label: 'Flashcards', icon: BrainCircuit },
   { href: '/story-creator', label: 'AI Story Creator', icon: Sparkles },
-  { href: '/saved-stories', label: 'Saved Stories', icon: Library },
 ];
 
 
@@ -151,3 +150,5 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
+
+    
