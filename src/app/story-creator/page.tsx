@@ -71,7 +71,8 @@ interface StoriesApiResponse {
 
 
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
-const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
+// const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
+const STORIES_API_URL = 'http://localhost:3001/stories';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -443,6 +444,7 @@ const StoryCreatorPage: React.FC = () => {
                                                 <SelectValue placeholder="Speed" />
                                             </SelectTrigger>
                                             <SelectContent>
+                                                <SelectItem value="0.25">0.25x</SelectItem>
                                                 <SelectItem value="0.5">0.5x</SelectItem>
                                                 <SelectItem value="0.75">0.75x</SelectItem>
                                                 <SelectItem value="1">1x</SelectItem>
