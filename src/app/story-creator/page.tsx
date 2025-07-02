@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -17,8 +17,11 @@ import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import TimingTool from './TimingTool';
+import { localDatabase } from '@/lib/utils/storageUtil';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
 
 type VocabWord = {
     word: string;
@@ -50,13 +53,14 @@ interface WordTiming {
 interface SavedStory {
     id: string;
     title: string;
-    greekText: string;
-    englishTranslation: string;
-    audioDataUri: string;
-    timings: WordTiming[];
     language: string;
     namespace: string;
     createdAt: string;
+    // Full data is optional for API list, but required for favorites
+    greekText?: string;
+    englishTranslation?: string;
+    audioDataUri?: string;
+    timings?: WordTiming[];
 }
 
 interface StoriesApiResponse {
@@ -69,7 +73,7 @@ interface StoriesApiResponse {
     };
 }
 
-
+const favoritesDb = localDatabase('story_favorites');
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
 // const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
 const STORIES_API_URL = 'http://localhost:3001/stories';
@@ -80,6 +84,7 @@ const StoryCreatorPage: React.FC = () => {
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
+    const [isLoadingStory, setIsLoadingStory] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
@@ -95,13 +100,16 @@ const StoryCreatorPage: React.FC = () => {
     const [duration, setDuration] = useState(0);
     const [playbackRate, setPlaybackRate] = useState(1);
     
-    // State for saved stories
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
     const [loadingSavedStories, setLoadingSavedStories] = useState(false);
     
+    const [favorites, setFavorites] = useState<SavedStory[]>([]);
     const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
 
+    useEffect(() => {
+        setFavorites(favoritesDb.getAll());
+    }, []);
 
     const fetchSavedStories = useCallback(async (page = 1) => {
         if (!selectedNamespace) {
@@ -127,7 +135,7 @@ const StoryCreatorPage: React.FC = () => {
     
     useEffect(() => {
         fetchSavedStories(pagination.page);
-    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]); // Re-fetch on namespace change or after saving
+    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]);
 
 
     const handleGenerateStory = async () => {
@@ -241,6 +249,8 @@ const StoryCreatorPage: React.FC = () => {
                 const errorData = await response.json().catch(() => ({ message: 'Failed to save story.' }));
                 throw new Error(errorData.message);
             }
+            
+            await fetchSavedStories(); // Refresh the list
 
             toast({ title: 'Story Saved', description: `"${story.title}" has been saved successfully.` });
 
@@ -252,19 +262,82 @@ const StoryCreatorPage: React.FC = () => {
             setIsSaving(false);
         }
     };
+    
+    const handleLoadStory = async (storyToLoad: SavedStory, isFavorite: boolean) => {
+        handleReset();
 
-    const handleLoadSavedStory = (savedStory: SavedStory) => {
-        handleReset(); // Reset current player state
-        setStory({
-            title: savedStory.title,
-            greekText: savedStory.greekText,
-            englishTranslation: savedStory.englishTranslation
-        });
-        setAudioUrl(savedStory.audioDataUri);
-        setWordTimings(savedStory.timings || []);
-        boldedWordsRef.current = new Set([...(savedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (isFavorite && storyToLoad.greekText) {
+            // Load directly from favorite object
+            setStory({
+                title: storyToLoad.title,
+                greekText: storyToLoad.greekText,
+                englishTranslation: storyToLoad.englishTranslation || '',
+            });
+            setAudioUrl(storyToLoad.audioDataUri || null);
+            setWordTimings(storyToLoad.timings || []);
+            boldedWordsRef.current = new Set([...(storyToLoad.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
+        // Fetch from API for non-favorites or incomplete favorite objects
+        setIsLoadingStory(true);
+        try {
+            const response = await fetch(`${STORIES_API_URL}/get/${storyToLoad.id}`);
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || 'Failed to load the selected story.');
+            }
+            const fullStory: SavedStory = await response.json();
+            
+            setStory({
+                title: fullStory.title,
+                greekText: fullStory.greekText!,
+                englishTranslation: fullStory.englishTranslation!,
+            });
+            setAudioUrl(fullStory.audioDataUri!);
+            setWordTimings(fullStory.timings || []);
+            boldedWordsRef.current = new Set([...(fullStory.greekText?.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+             const msg = err instanceof Error ? err.message : 'An unknown error occurred.';
+             toast({ variant: 'destructive', title: 'Error Loading Story', description: msg });
+        } finally {
+            setIsLoadingStory(false);
+        }
     };
+
+    const toggleFavorite = async (storyToList: SavedStory) => {
+        const isFavorited = favorites.some(fav => fav.id === storyToList.id);
+    
+        if (isFavorited) {
+            favoritesDb.remove(storyToList.id);
+            setFavorites(prev => prev.filter(f => f.id !== storyToList.id));
+            toast({ title: 'Unfavorited', description: 'Story removed from offline favorites.' });
+        } else {
+            let fullStoryData = storyToList;
+            // Check if we already have the full data
+            if (!fullStoryData.greekText || !fullStoryData.audioDataUri) {
+                const loadingToast = toast({ title: 'Favoriting...', description: 'Fetching full story to save offline.' });
+                try {
+                    const response = await fetch(`${STORIES_API_URL}/get/${storyToList.id}`);
+                    if (!response.ok) throw new Error('Could not fetch story to favorite it.');
+                    fullStoryData = await response.json();
+                } catch (e) {
+                    loadingToast.dismiss();
+                    toast({ title: "Error", description: e instanceof Error ? e.message : "Could not favorite story.", variant: "destructive" });
+                    return;
+                }
+                loadingToast.dismiss();
+            }
+    
+            favoritesDb.add(fullStoryData);
+            setFavorites(prev => [...prev, fullStoryData]);
+            toast({ title: 'Favorited!', description: 'Story saved for offline access.' });
+        }
+    };
+
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
         toast({
@@ -275,7 +348,7 @@ const StoryCreatorPage: React.FC = () => {
     
     const handleNamespaceSelect = (namespace: string, entry: NamespaceEntry) => {
         setSelectedNamespace(namespace);
-        setPagination(prev => ({...prev, page: 1})); // Reset page when namespace changes
+        setPagination(prev => ({...prev, page: 1}));
     }
 
     const handleTimeUpdate = () => {
@@ -347,6 +420,40 @@ const StoryCreatorPage: React.FC = () => {
     const handleTimingsUpdate = (newTimings: WordTiming[]) => {
         setWordTimings(newTimings);
     };
+    
+    const renderStoryList = (stories: SavedStory[], isFavoritesList: boolean) => (
+       <ul className="space-y-2">
+            {stories.map(storyItem => (
+                <li key={storyItem.id}>
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="ghost"
+                            className="flex-grow justify-start text-left h-auto py-2"
+                            onClick={() => handleLoadStory(storyItem, isFavoritesList)}
+                        >
+                            <div>
+                                <p className="font-medium">{storyItem.title}</p>
+                                <p className="text-xs text-muted-foreground">
+                                    Saved on {new Date(storyItem.createdAt).toLocaleDateString()}
+                                </p>
+                            </div>
+                        </Button>
+                        <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => toggleFavorite(storyItem)}
+                            aria-label={favorites.some(f => f.id === storyItem.id) ? 'Unfavorite' : 'Favorite'}
+                        >
+                            <Star className={cn(
+                                "h-5 w-5 text-muted-foreground transition-colors",
+                                favorites.some(f => f.id === storyItem.id) ? "fill-yellow-400 text-yellow-500" : "hover:text-yellow-500"
+                            )}/>
+                        </Button>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    );
 
     return (
         <div className="container mx-auto space-y-6 p-1">
@@ -361,7 +468,7 @@ const StoryCreatorPage: React.FC = () => {
                     </CardDescription>
                 </CardHeader>
 
-                {!story && (
+                {!story && !isLoadingStory && (
                   <CardContent className="space-y-4">
                       <div>
                           <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
@@ -389,7 +496,7 @@ const StoryCreatorPage: React.FC = () => {
                   </CardContent>
                 )}
                 
-                {isLoading && (
+                {(isLoading || isLoadingStory) && (
                  <CardContent>
                     <div className="space-y-4">
                         <Skeleton className="h-8 w-3/4 mx-auto" />
@@ -413,7 +520,7 @@ const StoryCreatorPage: React.FC = () => {
                     </CardContent>
                 )}
 
-                {!isLoading && story && (
+                {!isLoading && !isLoadingStory && story && (
                    <CardContent className="space-y-4 animate-fadeInUp">
                         <div className="text-center">
                             <h2 className="text-xl font-bold text-primary">{story.title}</h2>
@@ -429,7 +536,7 @@ const StoryCreatorPage: React.FC = () => {
                                     onEnded={handleAudioEnd}
                                     onPlay={() => setIsPlaying(true)}
                                     onPause={() => setIsPlaying(false)}
-                                    className="hidden" // The element is needed but not visible
+                                    className="hidden"
                                 >
                                     Your browser does not support the audio element.
                                 </audio>
@@ -543,67 +650,51 @@ const StoryCreatorPage: React.FC = () => {
                 <CardHeader>
                     <CardTitle className="text-xl flex items-center gap-2">
                         <Library className="h-5 w-5 text-primary"/>
-                        Saved Stories Library
+                        Story Library
                     </CardTitle>
                     <CardDescription>
-                        Review your previously generated stories for the namespace "{selectedNamespace || 'N/A'}".
+                        Review your previously generated and favorite stories for the namespace "{selectedNamespace || 'N/A'}".
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {loadingSavedStories && (
-                        <div className="space-y-2">
-                            {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
-                        </div>
-                    )}
-                    {!loadingSavedStories && savedStories.length === 0 && (
-                        <p className="text-center text-muted-foreground p-4">
-                            {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
-                        </p>
-                    )}
-                    {!loadingSavedStories && savedStories.length > 0 && (
-                        <ul className="space-y-2">
-                            {savedStories.map(story => (
-                                <li key={story.id}>
-                                    <Button
-                                        variant="ghost"
-                                        className="w-full justify-start text-left h-auto py-2"
-                                        onClick={() => handleLoadSavedStory(story)}
-                                    >
-                                        <div>
-                                            <p className="font-medium">{story.title}</p>
-                                            <p className="text-xs text-muted-foreground">
-                                                Saved on {new Date(story.createdAt).toLocaleDateString()}
-                                            </p>
-                                        </div>
-                                    </Button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                  <Tabs defaultValue="all-stories" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="all-stories">All Saved Stories</TabsTrigger>
+                      <TabsTrigger value="favorites">Favorites (Offline)</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="all-stories" className="mt-4">
+                       {loadingSavedStories ? (
+                            <div className="space-y-2">
+                                {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
+                            </div>
+                        ) : savedStories.length === 0 ? (
+                            <p className="text-center text-muted-foreground p-4">
+                                {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
+                            </p>
+                        ) : (
+                            renderStoryList(savedStories, false)
+                        )}
+                        {pagination.totalPages > 1 && !loadingSavedStories && (
+                            <Pagination className="mt-4">
+                                <PaginationContent>
+                                    <PaginationPrevious onClick={() => handlePageChange(pagination.page - 1)} className={cn(pagination.page <= 1 && "pointer-events-none opacity-50")}/>
+                                    <span className="p-2 text-sm">Page {pagination.page} of {pagination.totalPages}</span>
+                                    <PaginationNext onClick={() => handlePageChange(pagination.page + 1)} className={cn(pagination.page >= pagination.totalPages && "pointer-events-none opacity-50")}/>
+                                </PaginationContent>
+                            </Pagination>
+                        )}
+                    </TabsContent>
+                    <TabsContent value="favorites" className="mt-4">
+                         {favorites.length === 0 ? (
+                            <p className="text-center text-muted-foreground p-4">
+                                No favorite stories yet. Click the star icon on a story to save it here for offline access.
+                            </p>
+                        ) : (
+                           renderStoryList(favorites, true)
+                        )}
+                    </TabsContent>
+                  </Tabs>
                 </CardContent>
-                {pagination.totalPages > 1 && !loadingSavedStories && (
-                    <CardFooter>
-                         <Pagination>
-                            <PaginationContent>
-                                <PaginationItem>
-                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page - 1)} disabled={pagination.page <= 1}>
-                                        Previous
-                                    </Button>
-                                </PaginationItem>
-                                <PaginationItem>
-                                    <span className="px-4 text-sm text-muted-foreground">
-                                        Page {pagination.page} of {pagination.totalPages}
-                                    </span>
-                                </PaginationItem>
-                                <PaginationItem>
-                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page + 1)} disabled={pagination.page >= pagination.totalPages}>
-                                        Next
-                                    </Button>
-                                </PaginationItem>
-                            </PaginationContent>
-                        </Pagination>
-                    </CardFooter>
-                )}
             </Card>
             
             {story && audioUrl && (
@@ -620,5 +711,3 @@ const StoryCreatorPage: React.FC = () => {
 };
 
 export default StoryCreatorPage;
-
-    
