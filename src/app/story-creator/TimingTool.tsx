@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Play, Pause, Save, RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface WordTiming {
     word: string;
@@ -31,6 +33,7 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
     const [timings, setTimings] = useState<WordTiming[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [playbackRate, setPlaybackRate] = useState(1);
 
     useEffect(() => {
         if (isOpen) {
@@ -40,7 +43,9 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
             setCurrentIndex(0);
             if (audioRef.current) {
                 audioRef.current.currentTime = 0;
+                audioRef.current.playbackRate = 1;
             }
+            setPlaybackRate(1);
         }
     }, [isOpen, storyText]);
 
@@ -59,7 +64,6 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
         const nextIndex = currentIndex + 1;
         setCurrentIndex(nextIndex);
 
-        // Scroll the next word into view
         const wordElement = wordsContainerRef.current?.querySelector(`[data-index="${nextIndex}"]`);
         wordElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
@@ -102,6 +106,14 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
         setCurrentIndex(index);
     };
 
+    const handlePlaybackRateChange = (rate: string) => {
+        const newRate = parseFloat(rate);
+        setPlaybackRate(newRate);
+        if (audioRef.current) {
+            audioRef.current.playbackRate = newRate;
+        }
+    };
+
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-4 sm:p-6">
@@ -114,16 +126,33 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
                 
                 <div className="flex-grow overflow-y-hidden flex flex-col gap-4">
                     <div className="p-4 border rounded-lg bg-muted/50">
-                        <audio 
-                            ref={audioRef}
-                            src={audioUrl}
-                            controls 
-                            className="w-full"
-                            onPlay={() => setIsPlaying(true)}
-                            onPause={() => setIsPlaying(false)}
-                        >
-                            Your browser does not support audio.
-                        </audio>
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                            <audio 
+                                ref={audioRef}
+                                src={audioUrl}
+                                controls 
+                                className="w-full flex-grow"
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
+                            >
+                                Your browser does not support audio.
+                            </audio>
+                             <div className="flex items-center gap-2 shrink-0">
+                                <Label htmlFor="speed-select-timing" className="text-sm">Speed:</Label>
+                                <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
+                                    <SelectTrigger id="speed-select-timing" className="w-[80px]">
+                                        <SelectValue placeholder="Speed" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="0.5">0.5x</SelectItem>
+                                        <SelectItem value="0.75">0.75x</SelectItem>
+                                        <SelectItem value="1">1x</SelectItem>
+                                        <SelectItem value="1.25">1.25x</SelectItem>
+                                        <SelectItem value="1.5">1.5x</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                        </div>
                     </div>
 
                     <div ref={wordsContainerRef} className="flex-grow p-4 border rounded-lg overflow-y-auto">
