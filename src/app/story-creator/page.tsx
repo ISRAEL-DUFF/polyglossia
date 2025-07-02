@@ -1,10 +1,11 @@
+
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -15,6 +16,8 @@ import LookupHistoryViewer from '@/components/LookupHistoryViewer';
 import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 type VocabWord = {
     word: string;
@@ -43,13 +46,38 @@ interface WordTiming {
     endTime: number;
 }
 
+interface SavedStory {
+    id: string;
+    title: string;
+    greekText: string;
+    englishTranslation: string;
+    audioDataUri: string;
+    timings: WordTiming[];
+    language: string;
+    namespace: string;
+    createdAt: string;
+}
+
+interface StoriesApiResponse {
+    stories: SavedStory[];
+    pagination: {
+        page: number;
+        pageSize: number;
+        total: number;
+        totalPages: number;
+    };
+}
+
+
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
     const [selectedNamespace, setSelectedNamespace] = useState<string>('');
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
@@ -59,6 +87,42 @@ const StoryCreatorPage: React.FC = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(-1);
     const audioRef = useRef<HTMLAudioElement>(null);
     const boldedWordsRef = useRef<Set<string>>(new Set());
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [playbackRate, setPlaybackRate] = useState(1);
+    
+    // State for saved stories
+    const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
+    const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
+    const [loadingSavedStories, setLoadingSavedStories] = useState(false);
+
+    const fetchSavedStories = useCallback(async (page = 1) => {
+        if (!selectedNamespace) {
+            setSavedStories([]);
+            return;
+        };
+        setLoadingSavedStories(true);
+        try {
+            const response = await fetch(`${STORIES_API_URL}/list?language=greek&namespace=${selectedNamespace}&page=${page}&pageSize=${pagination.pageSize}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch saved stories.');
+            }
+            const data: StoriesApiResponse = await response.json();
+            setSavedStories(data.stories || []);
+            setPagination(data.pagination || { page: 1, pageSize: 5, total: 0, totalPages: 1 });
+        } catch (err) {
+            const msg = err instanceof Error ? err.message : 'An unknown error occurred.';
+            toast({ variant: 'destructive', title: 'Error Fetching Stories', description: msg });
+        } finally {
+            setLoadingSavedStories(false);
+        }
+    }, [selectedNamespace, pagination.pageSize, toast]);
+    
+    useEffect(() => {
+        fetchSavedStories(pagination.page);
+    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]); // Re-fetch on namespace change or after saving
 
 
     const handleGenerateStory = async () => {
@@ -90,10 +154,8 @@ const StoryCreatorPage: React.FC = () => {
             }));
             
             const uniqueVocab = Array.from(new Map(vocabForAI.map(item => [item['word'], item])).values());
-            
-            // Shuffle and limit the vocabulary to prevent an overly large prompt
             const shuffledVocab = uniqueVocab.sort(() => 0.5 - Math.random());
-            const limitedVocab = shuffledVocab.slice(0, 20); // Limit to 20 words
+            const limitedVocab = shuffledVocab.slice(0, 20);
 
             toast({ title: 'Generating story text...', description: 'Please wait, this may take a moment.' });
             const generatedStory = await generateStory({
@@ -103,16 +165,18 @@ const StoryCreatorPage: React.FC = () => {
             });
             setStory(generatedStory);
 
-            // Extract bolded words before stripping markup
             boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-
             const cleanText = generatedStory.greekText.replace(/\*\*/g, '');
 
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
             const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
-            setAudioUrl(audioResult.audioUrl);
-            setWordTimings(audioResult.timings);
-
+            
+            if (audioResult && audioResult.audioUrl) {
+              setAudioUrl(audioResult.audioUrl);
+              setWordTimings(audioResult.timings || []);
+            } else {
+              setWordTimings([]); // Fallback to no timings
+            }
 
             toast({
                 title: 'Story Generated!',
@@ -138,7 +202,64 @@ const StoryCreatorPage: React.FC = () => {
         setAudioUrl(null);
         setWordTimings([]);
         setCurrentWordIndex(-1);
+        setIsSaving(false);
+        setCurrentTime(0);
+        setDuration(0);
+        setIsPlaying(false);
     }
+    
+    const handleSaveStory = async () => {
+        if (!story || !audioUrl) {
+            toast({ variant: 'destructive', title: 'Error', description: 'No story or audio available to save.' });
+            return;
+        }
+
+        setIsSaving(true);
+        try {
+            const payload = {
+                title: story.title,
+                greekText: story.greekText,
+                englishTranslation: story.englishTranslation,
+                audioDataUri: audioUrl,
+                timings: wordTimings,
+                language: 'greek',
+                namespace: selectedNamespace,
+            };
+
+            const response = await fetch(`${STORIES_API_URL}/save`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: 'Failed to save story.' }));
+                throw new Error(errorData.message);
+            }
+
+            toast({ title: 'Story Saved', description: `"${story.title}" has been saved successfully.` });
+
+        } catch (err) {
+            const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred while saving.';
+            setError(errorMessage);
+            toast({ variant: 'destructive', title: 'Save Failed', description: errorMessage });
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
+    const handleLoadSavedStory = (savedStory: SavedStory) => {
+        handleReset(); // Reset current player state
+        setStory({
+            title: savedStory.title,
+            greekText: savedStory.greekText,
+            englishTranslation: savedStory.englishTranslation
+        });
+        setAudioUrl(savedStory.audioDataUri);
+        setWordTimings(savedStory.timings || []);
+        boldedWordsRef.current = new Set([...(savedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
         toast({
@@ -149,20 +270,66 @@ const StoryCreatorPage: React.FC = () => {
     
     const handleNamespaceSelect = (namespace: string, entry: NamespaceEntry) => {
         setSelectedNamespace(namespace);
+        setPagination(prev => ({...prev, page: 1})); // Reset page when namespace changes
     }
 
     const handleTimeUpdate = () => {
-        if (!audioRef.current || wordTimings.length === 0) return;
-        const currentTime = audioRef.current.currentTime;
-        const activeIndex = wordTimings.findIndex(timing => currentTime >= timing.startTime && currentTime < timing.endTime);
+        if (!audioRef.current) return;
+        setCurrentTime(audioRef.current.currentTime);
+        if (wordTimings.length === 0) return;
+
+        const time = audioRef.current.currentTime;
+        const activeIndex = wordTimings.findIndex(timing => time >= timing.startTime && time < timing.endTime);
         if (activeIndex !== -1 && activeIndex !== currentWordIndex) {
             setCurrentWordIndex(activeIndex);
         }
     };
 
     const handleAudioEnd = () => {
-        setCurrentWordIndex(-1); // Reset highlight when audio finishes
+        setCurrentWordIndex(-1);
+        setIsPlaying(false);
     };
+
+    const handleLoadedMetadata = () => {
+        if (audioRef.current) {
+            setDuration(audioRef.current.duration);
+        }
+    };
+    
+    const togglePlayPause = () => {
+        if (audioRef.current) {
+            if (audioRef.current.paused) {
+                audioRef.current.play();
+            } else {
+                audioRef.current.pause();
+            }
+        }
+    };
+
+    const handlePlaybackRateChange = (rate: string) => {
+        const newRate = parseFloat(rate);
+        setPlaybackRate(newRate);
+        if (audioRef.current) {
+            audioRef.current.playbackRate = newRate;
+        }
+    };
+    
+    const renderHighlightedFallbackText = (text: string) => {
+        const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
+        return parts.map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={index} className="text-primary font-bold">{part.slice(2, -2)}</strong>;
+            }
+            return <React.Fragment key={index}>{part}</React.Fragment>;
+        });
+    };
+
+    const handlePageChange = (newPage: number) => {
+        if (newPage >= 1 && newPage <= pagination.totalPages) {
+            setPagination(prev => ({ ...prev, page: newPage }));
+        }
+    };
+
 
     return (
         <div className="container mx-auto space-y-6 p-1">
@@ -236,16 +403,45 @@ const StoryCreatorPage: React.FC = () => {
                         </div>
                         
                         {(audioUrl) ? (
-                            <audio 
-                                ref={audioRef}
-                                controls 
-                                src={audioUrl} 
-                                className="w-full"
-                                onTimeUpdate={handleTimeUpdate}
-                                onEnded={handleAudioEnd}
-                            >
-                                Your browser does not support the audio element.
-                            </audio>
+                            <>
+                                <audio 
+                                    ref={audioRef}
+                                    src={audioUrl} 
+                                    onLoadedMetadata={handleLoadedMetadata}
+                                    onTimeUpdate={handleTimeUpdate}
+                                    onEnded={handleAudioEnd}
+                                    onPlay={() => setIsPlaying(true)}
+                                    onPause={() => setIsPlaying(false)}
+                                    className="hidden" // The element is needed but not visible
+                                >
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                                <div className="flex items-center gap-4 p-2 border rounded-lg bg-muted/50">
+                                    <Button onClick={togglePlayPause} variant="outline" size="icon">
+                                        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                                    </Button>
+                                    <div className="font-mono text-sm text-muted-foreground w-28">
+                                        {currentTime.toFixed(2)}s / {duration.toFixed(2)}s
+                                    </div>
+                                    <div className="flex-grow" />
+                                    <div className="flex items-center gap-2">
+                                        <Label htmlFor="speed-select" className="text-sm">Speed:</Label>
+                                        <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
+                                            <SelectTrigger id="speed-select" className="w-[80px]">
+                                                <SelectValue placeholder="Speed" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="0.5">0.5x</SelectItem>
+                                                <SelectItem value="0.75">0.75x</SelectItem>
+                                                <SelectItem value="1">1x</SelectItem>
+                                                <SelectItem value="1.25">1.25x</SelectItem>
+                                                <SelectItem value="1.5">1.5x</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </div>
+                            </>
                         ) : (
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -281,7 +477,7 @@ const StoryCreatorPage: React.FC = () => {
                                             </span>
                                         ))
                                      ) : (
-                                        <p>{story.greekText.replace(/\*\*/g, '')}</p>
+                                        <p>{renderHighlightedFallbackText(story.greekText)}</p>
                                      )}
                                 </div>
                             </div>
@@ -300,8 +496,12 @@ const StoryCreatorPage: React.FC = () => {
                              </Collapsible>
                         </div>
 
-                        <CardFooter className="px-0 pt-4">
-                            <Button onClick={handleReset} variant="outline" className="w-full">
+                        <CardFooter className="px-0 pt-4 flex flex-col sm:flex-row gap-2">
+                            <Button onClick={handleSaveStory} disabled={isSaving || !audioUrl} className="w-full sm:w-auto">
+                                {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
+                                {isSaving ? "Saving..." : "Save Story"}
+                            </Button>
+                            <Button onClick={handleReset} variant="outline" className="w-full sm:w-auto">
                                 Create a New Story
                             </Button>
                         </CardFooter>
@@ -315,8 +515,77 @@ const StoryCreatorPage: React.FC = () => {
                 onNamespaceSelect={handleNamespaceSelect}
                 refreshTrigger={historyRefreshTrigger} 
             />
+
+            <Card className="mt-6">
+                <CardHeader>
+                    <CardTitle className="text-xl flex items-center gap-2">
+                        <Library className="h-5 w-5 text-primary"/>
+                        Saved Stories Library
+                    </CardTitle>
+                    <CardDescription>
+                        Review your previously generated stories for the namespace "{selectedNamespace || 'N/A'}".
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {loadingSavedStories && (
+                        <div className="space-y-2">
+                            {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
+                        </div>
+                    )}
+                    {!loadingSavedStories && savedStories.length === 0 && (
+                        <p className="text-center text-muted-foreground p-4">
+                            {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
+                        </p>
+                    )}
+                    {!loadingSavedStories && savedStories.length > 0 && (
+                        <ul className="space-y-2">
+                            {savedStories.map(story => (
+                                <li key={story.id}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-left h-auto py-2"
+                                        onClick={() => handleLoadSavedStory(story)}
+                                    >
+                                        <div>
+                                            <p className="font-medium">{story.title}</p>
+                                            <p className="text-xs text-muted-foreground">
+                                                Saved on {new Date(story.createdAt).toLocaleDateString()}
+                                            </p>
+                                        </div>
+                                    </Button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </CardContent>
+                {pagination.totalPages > 1 && !loadingSavedStories && (
+                    <CardFooter>
+                         <Pagination>
+                            <PaginationContent>
+                                <PaginationItem>
+                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page - 1)} disabled={pagination.page <= 1}>
+                                        Previous
+                                    </Button>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <span className="px-4 text-sm text-muted-foreground">
+                                        Page {pagination.page} of {pagination.totalPages}
+                                    </span>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page + 1)} disabled={pagination.page >= pagination.totalPages}>
+                                        Next
+                                    </Button>
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+                    </CardFooter>
+                )}
+            </Card>
         </div>
     );
 };
 
 export default StoryCreatorPage;
+
+    

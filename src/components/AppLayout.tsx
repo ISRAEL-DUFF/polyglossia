@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles, Library } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton';
 import { usePathname } from 'next/navigation';
@@ -150,3 +150,5 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
+
+    
