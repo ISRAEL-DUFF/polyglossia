@@ -5,8 +5,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History } from 'lucide-react';
-import { Textarea } from '@/components/ui/textarea';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer } from 'lucide-react';
+import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -18,6 +18,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { cn } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import TimingTool from './TimingTool';
 
 type VocabWord = {
     word: string;
@@ -97,6 +98,9 @@ const StoryCreatorPage: React.FC = () => {
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
     const [loadingSavedStories, setLoadingSavedStories] = useState(false);
+    
+    const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
+
 
     const fetchSavedStories = useCallback(async (page = 1) => {
         if (!selectedNamespace) {
@@ -330,6 +334,9 @@ const StoryCreatorPage: React.FC = () => {
         }
     };
 
+    const handleTimingsUpdate = (newTimings: WordTiming[]) => {
+        setWordTimings(newTimings);
+    };
 
     return (
         <div className="container mx-auto space-y-6 p-1">
@@ -425,6 +432,10 @@ const StoryCreatorPage: React.FC = () => {
                                         {currentTime.toFixed(2)}s / {duration.toFixed(2)}s
                                     </div>
                                     <div className="flex-grow" />
+                                    <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm">
+                                        <Timer className="mr-2 h-4 w-4" />
+                                        Edit Timings
+                                    </Button>
                                     <div className="flex items-center gap-2">
                                         <Label htmlFor="speed-select" className="text-sm">Speed:</Label>
                                         <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
@@ -454,7 +465,7 @@ const StoryCreatorPage: React.FC = () => {
                              <AlertCircle className="h-4 w-4" />
                              <AlertTitle>Audio Only</AlertTitle>
                              <AlertDescription>
-                               Word-by-word highlighting is currently unavailable, but you can listen to the story.
+                               Word-by-word highlighting is currently unavailable, but you can listen to the story. Use the "Edit Timings" tool to add it manually.
                              </AlertDescription>
                            </Alert>
                         )}
@@ -582,10 +593,18 @@ const StoryCreatorPage: React.FC = () => {
                     </CardFooter>
                 )}
             </Card>
+            
+            {story && audioUrl && (
+              <TimingTool 
+                isOpen={isTimingToolOpen} 
+                onOpenChange={setIsTimingToolOpen}
+                storyText={story.greekText}
+                audioUrl={audioUrl}
+                onSave={handleTimingsUpdate}
+              />
+            )}
         </div>
     );
 };
 
 export default StoryCreatorPage;
-
-    
