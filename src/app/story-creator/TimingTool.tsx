@@ -165,12 +165,12 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
                                         className={cn(
                                             "p-2 rounded-md text-lg transition-all border-2 border-transparent greek-size",
                                             currentIndex === index && "bg-primary/20 border-primary scale-110 shadow-lg",
-                                            timings[index].startTime > 0 && "bg-green-500/20 text-foreground"
+                                            timings[index]?.startTime > 0 && "bg-green-500/20 text-foreground"
                                         )}
                                     >
                                         {word}
                                     </button>
-                                    {timings[index].startTime > 0 && (
+                                    {timings[index]?.startTime > 0 && (
                                         <div className="text-xs text-muted-foreground mt-1 font-mono">
                                             {timings[index].startTime.toFixed(2)}s
                                             {timings[index].endTime > 0 && ` - ${timings[index].endTime.toFixed(2)}s`}
