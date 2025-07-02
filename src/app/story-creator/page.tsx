@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import TimingTool from './TimingTool';
+import { localDatabase } from '@/lib/utils/storageUtil';
 
 type VocabWord = {
     word: string;
@@ -50,13 +51,14 @@ interface WordTiming {
 interface SavedStory {
     id: string;
     title: string;
-    greekText: string;
-    englishTranslation: string;
-    audioDataUri: string;
-    timings: WordTiming[];
     language: string;
     namespace: string;
     createdAt: string;
+    // Full data is optional now in the list view
+    greekText?: string;
+    englishTranslation?: string;
+    audioDataUri?: string;
+    timings?: WordTiming[];
 }
 
 interface StoriesApiResponse {
@@ -69,7 +71,7 @@ interface StoriesApiResponse {
     };
 }
 
-
+const favoritesDb = localDatabase('story_favorites');
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
 const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
 
@@ -79,6 +81,7 @@ const StoryCreatorPage: React.FC = () => {
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
+    const [isLoadingStory, setIsLoadingStory] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
@@ -94,13 +97,17 @@ const StoryCreatorPage: React.FC = () => {
     const [duration, setDuration] = useState(0);
     const [playbackRate, setPlaybackRate] = useState(1);
     
-    // State for saved stories
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
     const [loadingSavedStories, setLoadingSavedStories] = useState(false);
+    const [favorites, setFavorites] = useState<Set<string>>(new Set());
     
     const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
 
+    useEffect(() => {
+        const favs = favoritesDb.getAll();
+        setFavorites(new Set(favs.map((f: any) => f.storyId)));
+    }, []);
 
     const fetchSavedStories = useCallback(async (page = 1) => {
         if (!selectedNamespace) {
@@ -126,7 +133,7 @@ const StoryCreatorPage: React.FC = () => {
     
     useEffect(() => {
         fetchSavedStories(pagination.page);
-    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]); // Re-fetch on namespace change or after saving
+    }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]);
 
 
     const handleGenerateStory = async () => {
@@ -252,17 +259,49 @@ const StoryCreatorPage: React.FC = () => {
         }
     };
 
-    const handleLoadSavedStory = (savedStory: SavedStory) => {
-        handleReset(); // Reset current player state
-        setStory({
-            title: savedStory.title,
-            greekText: savedStory.greekText,
-            englishTranslation: savedStory.englishTranslation
-        });
-        setAudioUrl(savedStory.audioDataUri);
-        setWordTimings(savedStory.timings || []);
-        boldedWordsRef.current = new Set([...(savedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const handleLoadSavedStory = async (storyId: string) => {
+        handleReset();
+        setIsLoadingStory(true);
+        try {
+            const response = await fetch(`${STORIES_API_URL}/get/${storyId}`);
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || 'Failed to load the selected story.');
+            }
+            const fullStory: SavedStory = await response.json();
+            
+            setStory({
+                title: fullStory.title,
+                greekText: fullStory.greekText!,
+                englishTranslation: fullStory.englishTranslation!,
+            });
+            setAudioUrl(fullStory.audioDataUri!);
+            setWordTimings(fullStory.timings || []);
+            boldedWordsRef.current = new Set([...(fullStory.greekText?.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+             const msg = err instanceof Error ? err.message : 'An unknown error occurred.';
+             toast({ variant: 'destructive', title: 'Error Loading Story', description: msg });
+        } finally {
+            setIsLoadingStory(false);
+        }
+    };
+
+    const toggleFavorite = (storyId: string) => {
+        const newFavorites = new Set(favorites);
+        const existingFav = favoritesDb.getAll().find((f: any) => f.storyId === storyId);
+
+        if (existingFav) {
+            favoritesDb.remove(existingFav.id);
+            newFavorites.delete(storyId);
+            toast({ title: 'Unfavorited', description: 'Story removed from favorites.' });
+        } else {
+            favoritesDb.add({ storyId });
+            newFavorites.add(storyId);
+            toast({ title: 'Favorited!', description: 'Story added to favorites.' });
+        }
+        setFavorites(newFavorites);
     };
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
@@ -274,7 +313,7 @@ const StoryCreatorPage: React.FC = () => {
     
     const handleNamespaceSelect = (namespace: string, entry: NamespaceEntry) => {
         setSelectedNamespace(namespace);
-        setPagination(prev => ({...prev, page: 1})); // Reset page when namespace changes
+        setPagination(prev => ({...prev, page: 1}));
     }
 
     const handleTimeUpdate = () => {
@@ -360,7 +399,7 @@ const StoryCreatorPage: React.FC = () => {
                     </CardDescription>
                 </CardHeader>
 
-                {!story && (
+                {!story && !isLoadingStory && (
                   <CardContent className="space-y-4">
                       <div>
                           <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
@@ -388,7 +427,7 @@ const StoryCreatorPage: React.FC = () => {
                   </CardContent>
                 )}
                 
-                {isLoading && (
+                {(isLoading || isLoadingStory) && (
                  <CardContent>
                     <div className="space-y-4">
                         <Skeleton className="h-8 w-3/4 mx-auto" />
@@ -412,7 +451,7 @@ const StoryCreatorPage: React.FC = () => {
                     </CardContent>
                 )}
 
-                {!isLoading && story && (
+                {!isLoading && !isLoadingStory && story && (
                    <CardContent className="space-y-4 animate-fadeInUp">
                         <div className="text-center">
                             <h2 className="text-xl font-bold text-primary">{story.title}</h2>
@@ -428,7 +467,7 @@ const StoryCreatorPage: React.FC = () => {
                                     onEnded={handleAudioEnd}
                                     onPlay={() => setIsPlaying(true)}
                                     onPause={() => setIsPlaying(false)}
-                                    className="hidden" // The element is needed but not visible
+                                    className="hidden"
                                 >
                                     Your browser does not support the audio element.
                                 </audio>
@@ -562,18 +601,31 @@ const StoryCreatorPage: React.FC = () => {
                         <ul className="space-y-2">
                             {savedStories.map(story => (
                                 <li key={story.id}>
-                                    <Button
-                                        variant="ghost"
-                                        className="w-full justify-start text-left h-auto py-2"
-                                        onClick={() => handleLoadSavedStory(story)}
-                                    >
-                                        <div>
-                                            <p className="font-medium">{story.title}</p>
-                                            <p className="text-xs text-muted-foreground">
-                                                Saved on {new Date(story.createdAt).toLocaleDateString()}
-                                            </p>
-                                        </div>
-                                    </Button>
+                                    <div className="flex items-center gap-2">
+                                        <Button
+                                            variant="ghost"
+                                            className="flex-grow justify-start text-left h-auto py-2"
+                                            onClick={() => handleLoadSavedStory(story.id)}
+                                        >
+                                            <div>
+                                                <p className="font-medium">{story.title}</p>
+                                                <p className="text-xs text-muted-foreground">
+                                                    Saved on {new Date(story.createdAt).toLocaleDateString()}
+                                                </p>
+                                            </div>
+                                        </Button>
+                                        <Button 
+                                            variant="ghost" 
+                                            size="icon" 
+                                            onClick={() => toggleFavorite(story.id)}
+                                            aria-label={favorites.has(story.id) ? 'Unfavorite' : 'Favorite'}
+                                        >
+                                            <Star className={cn(
+                                                "h-5 w-5 text-muted-foreground transition-colors",
+                                                favorites.has(story.id) ? "fill-yellow-400 text-yellow-500" : "hover:text-yellow-500"
+                                            )}/>
+                                        </Button>
+                                    </div>
                                 </li>
                             ))}
                         </ul>
@@ -619,4 +671,3 @@ const StoryCreatorPage: React.FC = () => {
 
 export default StoryCreatorPage;
 
-    
