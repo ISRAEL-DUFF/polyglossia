@@ -1,10 +1,11 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -50,6 +51,7 @@ const StoryCreatorPage: React.FC = () => {
     const [selectedNamespace, setSelectedNamespace] = useState<string>('');
     const [userPrompt, setUserPrompt] = useState<string>('A short, adventurous tale about a hero on a quest.');
     const [isLoading, setIsLoading] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
@@ -59,7 +61,6 @@ const StoryCreatorPage: React.FC = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(-1);
     const audioRef = useRef<HTMLAudioElement>(null);
     const boldedWordsRef = useRef<Set<string>>(new Set());
-
 
     const handleGenerateStory = async () => {
         if (!selectedNamespace) {
@@ -90,10 +91,8 @@ const StoryCreatorPage: React.FC = () => {
             }));
             
             const uniqueVocab = Array.from(new Map(vocabForAI.map(item => [item['word'], item])).values());
-            
-            // Shuffle and limit the vocabulary to prevent an overly large prompt
             const shuffledVocab = uniqueVocab.sort(() => 0.5 - Math.random());
-            const limitedVocab = shuffledVocab.slice(0, 20); // Limit to 20 words
+            const limitedVocab = shuffledVocab.slice(0, 20);
 
             toast({ title: 'Generating story text...', description: 'Please wait, this may take a moment.' });
             const generatedStory = await generateStory({
@@ -103,16 +102,13 @@ const StoryCreatorPage: React.FC = () => {
             });
             setStory(generatedStory);
 
-            // Extract bolded words before stripping markup
             boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-
             const cleanText = generatedStory.greekText.replace(/\*\*/g, '');
 
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
             const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
             setAudioUrl(audioResult.audioUrl);
             setWordTimings(audioResult.timings);
-
 
             toast({
                 title: 'Story Generated!',
@@ -138,7 +134,47 @@ const StoryCreatorPage: React.FC = () => {
         setAudioUrl(null);
         setWordTimings([]);
         setCurrentWordIndex(-1);
+        setIsSaving(false);
     }
+    
+    const handleSaveStory = async () => {
+        if (!story || !audioUrl) {
+            toast({ variant: 'destructive', title: 'Error', description: 'No story or audio available to save.' });
+            return;
+        }
+
+        setIsSaving(true);
+        try {
+            const payload = {
+                title: story.title,
+                greekText: story.greekText, // Keep markdown for vocab
+                englishTranslation: story.englishTranslation,
+                audioDataUri: audioUrl, // Base64 data URI
+                language: 'greek',
+                namespace: selectedNamespace,
+            };
+
+            const response = await fetch('https://www.eazilang.gleeze.com/api/stories/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: 'Failed to save story.' }));
+                throw new Error(errorData.message);
+            }
+
+            toast({ title: 'Story Saved', description: `"${story.title}" has been saved successfully.` });
+
+        } catch (err) {
+            const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred while saving.';
+            setError(errorMessage);
+            toast({ variant: 'destructive', title: 'Save Failed', description: errorMessage });
+        } finally {
+            setIsSaving(false);
+        }
+    };
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
         toast({
@@ -161,7 +197,17 @@ const StoryCreatorPage: React.FC = () => {
     };
 
     const handleAudioEnd = () => {
-        setCurrentWordIndex(-1); // Reset highlight when audio finishes
+        setCurrentWordIndex(-1);
+    };
+    
+    const renderHighlightedFallbackText = (text: string) => {
+        const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
+        return parts.map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={index} className="text-primary font-bold">{part.slice(2, -2)}</strong>;
+            }
+            return <React.Fragment key={index}>{part}</React.Fragment>;
+        });
     };
 
     return (
@@ -281,7 +327,7 @@ const StoryCreatorPage: React.FC = () => {
                                             </span>
                                         ))
                                      ) : (
-                                        <p>{story.greekText.replace(/\*\*/g, '')}</p>
+                                        <p>{renderHighlightedFallbackText(story.greekText)}</p>
                                      )}
                                 </div>
                             </div>
@@ -300,8 +346,12 @@ const StoryCreatorPage: React.FC = () => {
                              </Collapsible>
                         </div>
 
-                        <CardFooter className="px-0 pt-4">
-                            <Button onClick={handleReset} variant="outline" className="w-full">
+                        <CardFooter className="px-0 pt-4 flex flex-col sm:flex-row gap-2">
+                            <Button onClick={handleSaveStory} disabled={isSaving || !audioUrl} className="w-full sm:w-auto">
+                                {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
+                                {isSaving ? "Saving..." : "Save Story"}
+                            </Button>
+                            <Button onClick={handleReset} variant="outline" className="w-full sm:w-auto">
                                 Create a New Story
                             </Button>
                         </CardFooter>
