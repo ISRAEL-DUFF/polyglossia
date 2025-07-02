@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles, Library } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton';
 import { usePathname } from 'next/navigation';
@@ -48,6 +48,7 @@ const gamesNav = [
   { href: '/parser-game', label: 'Parser Game', icon: Gamepad2Icon },
   { href: '/flashcard-game', label: 'Flashcards', icon: BrainCircuit },
   { href: '/story-creator', label: 'AI Story Creator', icon: Sparkles },
+  { href: '/saved-stories', label: 'Saved Stories', icon: Library },
 ];
 
 

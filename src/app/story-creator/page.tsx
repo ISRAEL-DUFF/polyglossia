@@ -113,8 +113,13 @@ const StoryCreatorPage: React.FC = () => {
 
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
             const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
-            setAudioUrl(audioResult.audioUrl);
-            setWordTimings(audioResult.timings || []);
+            
+            if (audioResult && audioResult.audioUrl) {
+              setAudioUrl(audioResult.audioUrl);
+              setWordTimings(audioResult.timings || []);
+            } else {
+              throw new Error("Text-to-speech conversion with timing data failed.");
+            }
 
             toast({
                 title: 'Story Generated!',
@@ -156,9 +161,10 @@ const StoryCreatorPage: React.FC = () => {
         try {
             const payload = {
                 title: story.title,
-                greekText: story.greekText, // Keep markdown for vocab
+                greekText: story.greekText,
                 englishTranslation: story.englishTranslation,
-                audioDataUri: audioUrl, // Base64 data URI
+                audioDataUri: audioUrl,
+                timings: wordTimings,
                 language: 'greek',
                 namespace: selectedNamespace,
             };
