@@ -17,9 +17,11 @@ import type { NamespaceEntry } from '@/types';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import TimingTool from './TimingTool';
 import { localDatabase } from '@/lib/utils/storageUtil';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
 
 type VocabWord = {
     word: string;
@@ -54,7 +56,7 @@ interface SavedStory {
     language: string;
     namespace: string;
     createdAt: string;
-    // Full data is optional now in the list view
+    // Full data is optional for API list, but required for favorites
     greekText?: string;
     englishTranslation?: string;
     audioDataUri?: string;
@@ -100,13 +102,12 @@ const StoryCreatorPage: React.FC = () => {
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
     const [loadingSavedStories, setLoadingSavedStories] = useState(false);
-    const [favorites, setFavorites] = useState<Set<string>>(new Set());
     
+    const [favorites, setFavorites] = useState<SavedStory[]>([]);
     const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
 
     useEffect(() => {
-        const favs = favoritesDb.getAll();
-        setFavorites(new Set(favs.map((f: any) => f.storyId)));
+        setFavorites(favoritesDb.getAll());
     }, []);
 
     const fetchSavedStories = useCallback(async (page = 1) => {
@@ -247,6 +248,8 @@ const StoryCreatorPage: React.FC = () => {
                 const errorData = await response.json().catch(() => ({ message: 'Failed to save story.' }));
                 throw new Error(errorData.message);
             }
+            
+            await fetchSavedStories(); // Refresh the list
 
             toast({ title: 'Story Saved', description: `"${story.title}" has been saved successfully.` });
 
@@ -258,12 +261,28 @@ const StoryCreatorPage: React.FC = () => {
             setIsSaving(false);
         }
     };
-
-    const handleLoadSavedStory = async (storyId: string) => {
+    
+    const handleLoadStory = async (storyToLoad: SavedStory, isFavorite: boolean) => {
         handleReset();
+
+        if (isFavorite && storyToLoad.greekText) {
+            // Load directly from favorite object
+            setStory({
+                title: storyToLoad.title,
+                greekText: storyToLoad.greekText,
+                englishTranslation: storyToLoad.englishTranslation || '',
+            });
+            setAudioUrl(storyToLoad.audioDataUri || null);
+            setWordTimings(storyToLoad.timings || []);
+            boldedWordsRef.current = new Set([...(storyToLoad.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
+        // Fetch from API for non-favorites or incomplete favorite objects
         setIsLoadingStory(true);
         try {
-            const response = await fetch(`${STORIES_API_URL}/get/${storyId}`);
+            const response = await fetch(`${STORIES_API_URL}/get/${storyToLoad.id}`);
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
                 throw new Error(errorData.message || 'Failed to load the selected story.');
@@ -288,21 +307,36 @@ const StoryCreatorPage: React.FC = () => {
         }
     };
 
-    const toggleFavorite = (storyId: string) => {
-        const newFavorites = new Set(favorites);
-        const existingFav = favoritesDb.getAll().find((f: any) => f.storyId === storyId);
-
-        if (existingFav) {
-            favoritesDb.remove(existingFav.id);
-            newFavorites.delete(storyId);
-            toast({ title: 'Unfavorited', description: 'Story removed from favorites.' });
+    const toggleFavorite = async (storyToList: SavedStory) => {
+        const isFavorited = favorites.some(fav => fav.id === storyToList.id);
+    
+        if (isFavorited) {
+            favoritesDb.remove(storyToList.id);
+            setFavorites(prev => prev.filter(f => f.id !== storyToList.id));
+            toast({ title: 'Unfavorited', description: 'Story removed from offline favorites.' });
         } else {
-            favoritesDb.add({ storyId });
-            newFavorites.add(storyId);
-            toast({ title: 'Favorited!', description: 'Story added to favorites.' });
+            let fullStoryData = storyToList;
+            // Check if we already have the full data
+            if (!fullStoryData.greekText || !fullStoryData.audioDataUri) {
+                const loadingToast = toast({ title: 'Favoriting...', description: 'Fetching full story to save offline.' });
+                try {
+                    const response = await fetch(`${STORIES_API_URL}/get/${storyToList.id}`);
+                    if (!response.ok) throw new Error('Could not fetch story to favorite it.');
+                    fullStoryData = await response.json();
+                } catch (e) {
+                    loadingToast.dismiss();
+                    toast({ title: "Error", description: e instanceof Error ? e.message : "Could not favorite story.", variant: "destructive" });
+                    return;
+                }
+                loadingToast.dismiss();
+            }
+    
+            favoritesDb.add(fullStoryData);
+            setFavorites(prev => [...prev, fullStoryData]);
+            toast({ title: 'Favorited!', description: 'Story saved for offline access.' });
         }
-        setFavorites(newFavorites);
     };
+
 
     const handleHistoryWordSelect = (word: string, lemma?: string) => {
         toast({
@@ -385,6 +419,40 @@ const StoryCreatorPage: React.FC = () => {
     const handleTimingsUpdate = (newTimings: WordTiming[]) => {
         setWordTimings(newTimings);
     };
+    
+    const renderStoryList = (stories: SavedStory[], isFavoritesList: boolean) => (
+       <ul className="space-y-2">
+            {stories.map(storyItem => (
+                <li key={storyItem.id}>
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="ghost"
+                            className="flex-grow justify-start text-left h-auto py-2"
+                            onClick={() => handleLoadStory(storyItem, isFavoritesList)}
+                        >
+                            <div>
+                                <p className="font-medium">{storyItem.title}</p>
+                                <p className="text-xs text-muted-foreground">
+                                    Saved on {new Date(storyItem.createdAt).toLocaleDateString()}
+                                </p>
+                            </div>
+                        </Button>
+                        <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => toggleFavorite(storyItem)}
+                            aria-label={favorites.some(f => f.id === storyItem.id) ? 'Unfavorite' : 'Favorite'}
+                        >
+                            <Star className={cn(
+                                "h-5 w-5 text-muted-foreground transition-colors",
+                                favorites.some(f => f.id === storyItem.id) ? "fill-yellow-400 text-yellow-500" : "hover:text-yellow-500"
+                            )}/>
+                        </Button>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    );
 
     return (
         <div className="container mx-auto space-y-6 p-1">
@@ -580,80 +648,51 @@ const StoryCreatorPage: React.FC = () => {
                 <CardHeader>
                     <CardTitle className="text-xl flex items-center gap-2">
                         <Library className="h-5 w-5 text-primary"/>
-                        Saved Stories Library
+                        Story Library
                     </CardTitle>
                     <CardDescription>
-                        Review your previously generated stories for the namespace "{selectedNamespace || 'N/A'}".
+                        Review your previously generated and favorite stories for the namespace "{selectedNamespace || 'N/A'}".
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {loadingSavedStories && (
-                        <div className="space-y-2">
-                            {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
-                        </div>
-                    )}
-                    {!loadingSavedStories && savedStories.length === 0 && (
-                        <p className="text-center text-muted-foreground p-4">
-                            {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
-                        </p>
-                    )}
-                    {!loadingSavedStories && savedStories.length > 0 && (
-                        <ul className="space-y-2">
-                            {savedStories.map(story => (
-                                <li key={story.id}>
-                                    <div className="flex items-center gap-2">
-                                        <Button
-                                            variant="ghost"
-                                            className="flex-grow justify-start text-left h-auto py-2"
-                                            onClick={() => handleLoadSavedStory(story.id)}
-                                        >
-                                            <div>
-                                                <p className="font-medium">{story.title}</p>
-                                                <p className="text-xs text-muted-foreground">
-                                                    Saved on {new Date(story.createdAt).toLocaleDateString()}
-                                                </p>
-                                            </div>
-                                        </Button>
-                                        <Button 
-                                            variant="ghost" 
-                                            size="icon" 
-                                            onClick={() => toggleFavorite(story.id)}
-                                            aria-label={favorites.has(story.id) ? 'Unfavorite' : 'Favorite'}
-                                        >
-                                            <Star className={cn(
-                                                "h-5 w-5 text-muted-foreground transition-colors",
-                                                favorites.has(story.id) ? "fill-yellow-400 text-yellow-500" : "hover:text-yellow-500"
-                                            )}/>
-                                        </Button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                  <Tabs defaultValue="all-stories" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="all-stories">All Saved Stories</TabsTrigger>
+                      <TabsTrigger value="favorites">Favorites (Offline)</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="all-stories" className="mt-4">
+                       {loadingSavedStories ? (
+                            <div className="space-y-2">
+                                {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}
+                            </div>
+                        ) : savedStories.length === 0 ? (
+                            <p className="text-center text-muted-foreground p-4">
+                                {selectedNamespace ? 'No saved stories in this namespace.' : 'Select a namespace to see saved stories.'}
+                            </p>
+                        ) : (
+                            renderStoryList(savedStories, false)
+                        )}
+                        {pagination.totalPages > 1 && !loadingSavedStories && (
+                            <Pagination className="mt-4">
+                                <PaginationContent>
+                                    <PaginationPrevious onClick={() => handlePageChange(pagination.page - 1)} className={cn(pagination.page <= 1 && "pointer-events-none opacity-50")}/>
+                                    <span className="p-2 text-sm">Page {pagination.page} of {pagination.totalPages}</span>
+                                    <PaginationNext onClick={() => handlePageChange(pagination.page + 1)} className={cn(pagination.page >= pagination.totalPages && "pointer-events-none opacity-50")}/>
+                                </PaginationContent>
+                            </Pagination>
+                        )}
+                    </TabsContent>
+                    <TabsContent value="favorites" className="mt-4">
+                         {favorites.length === 0 ? (
+                            <p className="text-center text-muted-foreground p-4">
+                                No favorite stories yet. Click the star icon on a story to save it here for offline access.
+                            </p>
+                        ) : (
+                           renderStoryList(favorites, true)
+                        )}
+                    </TabsContent>
+                  </Tabs>
                 </CardContent>
-                {pagination.totalPages > 1 && !loadingSavedStories && (
-                    <CardFooter>
-                         <Pagination>
-                            <PaginationContent>
-                                <PaginationItem>
-                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page - 1)} disabled={pagination.page <= 1}>
-                                        Previous
-                                    </Button>
-                                </PaginationItem>
-                                <PaginationItem>
-                                    <span className="px-4 text-sm text-muted-foreground">
-                                        Page {pagination.page} of {pagination.totalPages}
-                                    </span>
-                                </PaginationItem>
-                                <PaginationItem>
-                                    <Button variant="outline" size="sm" onClick={() => handlePageChange(pagination.page + 1)} disabled={pagination.page >= pagination.totalPages}>
-                                        Next
-                                    </Button>
-                                </PaginationItem>
-                            </PaginationContent>
-                        </Pagination>
-                    </CardFooter>
-                )}
             </Card>
             
             {story && audioUrl && (
@@ -670,4 +709,3 @@ const StoryCreatorPage: React.FC = () => {
 };
 
 export default StoryCreatorPage;
-
