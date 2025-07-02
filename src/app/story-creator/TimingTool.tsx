@@ -84,16 +84,19 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
         const currentTime = audioRef.current.currentTime;
 
         if (sentenceStartIndex === null) {
-            // This is the first click, mark the start of the sentence
+            // This is the first click, mark the start of the sentence and play
+            audioRef.current.play();
             setSentenceStartIndex(clickedIndex);
+            
             // Temporarily mark the start time for the first word
             const newTimings = [...timings];
             newTimings[clickedIndex].startTime = currentTime;
             newTimings[clickedIndex].endTime = 0; // Reset end time
             setTimings(newTimings);
-            toast({ title: "Sentence Start Marked", description: "Now play the audio and click the last word of the sentence." });
+            toast({ title: "Sentence Start Marked", description: "Click the last word of the sentence when it finishes." });
         } else {
-            // This is the second click, mark the end and process
+            // This is the second click, mark the end and process, then pause
+            audioRef.current.pause();
             const startIdx = Math.min(sentenceStartIndex, clickedIndex);
             const endIdx = Math.max(sentenceStartIndex, clickedIndex);
 
@@ -109,8 +112,8 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
             });
 
             setTimings(finalTimings);
-            setSentenceStartIndex(null);
-            toast({ title: "Sentence Timed", description: `Approximated timings for ${sentenceWords.length} words.` });
+            setSentenceStartIndex(null); // Ready for the next sentence
+            toast({ title: "Sentence Timed", description: `Approximated timings for ${sentenceWords.length} words. Click the first word of the next sentence to continue.` });
         }
     };
 
@@ -194,8 +197,8 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
         }
         if (timingMode === 'sentence') {
             return sentenceStartIndex === null 
-                ? "Click the FIRST word of a sentence to mark its start time."
-                : "Click the LAST word of the sentence to mark its end time and approximate timings.";
+                ? "Click the FIRST word of a sentence. Audio will play and its start time will be marked."
+                : "Click the LAST word of the sentence when it ends. Audio will pause and timings will be set.";
         }
         return "";
     };
