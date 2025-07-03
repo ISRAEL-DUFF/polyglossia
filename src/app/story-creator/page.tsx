@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
@@ -569,14 +568,14 @@ const StoryCreatorPage: React.FC = () => {
        <ul className="space-y-2">
             {stories.map(storyItem => (
                 <li key={storyItem.id}>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row items-center gap-2">
                         <Button
                             variant="ghost"
-                            className="flex-grow justify-start text-left h-auto py-2"
+                            className="w-full sm:w-auto justify-start text-left h-auto py-2 min-w-0"
                             onClick={() => handleLoadStory(storyItem, isFavoritesList)}
                         >
-                            <div>
-                                <p className="font-medium">{storyItem.title}</p>
+                            <div className="min-w-0">
+                                <p className="font-medium break-words whitespace-normal">{storyItem.title}</p>
                                 <p className="text-xs text-muted-foreground">
                                     Saved on {new Date(storyItem.createdAt).toLocaleDateString()}
                                 </p>
@@ -585,6 +584,7 @@ const StoryCreatorPage: React.FC = () => {
                         <Button 
                             variant="ghost" 
                             size="icon" 
+                            className="mt-2 sm:mt-0"
                             onClick={() => toggleFavorite(storyItem)}
                             aria-label={favorites.some(f => f.id === storyItem.id) ? 'Unfavorite' : 'Favorite'}
                         >
@@ -600,7 +600,7 @@ const StoryCreatorPage: React.FC = () => {
     );
 
     return (
-        <div className="container mx-auto space-y-6 p-1">
+        <div className="container mx-auto space-y-6 sm:p-2 lg:p-8">
              <Card>
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold text-center text-primary flex items-center justify-center gap-2">
@@ -752,7 +752,7 @@ const StoryCreatorPage: React.FC = () => {
                         <div className="space-y-4">
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
-                                 <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose">
+                                 <div className="prose dark:prose-invert max-w-none p-2 border rounded-md bg-muted/50 greek-size leading-loose">
                                      {wordTimings.length > 0 ? (
                                         wordTimings.map((timing, index) => {
                                             const isSegmentActive = activeLoop && loopStartIndex !== null && loopEndIndex !== null && index >= loopStartIndex && index <= loopEndIndex;
@@ -782,7 +782,7 @@ const StoryCreatorPage: React.FC = () => {
                                 <CollapsibleTrigger asChild>
                                     <Button variant="ghost" className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <ChevronsUpDown className="h-4 w-4" />
-                                        Show/Hide English Translation
+                                        Show/Hide Translation
                                     </Button>
                                 </CollapsibleTrigger>
                                 <CollapsibleContent className="mt-2">
@@ -826,7 +826,7 @@ const StoryCreatorPage: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <Tabs defaultValue="all-stories" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2">
+                    <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2">
                       <TabsTrigger value="all-stories">All Saved Stories</TabsTrigger>
                       <TabsTrigger value="favorites">Favorites (Offline)</TabsTrigger>
                     </TabsList>
