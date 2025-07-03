@@ -63,20 +63,7 @@ const textToSpeechFlow = ai.defineFlow(
   async ({text}) => {
     const {media} = await ai.generate({
       model: googleAI.model('gemini-2.5-flash-preview-tts'),
-      prompt: `Read the following Ancient Greek text using Modern Greek pronunciation.
-Use the modern phonological system as follows:
-- β = /v/, γ = /ɣ/, δ = /ð/, θ = /θ/, χ = /x/, φ = /f/
-- All vowels:
-  - η, ι, ει, οι, υ = /i/
-  - αι = /e/, αυ = /av/ or /af/, ευ = /ev/ or /ef/
-  - ου = /u/
-- Accent is stress-based, not pitch-based.
-- No vowel length distinctions or aspirated stops.
-Do NOT use Koine, Erasmian, or Classical pronunciation.
-Just use the standard Modern Greek pronunciation rules as spoken today.
-
-Text to pronounce: "${text}"`,
-      enableTimepointing: ['WORD'], // Request word-level timings
+      prompt: text,
       config: {
         responseModalities: ['AUDIO'],
         speechConfig: {
@@ -100,7 +87,7 @@ Text to pronounce: "${text}"`,
 
     return {
       audioUrl: 'data:audio/wav;base64,' + wavBase64,
-      timings: media.timepoints || [],
+      timings: [], // Word-level timings not available in this response
     };
   }
 );

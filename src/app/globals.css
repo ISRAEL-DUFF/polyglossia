@@ -147,39 +147,3 @@ body {
     transform: translateY(0);
   }
 }
-
-/* Custom styles for frosted glass effect */
-.frosted-glass-card {
-  background-color: hsla(var(--card) / 0.65); /* Semi-transparent card background */
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%); /* For Safari */
-  border: 1px solid hsla(var(--border) / 0.2); /* Subtle border */
-  position: relative; /* Needed for potential pseudo-elements if gradient gets complex */
-  overflow: hidden; /* To contain pseudo-elements if used */
-}
-
-/* Optional: Add a very subtle gradient overlay or underlay. This is one way to do it. */
-.frosted-glass-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(
-    135deg,
-    hsla(var(--primary) / 0.05), /* Subtle primary color tint */
-    hsla(var(--accent) / 0.03) /* Subtle accent color tint */
-  );
-  z-index: -1; /* Place it behind the content */
-  opacity: 0.7;
-}
-
-/* Ensure card content is still readable */
-.frosted-glass-card > .text-card-foreground,
-.frosted-glass-card .text-card-foreground,
-.frosted-glass-card .text-primary,
-.frosted-glass-card .text-muted-foreground {
-  /* Adjust if necessary, but direct HSL on foreground elements is usually fine */
-}
-    

@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFo
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import type { NamespaceEntry } from '@/types';
+import { WordInput } from './WordInput';
 
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin';
 
@@ -38,11 +39,27 @@ interface LookupHistoryViewerProps {
   onWordSelect: (word: string, lemma?: string) => void;
   onNamespaceSelect: (namespace: string, entry: NamespaceEntry) => void;
   refreshTrigger?: number;
+  listMode?: boolean
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+const BASE_URL = 'https://www.eazilang.gleeze.com';
+// const BASE_URL = 'http://localhost:3001'; // For local development
 
-const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger }) => {
+const greekNormalization = {
+  normalizeGreek: (lemma: string) =>{
+    return lemma
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\p{Script=Greek}]/gu, "")
+      .toLowerCase();
+  },
+
+  normalizeLemma(lemma: string) {
+    return lemma.replace(/\d+$/, '');
+  }
+}
+
+const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger, listMode }) => {
   const [namespacesList, setNamespacesList] = useState<NamespaceEntry[]>([]);
   const [selectedHistoryNamespace, setSelectedHistoryNamespace] = useState<string | null>(null);
   const [indexedHistoryData, setIndexedHistoryData] = useState<IndexedHistoryResponse | null>(null);
@@ -61,13 +78,25 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
   const [allHistorySearchTerm, setAllHistorySearchTerm] = useState("");
   const [allHistorySelectedIndexChar, setAllHistorySelectedIndexChar] = useState<string | null>(null);
   const [filteredAllLanguageHistoryData, setFilteredAllLanguageHistoryData] = useState<IndexedHistoryResponse | null>(null);
+  
+  const baseUrl = () => {
+    switch(language) {
+      case 'hebrew':
+        return `${BASE_URL}/api/hebrew`;
+      case 'latin':
+        return `${BASE_URL}/api/latin`;
+      case 'greek':
+      default:
+        return `${BASE_URL}/api/greek`;
+    }
+  }
 
 
   const fetchNamespaces = useCallback(async () => {
     setIsLoadingNamespaces(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/namespaces?language=${language}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/namespaces?language=${language}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch namespaces. Status: ${response.status}`);
       }
@@ -104,7 +133,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/indexed-entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/indexed-entries?language=${language}&namespace=${encodeURIComponent(namespaceToFetch)}`);
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || `Failed to fetch history for namespace "${namespaceToFetch}". Status: ${response.status}`);
@@ -157,7 +186,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     setIsLoadingAllHistory(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/lookup-history/all-language-entries?language=${language}`);
+      const response = await fetch(`${baseUrl()}/lookup-history/all-indexed-entries?language=${language}`);
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || `Failed to fetch all history for ${language}. Status: ${response.status}`);
@@ -215,9 +245,20 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 
     for (const char of allLanguageHistoryData.index) {
       const entries = allLanguageHistoryData.indexList[char] || [];
-      const filteredEntries = entries.filter(entry =>
-        entry.word.toLowerCase().includes(searchTermLower) ||
-        (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+      const filteredEntries = entries.filter(entry => {
+        switch(language) {
+          case 'hebrew':
+            return entry.word.toLowerCase().includes(searchTermLower) || (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+          case 'latin':
+            return entry.word.toLowerCase().includes(searchTermLower) || (entry.lemma && entry.lemma.toLowerCase().includes(searchTermLower))
+          case 'greek':
+          default:
+            let greekWord = entry.word
+            let greekLemma = entry.lemma
+            let greekSearchTerm = greekNormalization.normalizeGreek(searchTermLower)
+            return greekNormalization.normalizeGreek(greekWord.toLowerCase()).includes(greekSearchTerm) || (greekLemma && greekNormalization.normalizeGreek(greekLemma.toLowerCase()).includes(greekSearchTerm))
+        }
+      }
       );
       if (filteredEntries.length > 0) {
         newFilteredIndexList[char] = filteredEntries;
@@ -315,6 +356,9 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                  <span className="text-xs text-muted-foreground/80">
                   (Freq: {entry.frequency}, Added: {new Date(entry.createdAt).toLocaleDateString()})
                 </span>
+                <span className="text-xs text-muted-foreground/80">
+                  Namespace: {entry.namespace}
+                </span>
               </div>
             </Button>
           </li>
@@ -327,7 +371,75 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     )
   );
 
-  return (
+  const renderListMode = () => (
+    <>
+      <Card className="mt-6">
+        <CardHeader>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <CardTitle className="text-lg flex items-center">
+              <History className="mr-2 h-5 w-5 text-primary" />
+              Lookup History
+            </CardTitle>
+            <div className="flex gap-2 flex-wrap sm:flex-nowrap w-full sm:w-auto">
+              <Button onClick={() => setIsAllHistoryModalOpen(true)} variant="outline" size="sm" className="flex-grow sm:flex-grow-0">
+                <Library className="mr-2 h-4 w-4" />
+                View All ({language})
+              </Button>
+              <Button onClick={handleRefresh} variant="outline" size="sm" disabled={isLoadingNamespaces || isLoadingHistory} className="flex-grow sm:flex-grow-0">
+                <RefreshCw className={`h-4 w-4 ${(isLoadingNamespaces || isLoadingHistory) ? 'animate-spin' : ''}`} />
+                <span className="ml-2 hidden sm:inline">Refresh</span>
+                <span className="ml-0 sm:hidden">Refresh</span>
+              </Button>
+            </div>
+          </div>
+          <CardDescription>View words you've previously looked up within a selected namespace.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4 flex flex-col sm:flex-row items-stretch sm:items-end gap-2">
+            <div className="flex-grow space-y-1">
+              <Label htmlFor="history-namespace-select">Select Namespace</Label>
+              {isLoadingNamespaces ? (
+                <Skeleton className="h-10 w-full" />
+              ) : (
+                <Select
+                  value={selectedHistoryNamespace || ""}
+                  onValueChange={handleSelectedNamespace}
+                  disabled={namespacesList.length === 0 && !selectedHistoryNamespace}
+                >
+                  <SelectTrigger id="history-namespace-select" className="w-full">
+                    <SelectValue placeholder={namespacesList.length > 0 || selectedHistoryNamespace ? "Select a namespace" : "No namespaces available"} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {namespacesList.map((nsE) => (
+                      <SelectItem key={nsE.namespace} value={nsE.namespace}>
+                        {nsE.namespace} ({nsE.count} words)
+                      </SelectItem>
+                    ))}
+                    {selectedHistoryNamespace && !namespacesList.some(ns => ns.namespace === selectedHistoryNamespace) && (
+                      <SelectItem value={selectedHistoryNamespace}>
+                        {selectedHistoryNamespace} (New)
+                      </SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
+              )}
+            </div>
+          </div>
+
+          {error && <p className="text-destructive text-sm mb-2">{error}</p>}
+
+          {isLoadingHistory && !indexedHistoryData && (
+            <div className="space-y-1 p-2">
+              <Skeleton className="h-6 w-1/3 mb-2" />
+              {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-8 w-full" />)}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </>
+  )
+
+  const renderFullMode = () => (
     <>
       <Card className="mt-6">
         <CardHeader>
@@ -404,8 +516,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           {indexedHistoryData && indexedHistoryData.index && indexedHistoryData.index.length > 0 && (
             <div className="mb-3">
               <Label className="text-sm font-medium text-muted-foreground mb-1 block">Index (Namespace: {selectedHistoryNamespace}):</Label>
-              <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex flex-nowrap gap-1.5 p-1">
+              <div className="max-w-full">
+                <div className="flex flex-wrap gap-1.5 p-1">
                   {indexedHistoryData.index.map((char) => (
                     <Badge
                       key={char}
@@ -417,7 +529,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                     </Badge>
                   ))}
                 </div>
-              </ScrollArea>
+              </div>
             </div>
           )}
 
@@ -485,7 +597,9 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
           <div className="p-4 border-b">
             <div className="relative">
               <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
+              <WordInput
+                id="all-history-search"
+                language={language}
                 type="search"
                 placeholder="Search all history..."
                 value={allHistorySearchTerm}
@@ -508,8 +622,8 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                 {filteredAllLanguageHistoryData.index.length > 0 ? (
                   <div className="p-4 border-b shrink-0">
                     <Label className="text-sm font-medium text-muted-foreground mb-1 block">Index:</Label>
-                    <ScrollArea className="w-full whitespace-nowrap">
-                      <div className="flex flex-nowrap gap-1.5 p-1">
+                    <div className="max-w-full">
+                      <div className="flex flex-wrap gap-1.5 p-1">
                         {filteredAllLanguageHistoryData.index.map((char) => (
                           <Badge
                             key={char}
@@ -521,7 +635,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
                           </Badge>
                         ))}
                       </div>
-                    </ScrollArea>
+                    </div>
                   </div>
                 ) : (
                   allHistorySearchTerm && <p className="p-4 text-center text-muted-foreground">No results found for "{allHistorySearchTerm}".</p>
@@ -539,6 +653,10 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         </DialogContent>
       </Dialog>
     </>
+  )
+
+  return (
+    listMode ? renderListMode() : renderFullMode()
   );
 };
 
