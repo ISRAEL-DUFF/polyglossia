@@ -25,7 +25,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#D4AF37', // Match manifest theme_color
+  // themeColor: '#D4AF37', // Gold Theme (Match manifest theme_color)
+  themeColor: '#a875f0' // Purple them
 };
 
 export default function RootLayout({

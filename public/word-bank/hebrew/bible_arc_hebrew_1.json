@@ -1,0 +1,1025 @@
+{
+  "Lesson 2": [
+    {
+      "word": "אִישׁ, אֲנָשִׁים",
+      "meanings": [
+        "man"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אִשָּׁה, נָשִׁים",
+      "meanings": [
+        "woman",
+        "wife"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אֵל",
+      "meanings": [
+        "God",
+        "god"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אֱלֹהִים",
+      "meanings": [
+        "God",
+        "gods"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אָמַר",
+      "meanings": [
+        "say"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "אֲשֶׁר",
+      "meanings": [
+        "that"
+      ],
+      "partOfSpeech": "(particle)",
+      "frequency": 1
+    },
+    {
+      "word": "בּוֹא",
+      "meanings": [
+        "come",
+        "go"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "בַּיִת, בָּתִּים",
+      "meanings": [
+        "house"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "בָּרַךְ",
+      "meanings": [
+        "bless"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "הָיָה",
+      "meanings": [
+        "be"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "הַר",
+      "meanings": [
+        "mountain",
+        "hill"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יְהֹוָה",
+      "meanings": [
+        "Yahweh"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יְרוּשָׁלִַ͏ם",
+      "meanings": [
+        "Jerusalem"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "מַיִם",
+      "meanings": [
+        "waters",
+        "water"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "שָׁמַיִם",
+      "meanings": [
+        "heavens",
+        "sky"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "סָבִיב",
+      "meanings": [
+        "circuit",
+        "round about"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עַד",
+      "meanings": [
+        "until"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "עוֹלָם",
+      "meanings": [
+        "long duration",
+        "eternity"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עַם",
+      "meanings": [
+        "people"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עָשָׂה",
+      "meanings": [
+        "do",
+        "make"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "מַעֲשֶׂה",
+      "meanings": [
+        "deed",
+        "work"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עַתָּה",
+      "meanings": [
+        "now"
+      ],
+      "partOfSpeech": "(adverb)",
+      "frequency": 1
+    },
+    {
+      "word": "שֵׁם",
+      "meanings": [
+        "name"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "שָׁמַר",
+      "meanings": [
+        "guard",
+        "preserve"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    }
+  ],
+  "Lesson 4": [
+    {
+      "word": "אוֹר",
+      "meanings": [
+        "light (f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אֶרֶץ",
+      "meanings": [
+        "earth",
+        "land (m/f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "בָּטַח",
+      "meanings": [
+        "trust"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "הָלַל",
+      "meanings": [
+        "be boastful",
+        "praise"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "חֹדֶשׁ",
+      "meanings": [
+        "month",
+        "new moon"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יָדָה",
+      "meanings": [
+        "give thanks",
+        "confess"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "יוֹם",
+      "meanings": [
+        "day"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יָרֵא",
+      "meanings": [
+        "fear"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "כָּל / כֹּל",
+      "meanings": [
+        "the whole",
+        "all"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "נָתַן",
+      "meanings": [
+        "give",
+        "put",
+        "set"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "פֶּה",
+      "meanings": [
+        "mouth"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "פָּנִים",
+      "meanings": [
+        "face (m/f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "רָאָה",
+      "meanings": [
+        "see"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "מַרְאֶה",
+      "meanings": [
+        "sight",
+        "appearance"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "רַב",
+      "meanings": [
+        "much",
+        "many",
+        "great"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "רֹב",
+      "meanings": [
+        "multitude",
+        "abundance",
+        "greatness"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "רָבָה",
+      "meanings": [
+        "be/become great",
+        "many"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "שׂוּם",
+      "meanings": [
+        "put",
+        "set"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "שָׁלוֹם",
+      "meanings": [
+        "completeness",
+        "welfare",
+        "peace"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "שָׁלַם",
+      "meanings": [
+        "be complete",
+        "sound"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "שְׁלֹמֹה",
+      "meanings": [
+        "Solomon"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    }
+  ],
+  "Lesson 6": [
+    {
+      "word": "בֵּן",
+      "meanings": [
+        "son"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "בַּת, בָּנוֹת",
+      "meanings": [
+        "daughter"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "חָצֵר",
+      "meanings": [
+        "enclosure",
+        "court"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יָדַע",
+      "meanings": [
+        "know"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "יְהוֹשׁוּעַ",
+      "meanings": [
+        "Joshua"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יְשׁוּעָה",
+      "meanings": [
+        "salvation",
+        "deliverance"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יָשַׁע",
+      "meanings": [
+        "deliver"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "לֹא",
+      "meanings": [
+        "not"
+      ],
+      "partOfSpeech": "(particle)",
+      "frequency": 1
+    },
+    {
+      "word": "נָשָׂא",
+      "meanings": [
+        "lift up",
+        "carry"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "עֶבֶד",
+      "meanings": [
+        "slave",
+        "servant"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עָבַד",
+      "meanings": [
+        "work",
+        "serve"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "עֲבֹדָה",
+      "meanings": [
+        "labor"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "צֹאן",
+      "meanings": [
+        "flock"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "שַׁעַר",
+      "meanings": [
+        "gate"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אָנֹכִי / אֲנִי",
+      "meanings": [
+        "I"
+      ],
+      "partOfSpeech": "(first person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אֲנַחְנוּ",
+      "meanings": [
+        "we"
+      ],
+      "partOfSpeech": "(first person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אַתָּה",
+      "meanings": [
+        "you [sir]"
+      ],
+      "partOfSpeech": "(second person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אַתְּ",
+      "meanings": [
+        "you [ma’am]"
+      ],
+      "partOfSpeech": "(second person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אַתֶּם",
+      "meanings": [
+        "you all"
+      ],
+      "partOfSpeech": "(second person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אַתֵּנָה / אַתֶּן",
+      "meanings": [
+        "[ladies] you all"
+      ],
+      "partOfSpeech": "(second person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הוּא",
+      "meanings": [
+        "he/that"
+      ],
+      "partOfSpeech": "(third person pronoun) (demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הִוא / הִיא",
+      "meanings": [
+        "she/that"
+      ],
+      "partOfSpeech": "(third person pronoun) (demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הֵמָּה / הֵם",
+      "meanings": [
+        "they"
+      ],
+      "partOfSpeech": "(third person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הֵנָּה / הֵן",
+      "meanings": [
+        "[those ladies]"
+      ],
+      "partOfSpeech": "(third person pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "זֹה / זֶה",
+      "meanings": [
+        "this (ms)"
+      ],
+      "partOfSpeech": "(demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "זֹאת",
+      "meanings": [
+        "this (fs)"
+      ],
+      "partOfSpeech": "(demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "אֵלֶּה",
+      "meanings": [
+        "these (cp)"
+      ],
+      "partOfSpeech": "(demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הֵמָּה / הֵם",
+      "meanings": [
+        "those (mp)"
+      ],
+      "partOfSpeech": "(demonstrative pronoun)",
+      "frequency": 1
+    },
+    {
+      "word": "הֵנָּה",
+      "meanings": [
+        "those (fp)"
+      ],
+      "partOfSpeech": "(demonstrative pronoun)",
+      "frequency": 1
+    }
+  ],
+  "Lesson 8": [
+    {
+      "word": "אָז",
+      "meanings": [
+        "at that time",
+        "then"
+      ],
+      "partOfSpeech": "(adverb)",
+      "frequency": 1
+    },
+    {
+      "word": "אַחַר",
+      "meanings": [
+        "after"
+      ],
+      "partOfSpeech": "(adverb, preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "אֵל",
+      "meanings": [
+        "to",
+        "toward"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "אֵת",
+      "meanings": [
+        "with"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "אֵת",
+      "meanings": [
+        "[direct object marker]"
+      ],
+      "partOfSpeech": "(particle)",
+      "frequency": 1
+    },
+    {
+      "word": "גָּדוֹל",
+      "meanings": [
+        "great"
+      ],
+      "partOfSpeech": "(adjective)",
+      "frequency": 1
+    },
+    {
+      "word": "גָּדַל",
+      "meanings": [
+        "grow up",
+        "become great"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "יָד",
+      "meanings": [
+        "hand (m/f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יִשְׂרָאֵל",
+      "meanings": [
+        "Israel (f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "כְּמוֹ",
+      "meanings": [
+        "like",
+        "as",
+        "when"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "לִפְנֵי",
+      "meanings": [
+        "before",
+        "in front of"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "לָשׁוֹן, לְשֹׁנוֹת",
+      "meanings": [
+        "tongue (m/f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "מוּת",
+      "meanings": [
+        "die"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "מָוֶת",
+      "meanings": [
+        "death (m)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "מָלֵא",
+      "meanings": [
+        "fulfill",
+        "fill"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "מִן",
+      "meanings": [
+        "from"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "נֶפֶשׁ",
+      "meanings": [
+        "soul",
+        "life (m/f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עַיִן",
+      "meanings": [
+        "eye"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "עַל",
+      "meanings": [
+        "upon",
+        "according to"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "עִם",
+      "meanings": [
+        "with"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "צִיּוֹן",
+      "meanings": [
+        "Zion (f)"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "שׁוּב",
+      "meanings": [
+        "turn back",
+        "return"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "שָׂמַח",
+      "meanings": [
+        "rejoice"
+      ],
+      "partOfSpeech": "(adjective, verb)",
+      "frequency": 1
+    },
+    {
+      "word": "תַּחַת",
+      "meanings": [
+        "under",
+        "instead of"
+      ],
+      "partOfSpeech": "(preposition)",
+      "frequency": 1
+    }
+  ],
+  "Lesson 10": [
+    {
+      "word": "אַהֲרוֹן",
+      "meanings": [
+        "Aaron"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "אוֹ",
+      "meanings": [
+        "or"
+      ],
+      "partOfSpeech": "(conjunction)",
+      "frequency": 1
+    },
+    {
+      "word": "אִם",
+      "meanings": [
+        "if"
+      ],
+      "partOfSpeech": "(conjunction)",
+      "frequency": 1
+    },
+    {
+      "word": "גָּאַל",
+      "meanings": [
+        "redeem",
+        "act as kinsman"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "גּוֹי",
+      "meanings": [
+        "nation",
+        "people"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "דָבַר",
+      "meanings": [
+        "speak"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "דָּבָר",
+      "meanings": [
+        "speech",
+        "word",
+        "matter"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "יַעַן",
+      "meanings": [
+        "on account of",
+        "because"
+      ],
+      "partOfSpeech": "(conjunction)",
+      "frequency": 1
+    },
+    {
+      "word": "כֹּה",
+      "meanings": [
+        "thus",
+        "here"
+      ],
+      "partOfSpeech": "(adverb)",
+      "frequency": 1
+    },
+    {
+      "word": "כִּי",
+      "meanings": [
+        "that",
+        "for",
+        "when"
+      ],
+      "partOfSpeech": "(conjunction)",
+      "frequency": 1
+    },
+    {
+      "word": "לְמַעַן",
+      "meanings": [
+        "in order that",
+        "on account of"
+      ],
+      "partOfSpeech": "(conjunction, preposition)",
+      "frequency": 1
+    },
+    {
+      "word": "מֶלֶךְ",
+      "meanings": [
+        "king"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "מָלַךְ",
+      "meanings": [
+        "reign"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "מַמְלָכָה",
+      "meanings": [
+        "kingdom",
+        "reign"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "מֹשֶׁה",
+      "meanings": [
+        "Moses"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "פֵּן",
+      "meanings": [
+        "lest"
+      ],
+      "partOfSpeech": "(conjunction)",
+      "frequency": 1
+    },
+    {
+      "word": "קוּם",
+      "meanings": [
+        "arise",
+        "stand up"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "קָרָא",
+      "meanings": [
+        "call",
+        "proclaim"
+      ],
+      "partOfSpeech": "(verb)",
+      "frequency": 1
+    },
+    {
+      "word": "רֹאשׁ",
+      "meanings": [
+        "head",
+        "chief"
+      ],
+      "partOfSpeech": "(noun)",
+      "frequency": 1
+    },
+    {
+      "word": "רִאשׁוֹן",
+      "meanings": [
+        "former",
+        "first",
+        "chief"
+      ],
+      "partOfSpeech": "(adjective)",
+      "frequency": 1
+    },
+    {
+      "word": "רַע",
+      "meanings": [
+        "evil",
+        "distress"
+      ],
+      "partOfSpeech": "(adjective, noun)",
+      "frequency": 1
+    }
+  ]
+}

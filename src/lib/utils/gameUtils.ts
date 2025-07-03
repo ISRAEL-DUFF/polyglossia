@@ -63,6 +63,38 @@ function shadeColor(color, percent) {
     return nextColorFn
   }
 
+export function hslStringToHex(hslStr: string, el: HTMLElement = document.documentElement): string | null {
+  // Extract the variable name from hsl(var(--some-var))
+  const match = hslStr.match(/hsl\(var\((--[^)]+)\)\)/);
+  if (!match) return null;
+
+  const variableName = match[1];
+
+  // Get the computed style value
+  const computedHsl = getComputedStyle(el).getPropertyValue(variableName).trim();
+
+  // Match HSL format: e.g. "0 0% 3.9%"
+  const hslParts = computedHsl.match(/^(\d+\.?\d*)\s+(\d+\.?\d*)%\s+(\d+\.?\d*)%$/);
+  if (!hslParts) return null;
+
+  const [, h, s, l] = hslParts.map(Number);
+
+  return hslToHex(h, s, l);
+}
+
+// HSL to HEX helper
+export function hslToHex(h: number, s: number, l: number): string {
+  s /= 100;
+  l /= 100;
+  const k = (n: number) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n: number) =>
+    Math.round(255 * (l - a * Math.max(-1, Math.min(Math.min(k(n) - 3, 9 - k(n)), 1))));
+  return `#${[f(0), f(8), f(4)].map(x => x.toString(16).padStart(2, '0')).join('')}`;
+}
+
+
+
   // Simple event emitter for the matching game
   export class EventEmitter {
     private events: {[key: string]: Array<(data?: any) => void>} = {};

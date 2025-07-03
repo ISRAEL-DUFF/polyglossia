@@ -11,9 +11,12 @@ import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import './Lexicon.css'
 import LookupHistoryViewer from "@/components/LookupHistoryViewer";
-import { GreekInput } from "@/components/GreekInput";
+import { WordInput } from "@/components/WordInput";
 import GreekLexiconViewer from "./GreekLexiconViewer";
 import { NamespaceEntry } from "@/types";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { prepositionData } from "@/lib/data/prepositionsData";
 
 
 const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
@@ -30,6 +33,7 @@ const LexicaTool: React.FC = () => {
   const [historyNamespaceEntry, setHistoryNamespaceEntry] = useState<NamespaceEntry | null>(null);
   const [showLexicalModal, setShowLexicalModal] = useState(false);
   const [lastFetchedWord, setLastFetchedWord] = useState<string | null>(null);
+  const [showPrepositionModal, setShowPrepositionModal] = useState(false);
 
   
   const { toast } = useToast();
@@ -139,7 +143,8 @@ const LexicaTool: React.FC = () => {
         </CardHeader>
         <CardContent className="space-y-2">
           <div className="flex flex-col sm:flex-row gap-2">
-            <GreekInput
+            <WordInput
+              language={'greek'}
               id="greekInput"
               placeholder="Enter Greek word (e.g. λόγος)"
               value={word}
@@ -185,10 +190,19 @@ const LexicaTool: React.FC = () => {
           <div className="flex justify-center mt-2">
             <a
               href="/vocabulary-browser"
+              className="text-primary hover:text-primary/80 mr-4"
+              rel="noopener noreferrer" 
+            >
+              Vocabulary
+            </a>
+
+            <a
+              onClick={() => setShowPrepositionModal(true)}
+              href="#"
               className="text-primary hover:text-primary/80"
               rel="noopener noreferrer" 
             >
-              Browse Vocabulary
+              Prepositions
             </a>
           </div>
 
@@ -225,6 +239,41 @@ const LexicaTool: React.FC = () => {
         onNamespaceSelect={(ns, e) => handleHistoryNamespace(ns, e)}
         refreshTrigger={historyRefreshTrigger} 
       />
+
+
+      {/* Prepositions Modal */}
+      <Dialog open={showPrepositionModal} onOpenChange={setShowPrepositionModal}>
+        <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0">
+            <DialogHeader className="p-4 pb-2 border-b bg-muted shrink-0">
+              <DialogTitle>Gree Prepositions</DialogTitle>
+            </DialogHeader>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Preposition</TableHead>
+                    <TableHead>Case</TableHead>
+                    <TableHead>Meaning(s)</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {prepositionData.map((entry, index) => (
+                    Object.entries(entry.cases).map(([caseName, meanings], caseIndex) => (
+                      <TableRow key={`${index}-${caseIndex}`}>
+                        {caseIndex === 0 && <TableCell rowSpan={Object.keys(entry.cases).length} className="align-top font-semibold">{entry.preposition}</TableCell>}
+                        <TableCell>{caseName}</TableCell>
+                        <TableCell>{meanings.join(", ")}</TableCell>
+                      </TableRow>
+                    ))
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+            <DialogFooter className="p-4 border-t bg-muted shrink-0">
+                <Button variant="outline" onClick={() => setShowPrepositionModal(false)}>Close</Button>
+            </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

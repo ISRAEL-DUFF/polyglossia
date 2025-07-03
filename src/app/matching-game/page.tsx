@@ -319,6 +319,11 @@ const MatchingGame = () => {
     
     eventEmitter.on('countdown:start', () => {});
     eventEmitter.on('countdown:end', () => {});
+
+    const saveLang = localStorage.getItem('game_language');
+    if(saveLang) {
+      setCurrentLanguage(saveLang);
+    }
     
     return () => {
       if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
@@ -515,6 +520,7 @@ const MatchingGame = () => {
 
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
+    localStorage.setItem('game_language', language);
     toast({ title: "Language Changed", description: `Switched to ${language}` });
   };
 
