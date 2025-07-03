@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2 } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2, Repeat, Redo2 } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -78,8 +78,8 @@ interface StoriesApiResponse {
 
 const favoritesDb = localDatabase('story_favorites');
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
-const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
-// const STORIES_API_URL = 'http://localhost:3001/stories';
+// const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
+const STORIES_API_URL = 'http://localhost:3001/stories';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -111,6 +111,13 @@ const StoryCreatorPage: React.FC = () => {
     const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
 
     const [isManualStoryModalOpen, setIsManualStoryModalOpen] = useState(false);
+
+    // New state for looping features
+    const [isLooping, setIsLooping] = useState(false); // For whole audio loop
+    const [isSelectingLoop, setIsSelectingLoop] = useState(false); // To enter selection mode
+    const [loopStartIndex, setLoopStartIndex] = useState<number | null>(null);
+    const [loopEndIndex, setLoopEndIndex] = useState<number | null>(null);
+    const [activeLoop, setActiveLoop] = useState<{ start: number; end: number } | null>(null);
 
 
     useEffect(() => {
@@ -185,10 +192,11 @@ const StoryCreatorPage: React.FC = () => {
             setStory(generatedStory);
 
             boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-            const cleanText = generatedStory.greekText.replace(/\*\*/g, '');
+            
+            const cleanTextPrompt = `Using Modern Greek pronunciation rules (β=v, γ=ɣ, δ=ð, etc.; η, ι, υ, ει, οι = i; αι=e; ου=u; stress accent), please read the following Ancient Greek text: ${generatedStory.greekText.replace(/\*\*/g, '')}`
 
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
-            const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
+            const audioResult = await textToSpeech({ text: cleanTextPrompt, language: 'Greek' });
             
             if (audioResult && audioResult.audioUrl) {
               setAudioUrl(audioResult.audioUrl);
@@ -225,6 +233,12 @@ const StoryCreatorPage: React.FC = () => {
         setCurrentTime(0);
         setDuration(0);
         setIsPlaying(false);
+        // Reset loop states
+        setIsLooping(false);
+        setIsSelectingLoop(false);
+        setActiveLoop(null);
+        setLoopStartIndex(null);
+        setLoopEndIndex(null);
     }
     
     const handleSaveStory = async () => {
@@ -359,19 +373,29 @@ const StoryCreatorPage: React.FC = () => {
 
     const handleTimeUpdate = () => {
         if (!audioRef.current) return;
-        setCurrentTime(audioRef.current.currentTime);
+        const currentTime = audioRef.current.currentTime;
+        setCurrentTime(currentTime);
+
+        // Handle segment looping
+        if (activeLoop && audioRef.current.currentTime >= activeLoop.end) {
+            audioRef.current.currentTime = activeLoop.start;
+            audioRef.current.play().catch(e => console.error("Audio playback error on loop:", e));
+            return; // Don't run word highlighting logic on loop jump
+        }
+        
         if (wordTimings.length === 0) return;
 
-        const time = audioRef.current.currentTime;
-        const activeIndex = wordTimings.findIndex(timing => time >= timing.startTime && time < timing.endTime);
+        const activeIndex = wordTimings.findIndex(timing => currentTime >= timing.startTime && currentTime < timing.endTime);
         if (activeIndex !== -1 && activeIndex !== currentWordIndex) {
             setCurrentWordIndex(activeIndex);
         }
     };
 
     const handleAudioEnd = () => {
-        setCurrentWordIndex(-1);
-        setIsPlaying(false);
+        if (!isLooping) {
+            setCurrentWordIndex(-1);
+            setIsPlaying(false);
+        }
     };
 
     const handleLoadedMetadata = () => {
@@ -408,7 +432,41 @@ const StoryCreatorPage: React.FC = () => {
         });
     };
 
-    const handleWordClick = (startTime: number) => {
+    const handleLoopSelection = (index: number) => {
+        if (loopStartIndex === null) {
+            setLoopStartIndex(index);
+            toast({ title: "Start Point Selected", description: "Now click the last word of the segment to loop." });
+        } else {
+            const startIdx = Math.min(loopStartIndex, index);
+            const endIdx = Math.max(loopStartIndex, index);
+
+            if (wordTimings[startIdx] && wordTimings[endIdx] && wordTimings[endIdx].endTime) {
+                setLoopEndIndex(endIdx);
+                const startTime = wordTimings[startIdx].startTime;
+                const endTime = wordTimings[endIdx].endTime;
+                setActiveLoop({ start: startTime, end: endTime });
+                
+                if (audioRef.current) {
+                    audioRef.current.currentTime = startTime;
+                    audioRef.current.play();
+                }
+
+                setIsSelectingLoop(false);
+                // No need to reset loopStartIndex here, it's used for highlighting
+            } else {
+                 toast({ variant: 'destructive', title: "Timing Error", description: "Timings for the selected words are not available." });
+                 setLoopStartIndex(null);
+                 setIsSelectingLoop(false);
+            }
+        }
+    };
+
+    const handleWordClick = (startTime: number, index: number) => {
+        if (isSelectingLoop) {
+            handleLoopSelection(index);
+            return;
+        }
+
         if (audioRef.current) {
             audioRef.current.currentTime = startTime;
             if (audioRef.current.paused) {
@@ -416,6 +474,42 @@ const StoryCreatorPage: React.FC = () => {
             }
         }
     };
+    
+    const toggleFullLoop = () => {
+        const newLoopingState = !isLooping;
+        setIsLooping(newLoopingState);
+        if (newLoopingState) {
+            setActiveLoop(null);
+            setIsSelectingLoop(false);
+            setLoopStartIndex(null);
+            setLoopEndIndex(null);
+            toast({ title: "Audio Looping Enabled" });
+        } else {
+            toast({ title: "Audio Looping Disabled" });
+        }
+    };
+    
+    const toggleSegmentLoop = () => {
+        if (activeLoop) {
+            setActiveLoop(null);
+            setLoopStartIndex(null);
+            setLoopEndIndex(null);
+            if (audioRef.current) audioRef.current.pause();
+            toast({ title: "Segment Loop Cleared" });
+        } else {
+            const enteringSelection = !isSelectingLoop;
+            setIsSelectingLoop(enteringSelection);
+            setLoopStartIndex(null);
+            setLoopEndIndex(null);
+            if (enteringSelection) {
+                setIsLooping(false);
+                toast({ title: "Select Loop Segment", description: "Click the first word of the segment." });
+            } else {
+                toast({ title: "Loop Selection Cancelled" });
+            }
+        }
+    };
+
 
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
@@ -592,23 +686,34 @@ const StoryCreatorPage: React.FC = () => {
                                     onEnded={handleAudioEnd}
                                     onPlay={() => setIsPlaying(true)}
                                     onPause={() => setIsPlaying(false)}
+                                    loop={isLooping && !activeLoop} // Use state for looping
                                     className="hidden"
                                 >
                                     Your browser does not support the audio element.
                                 </audio>
 
-                                <div className="flex items-center gap-4 p-2 border rounded-lg bg-muted/50">
+                                <div className="flex items-center gap-2 sm:gap-4 p-2 border rounded-lg bg-muted/50 flex-wrap justify-center sm:justify-start">
                                     <Button onClick={togglePlayPause} variant="outline" size="icon">
                                         {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
                                     </Button>
-                                    <div className="font-mono text-sm text-muted-foreground w-28">
+                                    <div className="font-mono text-sm text-muted-foreground w-28 text-center sm:text-left">
                                         {currentTime.toFixed(2)}s / {duration.toFixed(2)}s
                                     </div>
-                                    <div className="flex-grow" />
-                                    <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm">
-                                        <Timer className="mr-2 h-4 w-4" />
-                                        Edit Timings
-                                    </Button>
+                                    <div className="flex-grow hidden sm:block" />
+                                    
+                                    <div className="flex gap-2">
+                                        <Button onClick={toggleFullLoop} variant={isLooping ? "secondary" : "outline"} size="icon" title="Loop Audio">
+                                            <Repeat className="h-5 w-5" />
+                                        </Button>
+                                        <Button onClick={toggleSegmentLoop} variant={isSelectingLoop || activeLoop ? "secondary" : "outline"} size="icon" title={activeLoop ? "Clear Loop" : "Loop Segment"}>
+                                            <Redo2 className="h-5 w-5" />
+                                        </Button>
+                                        <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm" className="h-10 px-3">
+                                            <Timer className="mr-0 sm:mr-2 h-4 w-4" />
+                                            <span className="hidden sm:inline">Edit Timings</span>
+                                        </Button>
+                                    </div>
+
                                     <div className="flex items-center gap-2">
                                         <Label htmlFor="speed-select" className="text-sm">Speed:</Label>
                                         <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
@@ -649,19 +754,25 @@ const StoryCreatorPage: React.FC = () => {
                                 <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
                                  <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose">
                                      {wordTimings.length > 0 ? (
-                                        wordTimings.map((timing, index) => (
-                                            <span
-                                                key={index}
-                                                onClick={() => handleWordClick(timing.startTime)}
-                                                className={cn(
-                                                    'transition-colors duration-150 p-1 rounded-md cursor-pointer hover:bg-primary/10',
-                                                    boldedWordsRef.current.has(timing.word) && 'font-bold text-primary',
-                                                    currentWordIndex === index && 'bg-primary/20'
-                                                )}
-                                            >
-                                                {timing.word}{' '}
-                                            </span>
-                                        ))
+                                        wordTimings.map((timing, index) => {
+                                            const isSegmentActive = activeLoop && loopStartIndex !== null && loopEndIndex !== null && index >= loopStartIndex && index <= loopEndIndex;
+                                            return (
+                                                <span
+                                                    key={index}
+                                                    onClick={() => handleWordClick(timing.startTime, index)}
+                                                    className={cn(
+                                                        'transition-all duration-150 p-1 rounded-md cursor-pointer hover:bg-primary/10',
+                                                        boldedWordsRef.current.has(timing.word) && 'font-bold text-primary',
+                                                        currentWordIndex === index && !isSegmentActive && 'bg-yellow-400/30',
+                                                        isSelectingLoop && 'hover:ring-2 hover:ring-blue-400',
+                                                        loopStartIndex === index && 'ring-2 ring-blue-500',
+                                                        isSegmentActive && 'bg-green-400/30'
+                                                    )}
+                                                >
+                                                    {timing.word}{' '}
+                                                </span>
+                                            )
+                                        })
                                      ) : (
                                         <p>{renderHighlightedFallbackText(story.greekText)}</p>
                                      )}
