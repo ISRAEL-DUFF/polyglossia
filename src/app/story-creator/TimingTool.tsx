@@ -205,7 +205,7 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-none w-full h-full sm:max-w-4xl sm:h-[90vh] flex flex-col p-4 sm:p-6">
+            <DialogContent className="max-w-4xl sm:h-[90vh] flex flex-col p-6">
                 <DialogHeader>
                     <DialogTitle>Manual Audio Timing Tool</DialogTitle>
                     <DialogDescription>
@@ -285,7 +285,7 @@ const TimingTool: React.FC<TimingToolProps> = ({ isOpen, onOpenChange, storyText
                     </div>
                 </div>
 
-                <DialogFooter className="flex-col sm:flex-row sm:justify-between items-center gap-2 pt-4 border-t">
+                <DialogFooter className="flex sm:justify-between items-center gap-2 pt-4 border-t">
                     <div className="text-sm text-muted-foreground">
                         Progress: {timingMode === 'word' ? `${currentIndex} / ${words.length} words timed.` : 'Ready to mark a sentence.'}
                     </div>

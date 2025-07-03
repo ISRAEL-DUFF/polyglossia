@@ -432,7 +432,7 @@ const StoryCreatorPage: React.FC = () => {
                               disabled={isLoading}
                           />
                       </div>
-                      <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="flex gap-4">
                         <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
                             {isLoading ? (
                                 <>
