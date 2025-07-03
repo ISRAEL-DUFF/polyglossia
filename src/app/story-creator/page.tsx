@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2 } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
-import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
+import { textToSpeech, type TextToSpeechOutput } from '@/ai/flows/text-to-speech-flow';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
@@ -23,6 +23,7 @@ import { localDatabase } from '@/lib/utils/storageUtil';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import StoryPlayer from './StoryPlayer';
 
 
 type VocabWord = {
@@ -52,7 +53,7 @@ interface WordTiming {
     endTime: number;
 }
 
-interface SavedStory {
+export interface SavedStory {
     id: string;
     title: string;
     language: string;
@@ -63,6 +64,7 @@ interface SavedStory {
     englishTranslation?: string;
     audioDataUri?: string;
     timings?: WordTiming[];
+    scenes?: any[];
 }
 
 interface StoriesApiResponse {
@@ -87,20 +89,9 @@ const StoryCreatorPage: React.FC = () => {
     const [isSaving, setIsSaving] = useState(false);
     const [isLoadingStory, setIsLoadingStory] = useState(false);
     const [story, setStory] = useState<GenerateStoryOutput | null>(null);
-    const [audioUrl, setAudioUrl] = useState<string | null>(null);
-    const [wordTimings, setWordTimings] = useState<WordTiming[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
 
-    const [currentWordIndex, setCurrentWordIndex] = useState(-1);
-    const audioRef = useRef<HTMLAudioElement>(null);
-    const boldedWordsRef = useRef<Set<string>>(new Set());
-
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
-    const [playbackRate, setPlaybackRate] = useState(1);
-    
     const [savedStories, setSavedStories] = useState<SavedStory[]>([]);
     const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
     const [loadingSavedStories, setLoadingSavedStories] = useState(false);
@@ -178,21 +169,9 @@ const StoryCreatorPage: React.FC = () => {
                 userPrompt: userPrompt,
                 language: 'Greek',
             });
-            setStory(generatedStory);
-
-            boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-            const cleanText = generatedStory.greekText.replace(/\*\*/g, '');
-
-            toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
-            const audioResult = await textToSpeech({ text: cleanText, language: 'Greek' });
             
-            if (audioResult && audioResult.audioUrl) {
-              setAudioUrl(audioResult.audioUrl);
-              setWordTimings(audioResult.timings || []);
-            } else {
-              setWordTimings([]); // Fallback to no timings
-            }
-
+            setStory(generatedStory);
+            
             toast({
                 title: 'Story Generated!',
                 description: `Your story "${generatedStory.title}" is ready.`,
@@ -214,29 +193,21 @@ const StoryCreatorPage: React.FC = () => {
     const handleReset = () => {
         setStory(null);
         setError(null);
-        setAudioUrl(null);
-        setWordTimings([]);
-        setCurrentWordIndex(-1);
         setIsSaving(false);
-        setCurrentTime(0);
-        setDuration(0);
-        setIsPlaying(false);
     }
     
-    const handleSaveStory = async () => {
-        if (!story || !audioUrl) {
-            toast({ variant: 'destructive', title: 'Error', description: 'No story or audio available to save.' });
+    const handleSaveStory = async (storyToSave: GenerateStoryOutput, assetsToSave: any) => {
+        if (!storyToSave) {
+            toast({ variant: 'destructive', title: 'Error', description: 'No story available to save.' });
             return;
         }
 
         setIsSaving(true);
         try {
             const payload = {
-                title: story.title,
-                greekText: story.greekText,
-                englishTranslation: story.englishTranslation,
-                audioDataUri: audioUrl,
-                timings: wordTimings,
+                title: storyToSave.title,
+                scenes: storyToSave.scenes,
+                assets: assetsToSave,
                 language: 'greek',
                 namespace: selectedNamespace,
             };
@@ -254,7 +225,7 @@ const StoryCreatorPage: React.FC = () => {
             
             await fetchSavedStories(); // Refresh the list
 
-            toast({ title: 'Story Saved', description: `"${story.title}" has been saved successfully.` });
+            toast({ title: 'Story Saved', description: `"${storyToSave.title}" has been saved successfully.` });
 
         } catch (err) {
             const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred while saving.';
@@ -268,16 +239,15 @@ const StoryCreatorPage: React.FC = () => {
     const handleLoadStory = async (storyToLoad: SavedStory, isFavorite: boolean) => {
         handleReset();
 
-        if (isFavorite && storyToLoad.greekText) {
+        if (isFavorite && storyToLoad.scenes) {
             // Load directly from favorite object
             setStory({
                 title: storyToLoad.title,
-                greekText: storyToLoad.greekText,
-                englishTranslation: storyToLoad.englishTranslation || '',
+                scenes: storyToLoad.scenes || [],
+                // These are just for type compatibility, player doesn't use them directly
+                greekText: '', 
+                englishTranslation: ''
             });
-            setAudioUrl(storyToLoad.audioDataUri || null);
-            setWordTimings(storyToLoad.timings || []);
-            boldedWordsRef.current = new Set([...(storyToLoad.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
@@ -290,16 +260,9 @@ const StoryCreatorPage: React.FC = () => {
                 const errorData = await response.json().catch(() => ({}));
                 throw new Error(errorData.message || 'Failed to load the selected story.');
             }
-            const fullStory: SavedStory = await response.json();
+            const fullStory: GenerateStoryOutput = await response.json();
             
-            setStory({
-                title: fullStory.title,
-                greekText: fullStory.greekText!,
-                englishTranslation: fullStory.englishTranslation!,
-            });
-            setAudioUrl(fullStory.audioDataUri!);
-            setWordTimings(fullStory.timings || []);
-            boldedWordsRef.current = new Set([...(fullStory.greekText?.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+            setStory(fullStory);
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (err) {
@@ -320,7 +283,7 @@ const StoryCreatorPage: React.FC = () => {
         } else {
             let fullStoryData = storyToList;
             // Check if we already have the full data
-            if (!fullStoryData.greekText || !fullStoryData.audioDataUri) {
+            if (!fullStoryData.scenes) {
                 const loadingToast = toast({ title: 'Favoriting...', description: 'Fetching full story to save offline.' });
                 try {
                     const response = await fetch(`${STORIES_API_URL}/get/${storyToList.id}`);
@@ -353,76 +316,12 @@ const StoryCreatorPage: React.FC = () => {
         setPagination(prev => ({...prev, page: 1}));
     }
 
-    const handleTimeUpdate = () => {
-        if (!audioRef.current) return;
-        setCurrentTime(audioRef.current.currentTime);
-        if (wordTimings.length === 0) return;
-
-        const time = audioRef.current.currentTime;
-        const activeIndex = wordTimings.findIndex(timing => time >= timing.startTime && time < timing.endTime);
-        if (activeIndex !== -1 && activeIndex !== currentWordIndex) {
-            setCurrentWordIndex(activeIndex);
-        }
-    };
-
-    const handleAudioEnd = () => {
-        setCurrentWordIndex(-1);
-        setIsPlaying(false);
-    };
-
-    const handleLoadedMetadata = () => {
-        if (audioRef.current) {
-            setDuration(audioRef.current.duration);
-        }
-    };
-    
-    const togglePlayPause = () => {
-        if (audioRef.current) {
-            if (audioRef.current.paused) {
-                audioRef.current.play();
-            } else {
-                audioRef.current.pause();
-            }
-        }
-    };
-
-    const handlePlaybackRateChange = (rate: string) => {
-        const newRate = parseFloat(rate);
-        setPlaybackRate(newRate);
-        if (audioRef.current) {
-            audioRef.current.playbackRate = newRate;
-        }
-    };
-    
-    const renderHighlightedFallbackText = (text: string) => {
-        const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
-        return parts.map((part, index) => {
-            if (part.startsWith('**') && part.endsWith('**')) {
-                return <strong key={index} className="text-primary font-bold">{part.slice(2, -2)}</strong>;
-            }
-            return <React.Fragment key={index}>{part}</React.Fragment>;
-        });
-    };
-
-    const handleWordClick = (startTime: number) => {
-        if (audioRef.current) {
-            audioRef.current.currentTime = startTime;
-            if (audioRef.current.paused) {
-                audioRef.current.play().catch(e => console.error("Audio play error:", e));
-            }
-        }
-    };
-
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
             setPagination(prev => ({ ...prev, page: newPage }));
         }
     };
-
-    const handleTimingsUpdate = (newTimings: WordTiming[]) => {
-        setWordTimings(newTimings);
-    };
-
+    
     const handleManualStorySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -447,15 +346,21 @@ const StoryCreatorPage: React.FC = () => {
                 reader.readAsDataURL(audioFile);
             });
     
+            // We'll wrap the manual story in a single scene to fit the new data structure
             setStory({
                 title,
-                greekText,
-                englishTranslation,
+                scenes: [{
+                    sceneNumber: 1,
+                    greekText,
+                    englishTranslation,
+                    backgroundPrompt: "A neutral, pleasant background for a story.",
+                    characters: [],
+                }],
+                // These are for type compatibility but not used directly by the player now
+                greekText: '',
+                englishTranslation: ''
             });
-            setAudioUrl(audioDataUri);
-            setWordTimings([]); // Manual timing is required
-            boldedWordsRef.current = new Set([...(greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
-    
+
             toast({ title: "Story Loaded", description: "Your manual story is ready. Use the timing tool to sync the audio." });
             setIsManualStoryModalOpen(false);
         } catch (err) {
@@ -551,9 +456,9 @@ const StoryCreatorPage: React.FC = () => {
                     <div className="space-y-4">
                         <Skeleton className="h-8 w-3/4 mx-auto" />
                         <Skeleton className="h-6 w-1/2 mx-auto" />
+                        <Skeleton className="aspect-video w-full mt-4" />
                         <div className="space-y-2 pt-4">
                           <Skeleton className="h-10 w-full" />
-                          <Skeleton className="h-24 w-full" />
                           <Skeleton className="h-24 w-full" />
                         </div>
                     </div>
@@ -571,120 +476,12 @@ const StoryCreatorPage: React.FC = () => {
                 )}
 
                 {!isLoading && !isLoadingStory && story && (
-                   <CardContent className="space-y-4 animate-fadeInUp">
-                        <div className="text-center">
-                            <h2 className="text-xl font-bold text-primary">{story.title}</h2>
-                        </div>
-                        
-                        {(audioUrl) ? (
-                            <>
-                                <audio 
-                                    ref={audioRef}
-                                    src={audioUrl} 
-                                    onLoadedMetadata={handleLoadedMetadata}
-                                    onTimeUpdate={handleTimeUpdate}
-                                    onEnded={handleAudioEnd}
-                                    onPlay={() => setIsPlaying(true)}
-                                    onPause={() => setIsPlaying(false)}
-                                    className="hidden"
-                                >
-                                    Your browser does not support the audio element.
-                                </audio>
-
-                                <div className="flex items-center gap-4 p-2 border rounded-lg bg-muted/50">
-                                    <Button onClick={togglePlayPause} variant="outline" size="icon">
-                                        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-                                    </Button>
-                                    <div className="font-mono text-sm text-muted-foreground w-28">
-                                        {currentTime.toFixed(2)}s / {duration.toFixed(2)}s
-                                    </div>
-                                    <div className="flex-grow" />
-                                    <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm">
-                                        <Timer className="mr-2 h-4 w-4" />
-                                        Edit Timings
-                                    </Button>
-                                    <div className="flex items-center gap-2">
-                                        <Label htmlFor="speed-select" className="text-sm">Speed:</Label>
-                                        <Select onValueChange={handlePlaybackRateChange} defaultValue="1">
-                                            <SelectTrigger id="speed-select" className="w-[80px]">
-                                                <SelectValue placeholder="Speed" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectItem value="0.5">0.5x</SelectItem>
-                                                <SelectItem value="0.75">0.75x</SelectItem>
-                                                <SelectItem value="1">1x</SelectItem>
-                                                <SelectItem value="1.25">1.25x</SelectItem>
-                                                <SelectItem value="1.5">1.5x</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </div>
-                            </>
-                        ) : (
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                                <Loader2 className="h-4 w-4 animate-spin" />
-                                <span>Loading audio...</span>
-                            </div>
-                        )}
-
-                        {audioUrl && wordTimings.length === 0 && (
-                           <Alert variant="default" className="mt-2">
-                             <AlertCircle className="h-4 w-4" />
-                             <AlertTitle>Audio Only</AlertTitle>
-                             <AlertDescription>
-                               Word-by-word highlighting is currently unavailable, but you can listen to the story. Use the "Edit Timings" tool to add it manually.
-                             </AlertDescription>
-                           </Alert>
-                        )}
-                        
-                        <div className="space-y-4">
-                            <div>
-                                <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
-                                 <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose">
-                                     {wordTimings.length > 0 ? (
-                                        wordTimings.map((timing, index) => (
-                                            <span
-                                                key={index}
-                                                onClick={() => handleWordClick(timing.startTime)}
-                                                className={cn(
-                                                    'transition-colors duration-150 p-1 rounded-md cursor-pointer hover:bg-primary/10',
-                                                    boldedWordsRef.current.has(timing.word) && 'font-bold text-primary',
-                                                    currentWordIndex === index && 'bg-primary/20'
-                                                )}
-                                            >
-                                                {timing.word}{' '}
-                                            </span>
-                                        ))
-                                     ) : (
-                                        <p>{renderHighlightedFallbackText(story.greekText)}</p>
-                                     )}
-                                </div>
-                            </div>
-                             <Collapsible>
-                                <CollapsibleTrigger asChild>
-                                    <Button variant="ghost" className="flex items-center gap-2 text-sm text-muted-foreground">
-                                        <ChevronsUpDown className="h-4 w-4" />
-                                        Show/Hide English Translation
-                                    </Button>
-                                </CollapsibleTrigger>
-                                <CollapsibleContent className="mt-2">
-                                     <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 text-sm">
-                                        <p>{story.englishTranslation}</p>
-                                    </div>
-                                </CollapsibleContent>
-                             </Collapsible>
-                        </div>
-
-                        <CardFooter className="px-0 pt-4 flex flex-col sm:flex-row gap-2">
-                            <Button onClick={handleSaveStory} disabled={isSaving || !audioUrl} className="w-full sm:w-auto">
-                                {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
-                                {isSaving ? "Saving..." : "Save Story"}
-                            </Button>
-                            <Button onClick={handleReset} variant="outline" className="w-full sm:w-auto">
-                                Create a New Story
-                            </Button>
-                        </CardFooter>
-                   </CardContent>
+                   <StoryPlayer 
+                     story={story}
+                     onReset={handleReset}
+                     onSave={handleSaveStory}
+                     isSaving={isSaving}
+                   />
                 )}
             </Card>
 
@@ -746,16 +543,6 @@ const StoryCreatorPage: React.FC = () => {
                 </CardContent>
             </Card>
             
-            {story && audioUrl && (
-              <TimingTool 
-                isOpen={isTimingToolOpen} 
-                onOpenChange={setIsTimingToolOpen}
-                storyText={story.greekText}
-                audioUrl={audioUrl}
-                onSave={handleTimingsUpdate}
-              />
-            )}
-
             <Dialog open={isManualStoryModalOpen} onOpenChange={setIsManualStoryModalOpen}>
                 <DialogContent>
                     <DialogHeader>
@@ -797,5 +584,3 @@ const StoryCreatorPage: React.FC = () => {
 };
 
 export default StoryCreatorPage;
-
-    

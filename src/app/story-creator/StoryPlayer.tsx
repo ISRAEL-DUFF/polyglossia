@@ -118,7 +118,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
 
     const goToPrevScene = () => {
         if (currentSceneIndex > 0) {
-            setCurrentSceneIndex(prev => prev - 1);
+            setCurrentSceneIndex(prev => prev + 1);
         }
     };
 
@@ -188,7 +188,7 @@ const StoryPlayer: React.FC<StoryPlayerProps> = ({ story, onReset, onSave, isSav
                     )}
                 </div>
             </CardContent>
-            <CardFooter className="flex flex-wrap justify-between gap-2">
+            <CardFooter className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <Button variant="outline" onClick={goToPrevScene} disabled={currentSceneIndex === 0}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Previous
                 </Button>
