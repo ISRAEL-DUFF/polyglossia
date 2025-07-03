@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2 } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -21,6 +21,8 @@ import { Pagination, PaginationContent, PaginationItem, PaginationNext, Paginati
 import TimingTool from './TimingTool';
 import { localDatabase } from '@/lib/utils/storageUtil';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 
 type VocabWord = {
@@ -105,6 +107,7 @@ const StoryCreatorPage: React.FC = () => {
     
     const [favorites, setFavorites] = useState<SavedStory[]>([]);
     const [isTimingToolOpen, setIsTimingToolOpen] = useState(false);
+    const [isManualStoryModalOpen, setIsManualStoryModalOpen] = useState(false);
 
     useEffect(() => {
         setFavorites(favoritesDb.getAll());
@@ -419,6 +422,48 @@ const StoryCreatorPage: React.FC = () => {
     const handleTimingsUpdate = (newTimings: WordTiming[]) => {
         setWordTimings(newTimings);
     };
+
+    const handleManualStorySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const title = formData.get('title') as string;
+        const greekText = formData.get('greekText') as string;
+        const englishTranslation = formData.get('englishTranslation') as string;
+        const audioFile = formData.get('audioFile') as File;
+    
+        if (!title || !greekText || !englishTranslation || !audioFile || audioFile.size === 0) {
+            toast({ title: "Missing Information", description: "Please fill out all fields and select an audio file.", variant: "destructive" });
+            return;
+        }
+    
+        handleReset(); // Clear any existing story
+        setIsLoading(true); // Show a loading state
+    
+        try {
+            const audioDataUri = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result as string);
+                reader.onerror = (error) => reject(error);
+                reader.readAsDataURL(audioFile);
+            });
+    
+            setStory({
+                title,
+                greekText,
+                englishTranslation,
+            });
+            setAudioUrl(audioDataUri);
+            setWordTimings([]); // Manual timing is required
+            boldedWordsRef.current = new Set([...(greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
+    
+            toast({ title: "Story Loaded", description: "Your manual story is ready. Use the timing tool to sync the audio." });
+            setIsManualStoryModalOpen(false);
+        } catch (err) {
+            toast({ title: "Error Loading Audio", description: "Could not read the audio file.", variant: "destructive" });
+        } finally {
+            setIsLoading(false);
+        }
+    };
     
     const renderStoryList = (stories: SavedStory[], isFavoritesList: boolean) => (
        <ul className="space-y-2">
@@ -471,7 +516,7 @@ const StoryCreatorPage: React.FC = () => {
                   <CardContent className="space-y-4">
                       <div>
                           <Label htmlFor="user-prompt" className="block text-sm font-medium text-muted-foreground mb-1">
-                              Story Prompt
+                              Story Prompt (for AI Generation)
                           </Label>
                           <Textarea
                               id="user-prompt"
@@ -482,16 +527,22 @@ const StoryCreatorPage: React.FC = () => {
                               disabled={isLoading}
                           />
                       </div>
-                      <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
-                          {isLoading ? (
-                              <>
-                                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                  Generating...
-                              </>
-                          ) : (
-                              'Generate Story from Selected Namespace'
-                          )}
-                      </Button>
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Button onClick={handleGenerateStory} disabled={isLoading || !selectedNamespace} className="w-full">
+                            {isLoading ? (
+                                <>
+                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    Generating...
+                                </>
+                            ) : (
+                                'Generate Story from Selected Namespace'
+                            )}
+                        </Button>
+                        <Button onClick={() => setIsManualStoryModalOpen(true)} variant="outline" className="w-full">
+                            <FilePlus2 className="mr-2 h-4 w-4" />
+                            Add Your Own Story
+                        </Button>
+                      </div>
                   </CardContent>
                 )}
                 
@@ -704,8 +755,47 @@ const StoryCreatorPage: React.FC = () => {
                 onSave={handleTimingsUpdate}
               />
             )}
+
+            <Dialog open={isManualStoryModalOpen} onOpenChange={setIsManualStoryModalOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Add Your Own Story</DialogTitle>
+                        <DialogDescription>
+                            Manually enter your story text, title, and upload an audio file.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <form id="manual-story-form" onSubmit={handleManualStorySubmit}>
+                        <div className="grid gap-4 py-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="manual-title">Title</Label>
+                                <Input id="manual-title" name="title" required />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="manual-greek">Greek Text</Label>
+                                <Textarea id="manual-greek" name="greekText" required rows={4} />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="manual-english">English Translation</Label>
+                                <Textarea id="manual-english" name="englishTranslation" required rows={4} />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="manual-audio">Audio File</Label>
+                                <Input id="manual-audio" name="audioFile" type="file" accept="audio/*" required />
+                            </div>
+                        </div>
+                    </form>
+                    <DialogFooter>
+                        <Button type="button" variant="secondary" onClick={() => setIsManualStoryModalOpen(false)}>Cancel</Button>
+                        <Button type="submit" form="manual-story-form" disabled={isLoading}>
+                           {isLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin"/> Loading...</> : "Load Story"}
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };
 
 export default StoryCreatorPage;
+
+    
