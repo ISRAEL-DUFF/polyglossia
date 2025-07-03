@@ -39,6 +39,7 @@ interface LookupHistoryViewerProps {
   onWordSelect: (word: string, lemma?: string) => void;
   onNamespaceSelect: (namespace: string, entry: NamespaceEntry) => void;
   refreshTrigger?: number;
+  listMode?: boolean
 }
 
 const BASE_URL = 'https://www.eazilang.gleeze.com';
@@ -58,7 +59,7 @@ const greekNormalization = {
   }
 }
 
-const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger }) => {
+const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onWordSelect, onNamespaceSelect, refreshTrigger, listMode }) => {
   const [namespacesList, setNamespacesList] = useState<NamespaceEntry[]>([]);
   const [selectedHistoryNamespace, setSelectedHistoryNamespace] = useState<string | null>(null);
   const [indexedHistoryData, setIndexedHistoryData] = useState<IndexedHistoryResponse | null>(null);
@@ -370,7 +371,75 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
     )
   );
 
-  return (
+  const renderListMode = () => (
+    <>
+      <Card className="mt-6">
+        <CardHeader>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <CardTitle className="text-lg flex items-center">
+              <History className="mr-2 h-5 w-5 text-primary" />
+              Lookup History
+            </CardTitle>
+            <div className="flex gap-2 flex-wrap sm:flex-nowrap w-full sm:w-auto">
+              <Button onClick={() => setIsAllHistoryModalOpen(true)} variant="outline" size="sm" className="flex-grow sm:flex-grow-0">
+                <Library className="mr-2 h-4 w-4" />
+                View All ({language})
+              </Button>
+              <Button onClick={handleRefresh} variant="outline" size="sm" disabled={isLoadingNamespaces || isLoadingHistory} className="flex-grow sm:flex-grow-0">
+                <RefreshCw className={`h-4 w-4 ${(isLoadingNamespaces || isLoadingHistory) ? 'animate-spin' : ''}`} />
+                <span className="ml-2 hidden sm:inline">Refresh</span>
+                <span className="ml-0 sm:hidden">Refresh</span>
+              </Button>
+            </div>
+          </div>
+          <CardDescription>View words you've previously looked up within a selected namespace.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4 flex flex-col sm:flex-row items-stretch sm:items-end gap-2">
+            <div className="flex-grow space-y-1">
+              <Label htmlFor="history-namespace-select">Select Namespace</Label>
+              {isLoadingNamespaces ? (
+                <Skeleton className="h-10 w-full" />
+              ) : (
+                <Select
+                  value={selectedHistoryNamespace || ""}
+                  onValueChange={handleSelectedNamespace}
+                  disabled={namespacesList.length === 0 && !selectedHistoryNamespace}
+                >
+                  <SelectTrigger id="history-namespace-select" className="w-full">
+                    <SelectValue placeholder={namespacesList.length > 0 || selectedHistoryNamespace ? "Select a namespace" : "No namespaces available"} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {namespacesList.map((nsE) => (
+                      <SelectItem key={nsE.namespace} value={nsE.namespace}>
+                        {nsE.namespace} ({nsE.count} words)
+                      </SelectItem>
+                    ))}
+                    {selectedHistoryNamespace && !namespacesList.some(ns => ns.namespace === selectedHistoryNamespace) && (
+                      <SelectItem value={selectedHistoryNamespace}>
+                        {selectedHistoryNamespace} (New)
+                      </SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
+              )}
+            </div>
+          </div>
+
+          {error && <p className="text-destructive text-sm mb-2">{error}</p>}
+
+          {isLoadingHistory && !indexedHistoryData && (
+            <div className="space-y-1 p-2">
+              <Skeleton className="h-6 w-1/3 mb-2" />
+              {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-8 w-full" />)}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </>
+  )
+
+  const renderFullMode = () => (
     <>
       <Card className="mt-6">
         <CardHeader>
@@ -584,6 +653,10 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         </DialogContent>
       </Dialog>
     </>
+  )
+
+  return (
+    listMode ? renderListMode() : renderFullMode()
   );
 };
 

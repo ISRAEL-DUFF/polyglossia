@@ -64,7 +64,6 @@ const textToSpeechFlow = ai.defineFlow(
     const {media} = await ai.generate({
       model: googleAI.model('gemini-2.5-flash-preview-tts'),
       prompt: text,
-      enableTimepointing: ['WORD'], // Request word-level timings
       config: {
         responseModalities: ['AUDIO'],
         speechConfig: {
@@ -88,7 +87,7 @@ const textToSpeechFlow = ai.defineFlow(
 
     return {
       audioUrl: 'data:audio/wav;base64,' + wavBase64,
-      timings: media.timepoints || [],
+      timings: [], // Word-level timings not available in this response
     };
   }
 );
