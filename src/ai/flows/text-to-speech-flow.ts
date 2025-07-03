@@ -63,7 +63,7 @@ const textToSpeechFlow = ai.defineFlow(
   async ({text}) => {
     const {media} = await ai.generate({
       model: googleAI.model('gemini-2.5-flash-preview-tts'),
-      prompt: text,
+      prompt: `Please pronounce the following Ancient Greek text using a standard Modern Greek accent: "${text}"`,
       enableTimepointing: ['WORD'], // Request word-level timings
       config: {
         responseModalities: ['AUDIO'],
