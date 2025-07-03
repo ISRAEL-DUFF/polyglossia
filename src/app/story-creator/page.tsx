@@ -75,8 +75,8 @@ interface StoriesApiResponse {
 
 const favoritesDb = localDatabase('story_favorites');
 const API_BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
-// const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
-const STORIES_API_URL = 'http://localhost:3001/stories';
+const STORIES_API_URL = 'https://www.eazilang.gleeze.com/api/stories';
+// const STORIES_API_URL = 'http://localhost:3001/stories';
 
 const StoryCreatorPage: React.FC = () => {
     const { toast } = useToast();
@@ -283,7 +283,7 @@ const StoryCreatorPage: React.FC = () => {
         // Fetch from API for non-favorites or incomplete favorite objects
         setIsLoadingStory(true);
         try {
-            const response = await fetch(`${STORIES_API_URL}/get/${storyToLoad.id}`);
+            const response = await fetch(`${STORIES_API_URL}/by-id/${storyToLoad.id}`);
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
                 throw new Error(errorData.message || 'Failed to load the selected story.');
@@ -321,7 +321,7 @@ const StoryCreatorPage: React.FC = () => {
             if (!fullStoryData.greekText || !fullStoryData.audioDataUri) {
                 const loadingToast = toast({ title: 'Favoriting...', description: 'Fetching full story to save offline.' });
                 try {
-                    const response = await fetch(`${STORIES_API_URL}/get/${storyToList.id}`);
+                    const response = await fetch(`${STORIES_API_URL}/by-id/${storyToList.id}`);
                     if (!response.ok) throw new Error('Could not fetch story to favorite it.');
                     fullStoryData = await response.json();
                 } catch (e) {
