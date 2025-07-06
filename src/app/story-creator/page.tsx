@@ -96,6 +96,7 @@ const StoryCreatorPage: React.FC = () => {
 
     const [currentWordIndex, setCurrentWordIndex] = useState(-1);
     const audioRef = useRef<HTMLAudioElement>(null);
+    const storyContainerRef = useRef<HTMLDivElement>(null);
     const boldedWordsRef = useRef<Set<string>>(new Set());
 
     const [isPlaying, setIsPlaying] = useState(false);
@@ -149,6 +150,31 @@ const StoryCreatorPage: React.FC = () => {
     useEffect(() => {
         fetchSavedStories(pagination.page);
     }, [selectedNamespace, pagination.page, fetchSavedStories, isSaving]);
+
+    // Auto-scroll effect
+    useEffect(() => {
+        if (currentWordIndex === -1 || !storyContainerRef.current) return;
+
+        const activeWordElement = storyContainerRef.current.querySelector<HTMLElement>(`[data-index="${currentWordIndex}"]`);
+
+        if (activeWordElement) {
+            // Check if the element is visible within the scrollable container
+            const containerRect = storyContainerRef.current.getBoundingClientRect();
+            const wordRect = activeWordElement.getBoundingClientRect();
+
+            const isVisible = (
+                wordRect.top >= containerRect.top &&
+                wordRect.bottom <= containerRect.bottom
+            );
+
+            if (!isVisible) {
+                activeWordElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            }
+        }
+    }, [currentWordIndex]);
 
 
     const handleGenerateStory = async () => {
@@ -752,13 +778,14 @@ const StoryCreatorPage: React.FC = () => {
                         <div className="space-y-4">
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Greek Text</h3>
-                                 <div className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose">
+                                 <div ref={storyContainerRef} className="prose dark:prose-invert max-w-none p-4 border rounded-md bg-muted/50 greek-size leading-loose overflow-y-auto max-h-[40vh]">
                                      {wordTimings.length > 0 ? (
                                         wordTimings.map((timing, index) => {
                                             const isSegmentActive = activeLoop && loopStartIndex !== null && loopEndIndex !== null && index >= loopStartIndex && index <= loopEndIndex;
                                             return (
                                                 <span
                                                     key={index}
+                                                    data-index={index}
                                                     onClick={() => handleWordClick(timing.startTime, index)}
                                                     className={cn(
                                                         'transition-all duration-150 p-1 rounded-md cursor-pointer hover:bg-primary/10',
