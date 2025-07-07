@@ -1,13 +1,15 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2, Repeat, Redo2 } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2, Repeat, Redo2, Microphone } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
+import { speechToText } from '@/ai/flows/speech-to-text-flow';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
@@ -112,13 +114,21 @@ const StoryCreatorPage: React.FC = () => {
 
     const [isManualStoryModalOpen, setIsManualStoryModalOpen] = useState(false);
 
-    // New state for looping features
-    const [isLooping, setIsLooping] = useState(false); // For whole audio loop
-    const [isSelectingLoop, setIsSelectingLoop] = useState(false); // To enter selection mode
+    // Looping features state
+    const [isLooping, setIsLooping] = useState(false);
+    const [isSelectingLoop, setIsSelectingLoop] = useState(false);
     const [loopStartIndex, setLoopStartIndex] = useState<number | null>(null);
     const [loopEndIndex, setLoopEndIndex] = useState<number | null>(null);
     const [activeLoop, setActiveLoop] = useState<{ start: number; end: number } | null>(null);
-
+    
+    // Pronunciation practice state
+    const [isPracticeModalOpen, setIsPracticeModalOpen] = useState(false);
+    const [isRecording, setIsRecording] = useState(false);
+    const [isProcessingAudio, setIsProcessingAudio] = useState(false);
+    const [transcriptionResult, setTranscriptionResult] = useState<string | null>(null);
+    const [practiceText, setPracticeText] = useState('');
+    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+    const audioChunksRef = useRef<Blob[]>([]);
 
     useEffect(() => {
         setFavorites(favoritesDb.getAll());
@@ -157,7 +167,6 @@ const StoryCreatorPage: React.FC = () => {
         const activeWordElement = storyContainerRef.current.querySelector<HTMLElement>(`[data-index="${currentWordIndex}"]`);
 
         if (activeWordElement) {
-            // Check if the element is visible within the scrollable container
             const containerRect = storyContainerRef.current.getBoundingClientRect();
             const wordRect = activeWordElement.getBoundingClientRect();
 
@@ -217,7 +226,7 @@ const StoryCreatorPage: React.FC = () => {
 
             boldedWordsRef.current = new Set([...(generatedStory.greekText.matchAll(/\*\*(.*?)\*\*/g) || [])].map(m => m[1]));
             
-            const cleanTextPrompt = `Using Modern Greek pronunciation rules (β=v, γ=ɣ, δ=ð, etc.; η, ι, υ, ει, οι = i; αι=e; ου=u; stress accent), please read the following Ancient Greek text: ${generatedStory.greekText.replace(/\*\*/g, '')}`
+            const cleanTextPrompt = `Using Modern Greek pronunciation rules (β=v, γ=ɣ, δ=ð, θ=θ, χ=x, φ=f; η, ι, υ, ει, οι = i; αι=e; αυ=av or af, ευ=ev or ef; ου=u; stress accent), please read the following Ancient Greek text: ${generatedStory.greekText.replace(/\*\*/g, '')}`
 
             toast({ title: 'Story text ready!', description: 'Now generating audio with timings...' });
             const audioResult = await textToSpeech({ text: cleanTextPrompt, language: 'Greek' });
@@ -257,7 +266,6 @@ const StoryCreatorPage: React.FC = () => {
         setCurrentTime(0);
         setDuration(0);
         setIsPlaying(false);
-        // Reset loop states
         setIsLooping(false);
         setIsSelectingLoop(false);
         setActiveLoop(null);
@@ -311,7 +319,6 @@ const StoryCreatorPage: React.FC = () => {
         handleReset();
 
         if (isFavorite && storyToLoad.greekText) {
-            // Load directly from favorite object
             setStory({
                 title: storyToLoad.title,
                 greekText: storyToLoad.greekText,
@@ -324,7 +331,6 @@ const StoryCreatorPage: React.FC = () => {
             return;
         }
         
-        // Fetch from API for non-favorites or incomplete favorite objects
         setIsLoadingStory(true);
         try {
             const response = await fetch(`${STORIES_API_URL}/by-id/${storyToLoad.id}`);
@@ -361,7 +367,6 @@ const StoryCreatorPage: React.FC = () => {
             toast({ title: 'Unfavorited', description: 'Story removed from offline favorites.' });
         } else {
             let fullStoryData = storyToList;
-            // Check if we already have the full data
             if (!fullStoryData.greekText || !fullStoryData.audioDataUri) {
                 const loadingToast = toast({ title: 'Favoriting...', description: 'Fetching full story to save offline.' });
                 try {
@@ -400,11 +405,10 @@ const StoryCreatorPage: React.FC = () => {
         const currentTime = audioRef.current.currentTime;
         setCurrentTime(currentTime);
 
-        // Handle segment looping
         if (activeLoop && audioRef.current.currentTime >= activeLoop.end) {
             audioRef.current.currentTime = activeLoop.start;
             audioRef.current.play().catch(e => console.error("Audio playback error on loop:", e));
-            return; // Don't run word highlighting logic on loop jump
+            return;
         }
         
         if (wordTimings.length === 0) return;
@@ -476,7 +480,6 @@ const StoryCreatorPage: React.FC = () => {
                 }
 
                 setIsSelectingLoop(false);
-                // No need to reset loopStartIndex here, it's used for highlighting
             } else {
                  toast({ variant: 'destructive', title: "Timing Error", description: "Timings for the selected words are not available." });
                  setLoopStartIndex(null);
@@ -534,6 +537,78 @@ const StoryCreatorPage: React.FC = () => {
         }
     };
 
+    const handlePracticeWord = () => {
+        if (activeLoop && loopStartIndex !== null && loopEndIndex !== null) {
+            const textToPractice = wordTimings.slice(loopStartIndex, loopEndIndex + 1).map(t => t.word).join(' ');
+            setPracticeText(textToPractice);
+        } else if (currentWordIndex !== -1) {
+            setPracticeText(wordTimings[currentWordIndex].word);
+        } else if (story) {
+            const firstSentence = story.greekText.split(/[.·;]/)[0];
+            setPracticeText(firstSentence.replace(/\*\*/g, ''));
+        } else {
+            toast({ title: "No text selected", description: "Please play a story or select a segment to practice.", variant: "destructive"});
+            return;
+        }
+        setTranscriptionResult(null);
+        setIsPracticeModalOpen(true);
+    };
+    
+    const startRecording = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorderRef.current = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+            audioChunksRef.current = [];
+    
+            mediaRecorderRef.current.ondataavailable = (event) => {
+                audioChunksRef.current.push(event.data);
+            };
+    
+            mediaRecorderRef.current.onstop = async () => {
+                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+                const reader = new FileReader();
+                reader.readAsDataURL(audioBlob);
+                reader.onloadend = async () => {
+                    const audioDataUri = reader.result as string;
+                    setIsProcessingAudio(true);
+                    setTranscriptionResult(null);
+                    try {
+                        const result = await speechToText({ audioDataUri, context: practiceText });
+                        setTranscriptionResult(result.transcription);
+                    } catch (err) {
+                        toast({ title: "Transcription Failed", description: err instanceof Error ? err.message : "An error occurred.", variant: "destructive" });
+                        setTranscriptionResult("Error during transcription.");
+                    } finally {
+                        setIsProcessingAudio(false);
+                    }
+                };
+            };
+    
+            mediaRecorderRef.current.start();
+            setIsRecording(true);
+        } catch (err) {
+            console.error("Mic error:", err);
+            toast({ title: "Microphone Error", description: "Could not access the microphone. Please check permissions.", variant: "destructive" });
+        }
+    };
+    
+    const stopRecording = () => {
+        if (mediaRecorderRef.current) {
+            mediaRecorderRef.current.stop();
+            // Stop all tracks on the stream to turn off the mic indicator
+            mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
+            setIsRecording(false);
+        }
+    };
+    
+    const handleRecordButtonClick = () => {
+        if (isRecording) {
+            stopRecording();
+        } else {
+            startRecording();
+        }
+    };
+
 
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
@@ -558,8 +633,8 @@ const StoryCreatorPage: React.FC = () => {
             return;
         }
     
-        handleReset(); // Clear any existing story
-        setIsLoading(true); // Show a loading state
+        handleReset();
+        setIsLoading(true);
     
         try {
             const audioDataUri = await new Promise<string>((resolve, reject) => {
@@ -572,10 +647,8 @@ const StoryCreatorPage: React.FC = () => {
             setAudioUrl(audioDataUri);
             setWordTimings([]);
     
-            // We'll wrap the manual story in a single scene to fit the new data structure
             setStory({
                 title,
-                // These are for type compatibility but not used directly by the player now
                 greekText,
                 englishTranslation
             });
@@ -711,7 +784,7 @@ const StoryCreatorPage: React.FC = () => {
                                     onEnded={handleAudioEnd}
                                     onPlay={() => setIsPlaying(true)}
                                     onPause={() => setIsPlaying(false)}
-                                    loop={isLooping && !activeLoop} // Use state for looping
+                                    loop={isLooping && !activeLoop}
                                     className="hidden"
                                 >
                                     Your browser does not support the audio element.
@@ -732,6 +805,10 @@ const StoryCreatorPage: React.FC = () => {
                                         </Button>
                                         <Button onClick={toggleSegmentLoop} variant={isSelectingLoop || activeLoop ? "secondary" : "outline"} size="icon" title={activeLoop ? "Clear Loop" : "Loop Segment"}>
                                             <Redo2 className="h-5 w-5" />
+                                        </Button>
+                                        <Button onClick={handlePracticeWord} variant="outline" size="sm" className="h-10 px-3" disabled={!story}>
+                                            <Microphone className="mr-0 sm:mr-2 h-4 w-4" />
+                                            <span className="hidden sm:inline">Practice</span>
                                         </Button>
                                         <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm" className="h-10 px-3">
                                             <Timer className="mr-0 sm:mr-2 h-4 w-4" />
@@ -837,7 +914,7 @@ const StoryCreatorPage: React.FC = () => {
                 onWordSelect={handleHistoryWordSelect}
                 onNamespaceSelect={handleNamespaceSelect}
                 refreshTrigger={historyRefreshTrigger}
-                listMode = {true}
+                listMode={true}
             />
 
             <Card className="mt-6">
@@ -924,6 +1001,52 @@ const StoryCreatorPage: React.FC = () => {
                         <Button type="submit" form="manual-story-form" disabled={isLoading}>
                            {isLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin"/> Loading...</> : "Load Story"}
                         </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+            <Dialog open={isPracticeModalOpen} onOpenChange={setIsPracticeModalOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Practice Pronunciation</DialogTitle>
+                        <DialogDescription>
+                            Record yourself saying the following phrase. The AI will transcribe your speech.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4 space-y-4">
+                        <p className="text-center text-xl font-semibold p-4 border rounded-md bg-muted greek-size">
+                            {practiceText}
+                        </p>
+                        <div className="flex justify-center">
+                            <Button
+                                onClick={handleRecordButtonClick}
+                                disabled={isProcessingAudio}
+                                size="lg"
+                                className={cn(
+                                    "w-24 h-12",
+                                    isRecording && "bg-red-600 hover:bg-red-700"
+                                )}
+                            >
+                                {isRecording ? "Stop" : "Record"}
+                            </Button>
+                        </div>
+                        {isProcessingAudio && (
+                            <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                <span>Processing audio...</span>
+                            </div>
+                        )}
+                        {transcriptionResult && (
+                            <div className="space-y-2 pt-4">
+                                <Label className="font-semibold">AI Transcription:</Label>
+                                <p className="p-4 border rounded-md bg-green-500/10 text-green-900 dark:text-green-200">
+                                    {transcriptionResult}
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                    <DialogFooter>
+                        <Button variant="secondary" onClick={() => setIsPracticeModalOpen(false)}>Close</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
