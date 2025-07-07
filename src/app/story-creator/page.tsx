@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2, Repeat, Redo2, Microphone } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle, ChevronsUpDown, Save, Play, Pause, Library, History, Timer, Star, FilePlus2, Repeat, Redo2, Mic } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import { generateStory, type GenerateStoryOutput } from '@/ai/flows/generate-story-flow';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
@@ -807,7 +807,7 @@ const StoryCreatorPage: React.FC = () => {
                                             <Redo2 className="h-5 w-5" />
                                         </Button>
                                         <Button onClick={handlePracticeWord} variant="outline" size="sm" className="h-10 px-3" disabled={!story}>
-                                            <Microphone className="mr-0 sm:mr-2 h-4 w-4" />
+                                            <Mic className="mr-0 sm:mr-2 h-4 w-4" />
                                             <span className="hidden sm:inline">Practice</span>
                                         </Button>
                                         <Button onClick={() => setIsTimingToolOpen(true)} variant="outline" size="sm" className="h-10 px-3">
