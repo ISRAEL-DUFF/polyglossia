@@ -12,60 +12,18 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import './Lexicon.css'
+import './LatinLexicon.css'
 import OccurrenceViewer from "@/app/greek/OccurrenceViewer";
 import { logHistoryEntry } from "@/lib/utils/historyLogger";
-import LookupHistoryViewer from "@/components/LookupHistoryViewer";
-import { GreekInput } from "@/components/GreekInput";
 
-interface Gloss {
-  tag: string;
-  before?: string;
-  after?: string;
-}
-
-interface Quote {
-  quote?: string;
-  bibl?: {
-    author?: string;
-    title?: string;
-    passage?: string;
-  };
-}
-
-interface Sense {
-  id?: string;
-  level?: string;
-  glosses: Gloss[];
-  quotes: Quote[];
-  htmlText: string;
-}
-
-interface DodsonEntry {
-  strong_number?: string;
-  lemma: string;
-  short_definition?: string;
-  long_definition?: string;
-  greek_word?: string;
-  beta_code?: string;
-  [key: string]: string | undefined;
-}
-
-interface StrongsEntry {
-    "strongs_def":string,
-    "derivation":string,
-    "translit":string,
-    "lemma":string,
-    "kjv_def":string
+interface LatinLexiconEntry {
+  htmlText: string; // Assuming entries are provided as HTML strings
+  sourceName?: string; // e.g., "Lewis & Short", "Elementary Latin Dictionary"
 }
 
 interface LexiconEntry {
-  lsj: {
-    senses: Sense[];
-  }[],
-  dodson?: DodsonEntry;
-  strongs?: StrongsEntry;
+  lewisAndShort: LatinLexiconEntry[],
+  whitaker?: LatinLexiconEntry[];
 }
 
 interface MorphologyData {
@@ -93,8 +51,8 @@ interface LexiconResponse {
   };
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
-// const BASE_URL = 'http://localhost:3001'
+// const BASE_URL = 'http://localhost:3001/latin'; // For local dev
+const BASE_URL = 'https://www.eazilang.gleeze.com/api/latin'; // Placeholder, adjust to your actual API
 
 
 interface LSJViewerProps {
@@ -106,168 +64,106 @@ interface LSJViewerProps {
 const LSJEntryViewer: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
     return (
         <>
-        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj.length > 0 ? (
+        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lewisAndShort.length > 0 ? (
             <Tabs defaultValue="0" className="w-full">
             <TabsList className="mb-4 flex flex-wrap gap-2">
-                {lexiconData[currentLemma].lsj.map((entry, idx) => (
+                {lexiconData[currentLemma].lewisAndShort.map((entry, idx) => (
                 <TabsTrigger key={idx} value={String(idx)}>
                     Entry - {(entry as any).word}
                 </TabsTrigger>
                 ))}
             </TabsList>
-            {lexiconData[currentLemma].lsj.map((lsjEntry, idx) => (
+            {lexiconData[currentLemma].lewisAndShort.map((lsjEntry, idx) => (
                 <TabsContent key={idx} value={String(idx)} className="space-y-4">
-                {lsjEntry.senses.length > 0 ? (lsjEntry.senses.map((sense, index) => (
-                    <Card key={index} className="p-4">
-                    <div className="text-sm text-muted-foreground mb-2">
-                        Sense {index + 1} of {lsjEntry.senses.length}
-                    </div>
+                <div>
                     <div
                         className="prose dark:prose-invert max-w-full lexicon-html-content"
-                        dangerouslySetInnerHTML={{ __html: sense.htmlText }}
+                        dangerouslySetInnerHTML={{ __html:  lsjEntry.htmlText}}
                     />
-                    {sense.quotes.length > 0 && (
-                        <div className="mt-4">
-                        <h5 className="font-semibold text-sm">Quotes:</h5>
-                        <ul className="pl-5 space-y-2 mt-2">
-                            {sense.quotes.map((quote, i) => {
-                            if (!quote.quote) return null;
-                            const biblText = quote.bibl
-                                ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
-                                    .filter(Boolean)
-                                    .join(" ")
-                                : "";
-                            return (
-                                <li key={i} className="border-l-2 border-border pl-3">
-                                <div className="text-accent">{quote.quote}</div>
-                                {biblText && (
-                                    <div className="text-xs text-muted-foreground">– {biblText}</div>
-                                )}
-                                </li>
-                            );
-                            })}
-                        </ul>
-                        </div>
-                    )}
-                    </Card>
-                ))) : (
-                    <p className="text-muted-foreground">
-                    No entry available for "{(lsjEntry as any).word}".
-                    </p>
-                ) }
+                </div>
                 </TabsContent>
             ))}
             </Tabs>
         ) : (
             <p className="text-muted-foreground">
-            No LSJ lexicon entries available for "{currentLemma || word}".
+            No Lewis and Short lexicon entries available for "{currentLemma || word}".
             </p>
         )}
         </>
     )
 }
 
-const LSJEntryViewerOld: React.FC<LSJViewerProps> = ({ lexiconData, currentLemma, word }) => {
-    return (<>
-        {currentLemma && lexiconData[currentLemma] && lexiconData[currentLemma].lsj[0]?.senses.length > 0 ? (
-        <div className="space-y-4">
-            {lexiconData[currentLemma].lsj[0].senses.map((sense, index) => (
-            <Card key={index} className="p-4">
-                <div className="text-sm text-muted-foreground mb-2">
-                Entry {index + 1} of {lexiconData[currentLemma].lsj[0].senses.length}
-                </div>
-                <div 
-                className="prose dark:prose-invert max-w-full lexicon-html-content"
-                dangerouslySetInnerHTML={{ __html: sense.htmlText }}
-                />
-                {sense.quotes.length > 0 && (
-                <div className="mt-4">
-                    <h5 className="font-semibold text-sm">Quotes:</h5>
-                    <ul className="pl-5 space-y-2 mt-2">
-                    {sense.quotes.map((quote, i) => {
-                        if (!quote.quote) return null;
-                        const biblText = quote.bibl
-                        ? [quote.bibl.author, quote.bibl.title, quote.bibl.passage]
-                            .filter(Boolean)
-                            .join(" ")
-                        : "";
-                        return (
-                        <li key={i} className="border-l-2 border-border pl-3">
-                            <div className="text-accent">{quote.quote}</div>
-                            {biblText && (
-                            <div className="text-xs text-muted-foreground">– {biblText}</div>
-                            )}
-                        </li>
-                        );
-                    })}
-                    </ul>
-                </div>
-                )}
-            </Card>
-            ))}
-        </div>
-        ) : (
-        <p className="text-muted-foreground">No LSJ lexicon entries available for "{currentLemma || word}" {JSON.stringify(lexiconData[currentLemma])}.</p>
-        )}
-    </>)
+interface LatinLexiconViewerProps {
+    latinWord: string;
+    historyNamespace: string;
+    showLexicalModal: boolean;
+    setShowLexicalModal: (open: boolean) => void;
+    onResponse: (response: 'loading' | 'ready' | 'error') => void;
 }
 
-const LexicaTool: React.FC = () => {
-  const [word, setWord] = useState("");
+const LatinLexiconViewer: React.FC<LatinLexiconViewerProps> = ({ latinWord, historyNamespace, showLexicalModal, setShowLexicalModal, onResponse }) => {
+  const [word, setWord] = useState('');
   const [morphologyData, setMorphologyData] = useState<MorphologyData[]>([]);
   const [lexiconData, setLexiconData] = useState<{ [key: string]: LexiconEntry }>({});
   const [currentMorphData, setCurrentMorphData] = useState<MorphologyData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [showLexicalModal, setShowLexicalModal] = useState(false);
   const [showLogeionModal, setShowLogeionModal] = useState(false);
   const [showOccurrenceModal, setShowOccurrenceModal] = useState(false);
   const [currentLemma, setCurrentLemma] = useState("");
-  const [namespace, setNamespace] = useState<string>("default");
-  const [namespaceList, setNamespaceList] = useState<{ name: string; count: number }[]>([]);
   const [notes, setNotes] = useState("");
   const [showNotesInput, setShowNotesInput] = useState(false);
-  const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
-  const [historyNamespace, setHistoryNamespace] = useState<string>('');
 
   
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { toast } = useToast();
 
-  useEffect(() => {
-    const savedNamespace = localStorage.getItem("namespace");
-    if (savedNamespace) {
-      setNamespace(savedNamespace);
+  useEffect(() =>{
+    if(latinWord === word) {
+        console.log({
+            latinWord,
+            word,
+            showLexicalModal,
+        });
+        return;
     }
-    fetchListNames();
-  }, []);
+
+    setWord(latinWord)
+  }, [latinWord])
+
+
+  useEffect(() => {
+    let isMounted = true; // To prevent state updates if unmounted
+
+    console.log("LEXICON VIEWER:", {
+        latinWord,
+        showLexicalModal,
+        historyNamespace
+    })
+
+    const fetchData = async () => {
+        try {
+        await handleGetLexicalData()
+        } catch (error) {
+            console.log(error)
+        if (isMounted) {
+            // send error to parent
+            // setError(error);
+            onResponse('error')
+        }
+        }
+    };
+
+    fetchData();
+
+    return () => {
+        isMounted = false;
+    };
+  }, [word]);
+
 
   function normalizeLemma(lemma: string) {
     return lemma.replace(/\d+$/, '');
   }
-
-  const fetchListNames = async () => {
-    try {
-      const response = await fetch(
-        `${BASE_URL}/vocab/info`
-      );
-      if (response.ok) {
-        const list = await response.json();
-        setNamespaceList(list);
-      }
-    } catch (error) {
-      console.error("Failed to fetch vocab lists:", error);
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to fetch vocabulary lists"
-      });
-    }
-  };
-
-  const handleNamespaceChange = (value: string) => {
-    setNamespace(value);
-    localStorage.setItem("namespace", value);
-  };
 
   const handleGetLexicalData = async (lookupWord = word) => {
     if (!lookupWord.trim()) {
@@ -280,13 +176,15 @@ const LexicaTool: React.FC = () => {
     }
 
     setLoading(true);
+    onResponse('loading');
     try {
-      const lexiconUrl = `${BASE_URL}/lexica/${encodeURIComponent(
+      const lexiconUrl = `${BASE_URL}/lexica/?word=${encodeURIComponent(
         lookupWord.trim()
       )}`;
       const lexiconRes = await fetch(lexiconUrl);
 
       if (!lexiconRes.ok) {
+        onResponse('error')
         throw new Error("Failed to fetch lexicon data");
       }
  
@@ -320,14 +218,16 @@ const LexicaTool: React.FC = () => {
         });
         if (logResult.success) {
           toast({ title: "Logged", description: `"${lookupWord.trim()}" added to history for "${historyNamespace}".` });
-          setHistoryRefreshTrigger(prev => prev + 1); // Trigger refresh in LookupHistoryViewer
+        //   setHistoryRefreshTrigger(prev => prev + 1); // Trigger refresh in LookupHistoryViewer
         } else {
           toast({ variant: "destructive", title: "History Log Failed", description: logResult.message });
         }
       }
 
+      // setShowLexicalModal(true);
 
-      setShowLexicalModal(true);
+      onResponse('ready')
+
       
       toast({
         title: "Lexicon Data Loaded",
@@ -340,6 +240,8 @@ const LexicaTool: React.FC = () => {
         title: "Error",
         description: "Failed to fetch lexical data. Please try again."
       });
+
+      onResponse('error')
     } finally {
       setLoading(false);
     }
@@ -355,9 +257,18 @@ const LexicaTool: React.FC = () => {
       return;
     }
 
+    if (!historyNamespace) { 
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Namespace is required in order to save a word"
+      });
+      return;
+    }
+
     try {
       const lexiconEntry = lexiconData[currentLemma];
-      const meanings = lexiconEntry?.lsj[0]?.senses.flatMap(sense => sense.glosses) || [];
+      const meanings: any[] = [] // lexiconEntry?.lsj[0]?.entry.senses.flatMap(sense => sense.glosses) || [];
       
       const response = await fetch(`${BASE_URL}/vocab/add`, {
         method: "POST",
@@ -365,7 +276,7 @@ const LexicaTool: React.FC = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          vocabKey: namespace,
+          vocabKey: historyNamespace,
           word: word, 
           headWord: currentLemma, 
           morphData: currentMorphData ? [currentMorphData] : [], 
@@ -392,7 +303,7 @@ const LexicaTool: React.FC = () => {
           title: "Success",
           description: "Word saved successfully"
         });
-        fetchListNames();
+        // fetchListNames();
       }
     } catch (error) {
       console.error("Error saving word:", error);
@@ -420,81 +331,8 @@ const LexicaTool: React.FC = () => {
     setShowOccurrenceModal(true);
   };
 
-  const handleHistoryWordSelect = (selectedWord: string, selectedLemma?: string) => {
-    setWord(selectedWord); // Update the input field
-    handleGetLexicalData(selectedWord); // Trigger a new lookup
-    if (selectedLemma) {
-        setCurrentLemma(selectedLemma); // Pre-set lemma if available
-    }
-  };
-
-
   return (
     <div className="container mx-auto space-y-4 p-1">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-primary">
-            Ancient Greek Lexica Tool
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="flex flex-col sm:flex-row gap-2">
-            <GreekInput
-              id="greekInput"
-              placeholder="Enter Greek word (e.g. λόγος)"
-              value={word}
-              onChange={(e) => {
-                console.log('Key change:', e)
-                setWord(e.target.value)
-              }}
-              className="text-lg"
-              onKeyDown={(e) => e.key === 'Enter' && handleGetLexicalData()}
-            />
-            <Button onClick={() => handleGetLexicalData()} disabled={loading}>
-              {loading ? "Loading..." : "Check Word"}
-              <Search className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-2 mt-4">
-            <div className="space-y-2 flex-1">
-              <Label htmlFor="namespaceInput">Vocabulary Namespace (for saving)</Label>
-              <Input
-                id="namespaceInput"
-                placeholder="Your namespace"
-                value={namespace}
-                onChange={(e) => handleNamespaceChange(e.target.value)}
-              />
-            </div>
-            <div className="space-y-2 flex-1">
-              <Label htmlFor="namespaceSelect">Saved Namespaces</Label>
-              <select
-                id="namespaceSelect"
-                className="w-full h-10 rounded-md border border-input bg-background px-3 py-2"
-                onChange={(e) => handleNamespaceChange(e.target.value)}
-                value={namespace}
-              >
-                {namespaceList.map((item) => (
-                  <option key={item.name} value={item.name}>
-                    {item.name} ({item.count} words)
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          
-          <div className="flex justify-center mt-2">
-            <a
-              href="/vocabulary-browser"
-              className="text-primary hover:text-primary/80"
-              rel="noopener noreferrer" 
-            >
-              Browse Vocabulary
-            </a>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Lexical Data Modal */}
       <Dialog open={showLexicalModal} onOpenChange={setShowLexicalModal}>
         <DialogContent className="max-w-4xl max-h-[96vh] flex flex-col p-0">
@@ -521,12 +359,11 @@ const LexicaTool: React.FC = () => {
             </Button>
           </div>
 
-          <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-hidden px-6">
-            <TabsList className="mb-2 shrink-0">
+          <Tabs defaultValue="morphology" className="flex-grow flex flex-col overflow-x-hidden px-4">
+            <TabsList className="mb-2 shrink-0 overflow-x-auto whitespace-nowrap flex gap-1 pl-24 sm:pl-0">
               <TabsTrigger value="morphology">Morphology</TabsTrigger>
-              <TabsTrigger value="lexicon">LSJ</TabsTrigger>
-              <TabsTrigger value="dodson">Dodson</TabsTrigger>
-              <TabsTrigger value="strongs">Strongs</TabsTrigger>
+              <TabsTrigger value="lexicon">Lewis and Short</TabsTrigger>
+              <TabsTrigger value="thayer">Whitaker</TabsTrigger>
             </TabsList>
 
             <TabsContent value="morphology" className="flex-grow overflow-y-auto -mx-2 px-2 pt-2 sm:-mx-6 sm:px-6">
@@ -589,52 +426,6 @@ const LexicaTool: React.FC = () => {
 
             <TabsContent value="lexicon" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
               <LSJEntryViewer lexiconData={lexiconData} currentLemma={currentLemma} word={word}></LSJEntryViewer>
-            </TabsContent>
-
-            <TabsContent value="dodson" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
-              {currentLemma && lexiconData[currentLemma]?.dodson ? (
-                <Card>
-                  <CardContent className="p-0">
-                    <Table>
-                      <TableBody>
-                        {Object.entries(lexiconData[currentLemma].dodson || {}).map(
-                          ([key, value]) => (
-                            <TableRow key={key}>
-                              <TableCell className="font-medium py-2 text-sm">{key.replace('_', ' ')}</TableCell>
-                              <TableCell className="py-2 text-sm">{String(value)}</TableCell>
-                            </TableRow>
-                          )
-                        )}
-                      </TableBody>
-                    </Table>
-                  </CardContent>
-                </Card>
-              ) : (
-                <p className="text-muted-foreground">No Dodson entry available for "{currentLemma || word}".</p>
-              )}
-            </TabsContent>
-
-            <TabsContent value="strongs" className="flex-grow overflow-y-auto -mx-6 px-6 pt-2">
-              {currentLemma && lexiconData[currentLemma]?.strongs ? (
-                <Card>
-                  <CardContent className="p-0">
-                    <Table>
-                      <TableBody>
-                        {Object.entries(lexiconData[currentLemma].strongs || {}).map(
-                          ([key, value]) => (
-                            <TableRow key={key}>
-                              <TableCell className="font-medium py-2 text-sm">{key.replace('_', ' ')}</TableCell>
-                              <TableCell className="py-2 text-sm">{String(value)}</TableCell>
-                            </TableRow>
-                          )
-                        )}
-                      </TableBody>
-                    </Table>
-                  </CardContent>
-                </Card>
-              ) : (
-                <p className="text-muted-foreground">No Strongs entry available for "{currentLemma || word}".</p>
-              )}
             </TabsContent>
           </Tabs>
           
@@ -700,15 +491,8 @@ const LexicaTool: React.FC = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      
-      <LookupHistoryViewer
-        language="greek"
-        onWordSelect={handleHistoryWordSelect}
-        onNamespaceSelect={(ns) => setHistoryNamespace(ns)}
-        refreshTrigger={historyRefreshTrigger} 
-      />
     </div>
   );
 };
 
-export default LexicaTool;
+export default LatinLexiconViewer;

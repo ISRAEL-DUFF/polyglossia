@@ -1,0 +1,25 @@
+
+.whitaker-list {
+  font-weight: bold;
+  color: hsl(var(--primary));
+  font-size: 1.1em;
+  text-decoration: underline;
+  margin-bottom: 0.5em;
+  display: block; /* Ensures <u> takes block for margin */
+}
+
+.whitaker-output-container b {
+  color: hsl(var(--accent)); /* Use accent color for principal parts or keywords */
+  font-weight: 600; /* Slightly less bold than default if needed, or keep default */
+}
+
+.whitaker-output-container {
+  line-height: 1.6;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.whitaker-output-container br {
+    content: "";
+    display: block;
+    margin-bottom: 0.25em; /* Adjust space created by <br> */
+}

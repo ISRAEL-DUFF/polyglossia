@@ -109,7 +109,7 @@ interface LexiconResponse {
 }
 
 const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
-// const BASE_URL = 'http://localhost:3001'
+// const BASE_URL = 'http://localhost:3001/greek' // For local dev
 
 
 interface LSJViewerProps {
@@ -326,6 +326,11 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
         const firstMorph = lexiconResponse.morphology[0];
         setCurrentMorphData(firstMorph);
         identifiedLemma = normalizeLemma(firstMorph.lemma || lookupWord.trim());
+        setCurrentLemma(identifiedLemma);
+        console.log('current Lemma:', currentLemma, identifiedLemma, lexiconData)
+      } else if (Object.keys(lexiconResponse.lexica).length > 0) {
+        const lem = Object.keys(lexiconResponse.lexica)[0];
+        identifiedLemma = normalizeLemma(lem || lookupWord.trim());
         setCurrentLemma(identifiedLemma);
         console.log('current Lemma:', currentLemma, identifiedLemma, lexiconData)
       } else {

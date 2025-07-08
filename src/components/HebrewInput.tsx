@@ -1,8 +1,9 @@
+
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef } from 'react';
 
-const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+const HebrewInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, onChange, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -10,7 +11,7 @@ const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"inpu
     if (typeof window !== 'undefined' && window.keyman) {
       window.keyman.init({ attachType: 'manual' }).then(() => {
         window.keyman.addKeyboards('@en');
-        window.keyman.addKeyboards('sil_greek_polytonic@el');
+        window.keyman.addKeyboards('sil_hebrew_biblical@he');
 
         if(inputRef && inputRef.current) {
             window.keyman.attachToControl(inputRef.current)
@@ -23,7 +24,7 @@ const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"inpu
 
   // this is only to stop the warning message for react
   function fakeOnChange() {
-    console.log('Fake onChange called:')
+    // console.log('Fake onChange called:')
   }
 
   // Listen for native input events (including Keyman changes)
@@ -54,6 +55,6 @@ const GreekInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"inpu
     )
   }
 )
-GreekInput.displayName = "GreekInput"
+HebrewInput.displayName = "HebrewInput"
 
-export { GreekInput }
+export { HebrewInput }
