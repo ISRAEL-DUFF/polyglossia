@@ -8,3 +8,4 @@ import '@/ai/flows/reconstruct-hebrew-vowel-flow.ts';
 import '@/ai/flows/generate-story-flow.ts';
 import '@/ai/flows/generate-image-flow.ts';
 import '@/ai/flows/text-to-speech-flow.ts';
+import '@/ai/flows/speech-to-text-flow.ts';
