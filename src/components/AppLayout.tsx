@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/sidebar';
 import AppLogo from '@/components/AppLogo';
 import NavItem from '@/components/NavItem';
-import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles, Library } from 'lucide-react';
+import { Home, Microscope, Languages,Gamepad, Gamepad2Icon, NotebookTextIcon, Wand2, BookCopy, BookOpenText, BookMarked, BookText, History, Settings, BrainCircuit, Sparkles, Library, SlidersHorizontal } from 'lucide-react';
 import { SheetTitle } from '@/components/ui/sheet';
 import PWAInstallButton from './PWAInstallButton';
 import { usePathname } from 'next/navigation';
@@ -28,6 +28,7 @@ const dashboardNav = [{ href: '/', label: 'Dashboard', icon: Home }];
 const greekToolsNav = [
   { href: '/greek', label: 'Lexicon', icon: Microscope },
   { href: '/greek-prepositions', label: 'Prepositions', icon: BookCopy },
+  { href: '/greek-adverbs', label: 'Adverbs', icon: SlidersHorizontal },
   { href: '/greek-syntax-guide', label: 'Syntax Guide', icon: BookOpenText },
   { href: '/vocabulary-browser', label: 'Vocabulary', icon: NotebookTextIcon },
 ];
@@ -150,5 +151,3 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </SidebarProvider>
   );
 }
-
-    
