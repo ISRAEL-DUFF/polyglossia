@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText, Languages } from 'lucide-react';
+import { Microscope, NotebookTextIcon, Gamepad, Gamepad2Icon, BookOpenText, TrendingUp, Sparkles, IdCardIcon, Wand2, BookCopy, BookMarked, BookText, Languages, Clock, Map, SlidersHorizontal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FeatureCardProps {
@@ -55,6 +55,13 @@ export default function DashboardPage() {
       href: "/greek-prepositions",
       icon: BookCopy,
       buttonText: "Study Prepositions",
+    },
+    {
+      title: "Greek Adverbs",
+      description: "Master Greek adverbs of time, place, manner, and more.",
+      href: "/greek-adverbs",
+      icon: SlidersHorizontal,
+      buttonText: "Study Adverbs",
     },
     {
       title: "Greek Syntax Guide",
