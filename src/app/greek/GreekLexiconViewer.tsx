@@ -204,6 +204,7 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
   const [loading, setLoading] = useState(false);
 //   const [showLexicaModal, setShowLexicaModal] = useState(showLexicalModal);
   const [showLogeionModal, setShowLogeionModal] = useState(false);
+  const [showExpansionModal, setShowExpansionModal] = useState(false);
   const [showOccurrenceModal, setShowOccurrenceModal] = useState(false);
   const [currentLemma, setCurrentLemma] = useState("");
 //   const [namespace, setNamespace] = useState<string>("default");
@@ -455,6 +456,11 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
     if (!currentLemma && word) setCurrentLemma(word);
     setShowLogeionModal(true);
   };
+
+  const openExpansionModal = () => {
+    if (!currentLemma && word) setCurrentLemma(word);
+    setShowExpansionModal(true);
+  };
   
   const openOccurrenceModal = () => {
     if (!currentLemma && word) setCurrentLemma(word);
@@ -478,6 +484,14 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
             >
                 <Book className="mr-1 h-4 w-4" />
                 Open in Logeion
+            </Button>
+            <Button
+                variant="outline"
+                onClick={openExpansionModal}
+                className="w-full sm:w-auto"
+            >
+                <Book className="mr-1 h-4 w-4" />
+                Open in Expansion tool
             </Button>
             <Button
                 variant="outline"
@@ -667,6 +681,26 @@ const GreekLexiconViewer: React.FC<GreekLexiconViewerProps> = ({ greekWord, hist
             <DialogFooter className="p-4 border-t bg-muted shrink-0">
                 <Button variant="outline" onClick={() => setShowLogeionModal(false)}>Close</Button>
             </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Word expansion Modal */}
+      <Dialog open={showExpansionModal} onOpenChange={setShowExpansionModal}>
+        <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0">
+            {/* <DialogHeader className="p-4 pb-2 border-b bg-muted shrink-0">
+              <DialogTitle>Word Expansion: {currentLemma || word}</DialogTitle>
+            </DialogHeader> */}
+            <div className="flex-grow overflow-hidden">
+              <iframe
+                ref={iframeRef}
+                src={`https://greek-comics.vercel.app/word-expansion/?word=${encodeURIComponent(word)}`}
+                className="w-full h-full border-0"
+                title="Word expansion tool"
+              />
+            </div>
+            {/* <DialogFooter className="p-4 border-t bg-muted shrink-0">
+                <Button variant="outline" onClick={() => setShowExpansionModal(false)}>Close</Button>
+            </DialogFooter> */}
         </DialogContent>
       </Dialog>
 
