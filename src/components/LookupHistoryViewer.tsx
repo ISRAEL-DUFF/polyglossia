@@ -42,7 +42,8 @@ interface LookupHistoryViewerProps {
   listMode?: boolean
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com';
+// Use local Next.js API routes
+const BASE_URL = '';
 // const BASE_URL = 'http://localhost:3001'; // For local development
 
 const greekNormalization = {
@@ -87,7 +88,7 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
         return `${BASE_URL}/api/latin`;
       case 'greek':
       default:
-        return `${BASE_URL}/api/greek`;
+        return `/api/greek`;
     }
   }
 
@@ -661,4 +662,3 @@ const LookupHistoryViewer: React.FC<LookupHistoryViewerProps> = ({ language, onW
 };
 
 export default LookupHistoryViewer;
-
