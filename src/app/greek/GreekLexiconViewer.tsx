@@ -108,7 +108,8 @@ interface LexiconResponse {
   };
 }
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek'
+// Use local Next.js API routes
+const BASE_URL = '/api/greek'
 // const BASE_URL = 'http://localhost:3001/greek' // For local dev
 
 

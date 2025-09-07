@@ -6,7 +6,8 @@ import type { Language as AppLanguage } from '@/types'; // Assuming Language typ
 // Define a more specific type for the language prop if needed, or use string
 type HistoryLanguage = 'greek' | 'hebrew' | 'latin' | AppLanguage;
 
-const BASE_URL = 'https://www.eazilang.gleeze.com/api/greek';
+// Use local Next.js API routes
+const BASE_URL = '/api/greek';
 // const API_BASE_URL = 'http://localhost:3001';
 
 interface LogEntryPayload {
